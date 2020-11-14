@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1878A53-8467-4610-B340-C0B5285CC4E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grayscale.P027_SasiteSeisei</RootNamespace>
+    <AssemblyName>Grayscale.P046_KifuYomi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Builds\Engine\Bin\P027_SasiteSeisei\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Builds\Engine\Bin\P027_SasiteSeisei\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ProjectDark.KWSupport, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\By_Circle_ProjectDark\KWSupport\ProjectDark.KWSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CS0_Interface\L00025_MovableMove\MmGenjo_MovableMasu.cs" />
+    <Compile Include="CS0_Interface\L00025_MovableMove\MmLogGenjo.cs" />
+    <Compile Include="CS0_Interface\L0005_SasiteSeisei\SasiteseiseiArgs.cs" />
+    <Compile Include="CS0_Interface\L0005_SasiteSeisei\SasiteseiseiGenjo.cs" />
+    <Compile Include="CS0_Interface\L0005_SasiteSeisei\SsssLogGenjo.cs" />
+    <Compile Include="CS1_Impl\L050_MovableMove\MmGenjo_MovableMasuImpl.cs" />
+    <Compile Include="CS1_Impl\L050_MovableMove\MmLogGenjoImpl.cs" />
+    <Compile Include="CS1_Impl\L050_MovableMove\Util_MovableMove.cs" />
+    <Compile Include="CS1_Impl\L100_SasiteSeisei\SasiteseiseiArgsImpl.cs" />
+    <Compile Include="CS1_Impl\L100_SasiteSeisei\SasiteseiseiGenjoImpl.cs" />
+    <Compile Include="CS1_Impl\L100_SasiteSeisei\SasiteseiseiRoutine.cs" />
+    <Compile Include="CS1_Impl\L100_SasiteSeisei\SsssLogGenjoImpl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\P006_Syugoron\Syugoron\P006_Syugoron.csproj">
+      <Project>{8da09a28-62d8-4cc2-a975-cce0cf0da4b9}</Project>
+      <Name>P006_Syugoron</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P025_KifuLarabe\KifuLarabe\P025_KifuLarabe.csproj">
+      <Project>{18fb9b6e-95b2-47fe-a2f6-4fd865abd804}</Project>
+      <Name>P025_KifuLarabe</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

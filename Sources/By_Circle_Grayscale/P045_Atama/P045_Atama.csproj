@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A761C74-4788-4187-86E7-7AB84B53094D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grayscale.P045_Atama</RootNamespace>
+    <AssemblyName>Grayscale.P045_KifuTensu</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Builds\Engine\Bin\P045_Atama\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Builds\Engine\Bin\P045_Atama\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLua">
+      <HintPath>..\..\..\Builds\Engine\Bin\Lua\NLua.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectDark.KWSupport, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\By_Circle_ProjectDark\KWSupport\ProjectDark.KWSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CS1_Impl\L012_Lua\Util_Lua_KifuWarabe.cs" />
+    <Compile Include="CS1_Impl\L025_Sokutei\KomanoKikiImpl.cs" />
+    <Compile Include="CS1_Impl\L025_Sokutei\Util_KomanoKyori.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandanArgsImpl.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandanAbstract.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_GyokuNoMamori.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_Himoduki.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_Ido.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_KakuTouNoHimoduki.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_Kimagure.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_KomaDoku.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_MenomaenoFuWoTore.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_Toosi.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_Toru.cs" />
+    <Compile Include="CS1_Impl\L050_KyHandan\KyHandan_Tukisute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CS0_Interface\L000125_Sokutei\KomanoKiki.cs" />
+    <Compile Include="CS0_Interface\L00025_KyHandan\KyHandanArgs.cs" />
+    <Compile Include="CS0_Interface\L00025_KyHandan\PlayerInfo.cs" />
+    <Compile Include="CS0_Interface\L00025_KyHandan\KyHandan.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\P006_Syugoron\Syugoron\P006_Syugoron.csproj">
+      <Project>{8da09a28-62d8-4cc2-a975-cce0cf0da4b9}</Project>
+      <Name>P006_Syugoron</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P025_KifuLarabe\KifuLarabe\P025_KifuLarabe.csproj">
+      <Project>{18fb9b6e-95b2-47fe-a2f6-4fd865abd804}</Project>
+      <Name>P025_KifuLarabe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P027_SasiteSeisei\P027_SasiteSeisei.csproj">
+      <Project>{d1878a53-8467-4610-b340-c0b5285cc4e4}</Project>
+      <Name>P027_SasiteSeisei</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P040_Kokoro\P040_Kokoro.csproj">
+      <Project>{70de6137-b1f3-48b5-bbf6-99791daf94d5}</Project>
+      <Name>P040_Kokoro</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
