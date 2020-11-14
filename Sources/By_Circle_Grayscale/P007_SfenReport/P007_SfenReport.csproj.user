@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>--position="position startpos moves 5a6b 7g7f 3a3b" --outFolder="../../Logs/" --outFile="_log_局面1.png" --imgFolder="../../Data/img/gkLog/" --kmFile="koma1.png" --sjFile="suji1.png" --kmW=20 --kmH=20 --sjW=8 --sjH=12 --end</StartArguments>
-  </PropertyGroup>
-</Project>

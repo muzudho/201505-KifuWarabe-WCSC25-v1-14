@@ -1,6 +1,0 @@
-R:\Programs.Sources\InheritableInt\Release\VisualStudioProjects\obj\x86\Release\ProjectDark.KWSupport.Sample.csprojResolveAssemblyReference.cache
-R:\Programs.Sources\InheritableInt\Release\VisualStudioProjects\obj\x86\Release\ProjectDark.KWSupport.Sample.exe
-R:\Programs.Sources\InheritableInt\Release\ProjectDark.KWSupport.Sample.exe
-C:\Root_KifuWarabe\Sources\By_Circle_ProjectDark\KWSupport\VisualStudioProjects\obj\x86\Release\ProjectDark.KWSupport.Sample.csprojResolveAssemblyReference.cache
-C:\Root_KifuWarabe\Sources\By_Circle_ProjectDark\KWSupport\VisualStudioProjects\obj\x86\Release\ProjectDark.KWSupport.Sample.exe
-C:\Root_KifuWarabe\Sources\By_Circle_ProjectDark\KWSupport\ProjectDark.KWSupport.Sample.exe

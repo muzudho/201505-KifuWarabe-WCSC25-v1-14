@@ -1,8 +1,0 @@
-C:\Root_KifuWarabe\Builds\Engine\Bin\P013_ShogiSyugoronTester\Grayscale.ShogiSyugoronTester.exe.config
-C:\Root_KifuWarabe\Builds\Engine\Bin\P013_ShogiSyugoronTester\Grayscale.ShogiSyugoronTester.exe
-C:\Root_KifuWarabe\Builds\Engine\Bin\P013_ShogiSyugoronTester\Grayscale.ShogiSyugoronTester.pdb
-C:\Root_KifuWarabe\Sources\By_Circle_Grayscale\ShogiSyugoronTester\ShogiSyugoronTester\obj\Release\P013_ShogiSyugoronTester.csprojResolveAssemblyReference.cache
-C:\Root_KifuWarabe\Sources\By_Circle_Grayscale\ShogiSyugoronTester\ShogiSyugoronTester\obj\Release\Grayscale.ShogiSyugoronTester.Properties.Resources.resources
-C:\Root_KifuWarabe\Sources\By_Circle_Grayscale\ShogiSyugoronTester\ShogiSyugoronTester\obj\Release\P013_ShogiSyugoronTester.csproj.GenerateResource.Cache
-C:\Root_KifuWarabe\Sources\By_Circle_Grayscale\ShogiSyugoronTester\ShogiSyugoronTester\obj\Release\Grayscale.ShogiSyugoronTester.exe
-C:\Root_KifuWarabe\Sources\By_Circle_Grayscale\ShogiSyugoronTester\ShogiSyugoronTester\obj\Release\Grayscale.ShogiSyugoronTester.pdb
