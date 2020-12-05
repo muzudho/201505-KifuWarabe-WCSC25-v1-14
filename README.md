@@ -1,4 +1,10 @@
-# 201505-KifuWarabe-WCSC25-v1-14
+# Kifuwarabe_WCSC25
+
+2020年11月の 電竜戦から きふわらずさ(Kifuwarazusa)にリネームして開発再開だぜ☆（＾～＾）  
+
+|        | ファイル                                                                                |
+| ------ | --------------------------------------------------------------------------------------- |
+| ソース | `Kifuwarabe_WCSC25/Root/Sources/By_Circle_Grayscale/P400_KifuNarabeVs/KifuNarabeVs.sln` |
 
 復刻版。  
 DEBUGモードで実行すると 2GB ぐらいのログファイルをポンポン作成して危険なので Releaseモードで実行してください。  
