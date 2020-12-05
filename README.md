@@ -2,9 +2,18 @@
 
 2020年11月の 電竜戦から きふわらずさ(Kifuwarazusa)にリネームして開発再開だぜ☆（＾～＾）  
 
-|        | ファイル                                                                                |
-| ------ | --------------------------------------------------------------------------------------- |
-| ソース | `Kifuwarabe_WCSC25/Root/Sources/By_Circle_Grayscale/P400_KifuNarabeVs/KifuwarazusaGuiVs.sln` |
+|                         | ファイル                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------ |
+| ソース                  | `Kifuwarabe_WCSC25/Sources/By_Circle_Grayscale/P400_KifuNarabeVs/KifuwarazusaGuiVs.sln`    |
+| 将棋エンジン ソース     | P050_KifuWarabe                                                                            |
+| 将棋GUI ソース          | P400_KifuNaraVs                                                                            |
+| 将棋エンジン ランタイム | `Kifuwarabe_WCSC25/Builds/Engine/Bin/P050_KifuWarabe/Grayscale.P050_KifuWarabe.exe`        |
+| 設定ファイル1           | `Kifuwarabe_WCSC25/Builds/Engine/Bin/P050_KifuWarabe/Grayscale.P050_KifuWarabe.exe.config` |
+| 設定ファイル2           | `Kifuwarabe_DenouT2/Profile/Engine.toml`                                                   |
+
+設定ファイル1 の `Grayscale.P050_KifuWarabe.exe.config` の中にある `Profile` のパスを、 設定ファイル2 の親ディレクトリー `Profile` に合わせてください。  
+
+## Manual
 
 復刻版。  
 DEBUGモードで実行すると 2GB ぐらいのログファイルをポンポン作成して危険なので Releaseモードで実行してください。  
