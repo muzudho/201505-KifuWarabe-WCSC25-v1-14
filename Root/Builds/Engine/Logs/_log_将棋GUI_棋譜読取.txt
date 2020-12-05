@@ -13868,3 +13868,5 @@ timer入力 input99=[ 4b3c]
 position startpos moves ▲２六歩
 乱数のたね＝[133]
 position startpos moves ▲２六歩
+乱数のたね＝[985]
+position startpos moves ▲２六歩

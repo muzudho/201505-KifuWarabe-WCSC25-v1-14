@@ -1,4 +1,4 @@
-﻿using Grayscale.P006_Sfen.L0005_Sfen;
+﻿using Grayscale.P006Sfen;
 
 namespace Grayscale.P007_SfenReport.L00025_Report
 {
@@ -12,7 +12,7 @@ namespace Grayscale.P007_SfenReport.L00025_Report
         /// </summary>
         string OutFile { get; }
 
-        RO_Kyokumen1 Ro_Kyokumen1 { get; }
+        ISfenPosition1 Ro_Kyokumen1 { get; }
 
     }
 }

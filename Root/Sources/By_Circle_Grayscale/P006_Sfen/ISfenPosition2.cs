@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Grayscale.P006_Sfen.L0005_Sfen
+﻿namespace Grayscale.P006Sfen
 {
 
     public delegate void DELEGATE_Masu201(int masuHandle, string masuString, ref bool toBreak);
@@ -12,10 +6,10 @@ namespace Grayscale.P006_Sfen.L0005_Sfen
     /// <summary>
     /// 「position sfen ～ moves」の、「sfen ～」の部分を読み込んだあとの、局面情報。
     /// </summary>
-    public interface RO_Kyokumen2
+    public interface ISfenPosition2
     {
 
-        RO_Kyokumen1 ToKyokumen1();
+        ISfenPosition1 ToKyokumen1();
 
         void Foreach_Masu201(DELEGATE_Masu201 delegate_method);
 

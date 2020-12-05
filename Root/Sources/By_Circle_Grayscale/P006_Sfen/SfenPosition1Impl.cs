@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Grayscale.P006_Sfen.L0005_Sfen;
+﻿using System.Text;
 
-namespace Grayscale.P006_Sfen.L100_Sfen
+namespace Grayscale.P006Sfen
 {
-    public class RO_Kyokumen1Impl : RO_Kyokumen1
+    public class SfenPosition1Impl : ISfenPosition1
     {
 
         public string[][] Ban { get; set; }
         public int[] MotiP1 { get; set; }
         public int[] MotiP2 { get; set; }
 
-        public RO_Kyokumen1Impl()
+        public SfenPosition1Impl()
         {
             this.Ban = new string[10][];// 将棋盤
             this.MotiP1 = new int[7];// 先手の持ち駒の数。[0]から、飛,角,金,銀,桂,香,歩 の順。

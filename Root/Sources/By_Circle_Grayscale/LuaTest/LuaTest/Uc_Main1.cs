@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 #if USING_LUA
@@ -14,9 +7,9 @@ using NLua;
 
 namespace LuaTest
 {
-    public partial class Uc_Main1 : UserControl
+    public partial class UcMain1 : UserControl
     {
-        public Uc_Main1()
+        public UcMain1()
         {
             InitializeComponent();
         }

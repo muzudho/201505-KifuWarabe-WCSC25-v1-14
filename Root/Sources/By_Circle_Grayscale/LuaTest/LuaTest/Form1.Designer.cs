@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uc_Main11 = new LuaTest.Uc_Main1();
+            this.uc_Main11 = new LuaTest.UcMain1();
             this.SuspendLayout();
             // 
             // uc_Main11
@@ -52,7 +52,7 @@
 
         #endregion
 
-        private Uc_Main1 uc_Main11;
+        private UcMain1 uc_Main11;
     }
 }
 

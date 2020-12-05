@@ -1,6 +1,6 @@
 ﻿namespace LuaTest
 {
-    partial class Uc_Main1
+    partial class UcMain1
     {
         /// <summary> 
         /// 必要なデザイナー変数です。

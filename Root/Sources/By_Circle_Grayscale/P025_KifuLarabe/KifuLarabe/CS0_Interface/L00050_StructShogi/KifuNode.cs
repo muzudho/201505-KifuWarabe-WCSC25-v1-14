@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Grayscale.P006Sfen;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P006_Sfen.L0005_Sfen;
 
 namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
 {
@@ -15,7 +10,7 @@ namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
     {
 
 
-        RO_Kyokumen1 ToRO_Kyokumen1(LarabeLoggerable logTag);
+        ISfenPosition1 ToRO_Kyokumen1(LarabeLoggerable logTag);
         string ToSfenstring(Playerside pside, LarabeLoggerable logTag);
 
         void AppdendNextNodes(Node<ShootingStarlightable, KyokumenWrapper> hubNode);

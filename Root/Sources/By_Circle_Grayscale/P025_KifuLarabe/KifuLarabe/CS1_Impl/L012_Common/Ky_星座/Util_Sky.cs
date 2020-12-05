@@ -1,14 +1,14 @@
-﻿using Grayscale.P006_Sfen.L100_Sfen;
+﻿using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text;
 using Grayscale.P006_Syugoron;
+using Grayscale.P006Sfen;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L006_SfenEx;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
-using System;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.P025_KifuLarabe.L012_Common
@@ -24,18 +24,18 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             );
 
 
-        public static SfenstringImpl ExportSfen(SkyConst src_Sky)
+        public static SfenStringImpl ExportSfen(SkyConst src_Sky)
         {
             Debug.Assert(src_Sky.Count == 40, "sky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
 
             StartposExporter se = new StartposExporter(src_Sky);
-            return new SfenstringImpl("sfen "+Util_SfenStartposWriter.CreateSfenstring(se, false));
+            return new SfenStringImpl("sfen "+Util_SfenStartposWriter.CreateSfenstring(se, false));
         }
 
-        public static SfenstringImpl ExportSfen_ForDebug(SkyConst src_Sky, bool psideIsBlack)
+        public static SfenStringImpl ExportSfen_ForDebug(SkyConst src_Sky, bool psideIsBlack)
         {
             StartposExporter se = new StartposExporter(src_Sky);
-            return new SfenstringImpl("sfen "+Util_SfenStartposWriter.CreateSfenstring(se, true));
+            return new SfenStringImpl("sfen "+Util_SfenStartposWriter.CreateSfenstring(se, true));
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <param name="sky"></param>
         /// <param name="sfenStartpos"></param>
-        public static SkyConst ImportSfen(SfenstringImpl startposString)
+        public static SkyConst ImportSfen(SfenStringImpl startposString)
         {
             StartposImporter startposImporter;
             string restText;

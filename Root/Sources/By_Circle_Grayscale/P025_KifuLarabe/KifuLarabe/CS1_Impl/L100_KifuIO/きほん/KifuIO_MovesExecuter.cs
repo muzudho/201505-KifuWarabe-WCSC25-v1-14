@@ -1,23 +1,15 @@
-﻿using Grayscale.P025_KifuLarabe;
+﻿using System;
+using System.Diagnostics;
+using System.Text;
+using Grayscale.P006_Syugoron;
+using Grayscale.P012_KnowledgeShogi;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
+using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L006_SfenEx;
-using Grayscale.P025_KifuLarabe.L007_Random;
 using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P012_KnowledgeShogi;
-using Grayscale.P006_Syugoron;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.P006_Sfen.L100_Sfen;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {

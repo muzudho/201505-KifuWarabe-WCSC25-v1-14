@@ -1,6 +1,6 @@
-﻿using Grayscale.P007_SfenReport.L00025_Report;
-using System.Diagnostics;
-using Grayscale.P006_Sfen.L0005_Sfen;
+﻿using System.Diagnostics;
+using Grayscale.P006Sfen;
+using Grayscale.P007_SfenReport.L00025_Report;
 
 namespace Grayscale.P007_SfenReport.L050_Report
 {
@@ -20,12 +20,12 @@ namespace Grayscale.P007_SfenReport.L050_Report
         public string OutFile { get { return this.outFile; } }
         private string outFile;
 
-        public RO_Kyokumen1 Ro_Kyokumen1 { get { return this.ro_Kyokumen1; } }
-        private RO_Kyokumen1 ro_Kyokumen1;
+        public ISfenPosition1 Ro_Kyokumen1 { get { return this.ro_Kyokumen1; } }
+        private ISfenPosition1 ro_Kyokumen1;
 
 
         public ReportArgsImpl(
-            RO_Kyokumen1 ro_Kyokumen1,
+            ISfenPosition1 ro_Kyokumen1,
             
             string outFile,  
             

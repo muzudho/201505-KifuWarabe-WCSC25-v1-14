@@ -1,12 +1,11 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P006_Sfen.L100_Sfen;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Grayscale.P006Sfen;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
+using Grayscale.P025_KifuLarabe.L00025_Struct;
+using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.P006_Sfen.L0005_Sfen;
 
 namespace Grayscale.P025_KifuLarabe.L012_Common
 {
@@ -20,7 +19,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         private Dictionary<Basho, RO_Star_Koma> banAndKoma;
 
-        public RO_Kyokumen2 RO_SfenStartpos { get; set; }
+        public ISfenPosition2 RO_SfenStartpos { get; set; }
 
 
         public static bool TryParse(
@@ -31,8 +30,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             bool successful = true;
 
-            RO_Kyokumen2 ro_SfenStartpos;
-            if(!Util_SfenstringReader.ReadString(inputLine, out rest, out ro_SfenStartpos))
+            ISfenPosition2 ro_SfenStartpos;
+            if(!SfenStringReader.ReadString(inputLine, out rest, out ro_SfenStartpos))
             {
                 successful = false;
                 instance = null;
@@ -47,7 +46,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
         private StartposImporter(
             string inputLine,
-            RO_Kyokumen2 ro_SfenStartpos
+            ISfenPosition2 ro_SfenStartpos
             )
         {
             this.InputLine = inputLine;

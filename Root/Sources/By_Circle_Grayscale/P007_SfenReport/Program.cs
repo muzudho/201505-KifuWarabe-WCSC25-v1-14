@@ -1,12 +1,7 @@
 ﻿using System;
-using Grayscale.P007_SfenReport.L00025_Report;
-using Grayscale.P006_Sfen.L100_Sfen;
-using Grayscale.P006_Sfen.L0005_Sfen;
-using System.Windows.Forms;
 using System.Collections.Generic;
-using System.IO;
+using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L100_Write;
-using Grayscale.P007_SfenReport.L00050_Write;
 
 namespace Grayscale.P007_SfenReport.L050_Report
 {

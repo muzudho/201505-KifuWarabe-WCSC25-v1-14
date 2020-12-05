@@ -1,20 +1,20 @@
-﻿namespace Grayscale.P006_Sfen.L100_Sfen
+﻿namespace Grayscale.P006Sfen
 {
 
     /// <summary>
     /// SFENのstartpos文字列を入れているという明示をします。
     /// </summary>
-    public class SfenstringImpl
+    public class SfenStringImpl
     {
         public string ValueStr { get { return this.valueStr; } }
         private string valueStr;
 
-        public SfenstringImpl()
+        public SfenStringImpl()
         {
             this.valueStr = "";
         }
 
-        public SfenstringImpl(string src)
+        public SfenStringImpl(string src)
         {
             this.valueStr = src;
         }

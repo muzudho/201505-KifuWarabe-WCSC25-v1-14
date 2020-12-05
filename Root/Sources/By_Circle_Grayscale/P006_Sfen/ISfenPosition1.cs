@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Grayscale.P006_Sfen.L0005_Sfen
+﻿namespace Grayscale.P006Sfen
 {
-    public interface RO_Kyokumen1
+    public interface ISfenPosition1
     {
 
         /// <summary>

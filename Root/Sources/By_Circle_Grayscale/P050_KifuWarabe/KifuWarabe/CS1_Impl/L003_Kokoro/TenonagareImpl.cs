@@ -1,15 +1,10 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
+﻿using Grayscale.P006Sfen;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P040_Kokoro.L00050_Kokoro;
-using Grayscale.P045_Atama.L025_Sokutei;
-//スプライト番号
-using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.P006_Sfen.L0005_Sfen;
-using Grayscale.P040_Kokoro.L100_Kokoro;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P045_Atama.L00025_KyHandan;
+using Grayscale.P040_Kokoro.L00050_Kokoro;
+using Grayscale.P040_Kokoro.L100_Kokoro;
+using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 
 namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 {
@@ -37,7 +32,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
         /// <param name="owner"></param>
         /// <param name="scoreKeisu">評価値に掛け算します。通常、1.0d を指定してください。</param>
         public TenonagareImpl(
-            RO_Kyokumen1 ro_Kyokumen1ForKioku_OrNull,
+            ISfenPosition1 ro_Kyokumen1ForKioku_OrNull,
             TenonagareName name, double scoreKeisu, RO_Star_Koma koma1, RO_Star_Koma koma2, Basho masu,
             LarabeLoggerable logTag
             )

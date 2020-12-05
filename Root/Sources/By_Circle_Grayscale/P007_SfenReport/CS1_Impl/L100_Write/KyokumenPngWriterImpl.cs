@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Grayscale.P007_SfenReport.L00050_Write;
-using Grayscale.P007_SfenReport.L00025_Report;
-using Grayscale.P007_SfenReport.L050_Report;
-using System.Drawing;
-using Grayscale.P006_Sfen.L0005_Sfen;
-using Grayscale.P006_Sfen.L100_Sfen;
+﻿using System.Drawing;
 using System.IO;
+using Grayscale.P006Sfen;
+using Grayscale.P007_SfenReport.L00025_Report;
+using Grayscale.P007_SfenReport.L00050_Write;
+using Grayscale.P007_SfenReport.L050_Report;
 
 namespace Grayscale.P007_SfenReport.L100_Write
 {
@@ -45,9 +39,9 @@ namespace Grayscale.P007_SfenReport.L100_Write
             //
             // SFEN → RO_SfenStartpos
             //
-            RO_Kyokumen2 ro_SfenStartpos;
+            ISfenPosition2 ro_SfenStartpos;
             string rest;
-            if (!Util_SfenstringReader.ReadString(sfenstring, out rest, out ro_SfenStartpos))
+            if (!SfenStringReader.ReadString(sfenstring, out rest, out ro_SfenStartpos))
             {
                 //System.Windows.Forms.MessageBox.Show(sfenstring,"sfenstringパース失敗");
                 successful = false;
@@ -73,7 +67,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
         /// <param name="reportEnvironment"></param>
         /// <returns></returns>
         public static bool Write1(
-            RO_Kyokumen1 ro_Kyokumen1,
+            ISfenPosition1 ro_Kyokumen1,
             string relFolder,
             string outFile,
             ReportEnvironment reportEnvironment

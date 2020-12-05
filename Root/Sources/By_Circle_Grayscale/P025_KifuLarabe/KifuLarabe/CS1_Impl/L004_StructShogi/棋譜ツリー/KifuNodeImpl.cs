@@ -1,12 +1,11 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
+﻿using System;
+using System.Text;
+using Grayscale.P006Sfen;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using System.Text;
-using Grayscale.P006_Sfen.L0005_Sfen;
-using Grayscale.P006_Sfen.L100_Sfen;
-using System;
 
 namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 {
@@ -139,9 +138,9 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         }
 
 
-        public RO_Kyokumen1 ToRO_Kyokumen1(LarabeLoggerable logTag)
+        public ISfenPosition1 ToRO_Kyokumen1(LarabeLoggerable logTag)
         {
-            RO_Kyokumen1 ro_Kyokumen1 = new RO_Kyokumen1Impl();
+            ISfenPosition1 ro_Kyokumen1 = new SfenPosition1Impl();
 
             SkyConst src_Sky = this.Value.ToKyokumenConst;
 

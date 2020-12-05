@@ -1,8 +1,4 @@
 ﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.P006_Sfen.L0005_Sfen;
 
 namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 {

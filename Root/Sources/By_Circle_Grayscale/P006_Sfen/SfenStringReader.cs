@@ -1,30 +1,24 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
-using Grayscale.P006_Sfen.L100_Sfen.Util;
-using Grayscale.P006_Sfen.L0005_Sfen;
 
-namespace Grayscale.P006_Sfen.L100_Sfen
+namespace Grayscale.P006Sfen
 {
 
     /// <summary>
-    /// ************************************************************************************************************************
     /// SFEN形式の初期配置の書き方の、データの持ち方です。
-    /// ************************************************************************************************************************
     /// </summary>
-    public class Util_SfenstringReader
+    public static class SfenStringReader
     {
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 「lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 1」といった記述を解析します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
         public static bool ReadString(
             string inputLine,
             out string rest,
-            out RO_Kyokumen2 result_Sfenstring
+            out ISfenPosition2 result_Sfenstring
             )
         {
 
@@ -152,7 +146,7 @@ namespace Grayscale.P006_Sfen.L100_Sfen
 
                             )
                         {
-                            result_Sfenstring = Util_SfenstringReader.ReadString2(
+                            result_Sfenstring = SfenStringReader.ReadString2(
                                 stra[1],  //1段目
                                 stra[2],  //2段目
                                 stra[3],  //3段目
@@ -216,7 +210,7 @@ namespace Grayscale.P006_Sfen.L100_Sfen
         }
 
 
-        private static void Assert_Koma40(RO_Kyokumen2 result, string hint)
+        private static void Assert_Koma40(ISfenPosition2 result, string hint)
         {
 //#if DEBUG
             StringBuilder sb = new StringBuilder();
@@ -267,7 +261,7 @@ namespace Grayscale.P006_Sfen.L100_Sfen
         /// <param name="ml_Str"></param>
         /// <param name="mp_Str"></param>
         /// <param name="tesumi_Str"></param>
-        private static RO_Kyokumen2 ReadString2(
+        private static ISfenPosition2 ReadString2(
             string dan1,  //1段目
             string dan2,//2段目
             string dan3,//3段目
@@ -305,22 +299,22 @@ namespace Grayscale.P006_Sfen.L100_Sfen
             int bN = 0;// Util_SfenStartposReader.ReadString3_CountMochigoma(mN_Str);  //盤上 桂
             int bL = 0;// Util_SfenStartposReader.ReadString3_CountMochigoma(mL_Str);  //盤上 香
             int bP = 0;// Util_SfenStartposReader.ReadString3_CountMochigoma(mP_Str);  //盤上 歩
-            int mK = Util_SfenstringReader.ReadString3_CountMochigoma(mK_Str);  //持駒▲王
-            int mR = Util_SfenstringReader.ReadString3_CountMochigoma(mR_Str);  //持駒▲飛
-            int mB = Util_SfenstringReader.ReadString3_CountMochigoma(mB_Str);  //持駒▲角
-            int mG = Util_SfenstringReader.ReadString3_CountMochigoma(mG_Str);  //持駒▲金
-            int mS = Util_SfenstringReader.ReadString3_CountMochigoma(mS_Str);  //持駒▲銀
-            int mN = Util_SfenstringReader.ReadString3_CountMochigoma(mN_Str);  //持駒▲桂
-            int mL = Util_SfenstringReader.ReadString3_CountMochigoma(mL_Str);  //持駒▲香
-            int mP = Util_SfenstringReader.ReadString3_CountMochigoma(mP_Str);  //持駒▲歩
-            int mk = Util_SfenstringReader.ReadString3_CountMochigoma(mk_Str);  //持駒△王
-            int mr = Util_SfenstringReader.ReadString3_CountMochigoma(mr_Str);  //持駒△飛
-            int mb = Util_SfenstringReader.ReadString3_CountMochigoma(mb_Str);  //持駒△角
-            int mg = Util_SfenstringReader.ReadString3_CountMochigoma(mg_Str);  //持駒△金
-            int ms = Util_SfenstringReader.ReadString3_CountMochigoma(ms_Str);  //持駒△銀
-            int mn = Util_SfenstringReader.ReadString3_CountMochigoma(mn_Str);  //持駒△桂
-            int ml = Util_SfenstringReader.ReadString3_CountMochigoma(ml_Str);  //持駒△香
-            int mp = Util_SfenstringReader.ReadString3_CountMochigoma(mp_Str);  //持駒△歩
+            int mK = SfenStringReader.ReadString3_CountMochigoma(mK_Str);  //持駒▲王
+            int mR = SfenStringReader.ReadString3_CountMochigoma(mR_Str);  //持駒▲飛
+            int mB = SfenStringReader.ReadString3_CountMochigoma(mB_Str);  //持駒▲角
+            int mG = SfenStringReader.ReadString3_CountMochigoma(mG_Str);  //持駒▲金
+            int mS = SfenStringReader.ReadString3_CountMochigoma(mS_Str);  //持駒▲銀
+            int mN = SfenStringReader.ReadString3_CountMochigoma(mN_Str);  //持駒▲桂
+            int mL = SfenStringReader.ReadString3_CountMochigoma(mL_Str);  //持駒▲香
+            int mP = SfenStringReader.ReadString3_CountMochigoma(mP_Str);  //持駒▲歩
+            int mk = SfenStringReader.ReadString3_CountMochigoma(mk_Str);  //持駒△王
+            int mr = SfenStringReader.ReadString3_CountMochigoma(mr_Str);  //持駒△飛
+            int mb = SfenStringReader.ReadString3_CountMochigoma(mb_Str);  //持駒△角
+            int mg = SfenStringReader.ReadString3_CountMochigoma(mg_Str);  //持駒△金
+            int ms = SfenStringReader.ReadString3_CountMochigoma(ms_Str);  //持駒△銀
+            int mn = SfenStringReader.ReadString3_CountMochigoma(mn_Str);  //持駒△桂
+            int ml = SfenStringReader.ReadString3_CountMochigoma(ml_Str);  //持駒△香
+            int mp = SfenStringReader.ReadString3_CountMochigoma(mp_Str);  //持駒△歩
 
 
             string[] strDanArr = new string[]{
@@ -427,7 +421,7 @@ namespace Grayscale.P006_Sfen.L100_Sfen
                                 case "+p": bP++; break;
                             }
 
-                            masu201[Util_P006_Sfen.SujiDanToMasu(suji, dan)] = moji;
+                            masu201[Square.From(suji, dan)] = moji;
 
                             suji--;
                         }
@@ -484,7 +478,7 @@ namespace Grayscale.P006_Sfen.L100_Sfen
             }
 
 
-            RO_Kyokumen2 result = new RO_Kyokumen2Impl(
+            ISfenPosition2 result = new SfenPosition2Impl(
                 masu201,//全升
 
                 mK,//持駒▲王
@@ -517,7 +511,7 @@ namespace Grayscale.P006_Sfen.L100_Sfen
                 tesumi_Str  //手目
             );
 
-            Util_SfenstringReader.Assert_Koma40(result,
+            SfenStringReader.Assert_Koma40(result,
                 " dan1=["+dan1+"]\n"
                 +" dan2=["+dan2+"]\n"
                 + " dan3=[" + dan3 + "]\n"
