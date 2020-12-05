@@ -9,7 +9,7 @@
 | 将棋GUI ソース          | P400_KifuNaraVs                                                                            |
 | 将棋エンジン ランタイム | `Kifuwarabe_WCSC25/Builds/Engine/Bin/P050_KifuWarabe/Grayscale.P050_KifuWarabe.exe`        |
 | 設定ファイル1           | `Kifuwarabe_WCSC25/Builds/Engine/Bin/P050_KifuWarabe/Grayscale.P050_KifuWarabe.exe.config` |
-| 設定ファイル2           | `Kifuwarabe_DenouT2/Profile/Engine.toml`                                                   |
+| 設定ファイル2           | `Kifuwarabe_WCSC25/Profile/Engine.toml`                                                    |
 
 設定ファイル1 の `Grayscale.P050_KifuWarabe.exe.config` の中にある `Profile` のパスを、 設定ファイル2 の親ディレクトリー `Profile` に合わせてください。  
 
