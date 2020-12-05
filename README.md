@@ -4,7 +4,7 @@
 
 |        | ファイル                                                                                |
 | ------ | --------------------------------------------------------------------------------------- |
-| ソース | `Kifuwarabe_WCSC25/Root/Sources/By_Circle_Grayscale/P400_KifuNarabeVs/KifuNarabeVs.sln` |
+| ソース | `Kifuwarabe_WCSC25/Root/Sources/By_Circle_Grayscale/P400_KifuNarabeVs/KifuwarazusaGuiVs.sln` |
 
 復刻版。  
 DEBUGモードで実行すると 2GB ぐらいのログファイルをポンポン作成して危険なので Releaseモードで実行してください。  
