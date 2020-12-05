@@ -8556,3 +8556,45 @@ go btime 360000 wtime 325000 binc 5000 winc 5000
 2020/11/14 11:34:34<   bestmove 3a2b
 position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c
 go btime 364000 wtime 315000 binc 5000 winc 5000
+2020/11/14 11:34:51<   bestmove 6a5b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a
+go btime 368000 wtime 305000 binc 5000 winc 5000
+2020/11/14 11:34:53<   bestmove 5a4b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+
+go btime 372000 wtime 309000 binc 5000 winc 5000
+2020/11/14 11:34:55<   bestmove 4b3b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+
+go btime 376000 wtime 313000 binc 5000 winc 5000
+2020/11/14 11:35:13<   bestmove 1i1g
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g
+go btime 380000 wtime 302000 binc 5000 winc 5000
+2020/11/14 11:35:33<   bestmove 3c3d
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d
+go btime 383000 wtime 290000 binc 5000 winc 5000
+2020/11/14 11:35:52<   bestmove L*8e
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d L*8e 4a4b
+go btime 387000 wtime 280000 binc 5000 winc 5000
+2020/11/14 11:35:56<   bestmove 3b3c
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d L*8e 4a4b 3b3c R*2c
+go btime 391000 wtime 284000 binc 5000 winc 5000
+2020/11/14 11:35:58<   bestmove 2b2c
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d L*8e 4a4b 3b3c R*2c 2b2c 7a3a
+go btime 395000 wtime 288000 binc 5000 winc 5000
+2020/11/14 11:36:00<   bestmove R*3b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d L*8e 4a4b 3b3c R*2c 2b2c 7a3a R*3b S*2b
+go btime 399000 wtime 292000 binc 5000 winc 5000
+2020/11/14 11:36:02<   bestmove resign
+gameover lose
+isready
+2020/11/14 11:36:07<   readyok
+usinewgame
+position startpos
+go btime 300000 wtime 300000 binc 5000 winc 5000
+2020/11/14 11:36:08<   bestmove 8g8f
+position startpos moves 8g8f 4a3b
+go btime 304000 wtime 304000 binc 5000 winc 5000
+2020/11/14 11:36:10<   bestmove 2g2f
+position startpos moves 8g8f 4a3b 2g2f 6a5b
+go btime 308000 wtime 308000 binc 5000 winc 5000
+2020/11/14 11:36:12<   bestmove 4g4f
+quit

@@ -1374,8 +1374,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
                 }
 
-            gt_EndMethod:
-                ;
+            // gt_EndMethod:
+            // ;
             }
             catch (Exception ex)
             {

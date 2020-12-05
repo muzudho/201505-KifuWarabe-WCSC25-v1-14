@@ -13864,3 +13864,7 @@ timer入力 input99=[ 4b3c]
     { act:"drawImg", img:"fuV", masu: 74 },
 ],
 
+乱数のたね＝[215]
+position startpos moves ▲２六歩
+乱数のたね＝[133]
+position startpos moves ▲２六歩
