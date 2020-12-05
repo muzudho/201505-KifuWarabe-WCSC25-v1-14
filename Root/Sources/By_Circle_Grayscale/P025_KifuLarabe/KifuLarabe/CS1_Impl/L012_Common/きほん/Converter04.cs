@@ -1369,7 +1369,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
                         // どうにもできないので  ログだけ取って、上に投げます。
                         logTag.WriteLine_Error(message);
-                        throw ex;
+                        throw ;
                     }
 
                 }

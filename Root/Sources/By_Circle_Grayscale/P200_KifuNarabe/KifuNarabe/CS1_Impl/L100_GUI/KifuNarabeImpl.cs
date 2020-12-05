@@ -243,7 +243,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     catch (Exception ex)
                     {
                         MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
-                        throw ex;
+                        throw ;
                     }
 
 

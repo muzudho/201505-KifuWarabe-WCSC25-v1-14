@@ -265,7 +265,7 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
 
                         // どうにもできないので  ログだけ取って、上に投げます。
                         log.LogTag.WriteLine_Error(message);
-                        throw ex;
+                        throw ;
                     }
 
 

@@ -306,7 +306,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                     catch (Exception ex)
                     {
                         MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
-                        throw ex;
+                        throw ;
                     }
 
 

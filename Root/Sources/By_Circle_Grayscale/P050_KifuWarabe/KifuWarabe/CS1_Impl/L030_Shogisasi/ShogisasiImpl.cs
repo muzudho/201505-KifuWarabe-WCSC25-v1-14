@@ -193,7 +193,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
 
                 // どうにもできないので  ログだけ取って、上に投げます。
                 this.owner.Log_Engine.WriteLine_Error(message);
-                throw ex;
+                throw ;
             }
 
 
@@ -223,7 +223,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
 
                 // どうにもできないので  ログだけ取って、上に投げます。
                 this.owner.Log_Engine.WriteLine_Error(message);
-                throw ex;
+                throw ;
             }
 
 #if DEBUG

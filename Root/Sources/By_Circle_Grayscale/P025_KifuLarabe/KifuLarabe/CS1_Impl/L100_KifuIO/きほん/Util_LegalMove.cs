@@ -406,7 +406,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                     // どうにもできないので  ログだけ取って無視します。
                     logTag.WriteLine_Error( ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：");
-                    throw ex;
+                    throw ;
                 }
 
             }
