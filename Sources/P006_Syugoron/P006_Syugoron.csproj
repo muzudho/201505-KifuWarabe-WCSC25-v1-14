@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\P400_KifuNarabeVs\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.props" Condition="Exists('..\..\P400_KifuNarabeVs\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grayscale.P006_Syugoron</RootNamespace>
+    <AssemblyName>Grayscale.P006_Syugoron</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Builds\Engine\Bin\P013_ShogiSyugoronTester\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Builds\Engine\Bin\P013_ShogiSyugoronTester\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CS0_Interface\SyElement.cs" />
+    <Compile Include="CS0_Interface\SySet.cs" />
+    <Compile Include="CS1_Impl\SyElement_Default.cs" />
+    <Compile Include="CS1_Impl\SyFuncDictionary.cs" />
+    <Compile Include="CS1_Impl\SySet_Default.cs" />
+    <Compile Include="CS1_Impl\SySet_DirectedSegment.cs" />
+    <Compile Include="CS1_Impl\SySet_Ordered.cs" />
+    <Compile Include="CS1_Impl\SyWordDictionary.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ui_SyugoronTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui_SyugoronTestForm.Designer.cs">
+      <DependentUpon>Ui_SyugoronTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui_SyugoronTestPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui_SyugoronTestPanel.Designer.cs">
+      <DependentUpon>Ui_SyugoronTestPanel.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ui_SyugoronTestForm.resx">
+      <DependentUpon>Ui_SyugoronTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui_SyugoronTestPanel.resx">
+      <DependentUpon>Ui_SyugoronTestPanel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

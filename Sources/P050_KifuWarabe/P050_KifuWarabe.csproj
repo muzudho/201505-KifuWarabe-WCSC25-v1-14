@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E96A7341-B8E6-4979-8B2A-94FF2818962C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grayscale.P050_KifuWarabe</RootNamespace>
+    <AssemblyName>Grayscale.P050_KifuWarabe</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Builds\Engine\Bin\P050_KifuWarabe\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Builds\Engine\Bin\P050_KifuWarabe\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicJson">
+      <HintPath>..\..\..\By_NeueCC\DynamicJson_1.2.0.0\DynamicJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Nett, Version=0.15.0.0, Culture=neutral, PublicKeyToken=605dcfe7a1d3365b, processorArchitecture=MSIL">
+      <HintPath>..\..\P400_KifuNarabeVs\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectDark.KWSupport">
+      <HintPath>..\..\References\CircleProjectDark\ProjectDark.KWSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CS0_Interface\L00049_Kokoro\Kokoro.cs" />
+    <Compile Include="CS0_Interface\L00050_KyHyoka\KyHyokaCalculator.cs" />
+    <Compile Include="CS0_Interface\L00050_KyHyoka\KyHyokaWriter.cs" />
+    <Compile Include="CS0_Interface\L00051_Minimax\MinimaxEngine.cs" />
+    <Compile Include="CS0_Interface\L00052_Shogisasi\Shogisasi.cs" />
+    <Compile Include="CS1_Impl\L002_Log\PerformanceMetrics.cs" />
+    <Compile Include="CS1_Impl\L003_Kokoro\ResultKioku.cs" />
+    <Compile Include="CS1_Impl\L003_Kokoro\KokoroImpl.cs" />
+    <Compile Include="CS1_Impl\L003_Kokoro\TenonagareImpl.cs" />
+    <Compile Include="CS1_Impl\L009_KyHyoka\KyHyokaCalculatorImpl.cs" />
+    <Compile Include="CS1_Impl\L009_KyHyoka\KyHyokaWriterImpl.cs" />
+    <Compile Include="CS1_Impl\L010_Minimax\MinimaxEngineImpl.cs" />
+    <Compile Include="CS1_Impl\L012_ScoreSibori\ScoreSiboriEngine.cs" />
+    <Compile Include="CS1_Impl\L025_Erabu\ErabuRoutine.cs" />
+    <Compile Include="CS1_Impl\L031_AjimiEngine\AjimiEngine.cs" />
+    <Compile Include="CS1_Impl\L030_Shogisasi\Seikaku.cs" />
+    <Compile Include="CS1_Impl\L030_Shogisasi\ShogisasiImpl.cs" />
+    <Compile Include="CS1_Impl\L031_AjimiEngine\Result_Ajimi.cs" />
+    <Compile Include="CS1_Impl\L050_UsiLoop\ShogiGui_Warabe.cs" />
+    <Compile Include="CS1_Impl\L003_Kokoro\PlayerInfoImpl.cs" />
+    <Compile Include="CS1_Impl\L050_UsiLoop\Result_UsiLoop1.cs" />
+    <Compile Include="CS1_Impl\L050_UsiLoop\UsiLoop1.cs" />
+    <Compile Include="CS1_Impl\L050_UsiLoop\UsiLoop2.cs" />
+    <Compile Include="CS1_Impl\L050_UsiLoop\Result_UsiLoop2.cs" />
+    <Compile Include="CS1_Impl\L100_KifuWarabe\W100_KifuWarabeImpl.cs" />
+    <Compile Include="CS0_Interface\L00049_Kokoro\Tenonagare.cs" />
+    <Compile Include="CS0_Interface\L00025_UsiLoop\ShogiEngine.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\P006_Sfen\P006_Sfen.csproj">
+      <Project>{ff107244-eeab-481e-9017-f6d3dffb23df}</Project>
+      <Name>P006_Sfen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P006_Syugoron\P006_Syugoron.csproj">
+      <Project>{8da09a28-62d8-4cc2-a975-cce0cf0da4b9}</Project>
+      <Name>P006_Syugoron</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P007_SfenReport\P007_SfenReport.csproj">
+      <Project>{56f57764-1bf7-4cb9-9757-d69778de1bb0}</Project>
+      <Name>P007_SfenReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P025_KifuLarabe\P025_KifuLarabe.csproj">
+      <Project>{18fb9b6e-95b2-47fe-a2f6-4fd865abd804}</Project>
+      <Name>P025_KifuLarabe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P027_SasiteSeisei\P027_SasiteSeisei.csproj">
+      <Project>{d1878a53-8467-4610-b340-c0b5285cc4e4}</Project>
+      <Name>P027_SasiteSeisei</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P040_Kokoro\P040_Kokoro.csproj">
+      <Project>{70de6137-b1f3-48b5-bbf6-99791daf94d5}</Project>
+      <Name>P040_Kokoro</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P045_Atama\P045_Atama.csproj">
+      <Project>{4a761c74-4788-4187-86e7-7ab84b53094d}</Project>
+      <Name>P045_Atama</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
