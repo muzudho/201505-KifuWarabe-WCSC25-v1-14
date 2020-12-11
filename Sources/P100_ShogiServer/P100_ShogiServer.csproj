@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Builds\Engine\Bin\P100_ShogiServer\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Debug\P100_ShogiServer\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -29,7 +29,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Builds\Engine\Bin\P100_ShogiServer\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Release\P100_ShogiServer\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,6 +38,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamicJson">
+      <HintPath>..\..\References\NeueCC\DynamicJson_1.2.0.0\DynamicJson.dll</HintPath>
+    </Reference>
     <Reference Include="ProjectDark.KWSupport, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\References\CircleProjectDark\ProjectDark.KWSupport.dll</HintPath>

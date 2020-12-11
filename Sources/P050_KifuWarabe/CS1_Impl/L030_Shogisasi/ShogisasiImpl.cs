@@ -41,7 +41,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
         {
             ShogisasiImpl.REPORT_ENVIRONMENT = new ReportEnvironmentImpl(
                         "../../Logs/局面画像ﾛｸﾞ/",//argsDic["outFolder"],
-                        "../../Data/img/gkLog/",//argsDic["imgFolder"],
+                        "../../Profile/Data/img/gkLog/",//argsDic["imgFolder"],
                         "koma1.png",//argsDic["kmFile"],
                         "suji1.png",//argsDic["sjFile"],
                         "20",//argsDic["kmW"],

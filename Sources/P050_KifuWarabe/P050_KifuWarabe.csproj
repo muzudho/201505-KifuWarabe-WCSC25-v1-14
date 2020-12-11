@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grayscale.P050_KifuWarabe</RootNamespace>
-    <AssemblyName>Grayscale.P050_KifuWarabe</AssemblyName>
+    <AssemblyName>Grayscale.Kifuwarazusa.Engine</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Builds\Engine\Bin\P050_KifuWarabe\</OutputPath>
+    <OutputPath>..\..\Builds\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -29,17 +29,17 @@
     <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Builds\Engine\Bin\P050_KifuWarabe\</OutputPath>
+    <OutputPath>..\..\Builds\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DynamicJson">
-      <HintPath>..\..\..\By_NeueCC\DynamicJson_1.2.0.0\DynamicJson.dll</HintPath>
+      <HintPath>..\..\References\NeueCC\DynamicJson_1.2.0.0\DynamicJson.dll</HintPath>
     </Reference>
     <Reference Include="Nett, Version=0.15.0.0, Culture=neutral, PublicKeyToken=605dcfe7a1d3365b, processorArchitecture=MSIL">
-      <HintPath>..\..\P400_KifuNarabeVs\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
+      <HintPath>..\..\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
     </Reference>
     <Reference Include="ProjectDark.KWSupport">
       <HintPath>..\..\References\CircleProjectDark\ProjectDark.KWSupport.dll</HintPath>

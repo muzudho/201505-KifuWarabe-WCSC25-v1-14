@@ -83,7 +83,7 @@ namespace Grayscale.P200_KifuNarabe.L002_Log
         /// </summary>
         public SetteiFile()
         {
-            this.setteiFileName = "../../Data/data_settei.xml";
+            this.setteiFileName = "../../Profile/Data/data_settei.xml";
             this.setteiFileVer = "0.00.0";
             this.shogiEngineName = "The将棋エンジン";
             this.shogiEngineFilePath = "shogiEngine.exe";

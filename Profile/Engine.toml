@@ -5,3 +5,16 @@ Name = "Kifuwarazusa Bld1"
 
 # 将棋ソフトの制作者名です。
 Author = "Satoshi TAKAHASHI"
+
+[Resources]
+
+NarabeGuiWidgets = "./Data/data_widgets_KifuNarabe.csv"
+VsGuiWidgets = "./Data/data_widgets_KifuNarabeVs.csv"
+
+Michi187 = "./Data/data_michi187.csv"
+MichiTableHtml = "../Logs/道表.log.html"
+Haiyaku185 = "./Data/data_haiyaku185_UTF-8.csv"
+InputForcePromotion = "./Data/data_forcePromotion_UTF-8.csv"
+OutputForcePromotion = "../Logs/_log_強制転成表.html"
+InputSyuruiToHaiyaku = "./Data/data_syuruiToHaiyaku.csv"
+OutputSyuruiToHaiyaku = "../Logs/_log_配役転換表.html"

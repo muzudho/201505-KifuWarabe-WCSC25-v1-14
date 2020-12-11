@@ -1,0 +1,688 @@
+2015/04/26 1:02:54<   usi
+2015/04/26 1:02:54<   setoption name USI_Ponder value false
+2015/04/26 1:02:54<   isready
+2015/04/26 1:02:54<   usinewgame
+2015/04/26 1:02:57<   position startpos moves 7g7f 
+2015/04/26 1:02:57<   go
+2015/04/26 1:03:10<   position startpos moves 7g7f 2c2d 2g2f 
+2015/04/26 1:03:10<   go
+2015/04/26 1:03:18<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 
+2015/04/26 1:03:18<   go
+2015/04/26 1:03:26<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 
+2015/04/26 1:03:26<   go
+2015/04/26 1:03:36<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 
+2015/04/26 1:03:36<   go
+2015/04/26 1:03:47<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 
+2015/04/26 1:03:47<   go
+2015/04/26 1:04:13<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 
+2015/04/26 1:04:13<   go
+2015/04/26 1:04:32<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 
+2015/04/26 1:04:32<   go
+2015/04/26 1:04:59<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 
+2015/04/26 1:04:59<   go
+2015/04/26 1:05:16<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 
+2015/04/26 1:05:16<   go
+2015/04/26 1:05:31<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 
+2015/04/26 1:05:31<   go
+2015/04/26 1:05:38<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 
+2015/04/26 1:05:38<   go
+2015/04/26 1:05:58<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 
+2015/04/26 1:05:58<   go
+2015/04/26 1:06:02<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a 
+2015/04/26 1:06:02<   go
+2015/04/26 1:06:10<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a N*4a 3b4b 
+2015/04/26 1:06:10<   go
+2015/04/26 1:06:14<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a N*4a 3b4b 5a6a 3a4a 
+2015/04/26 1:06:14<   go
+2015/04/26 1:06:20<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a N*4a 3b4b 5a6a 3a4a 6a6b B*5a 
+2015/04/26 1:06:20<   go
+2015/04/26 1:06:23<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a N*4a 3b4b 5a6a 3a4a 6a6b B*5a 6b6a 5a7c+ 
+2015/04/26 1:06:23<   go
+2015/04/26 1:06:24<   gameover lose
+2015/04/26 1:06:24<   quit
+2015/04/28 19:34:12<   usi
+2015/04/28 19:34:12<   setoption name USI_Ponder value false
+2015/04/28 19:34:12<   isready
+2015/04/28 19:34:12<   usinewgame
+2015/04/28 19:34:15<   position startpos moves 7g7f 
+2015/04/28 19:34:15<   go
+2015/04/28 19:34:48<   usi
+2015/04/28 19:34:48<   setoption name USI_Ponder value false
+2015/04/28 19:34:48<   isready
+2015/04/28 19:34:48<   usinewgame
+2015/04/28 19:34:51<   position startpos moves 7g7f 
+2015/04/28 19:34:51<   go
+2015/04/28 19:34:58<   position startpos moves 7g7f 2c2d 2g2f 
+2015/04/28 19:34:58<   go
+2015/04/28 19:35:05<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 
+2015/04/28 19:35:05<   go
+2015/04/28 19:35:12<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 
+2015/04/28 19:35:12<   go
+2015/04/28 19:35:24<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 
+2015/04/28 19:35:24<   go
+2015/04/28 19:35:33<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h 
+2015/04/28 19:35:33<   go
+2015/04/28 19:36:11<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 
+2015/04/28 19:36:11<   go
+2015/04/28 19:36:28<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 7c7d 4e4c+ 
+2015/04/28 19:36:28<   go
+2015/04/28 19:37:06<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 7c7d 4e4c+ 3b7b 4c3d 
+2015/04/28 19:37:06<   go
+2015/04/28 19:37:24<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 7c7d 4e4c+ 3b7b 4c3d 1d4g+ 8h1a+ 
+2015/04/28 19:37:24<   go
+2015/04/28 19:37:54<   position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 7c7d 4e4c+ 3b7b 4c3d 1d4g+ 8h1a+ 2a3c 1a3c 
+2015/04/28 19:37:54<   go
+2015/04/28 19:38:23<   quit
+2015/04/28 19:38:23<   quit
+2015/04/28 23:01:43<   usi
+2015/04/28 23:01:44<   setoption name USI_Ponder value false
+2015/04/28 23:01:44<   isready
+2015/04/28 23:01:44<   usinewgame
+2015/04/28 23:01:47<   position startpos moves 7g7f 
+2015/04/28 23:01:47<   go
+2015/04/28 23:02:20<   quit
+2015/04/28 23:02:20<   quit
+2015/04/28 23:05:32<   usi
+2015/04/28 23:05:32<   setoption name USI_Ponder value false
+2015/04/28 23:05:32<   isready
+2015/04/28 23:05:32<   usinewgame
+2015/04/28 23:05:35<   position startpos moves 7g7f 
+2015/04/28 23:05:35<   go
+2015/04/28 23:05:54<   quit
+2015/04/28 23:05:54<   quit
+2015/04/28 23:07:53<   usi
+2015/04/28 23:07:54<   setoption name USI_Ponder value false
+2015/04/28 23:07:54<   isready
+2015/04/28 23:07:54<   usinewgame
+2015/04/28 23:07:56<   position startpos moves 7g7f 
+2015/04/28 23:07:56<   go
+2015/04/28 23:08:28<   quit
+2015/04/28 23:08:28<   quit
+2015/04/28 23:08:45<   usi
+2015/04/28 23:08:46<   setoption name USI_Ponder value false
+2015/04/28 23:08:46<   isready
+2015/04/28 23:08:46<   usinewgame
+2015/04/28 23:08:48<   position startpos moves 7g7f 
+2015/04/28 23:08:48<   go
+2015/04/28 23:08:57<   quit
+2015/04/28 23:08:57<   quit
+2015/04/28 23:52:27<   usi
+2015/04/28 23:52:28<   setoption name USI_Ponder value false
+2015/04/28 23:52:28<   isready
+2015/04/28 23:52:28<   usinewgame
+2015/04/28 23:52:31<   position startpos moves 7g7f 
+2015/04/28 23:52:31<   go
+2015/04/28 23:52:46<   quit
+2015/04/28 23:52:46<   quit
+2015/04/28 23:53:05<   usi
+2015/04/28 23:53:05<   setoption name USI_Ponder value false
+2015/04/28 23:53:05<   isready
+2015/04/28 23:53:05<   usinewgame
+2015/04/28 23:53:07<   position startpos moves 7g7f 
+2015/04/28 23:53:07<   go
+2015/04/28 23:55:36<   usi
+2015/04/28 23:55:37<   setoption name USI_Ponder value false
+2015/04/28 23:55:37<   isready
+2015/04/28 23:55:37<   usinewgame
+2015/04/28 23:55:40<   usi
+2015/04/28 23:55:41<   setoption name USI_Ponder value false
+2015/04/28 23:55:41<   isready
+2015/04/28 23:55:41<   usinewgame
+2015/04/28 23:55:42<   position startpos moves 7g7f 
+2015/04/28 23:55:42<   go
+2015/04/28 23:55:51<   quit
+2015/04/28 23:55:51<   quit
+2015/04/28 23:56:26<   usi
+2015/04/28 23:56:26<   setoption name USI_Ponder value false
+2015/04/28 23:56:26<   isready
+2015/04/28 23:56:26<   usinewgame
+2015/04/28 23:56:28<   position startpos moves 7g7f 
+2015/04/28 23:56:28<   go
+2015/04/28 23:56:38<   quit
+2015/04/28 23:56:38<   quit
+2015/04/28 23:57:10<   usi
+2015/04/28 23:57:10<   setoption name USI_Ponder value false
+2015/04/28 23:57:10<   isready
+2015/04/28 23:57:10<   usinewgame
+2015/04/28 23:57:12<   position startpos moves 7g7f 
+2015/04/28 23:57:12<   go
+2015/04/28 23:57:20<   quit
+2015/04/28 23:57:20<   quit
+2015/04/30 23:52:56<   usi
+2015/04/30 23:52:57<   setoption name USI_Ponder value false
+2015/04/30 23:52:57<   isready
+2015/04/30 23:52:57<   usinewgame
+2015/04/30 23:52:59<   position startpos moves 7g7f 
+2015/04/30 23:52:59<   go
+2015/04/30 23:53:16<   quit
+2015/04/30 23:53:16<   quit
+2015/04/30 23:56:01<   usi
+2015/04/30 23:56:01<   setoption name USI_Ponder value false
+2015/04/30 23:56:01<   isready
+2015/04/30 23:56:01<   usinewgame
+2015/04/30 23:56:04<   position startpos moves 7g7f 
+2015/04/30 23:56:04<   go
+2015/04/30 23:56:12<   position startpos moves 7g7f 8b3b 2g2f 
+2015/04/30 23:56:12<   go
+2015/04/30 23:56:17<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 
+2015/04/30 23:56:17<   go
+2015/04/30 23:56:22<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 
+2015/04/30 23:56:22<   go
+2015/04/30 23:56:34<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 
+2015/04/30 23:56:34<   go
+2015/04/30 23:56:48<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d 
+2015/04/30 23:56:48<   go
+2015/04/30 23:57:28<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 
+2015/04/30 23:57:28<   go
+2015/04/30 23:57:43<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 
+2015/04/30 23:57:43<   go
+2015/04/30 23:58:40<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 
+2015/04/30 23:58:40<   go
+2015/04/30 23:58:55<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b 
+2015/04/30 23:58:55<   go
+2015/04/30 23:59:19<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 
+2015/04/30 23:59:19<   go
+2015/04/30 23:59:40<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 
+2015/04/30 23:59:40<   go
+2015/04/30 23:59:59<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 
+2015/04/30 23:59:59<   go
+2015/05/01 0:00:12<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 7c7d 2d3c+ 
+2015/05/01 0:00:12<   go
+2015/05/01 0:00:18<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 7c7d 2d3c+ 5a6b 2a4a 
+2015/05/01 0:00:18<   go
+2015/05/01 0:00:36<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 7c7d 2d3c+ 5a6b 2a4a 6c6d N*5e 
+2015/05/01 0:00:36<   go
+2015/05/01 0:00:49<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 7c7d 2d3c+ 5a6b 2a4a 6c6d N*5e 6d6e G*6c 
+2015/05/01 0:00:49<   go
+2015/05/01 0:00:49<   gameover lose
+2015/05/01 0:00:49<   quit
+2015/05/01 22:46:45<   usi
+2015/05/01 22:46:45<   setoption name USI_Ponder value false
+2015/05/01 22:46:45<   isready
+2015/05/01 22:46:45<   usinewgame
+2015/05/01 22:46:50<   position startpos moves 7g7f 
+2015/05/01 22:46:50<   go
+2015/05/01 22:46:57<   position startpos moves 7g7f 8c8d 8h7g 
+2015/05/01 22:46:57<   go
+2015/05/01 22:47:04<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+2015/05/01 22:47:04<   go
+2015/05/01 22:47:10<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 
+2015/05/01 22:47:10<   go
+2015/05/01 22:47:17<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 
+2015/05/01 22:47:17<   go
+2015/05/01 22:47:26<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 
+2015/05/01 22:47:26<   go
+2015/05/01 22:47:37<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 
+2015/05/01 22:47:37<   go
+2015/05/01 22:48:00<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 
+2015/05/01 22:48:00<   go
+2015/05/01 22:48:16<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 
+2015/05/01 22:48:16<   go
+2015/05/01 22:48:36<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 
+2015/05/01 22:48:36<   go
+2015/05/01 22:48:51<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 
+2015/05/01 22:48:51<   go
+2015/05/01 22:49:13<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 
+2015/05/01 22:49:13<   go
+2015/05/01 22:49:29<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 
+2015/05/01 22:49:29<   go
+2015/05/01 22:49:45<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 
+2015/05/01 22:49:45<   go
+2015/05/01 22:50:02<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 5c5d 1a1d 
+2015/05/01 22:50:02<   go
+2015/05/01 22:50:29<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 5c5d 1a1d 4c4d 1d4d 
+2015/05/01 22:50:29<   go
+2015/05/01 22:50:58<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 5c5d 1a1d 4c4d 1d4d 4a5a 1h5d 
+2015/05/01 22:50:58<   go
+2015/05/01 22:51:06<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 5c5d 1a1d 4c4d 1d4d 4a5a 1h5d 6c5b 4d4c 
+2015/05/01 22:51:06<   go
+2015/05/01 22:51:06<   gameover lose
+2015/05/01 22:51:06<   quit
+2015/05/01 23:07:46<   usi
+2015/05/01 23:07:46<   setoption name USI_Ponder value false
+2015/05/01 23:07:46<   isready
+2015/05/01 23:07:46<   usinewgame
+2015/05/01 23:07:49<   position startpos moves 7g7f 
+2015/05/01 23:07:49<   go
+2015/05/01 23:07:56<   position startpos moves 7g7f 8b3b 2g2f 
+2015/05/01 23:07:56<   go
+2015/05/01 23:08:03<   quit
+2015/05/01 23:08:03<   quit
+2015/05/01 23:08:43<   usi
+2015/05/01 23:08:44<   setoption name USI_Ponder value false
+2015/05/01 23:08:44<   isready
+2015/05/01 23:08:44<   usinewgame
+2015/05/01 23:08:46<   position startpos moves 7g7f 
+2015/05/01 23:08:46<   go
+2015/05/01 23:08:51<   position startpos moves 7g7f 8b3b 2g2f 
+2015/05/01 23:08:51<   go
+2015/05/01 23:08:57<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 
+2015/05/01 23:08:57<   go
+2015/05/01 23:09:03<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 
+2015/05/01 23:09:03<   go
+2015/05/01 23:09:12<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 
+2015/05/01 23:09:12<   go
+2015/05/01 23:09:20<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h 
+2015/05/01 23:09:20<   go
+2015/05/01 23:09:57<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 
+2015/05/01 23:09:57<   go
+2015/05/01 23:10:19<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 
+2015/05/01 23:10:19<   go
+2015/05/01 23:10:35<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 
+2015/05/01 23:10:35<   go
+2015/05/01 23:11:08<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 
+2015/05/01 23:11:08<   go
+2015/05/01 23:11:37<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 
+2015/05/01 23:11:37<   go
+2015/05/01 23:11:55<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 
+2015/05/01 23:11:55<   go
+2015/05/01 23:12:21<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 6a7b 4a3a 
+2015/05/01 23:12:21<   go
+2015/05/01 23:12:41<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 6a7b 4a3a 7a8b 2c2b+ 
+2015/05/01 23:12:41<   go
+2015/05/01 23:12:55<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 6a7b 4a3a 7a8b 2c2b+ 1b2b 3a2b 
+2015/05/01 23:12:55<   go
+2015/05/01 23:13:02<   position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 6a7b 4a3a 7a8b 2c2b+ 1b2b 3a2b 6b7a R*3a 
+2015/05/01 23:13:02<   go
+2015/05/01 23:13:03<   gameover lose
+2015/05/01 23:13:03<   quit
+2015/05/01 23:13:58<   usi
+2015/05/01 23:13:59<   setoption name USI_Ponder value false
+2015/05/01 23:13:59<   isready
+2015/05/01 23:13:59<   usinewgame
+2015/05/01 23:14:02<   position startpos moves 7g7f 
+2015/05/01 23:14:02<   go
+2015/05/01 23:14:10<   position startpos moves 7g7f 8c8d 8h7g 
+2015/05/01 23:14:10<   go
+2015/05/01 23:14:15<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+2015/05/01 23:14:15<   go
+2015/05/01 23:14:23<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 
+2015/05/01 23:14:23<   go
+2015/05/01 23:14:28<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 
+2015/05/01 23:14:28<   go
+2015/05/01 23:14:37<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 
+2015/05/01 23:14:37<   go
+2015/05/01 23:15:20<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 
+2015/05/01 23:15:20<   go
+2015/05/01 23:15:34<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 5a4a P*2c 
+2015/05/01 23:15:34<   go
+2015/05/01 23:15:46<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 5a4a P*2c 5c5d 2c2b+ 
+2015/05/01 23:15:46<   go
+2015/05/01 23:16:16<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 5a4a P*2c 5c5d 2c2b+ 3a2b G*2c 
+2015/05/01 23:16:16<   go
+2015/05/01 23:16:27<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 5a4a P*2c 5c5d 2c2b+ 3a2b G*2c 2b2c 2e2c 
+2015/05/01 23:16:27<   go
+2015/05/01 23:17:29<   usi
+2015/05/01 23:17:30<   setoption name USI_Ponder value false
+2015/05/01 23:17:30<   isready
+2015/05/01 23:17:30<   usinewgame
+2015/05/01 23:17:32<   position startpos moves 7g7f 
+2015/05/01 23:17:32<   go
+2015/05/01 23:17:38<   position startpos moves 7g7f 8c8d 8h7g 
+2015/05/01 23:17:38<   go
+2015/05/01 23:17:45<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+2015/05/01 23:17:45<   go
+2015/05/01 23:17:51<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 
+2015/05/01 23:17:51<   go
+2015/05/01 23:17:59<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 
+2015/05/01 23:17:59<   go
+2015/05/01 23:18:08<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 8d8e P*2c 
+2015/05/01 23:18:08<   go
+2015/05/01 23:18:17<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 8d8e P*2c 4c4d 2c2b+ 
+2015/05/01 23:18:17<   go
+2015/05/01 23:18:29<   quit
+2015/05/01 23:18:29<   quit
+2015/05/01 23:19:22<   usi
+2015/05/01 23:19:23<   setoption name USI_Ponder value false
+2015/05/01 23:19:23<   isready
+2015/05/01 23:19:23<   usinewgame
+2015/05/01 23:19:26<   position startpos moves 7g7f 
+2015/05/01 23:19:26<   go
+2015/05/01 23:19:32<   position startpos moves 7g7f 8c8d 8h7g 
+2015/05/01 23:19:32<   go
+2015/05/01 23:19:38<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+2015/05/01 23:19:38<   go
+2015/05/01 23:19:44<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 
+2015/05/01 23:19:44<   go
+2015/05/01 23:19:50<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 
+2015/05/01 23:19:50<   go
+2015/05/01 23:19:57<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 
+2015/05/01 23:19:57<   go
+2015/05/01 23:20:04<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 6c6d 2c2b+ 
+2015/05/01 23:20:04<   go
+2015/05/01 23:20:14<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 6c6d 2c2b+ 3a2b 2e2b+ 
+2015/05/01 23:20:14<   go
+2015/05/01 23:20:20<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 6c6d 2c2b+ 3a2b 2e2b+ 4a3b 2b3b 
+2015/05/01 23:20:20<   go
+2015/05/01 23:20:25<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 6c6d 2c2b+ 3a2b 2e2b+ 4a3b 2b3b 5b5a G*4a 
+2015/05/01 23:20:25<   go
+2015/05/01 23:20:26<   gameover lose
+2015/05/01 23:20:26<   quit
+2015/05/01 23:20:47<   usi
+2015/05/01 23:20:47<   setoption name USI_Ponder value false
+2015/05/01 23:20:47<   isready
+2015/05/01 23:20:47<   usinewgame
+2015/05/01 23:20:50<   position startpos moves 7g7f 
+2015/05/01 23:20:50<   go
+2015/05/01 23:20:56<   position startpos moves 7g7f 8c8d 8h7g 
+2015/05/01 23:20:56<   go
+2015/05/01 23:21:02<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+2015/05/01 23:21:02<   go
+2015/05/01 23:21:07<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 
+2015/05/01 23:21:07<   go
+2015/05/01 23:21:15<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 2d2e 2h2e 
+2015/05/01 23:21:15<   go
+2015/05/01 23:21:22<   quit
+2015/05/01 23:21:22<   quit
+2015/05/01 23:21:46<   usi
+2015/05/01 23:21:46<   setoption name USI_Ponder value false
+2015/05/01 23:21:46<   isready
+2015/05/01 23:21:46<   usinewgame
+2015/05/01 23:21:49<   position startpos moves 7g7f 
+2015/05/01 23:21:49<   go
+2015/05/01 23:21:55<   position startpos moves 7g7f 8c8d 2g2f 
+2015/05/01 23:21:55<   go
+2015/05/01 23:22:01<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 
+2015/05/01 23:22:01<   go
+2015/05/01 23:22:06<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 
+2015/05/01 23:22:06<   go
+2015/05/01 23:22:14<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 
+2015/05/01 23:22:14<   go
+2015/05/01 23:22:21<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 
+2015/05/01 23:22:21<   go
+2015/05/01 23:22:37<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b B*8h 
+2015/05/01 23:22:37<   go
+2015/05/01 23:22:47<   quit
+2015/05/01 23:22:47<   quit
+2015/05/01 23:23:22<   usi
+2015/05/01 23:23:22<   setoption name USI_Ponder value false
+2015/05/01 23:23:22<   isready
+2015/05/01 23:23:22<   usinewgame
+2015/05/01 23:23:25<   position startpos moves 7g7f 
+2015/05/01 23:23:25<   go
+2015/05/01 23:23:31<   position startpos moves 7g7f 8c8d 8h7g 
+2015/05/01 23:23:31<   go
+2015/05/01 23:23:38<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+2015/05/01 23:23:38<   go
+2015/05/01 23:23:45<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 
+2015/05/01 23:23:45<   go
+2015/05/01 23:23:51<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 2d2e 2h2e 
+2015/05/01 23:23:51<   go
+2015/05/01 23:23:58<   position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 2d2e 2h2e 9c9d P*2c 
+2015/05/01 23:23:58<   go
+2015/05/01 23:23:59<   quit
+2015/05/01 23:23:59<   quit
+2015/05/01 23:24:35<   usi
+2015/05/01 23:24:36<   setoption name USI_Ponder value false
+2015/05/01 23:24:36<   isready
+2015/05/01 23:24:36<   usinewgame
+2015/05/01 23:24:38<   position startpos moves 7g7f 
+2015/05/01 23:24:38<   go
+2015/05/01 23:24:45<   position startpos moves 7g7f 8c8d 2g2f 
+2015/05/01 23:24:45<   go
+2015/05/01 23:24:51<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 
+2015/05/01 23:24:51<   go
+2015/05/01 23:24:56<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 
+2015/05/01 23:24:56<   go
+2015/05/01 23:25:03<   quit
+2015/05/01 23:25:03<   quit
+2015/05/01 23:25:36<   usi
+2015/05/01 23:25:36<   setoption name USI_Ponder value false
+2015/05/01 23:25:36<   isready
+2015/05/01 23:25:36<   usinewgame
+2015/05/01 23:25:38<   position startpos moves 7g7f 
+2015/05/01 23:25:38<   go
+2015/05/01 23:25:45<   position startpos moves 7g7f 8c8d 2g2f 
+2015/05/01 23:25:45<   go
+2015/05/01 23:25:50<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 
+2015/05/01 23:25:50<   go
+2015/05/01 23:25:56<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 
+2015/05/01 23:25:56<   go
+2015/05/01 23:26:03<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 
+2015/05/01 23:26:03<   go
+2015/05/01 23:26:19<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 1c1d 2c2b+ 
+2015/05/01 23:26:19<   go
+2015/05/01 23:26:31<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 1c1d 2c2b+ 3a2b 8h4d 
+2015/05/01 23:26:31<   go
+2015/05/01 23:26:46<   quit
+2015/05/01 23:26:46<   quit
+2015/05/01 23:27:51<   usi
+2015/05/01 23:27:51<   setoption name USI_Ponder value false
+2015/05/01 23:27:51<   isready
+2015/05/01 23:27:51<   usinewgame
+2015/05/01 23:27:53<   position startpos moves 7g7f 
+2015/05/01 23:27:53<   go
+2015/05/01 23:27:59<   position startpos moves 7g7f 8c8d 2g2f 
+2015/05/01 23:27:59<   go
+2015/05/01 23:28:05<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 
+2015/05/01 23:28:05<   go
+2015/05/01 23:28:11<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 
+2015/05/01 23:28:11<   go
+2015/05/01 23:28:20<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 
+2015/05/01 23:28:20<   go
+2015/05/01 23:28:27<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 
+2015/05/01 23:28:27<   go
+2015/05/01 23:28:43<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b 8h4d 
+2015/05/01 23:28:43<   go
+2015/05/01 23:28:57<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b 8h4d 2b3a 2e2a+ 
+2015/05/01 23:28:57<   go
+2015/05/01 23:29:12<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b 8h4d 2b3a 2e2a+ 6c6d 4d5c+ 
+2015/05/01 23:29:12<   go
+2015/05/01 23:29:35<   position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b 8h4d 2b3a 2e2a+ 6c6d 4d5c+ 9c9d N*4c 
+2015/05/01 23:29:35<   go
+2015/05/01 23:29:35<   gameover lose
+2015/05/01 23:29:35<   quit
+2015/05/01 23:30:01<   usi
+2015/05/01 23:30:01<   setoption name USI_Ponder value false
+2015/05/01 23:30:01<   isready
+2015/05/01 23:30:01<   usinewgame
+2015/05/01 23:30:04<   position startpos moves 7g7f 
+2015/05/01 23:30:04<   go
+2015/05/01 23:30:12<   position startpos moves 7g7f 8c8d 8h7g 
+2015/05/01 23:30:12<   go
+2015/05/01 23:30:19<   quit
+2015/05/01 23:30:19<   quit
+2015/05/01 23:32:41<   usi
+2015/05/01 23:32:42<   setoption name USI_Ponder value false
+2015/05/01 23:32:42<   isready
+2015/05/01 23:32:42<   usinewgame
+2015/05/01 23:32:44<   position startpos moves 7g7f 
+2015/05/01 23:32:44<   go
+2015/05/01 23:32:51<   position startpos moves 7g7f 2c2d 2g2f 
+2015/05/01 23:32:51<   go
+2015/05/01 23:32:57<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 
+2015/05/01 23:32:57<   go
+2015/05/01 23:33:04<   position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 
+2015/05/01 23:33:04<   go
+2015/05/01 23:33:10<   quit
+2015/05/01 23:33:10<   quit
+2015/05/01 23:33:46<   usi
+2015/05/01 23:33:46<   setoption name USI_Ponder value false
+2015/05/01 23:33:46<   isready
+2015/05/01 23:33:46<   usinewgame
+2015/05/01 23:33:48<   position startpos moves 7g7f 
+2015/05/01 23:33:48<   go
+2015/05/01 23:33:55<   quit
+2015/05/01 23:33:55<   quit
+2015/05/01 23:34:35<   usi
+2015/05/01 23:34:35<   setoption name USI_Ponder value false
+2015/05/01 23:34:35<   isready
+2015/05/01 23:34:35<   usinewgame
+2015/05/01 23:34:41<   position startpos moves 7g7f 
+2015/05/01 23:34:41<   go
+2015/05/01 23:34:47<   position startpos moves 7g7f 8b7b 2g2f 
+2015/05/01 23:34:47<   go
+2015/05/01 23:34:52<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 
+2015/05/01 23:34:52<   go
+2015/05/01 23:34:58<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 
+2015/05/01 23:34:58<   go
+2015/05/01 23:35:04<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 
+2015/05/01 23:35:04<   go
+2015/05/01 23:35:10<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 
+2015/05/01 23:35:10<   go
+2015/05/01 23:35:23<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 
+2015/05/01 23:35:23<   go
+2015/05/01 23:35:36<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 6a6b 2d2c+ 
+2015/05/01 23:35:36<   go
+2015/05/01 23:35:47<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 6a6b 2d2c+ 2b2c 2h2c+ 
+2015/05/01 23:35:47<   go
+2015/05/01 23:36:02<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 6a6b 2d2c+ 2b2c 2h2c+ 5d5e 2c2a 
+2015/05/01 23:36:02<   go
+2015/05/01 23:36:16<   position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 6a6b 2d2c+ 2b2c 2h2c+ 5d5e 2c2a 4a3a 2a3a 
+2015/05/01 23:36:16<   go
+2015/05/01 23:36:16<   gameover lose
+2015/05/01 23:36:16<   quit
+2015/05/01 23:37:58<   usi
+2015/05/01 23:37:58<   setoption name USI_Ponder value false
+2015/05/01 23:37:58<   isready
+2015/05/01 23:37:58<   usinewgame
+2015/05/01 23:38:01<   position startpos moves 7g7f 
+2015/05/01 23:38:01<   go
+2015/05/01 23:38:08<   position startpos moves 7g7f 8c8d 2g2f 
+2015/05/01 23:38:08<   go
+2015/05/01 23:38:14<   position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 
+2015/05/01 23:38:14<   go
+2015/05/01 23:38:21<   position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 9c9d 4d5c+ 
+2015/05/01 23:38:21<   go
+2015/05/01 23:38:33<   position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 9c9d 4d5c+ 3c3d 7i8h 
+2015/05/01 23:38:33<   go
+2015/05/01 23:38:41<   position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 9c9d 4d5c+ 3c3d 7i8h 2b7g 8h7g 
+2015/05/01 23:38:41<   go
+2015/05/01 23:38:54<   position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 9c9d 4d5c+ 3c3d 7i8h 2b7g 8h7g 6a5b 5c7a 
+2015/05/01 23:38:54<   go
+2015/05/01 23:39:06<   quit
+2015/05/01 23:39:06<   quit
+2015/05/01 23:40:42<   usi
+2015/05/01 23:40:43<   setoption name USI_Ponder value false
+2015/05/01 23:40:43<   isready
+2015/05/01 23:40:43<   usinewgame
+2015/05/01 23:40:45<   position startpos moves 7g7f 
+2015/05/01 23:40:45<   go
+2015/05/01 23:40:54<   position startpos moves 7g7f 2c2d 2g2f 
+2015/05/01 23:40:54<   go
+2015/05/01 23:41:00<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 
+2015/05/01 23:41:00<   go
+2015/05/01 23:41:08<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 
+2015/05/01 23:41:08<   go
+2015/05/01 23:41:16<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 
+2015/05/01 23:41:16<   go
+2015/05/01 23:41:33<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 
+2015/05/01 23:41:33<   go
+2015/05/01 23:41:47<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 
+2015/05/01 23:41:47<   go
+2015/05/01 23:41:59<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 
+2015/05/01 23:41:59<   go
+2015/05/01 23:42:11<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 
+2015/05/01 23:42:11<   go
+2015/05/01 23:42:35<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 
+2015/05/01 23:42:35<   go
+2015/05/01 23:42:55<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 
+2015/05/01 23:42:55<   go
+2015/05/01 23:43:12<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 
+2015/05/01 23:43:12<   go
+2015/05/01 23:43:18<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 4b4a G*4b 
+2015/05/01 23:43:18<   go
+2015/05/01 23:43:21<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 4b4a G*4b 5a6b 3a4a 
+2015/05/01 23:43:21<   go
+2015/05/01 23:43:37<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 4b4a G*4b 5a6b 3a4a 6b7b 4b5b 
+2015/05/01 23:43:37<   go
+2015/05/01 23:43:51<   position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 4b4a G*4b 5a6b 3a4a 6b7b 4b5b 5c5d 4a6a 
+2015/05/01 23:43:51<   go
+2015/05/01 23:43:51<   gameover lose
+2015/05/01 23:43:51<   quit
+2015/05/01 23:45:11<   usi
+2015/05/01 23:45:12<   setoption name USI_Ponder value false
+2015/05/01 23:45:12<   isready
+2015/05/01 23:45:12<   usinewgame
+2015/05/01 23:45:16<   position startpos moves 7g7f 
+2015/05/01 23:45:16<   go
+2015/05/01 23:45:23<   position startpos moves 7g7f 2c2d 2g2f 
+2015/05/01 23:45:23<   go
+2015/05/01 23:45:28<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 
+2015/05/01 23:45:29<   go
+2015/05/01 23:45:34<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 
+2015/05/01 23:45:34<   go
+2015/05/01 23:45:41<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 
+2015/05/01 23:45:41<   go
+2015/05/01 23:45:48<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 
+2015/05/01 23:45:48<   go
+2015/05/01 23:45:58<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 
+2015/05/01 23:45:58<   go
+2015/05/01 23:46:08<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 
+2015/05/01 23:46:08<   go
+2015/05/01 23:46:19<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 
+2015/05/01 23:46:19<   go
+2015/05/01 23:46:30<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 
+2015/05/01 23:46:30<   go
+2015/05/01 23:46:42<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a 
+2015/05/01 23:46:42<   go
+2015/05/01 23:47:31<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 
+2015/05/01 23:47:31<   go
+2015/05/01 23:47:36<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 4a3b 2b3b 
+2015/05/01 23:47:36<   go
+2015/05/01 23:47:44<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 4a3b 2b3b 5b6c B*4a 
+2015/05/01 23:47:44<   go
+2015/05/01 23:47:51<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 4a3b 2b3b 5b6c B*4a 6c6d G*7e 
+2015/05/01 23:47:51<   go
+2015/05/01 23:47:54<   position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 4a3b 2b3b 5b6c B*4a 6c6d G*7e 6d5d 3b4c 
+2015/05/01 23:47:54<   go
+2015/05/01 23:47:54<   gameover lose
+2015/05/01 23:47:54<   quit
+2015/05/01 23:48:46<   usi
+2015/05/01 23:48:46<   setoption name USI_Ponder value false
+2015/05/01 23:48:46<   isready
+2015/05/01 23:48:46<   usinewgame
+2015/05/01 23:48:48<   position startpos moves 7g7f 
+2015/05/01 23:48:48<   go
+2015/05/01 23:48:57<   position startpos moves 7g7f 7c7d 2g2f 
+2015/05/01 23:48:57<   go
+2015/05/01 23:49:04<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 
+2015/05/01 23:49:04<   go
+2015/05/01 23:49:12<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 
+2015/05/01 23:49:12<   go
+2015/05/01 23:49:22<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 
+2015/05/01 23:49:22<   go
+2015/05/01 23:49:30<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 
+2015/05/01 23:49:30<   go
+2015/05/01 23:49:42<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 
+2015/05/01 23:49:42<   go
+2015/05/01 23:49:54<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 
+2015/05/01 23:49:54<   go
+2015/05/01 23:50:03<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 2b2c 2h2c+ 
+2015/05/01 23:50:03<   go
+2015/05/01 23:50:15<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 2b2c 2h2c+ 5c5d 2c2a 
+2015/05/01 23:50:15<   go
+2015/05/01 23:50:19<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 2b2c 2h2c+ 5c5d 2c2a 5a4b B*3a 
+2015/05/01 23:50:19<   go
+2015/05/01 23:50:24<   position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 2b2c 2h2c+ 5c5d 2c2a 5a4b B*3a 4b4a 3a5c+ 
+2015/05/01 23:50:24<   go
+2015/05/01 23:50:24<   gameover lose
+2015/05/01 23:50:24<   quit
+2015/05/01 23:50:54<   usi
+2015/05/01 23:50:54<   setoption name USI_Ponder value false
+2015/05/01 23:50:54<   isready
+2015/05/01 23:50:54<   usinewgame
+2015/05/01 23:50:57<   position startpos moves 7g7f 
+2015/05/01 23:50:57<   go
+2015/05/01 23:51:05<   position startpos moves 7g7f 8b7b 2g2f 
+2015/05/01 23:51:05<   go
+2015/05/01 23:51:10<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 
+2015/05/01 23:51:10<   go
+2015/05/01 23:51:16<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 
+2015/05/01 23:51:16<   go
+2015/05/01 23:51:23<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 
+2015/05/01 23:51:23<   go
+2015/05/01 23:51:30<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 
+2015/05/01 23:51:30<   go
+2015/05/01 23:51:46<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 
+2015/05/01 23:51:46<   go
+2015/05/01 23:52:06<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 5g3e 8h3c+ 
+2015/05/01 23:52:06<   go
+2015/05/01 23:52:33<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 5g3e 8h3c+ 5a6b N*5e 
+2015/05/01 23:52:33<   go
+2015/05/01 23:52:44<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 5g3e 8h3c+ 5a6b N*5e 7b8b 5e4c 
+2015/05/01 23:52:44<   go
+2015/05/01 23:52:57<   position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 5g3e 8h3c+ 5a6b N*5e 7b8b 5e4c 3a4b 2a4a 
+2015/05/01 23:52:57<   go
+2015/05/01 23:53:14<   quit
+2015/05/01 23:53:14<   quit

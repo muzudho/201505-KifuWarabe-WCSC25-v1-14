@@ -1,0 +1,8650 @@
+usi
+2015/04/26 1:02:54<   option name 子 type check default true
+2015/04/26 1:02:54<   option name USI type spin default 2 min 1 max 13
+2015/04/26 1:02:54<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/26 1:02:54<   option name 卯 type button default うさぎ
+2015/04/26 1:02:54<   option name 辰 type string default DRAGON
+2015/04/26 1:02:54<   option name 巳 type filename default スネーク.html
+2015/04/26 1:02:54<   id name KifuWarabe
+2015/04/26 1:02:54<   id author TAKAHASHI Satoshi
+2015/04/26 1:02:54<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/26 1:02:54<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/04/26 1:03:03<   bestmove 2c2d
+position startpos moves 7g7f 2c2d 2g2f 
+go
+2015/04/26 1:03:15<   bestmove 8c8d
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 
+go
+2015/04/26 1:03:24<   bestmove 2d2e
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 
+go
+2015/04/26 1:03:32<   bestmove 8d8e
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 
+go
+2015/04/26 1:03:42<   bestmove 7c7d
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 
+go
+2015/04/26 1:04:01<   bestmove 3a2b
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 
+go
+2015/04/26 1:04:25<   bestmove 2b3a
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 
+go
+2015/04/26 1:04:49<   bestmove 6a7b
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 
+go
+2015/04/26 1:05:02<   bestmove 5a6a
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 
+go
+2015/04/26 1:05:26<   bestmove 1c1d
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 
+go
+2015/04/26 1:05:32<   bestmove 6a5b
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 
+go
+2015/04/26 1:05:51<   bestmove 5b4a
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 
+go
+2015/04/26 1:05:59<   bestmove 4a5a
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a 
+go
+2015/04/26 1:06:05<   bestmove N*4a
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a N*4a 3b4b 
+go
+2015/04/26 1:06:11<   bestmove 5a6a
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a N*4a 3b4b 5a6a 3a4a 
+go
+2015/04/26 1:06:15<   bestmove 6a6b
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a N*4a 3b4b 5a6a 3a4a 6a6b B*5a 
+go
+2015/04/26 1:06:21<   bestmove 6b6a
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 8d8e P*2c 7c7d 2c2b+ 3a2b 6i7h 2b3a 2e2a+ 6a7b 8h3c+ 5a6a N*6e 1c1d 6e5c 6a5b 5c4a+ 5b4a 3c3b 4a5a 2a3a N*4a 3b4b 5a6a 3a4a 6a6b B*5a 6b6a 5a7c+ 
+go
+2015/04/26 1:06:24<   bestmove resign
+gameover lose
+quit
+usi
+2015/04/28 19:34:12<   option name 子 type check default true
+2015/04/28 19:34:12<   option name USI type spin default 2 min 1 max 13
+2015/04/28 19:34:12<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 19:34:12<   option name 卯 type button default うさぎ
+2015/04/28 19:34:12<   option name 辰 type string default DRAGON
+2015/04/28 19:34:12<   option name 巳 type filename default スネーク.html
+2015/04/28 19:34:12<   id name KifuWarabe
+2015/04/28 19:34:12<   id author TAKAHASHI Satoshi
+2015/04/28 19:34:12<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 19:34:12<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/04/28 19:34:21<   bestmove 8b3b
+usi
+2015/04/28 19:34:48<   option name 子 type check default true
+2015/04/28 19:34:48<   option name USI type spin default 2 min 1 max 13
+2015/04/28 19:34:48<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 19:34:48<   option name 卯 type button default うさぎ
+2015/04/28 19:34:48<   option name 辰 type string default DRAGON
+2015/04/28 19:34:48<   option name 巳 type filename default スネーク.html
+2015/04/28 19:34:48<   id name KifuWarabe
+2015/04/28 19:34:48<   id author TAKAHASHI Satoshi
+2015/04/28 19:34:48<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 19:34:48<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/04/28 19:34:56<   bestmove 2c2d
+position startpos moves 7g7f 2c2d 2g2f 
+go
+2015/04/28 19:35:03<   bestmove 8b3b
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 
+go
+2015/04/28 19:35:10<   bestmove 2d2e
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 
+go
+2015/04/28 19:35:18<   bestmove 3c3d
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 
+go
+2015/04/28 19:35:31<   bestmove 2b8h
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h 
+go
+2015/04/28 19:35:59<   bestmove B*1d
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 
+go
+2015/04/28 19:36:23<   bestmove 7c7d
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 7c7d 4e4c+ 
+go
+2015/04/28 19:36:40<   bestmove 3b7b
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 7c7d 4e4c+ 3b7b 4c3d 
+go
+2015/04/28 19:37:18<   bestmove 1d4g+
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 7c7d 4e4c+ 3b7b 4c3d 1d4g+ 8h1a+ 
+go
+2015/04/28 19:37:45<   bestmove 2a3c
+position startpos moves 7g7f 2c2d 2g2f 8b3b 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 7c7d 4e4c+ 3b7b 4c3d 1d4g+ 8h1a+ 2a3c 1a3c 
+go
+2015/04/28 19:38:19<   bestmove 4g2i
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/28 23:01:44<   option name 子 type check default true
+2015/04/28 23:01:44<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:01:44<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:01:44<   option name 卯 type button default うさぎ
+2015/04/28 23:01:44<   option name 辰 type string default DRAGON
+2015/04/28 23:01:44<   option name 巳 type filename default スネーク.html
+2015/04/28 23:01:44<   id name KifuWarabe
+2015/04/28 23:01:44<   id author TAKAHASHI Satoshi
+2015/04/28 23:01:44<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:01:44<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/28 23:05:32<   option name 子 type check default true
+2015/04/28 23:05:32<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:05:32<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:05:32<   option name 卯 type button default うさぎ
+2015/04/28 23:05:32<   option name 辰 type string default DRAGON
+2015/04/28 23:05:32<   option name 巳 type filename default スネーク.html
+2015/04/28 23:05:32<   id name KifuWarabe
+2015/04/28 23:05:32<   id author TAKAHASHI Satoshi
+2015/04/28 23:05:32<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:05:32<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/28 23:07:54<   option name 子 type check default true
+2015/04/28 23:07:54<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:07:54<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:07:54<   option name 卯 type button default うさぎ
+2015/04/28 23:07:54<   option name 辰 type string default DRAGON
+2015/04/28 23:07:54<   option name 巳 type filename default スネーク.html
+2015/04/28 23:07:54<   id name KifuWarabe
+2015/04/28 23:07:54<   id author TAKAHASHI Satoshi
+2015/04/28 23:07:54<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:07:54<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/28 23:08:46<   option name 子 type check default true
+2015/04/28 23:08:46<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:08:46<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:08:46<   option name 卯 type button default うさぎ
+2015/04/28 23:08:46<   option name 辰 type string default DRAGON
+2015/04/28 23:08:46<   option name 巳 type filename default スネーク.html
+2015/04/28 23:08:46<   id name KifuWarabe
+2015/04/28 23:08:46<   id author TAKAHASHI Satoshi
+2015/04/28 23:08:46<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:08:46<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/04/28 23:08:53<   bestmove 2c2d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/28 23:52:28<   option name 子 type check default true
+2015/04/28 23:52:28<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:52:28<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:52:28<   option name 卯 type button default うさぎ
+2015/04/28 23:52:28<   option name 辰 type string default DRAGON
+2015/04/28 23:52:28<   option name 巳 type filename default スネーク.html
+2015/04/28 23:52:28<   id name KifuWarabe
+2015/04/28 23:52:28<   id author TAKAHASHI Satoshi
+2015/04/28 23:52:28<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:52:28<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/28 23:53:05<   option name 子 type check default true
+2015/04/28 23:53:05<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:53:05<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:53:05<   option name 卯 type button default うさぎ
+2015/04/28 23:53:05<   option name 辰 type string default DRAGON
+2015/04/28 23:53:05<   option name 巳 type filename default スネーク.html
+2015/04/28 23:53:05<   id name KifuWarabe
+2015/04/28 23:53:05<   id author TAKAHASHI Satoshi
+2015/04/28 23:53:05<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:53:05<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+usi
+2015/04/28 23:55:37<   option name 子 type check default true
+2015/04/28 23:55:37<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:55:37<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:55:37<   option name 卯 type button default うさぎ
+2015/04/28 23:55:37<   option name 辰 type string default DRAGON
+2015/04/28 23:55:37<   option name 巳 type filename default スネーク.html
+2015/04/28 23:55:37<   id name KifuWarabe
+2015/04/28 23:55:37<   id author TAKAHASHI Satoshi
+2015/04/28 23:55:37<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:55:37<   readyok
+usinewgame
+usi
+2015/04/28 23:55:41<   option name 子 type check default true
+2015/04/28 23:55:41<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:55:41<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:55:41<   option name 卯 type button default うさぎ
+2015/04/28 23:55:41<   option name 辰 type string default DRAGON
+2015/04/28 23:55:41<   option name 巳 type filename default スネーク.html
+2015/04/28 23:55:41<   id name KifuWarabe
+2015/04/28 23:55:41<   id author TAKAHASHI Satoshi
+2015/04/28 23:55:41<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:55:41<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/04/28 23:55:47<   bestmove 8c8d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/28 23:56:26<   option name 子 type check default true
+2015/04/28 23:56:26<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:56:26<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:56:26<   option name 卯 type button default うさぎ
+2015/04/28 23:56:26<   option name 辰 type string default DRAGON
+2015/04/28 23:56:26<   option name 巳 type filename default スネーク.html
+2015/04/28 23:56:26<   id name KifuWarabe
+2015/04/28 23:56:26<   id author TAKAHASHI Satoshi
+2015/04/28 23:56:26<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:56:26<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/28 23:57:10<   option name 子 type check default true
+2015/04/28 23:57:10<   option name USI type spin default 2 min 1 max 13
+2015/04/28 23:57:10<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/28 23:57:10<   option name 卯 type button default うさぎ
+2015/04/28 23:57:10<   option name 辰 type string default DRAGON
+2015/04/28 23:57:10<   option name 巳 type filename default スネーク.html
+2015/04/28 23:57:10<   id name KifuWarabe
+2015/04/28 23:57:10<   id author TAKAHASHI Satoshi
+2015/04/28 23:57:10<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/28 23:57:10<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/04/28 23:57:17<   bestmove 8b3b
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/30 23:52:57<   option name 子 type check default true
+2015/04/30 23:52:57<   option name USI type spin default 2 min 1 max 13
+2015/04/30 23:52:57<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/30 23:52:57<   option name 卯 type button default うさぎ
+2015/04/30 23:52:57<   option name 辰 type string default DRAGON
+2015/04/30 23:52:57<   option name 巳 type filename default スネーク.html
+2015/04/30 23:52:57<   id name KifuWarabe
+2015/04/30 23:52:57<   id author TAKAHASHI Satoshi
+2015/04/30 23:52:57<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/30 23:52:57<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/04/30 23:56:01<   option name 子 type check default true
+2015/04/30 23:56:01<   option name USI type spin default 2 min 1 max 13
+2015/04/30 23:56:01<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/04/30 23:56:01<   option name 卯 type button default うさぎ
+2015/04/30 23:56:01<   option name 辰 type string default DRAGON
+2015/04/30 23:56:01<   option name 巳 type filename default スネーク.html
+2015/04/30 23:56:01<   id name KifuWarabe
+2015/04/30 23:56:01<   id author TAKAHASHI Satoshi
+2015/04/30 23:56:01<   usiok
+setoption name USI_Ponder value false
+isready
+2015/04/30 23:56:01<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/04/30 23:56:08<   bestmove 8b3b
+position startpos moves 7g7f 8b3b 2g2f 
+go
+2015/04/30 23:56:15<   bestmove 2c2d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 
+go
+2015/04/30 23:56:21<   bestmove 2d2e
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 
+go
+2015/04/30 23:56:26<   bestmove 3c3d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 
+go
+2015/04/30 23:56:42<   bestmove 3a2b
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d 
+go
+2015/04/30 23:57:08<   bestmove B*4d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 
+go
+2015/04/30 23:57:40<   bestmove 2b2c
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 
+go
+2015/04/30 23:58:01<   bestmove 3b3a
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 
+go
+2015/04/30 23:58:50<   bestmove 4d2b
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b 
+go
+2015/04/30 23:59:12<   bestmove S*6h
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 
+go
+2015/04/30 23:59:26<   bestmove 3a3c
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 
+go
+2015/04/30 23:59:50<   bestmove 3d3e
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 
+go
+2015/05/01 0:00:07<   bestmove 7c7d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 7c7d 2d3c+ 
+go
+2015/05/01 0:00:14<   bestmove 5a6b
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 7c7d 2d3c+ 5a6b 2a4a 
+go
+2015/05/01 0:00:28<   bestmove 6c6d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 7c7d 2d3c+ 5a6b 2a4a 6c6d N*5e 
+go
+2015/05/01 0:00:45<   bestmove 6d6e
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d 8h2b+ 3a2b P*2d B*4d 2d2c+ 2b2c 2e2c+ 3b3a S*2b 4d2b 2c2b S*6h 7i6h 3a3c 2b2a 3d3e B*2d 7c7d 2d3c+ 5a6b 2a4a 6c6d N*5e 6d6e G*6c 
+go
+2015/05/01 0:00:49<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 22:46:45<   option name 子 type check default true
+2015/05/01 22:46:45<   option name USI type spin default 2 min 1 max 13
+2015/05/01 22:46:45<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 22:46:45<   option name 卯 type button default うさぎ
+2015/05/01 22:46:45<   option name 辰 type string default DRAGON
+2015/05/01 22:46:45<   option name 巳 type filename default スネーク.html
+2015/05/01 22:46:45<   id name KifuWarabe
+2015/05/01 22:46:45<   id author TAKAHASHI Satoshi
+2015/05/01 22:46:45<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 22:46:45<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 22:46:54<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 8h7g 
+go
+2015/05/01 22:47:01<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+go
+2015/05/01 22:47:08<   bestmove 1c1d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 
+go
+2015/05/01 22:47:15<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 
+go
+2015/05/01 22:47:22<   bestmove 2b1c
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 
+go
+2015/05/01 22:47:32<   bestmove 1d1e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 
+go
+2015/05/01 22:47:46<   bestmove 1c3e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 
+go
+2015/05/01 22:48:01<   bestmove 5a6b
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 
+go
+2015/05/01 22:48:25<   bestmove 3e1c
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 
+go
+2015/05/01 22:48:47<   bestmove 1c5g+
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 
+go
+2015/05/01 22:49:02<   bestmove 6c6d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 
+go
+2015/05/01 22:49:24<   bestmove 6d6e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 
+go
+2015/05/01 22:49:31<   bestmove 6b6c
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 
+go
+2015/05/01 22:49:54<   bestmove 5c5d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 5c5d 1a1d 
+go
+2015/05/01 22:50:22<   bestmove 4c4d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 5c5d 1a1d 4c4d 1d4d 
+go
+2015/05/01 22:50:49<   bestmove 4a5a
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 5c5d 1a1d 4c4d 1d4d 4a5a 1h5d 
+go
+2015/05/01 22:51:00<   bestmove 6c5b
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 1c1d 2f2e 2d2e 2h2e 2b1c 4i5h 1d1e 2e2a+ 1c3e 7g3c+ 5a6b 3c3d 3e1c 2a1a 1c5g+ 5h5g 6c6d 3d3e 6d6e N*5d 6b6c B*1h 5c5d 1a1d 4c4d 1d4d 4a5a 1h5d 6c5b 4d4c 
+go
+2015/05/01 22:51:06<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 23:07:46<   option name 子 type check default true
+2015/05/01 23:07:46<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:07:46<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:07:46<   option name 卯 type button default うさぎ
+2015/05/01 23:07:46<   option name 辰 type string default DRAGON
+2015/05/01 23:07:46<   option name 巳 type filename default スネーク.html
+2015/05/01 23:07:46<   id name KifuWarabe
+2015/05/01 23:07:46<   id author TAKAHASHI Satoshi
+2015/05/01 23:07:46<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:07:46<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:07:52<   bestmove 8b3b
+position startpos moves 7g7f 8b3b 2g2f 
+go
+2015/05/01 23:07:59<   bestmove 2c2d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:08:44<   option name 子 type check default true
+2015/05/01 23:08:44<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:08:44<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:08:44<   option name 卯 type button default うさぎ
+2015/05/01 23:08:44<   option name 辰 type string default DRAGON
+2015/05/01 23:08:44<   option name 巳 type filename default スネーク.html
+2015/05/01 23:08:44<   id name KifuWarabe
+2015/05/01 23:08:44<   id author TAKAHASHI Satoshi
+2015/05/01 23:08:44<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:08:44<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:08:49<   bestmove 8b3b
+position startpos moves 7g7f 8b3b 2g2f 
+go
+2015/05/01 23:08:55<   bestmove 2c2d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 
+go
+2015/05/01 23:09:00<   bestmove 2d2e
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:09:06<   bestmove 3c3d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 
+go
+2015/05/01 23:09:18<   bestmove 2b8h
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h 
+go
+2015/05/01 23:09:40<   bestmove B*1d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 
+go
+2015/05/01 23:10:06<   bestmove 6c6d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 
+go
+2015/05/01 23:10:28<   bestmove 5a6b
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 
+go
+2015/05/01 23:10:43<   bestmove 7c7d
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 
+go
+2015/05/01 23:11:16<   bestmove 3b1b
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 
+go
+2015/05/01 23:11:46<   bestmove 1d2e
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 
+go
+2015/05/01 23:12:06<   bestmove 6a7b
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 6a7b 4a3a 
+go
+2015/05/01 23:12:32<   bestmove 7a8b
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 6a7b 4a3a 7a8b 2c2b+ 
+go
+2015/05/01 23:12:52<   bestmove 1b2b
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 6a7b 4a3a 7a8b 2c2b+ 1b2b 3a2b 
+go
+2015/05/01 23:12:58<   bestmove 6b7a
+position startpos moves 7g7f 8b3b 2g2f 2c2d 2f2e 2d2e 2h2e 3c3d P*2c 2b8h 7i8h B*1d 2e4e 6c6d 3i3h 5a6b 1g1f 7c7d 4e4c+ 3b1b 1f1e 1d2e 4c4a 6a7b 4a3a 7a8b 2c2b+ 1b2b 3a2b 6b7a R*3a 
+go
+2015/05/01 23:13:03<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 23:13:59<   option name 子 type check default true
+2015/05/01 23:13:59<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:13:59<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:13:59<   option name 卯 type button default うさぎ
+2015/05/01 23:13:59<   option name 辰 type string default DRAGON
+2015/05/01 23:13:59<   option name 巳 type filename default スネーク.html
+2015/05/01 23:13:59<   id name KifuWarabe
+2015/05/01 23:13:59<   id author TAKAHASHI Satoshi
+2015/05/01 23:13:59<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:13:59<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:14:06<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 8h7g 
+go
+2015/05/01 23:14:14<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+go
+2015/05/01 23:14:20<   bestmove 4a3b
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 
+go
+2015/05/01 23:14:27<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:14:32<   bestmove 3b2c
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 
+go
+2015/05/01 23:14:44<   bestmove 9c9d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 
+go
+2015/05/01 23:15:28<   bestmove 5a4a
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 5a4a P*2c 
+go
+2015/05/01 23:15:43<   bestmove 5c5d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 5a4a P*2c 5c5d 2c2b+ 
+go
+2015/05/01 23:15:59<   bestmove 3a2b
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 5a4a P*2c 5c5d 2c2b+ 3a2b G*2c 
+go
+2015/05/01 23:16:24<   bestmove 2b2c
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 4a3b 2f2e 2d2e 2h2e 3b2c 2e2c+ 9c9d 2c2e 5a4a P*2c 5c5d 2c2b+ 3a2b G*2c 2b2c 2e2c 
+go
+usi
+2015/05/01 23:17:30<   option name 子 type check default true
+2015/05/01 23:17:30<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:17:30<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:17:30<   option name 卯 type button default うさぎ
+2015/05/01 23:17:30<   option name 辰 type string default DRAGON
+2015/05/01 23:17:30<   option name 巳 type filename default スネーク.html
+2015/05/01 23:17:30<   id name KifuWarabe
+2015/05/01 23:17:30<   id author TAKAHASHI Satoshi
+2015/05/01 23:17:30<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:17:30<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:17:36<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 8h7g 
+go
+2015/05/01 23:17:42<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+go
+2015/05/01 23:17:49<   bestmove 5c5d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 
+go
+2015/05/01 23:17:55<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:18:03<   bestmove 8d8e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 8d8e P*2c 
+go
+2015/05/01 23:18:13<   bestmove 4c4d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 8d8e P*2c 4c4d 2c2b+ 
+go
+2015/05/01 23:18:26<   bestmove 3a2b
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:19:23<   option name 子 type check default true
+2015/05/01 23:19:23<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:19:23<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:19:23<   option name 卯 type button default うさぎ
+2015/05/01 23:19:23<   option name 辰 type string default DRAGON
+2015/05/01 23:19:23<   option name 巳 type filename default スネーク.html
+2015/05/01 23:19:23<   id name KifuWarabe
+2015/05/01 23:19:23<   id author TAKAHASHI Satoshi
+2015/05/01 23:19:23<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:19:23<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:19:30<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 8h7g 
+go
+2015/05/01 23:19:36<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+go
+2015/05/01 23:19:42<   bestmove 5c5d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 
+go
+2015/05/01 23:19:48<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:19:54<   bestmove 5a5b
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 
+go
+2015/05/01 23:20:01<   bestmove 6c6d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 6c6d 2c2b+ 
+go
+2015/05/01 23:20:12<   bestmove 3a2b
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 6c6d 2c2b+ 3a2b 2e2b+ 
+go
+2015/05/01 23:20:16<   bestmove 4a3b
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 6c6d 2c2b+ 3a2b 2e2b+ 4a3b 2b3b 
+go
+2015/05/01 23:20:21<   bestmove 5b5a
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 5c5d 2f2e 2d2e 2h2e 5a5b P*2c 6c6d 2c2b+ 3a2b 2e2b+ 4a3b 2b3b 5b5a G*4a 
+go
+2015/05/01 23:20:26<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 23:20:47<   option name 子 type check default true
+2015/05/01 23:20:47<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:20:47<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:20:47<   option name 卯 type button default うさぎ
+2015/05/01 23:20:47<   option name 辰 type string default DRAGON
+2015/05/01 23:20:47<   option name 巳 type filename default スネーク.html
+2015/05/01 23:20:47<   id name KifuWarabe
+2015/05/01 23:20:47<   id author TAKAHASHI Satoshi
+2015/05/01 23:20:47<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:20:47<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:20:54<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 8h7g 
+go
+2015/05/01 23:21:00<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+go
+2015/05/01 23:21:06<   bestmove 6c6d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 
+go
+2015/05/01 23:21:12<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:21:20<   bestmove 5c5d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:21:46<   option name 子 type check default true
+2015/05/01 23:21:46<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:21:46<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:21:46<   option name 卯 type button default うさぎ
+2015/05/01 23:21:46<   option name 辰 type string default DRAGON
+2015/05/01 23:21:46<   option name 巳 type filename default スネーク.html
+2015/05/01 23:21:46<   id name KifuWarabe
+2015/05/01 23:21:46<   id author TAKAHASHI Satoshi
+2015/05/01 23:21:46<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:21:46<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:21:53<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 2g2f 
+go
+2015/05/01 23:21:59<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 
+go
+2015/05/01 23:22:04<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:22:10<   bestmove 4c4d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 
+go
+2015/05/01 23:22:18<   bestmove 3c3d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 
+go
+2015/05/01 23:22:29<   bestmove 3a2b
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b B*8h 
+go
+2015/05/01 23:22:46<   bestmove 2b3a
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:23:22<   option name 子 type check default true
+2015/05/01 23:23:22<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:23:22<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:23:22<   option name 卯 type button default うさぎ
+2015/05/01 23:23:22<   option name 辰 type string default DRAGON
+2015/05/01 23:23:22<   option name 巳 type filename default スネーク.html
+2015/05/01 23:23:22<   id name KifuWarabe
+2015/05/01 23:23:22<   id author TAKAHASHI Satoshi
+2015/05/01 23:23:22<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:23:22<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:23:29<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 8h7g 
+go
+2015/05/01 23:23:35<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 
+go
+2015/05/01 23:23:42<   bestmove 6c6d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 
+go
+2015/05/01 23:23:49<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:23:55<   bestmove 9c9d
+position startpos moves 7g7f 8c8d 8h7g 2c2d 2g2f 6c6d 2f2e 2d2e 2h2e 9c9d P*2c 
+go
+usi
+2015/05/01 23:24:36<   option name 子 type check default true
+2015/05/01 23:24:36<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:24:36<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:24:36<   option name 卯 type button default うさぎ
+2015/05/01 23:24:36<   option name 辰 type string default DRAGON
+2015/05/01 23:24:36<   option name 巳 type filename default スネーク.html
+2015/05/01 23:24:36<   id name KifuWarabe
+2015/05/01 23:24:36<   id author TAKAHASHI Satoshi
+2015/05/01 23:24:36<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:24:36<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:24:42<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 2g2f 
+go
+2015/05/01 23:24:49<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 
+go
+2015/05/01 23:24:54<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:25:00<   bestmove 4c4d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:25:36<   option name 子 type check default true
+2015/05/01 23:25:36<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:25:36<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:25:36<   option name 卯 type button default うさぎ
+2015/05/01 23:25:36<   option name 辰 type string default DRAGON
+2015/05/01 23:25:36<   option name 巳 type filename default スネーク.html
+2015/05/01 23:25:36<   id name KifuWarabe
+2015/05/01 23:25:36<   id author TAKAHASHI Satoshi
+2015/05/01 23:25:36<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:25:36<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:25:42<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 2g2f 
+go
+2015/05/01 23:25:48<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 
+go
+2015/05/01 23:25:54<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:26:00<   bestmove 4c4d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 
+go
+2015/05/01 23:26:07<   bestmove 1c1d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 1c1d 2c2b+ 
+go
+2015/05/01 23:26:28<   bestmove 3a2b
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 1c1d 2c2b+ 3a2b 8h4d 
+go
+2015/05/01 23:26:40<   bestmove 2b3a
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:27:51<   option name 子 type check default true
+2015/05/01 23:27:51<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:27:51<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:27:51<   option name 卯 type button default うさぎ
+2015/05/01 23:27:51<   option name 辰 type string default DRAGON
+2015/05/01 23:27:51<   option name 巳 type filename default スネーク.html
+2015/05/01 23:27:51<   id name KifuWarabe
+2015/05/01 23:27:51<   id author TAKAHASHI Satoshi
+2015/05/01 23:27:51<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:27:51<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:27:57<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 2g2f 
+go
+2015/05/01 23:28:03<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 
+go
+2015/05/01 23:28:09<   bestmove 2d2e
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:28:15<   bestmove 4c4d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 
+go
+2015/05/01 23:28:23<   bestmove 3c3d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 
+go
+2015/05/01 23:28:36<   bestmove 3a2b
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b 8h4d 
+go
+2015/05/01 23:28:52<   bestmove 2b3a
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b 8h4d 2b3a 2e2a+ 
+go
+2015/05/01 23:29:08<   bestmove 6c6d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b 8h4d 2b3a 2e2a+ 6c6d 4d5c+ 
+go
+2015/05/01 23:29:22<   bestmove 9c9d
+position startpos moves 7g7f 8c8d 2g2f 2c2d 2f2e 2d2e 2h2e 4c4d P*2c 3c3d 2c2b+ 3a2b 8h4d 2b3a 2e2a+ 6c6d 4d5c+ 9c9d N*4c 
+go
+2015/05/01 23:29:35<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 23:30:01<   option name 子 type check default true
+2015/05/01 23:30:01<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:30:01<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:30:01<   option name 卯 type button default うさぎ
+2015/05/01 23:30:01<   option name 辰 type string default DRAGON
+2015/05/01 23:30:01<   option name 巳 type filename default スネーク.html
+2015/05/01 23:30:01<   id name KifuWarabe
+2015/05/01 23:30:01<   id author TAKAHASHI Satoshi
+2015/05/01 23:30:01<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:30:01<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:30:08<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 8h7g 
+go
+2015/05/01 23:30:16<   bestmove 2c2d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:32:42<   option name 子 type check default true
+2015/05/01 23:32:42<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:32:42<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:32:42<   option name 卯 type button default うさぎ
+2015/05/01 23:32:42<   option name 辰 type string default DRAGON
+2015/05/01 23:32:42<   option name 巳 type filename default スネーク.html
+2015/05/01 23:32:42<   id name KifuWarabe
+2015/05/01 23:32:42<   id author TAKAHASHI Satoshi
+2015/05/01 23:32:42<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:32:42<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:32:48<   bestmove 2c2d
+position startpos moves 7g7f 2c2d 2g2f 
+go
+2015/05/01 23:32:55<   bestmove 8c8d
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 
+go
+2015/05/01 23:33:01<   bestmove 2d2e
+position startpos moves 7g7f 2c2d 2g2f 8c8d 2f2e 2d2e 2h2e 
+go
+2015/05/01 23:33:08<   bestmove 4c4d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:33:46<   option name 子 type check default true
+2015/05/01 23:33:46<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:33:46<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:33:46<   option name 卯 type button default うさぎ
+2015/05/01 23:33:46<   option name 辰 type string default DRAGON
+2015/05/01 23:33:46<   option name 巳 type filename default スネーク.html
+2015/05/01 23:33:46<   id name KifuWarabe
+2015/05/01 23:33:46<   id author TAKAHASHI Satoshi
+2015/05/01 23:33:46<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:33:46<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:33:52<   bestmove 2c2d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:34:35<   option name 子 type check default true
+2015/05/01 23:34:35<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:34:35<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:34:35<   option name 卯 type button default うさぎ
+2015/05/01 23:34:35<   option name 辰 type string default DRAGON
+2015/05/01 23:34:35<   option name 巳 type filename default スネーク.html
+2015/05/01 23:34:35<   id name KifuWarabe
+2015/05/01 23:34:35<   id author TAKAHASHI Satoshi
+2015/05/01 23:34:35<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:34:35<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:34:45<   bestmove 8b7b
+position startpos moves 7g7f 8b7b 2g2f 
+go
+2015/05/01 23:34:50<   bestmove 7b5b
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 
+go
+2015/05/01 23:34:55<   bestmove 2c2d
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 
+go
+2015/05/01 23:35:01<   bestmove 5c5d
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 
+go
+2015/05/01 23:35:08<   bestmove 6c6d
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 
+go
+2015/05/01 23:35:18<   bestmove 3a2b
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 
+go
+2015/05/01 23:35:30<   bestmove 6a6b
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 6a6b 2d2c+ 
+go
+2015/05/01 23:35:43<   bestmove 2b2c
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 6a6b 2d2c+ 2b2c 2h2c+ 
+go
+2015/05/01 23:35:56<   bestmove 5d5e
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 6a6b 2d2c+ 2b2c 2h2c+ 5d5e 2c2a 
+go
+2015/05/01 23:36:12<   bestmove 4a3a
+position startpos moves 7g7f 8b7b 2g2f 7b5b 2f2e 2c2d 2e2d 5c5d 2d2c+ 6c6d 2c2b 3a2b P*2d 6a6b 2d2c+ 2b2c 2h2c+ 5d5e 2c2a 4a3a 2a3a 
+go
+2015/05/01 23:36:16<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 23:37:58<   option name 子 type check default true
+2015/05/01 23:37:58<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:37:58<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:37:58<   option name 卯 type button default うさぎ
+2015/05/01 23:37:58<   option name 辰 type string default DRAGON
+2015/05/01 23:37:58<   option name 巳 type filename default スネーク.html
+2015/05/01 23:37:58<   id name KifuWarabe
+2015/05/01 23:37:58<   id author TAKAHASHI Satoshi
+2015/05/01 23:37:58<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:37:58<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:38:05<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 2g2f 
+go
+2015/05/01 23:38:11<   bestmove 4c4d
+position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 
+go
+2015/05/01 23:38:18<   bestmove 9c9d
+position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 9c9d 4d5c+ 
+go
+2015/05/01 23:38:26<   bestmove 3c3d
+position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 9c9d 4d5c+ 3c3d 7i8h 
+go
+2015/05/01 23:38:38<   bestmove 2b7g
+position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 9c9d 4d5c+ 3c3d 7i8h 2b7g 8h7g 
+go
+2015/05/01 23:38:49<   bestmove 6a5b
+position startpos moves 7g7f 8c8d 2g2f 4c4d 8h4d 9c9d 4d5c+ 3c3d 7i8h 2b7g 8h7g 6a5b 5c7a 
+go
+2015/05/01 23:39:03<   bestmove 2c2d
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2015/05/01 23:40:43<   option name 子 type check default true
+2015/05/01 23:40:43<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:40:43<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:40:43<   option name 卯 type button default うさぎ
+2015/05/01 23:40:43<   option name 辰 type string default DRAGON
+2015/05/01 23:40:43<   option name 巳 type filename default スネーク.html
+2015/05/01 23:40:43<   id name KifuWarabe
+2015/05/01 23:40:43<   id author TAKAHASHI Satoshi
+2015/05/01 23:40:43<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:40:43<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:40:50<   bestmove 2c2d
+position startpos moves 7g7f 2c2d 2g2f 
+go
+2015/05/01 23:40:58<   bestmove 8b5b
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 
+go
+2015/05/01 23:41:04<   bestmove 4c4d
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 
+go
+2015/05/01 23:41:11<   bestmove 5b4b
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 
+go
+2015/05/01 23:41:20<   bestmove 9c9d
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 
+go
+2015/05/01 23:41:41<   bestmove 3a2b
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 
+go
+2015/05/01 23:41:55<   bestmove 7c7d
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 
+go
+2015/05/01 23:42:07<   bestmove 2b2c
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 
+go
+2015/05/01 23:42:23<   bestmove 4d4e
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 
+go
+2015/05/01 23:42:48<   bestmove 1c1d
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 
+go
+2015/05/01 23:43:06<   bestmove 4a3a
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 
+go
+2015/05/01 23:43:14<   bestmove 4b4a
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 4b4a G*4b 
+go
+2015/05/01 23:43:19<   bestmove 5a6b
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 4b4a G*4b 5a6b 3a4a 
+go
+2015/05/01 23:43:29<   bestmove 6b7b
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 4b4a G*4b 5a6b 3a4a 6b7b 4b5b 
+go
+2015/05/01 23:43:44<   bestmove 5c5d
+position startpos moves 7g7f 2c2d 2g2f 8b5b 2f2e 4c4d 2e2d 5b4b 2d2c+ 9c9d 2c2b 3a2b P*2d 7c7d 2d2c+ 2b2c 2h2c+ 4d4e 2c2a 1c1d B*5e 4a3a 2a3a 4b4a G*4b 5a6b 3a4a 6b7b 4b5b 5c5d 4a6a 
+go
+2015/05/01 23:43:51<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 23:45:12<   option name 子 type check default true
+2015/05/01 23:45:12<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:45:12<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:45:12<   option name 卯 type button default うさぎ
+2015/05/01 23:45:12<   option name 辰 type string default DRAGON
+2015/05/01 23:45:12<   option name 巳 type filename default スネーク.html
+2015/05/01 23:45:12<   id name KifuWarabe
+2015/05/01 23:45:12<   id author TAKAHASHI Satoshi
+2015/05/01 23:45:12<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:45:12<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:45:20<   bestmove 2c2d
+position startpos moves 7g7f 2c2d 2g2f 
+go
+2015/05/01 23:45:26<   bestmove 7a6b
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 
+go
+2015/05/01 23:45:31<   bestmove 6c6d
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 
+go
+2015/05/01 23:45:37<   bestmove 4a4b
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 
+go
+2015/05/01 23:45:44<   bestmove 8b7b
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 
+go
+2015/05/01 23:45:54<   bestmove 3a2b
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 
+go
+2015/05/01 23:46:05<   bestmove 6d6e
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 
+go
+2015/05/01 23:46:09<   bestmove 5a5b
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 
+go
+2015/05/01 23:46:26<   bestmove 4b4a
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 
+go
+2015/05/01 23:46:38<   bestmove 4a3a
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a 
+go
+2015/05/01 23:47:10<   bestmove S*4a
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 
+go
+2015/05/01 23:47:32<   bestmove 4a3b
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 4a3b 2b3b 
+go
+2015/05/01 23:47:36<   bestmove 5b6c
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 4a3b 2b3b 5b6c B*4a 
+go
+2015/05/01 23:47:45<   bestmove 6c6d
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 4a3b 2b3b 5b6c B*4a 6c6d G*7e 
+go
+2015/05/01 23:47:52<   bestmove 6d5d
+position startpos moves 7g7f 2c2d 2g2f 7a6b 2f2e 6c6d 2e2d 4a4b 2d2c+ 8b7b 2c2b 3a2b 2h2b+ 6d6e 2b2a 5a5b S*3a 4b4a 8h3c+ 4a3a 2a3a S*4a 3a2b 4a3b 2b3b 5b6c B*4a 6c6d G*7e 6d5d 3b4c 
+go
+2015/05/01 23:47:54<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 23:48:46<   option name 子 type check default true
+2015/05/01 23:48:46<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:48:46<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:48:46<   option name 卯 type button default うさぎ
+2015/05/01 23:48:46<   option name 辰 type string default DRAGON
+2015/05/01 23:48:46<   option name 巳 type filename default スネーク.html
+2015/05/01 23:48:46<   id name KifuWarabe
+2015/05/01 23:48:46<   id author TAKAHASHI Satoshi
+2015/05/01 23:48:46<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:48:46<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:48:52<   bestmove 7c7d
+position startpos moves 7g7f 7c7d 2g2f 
+go
+2015/05/01 23:49:01<   bestmove 2c2d
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 
+go
+2015/05/01 23:49:08<   bestmove 8b6b
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 
+go
+2015/05/01 23:49:15<   bestmove 8a7c
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 
+go
+2015/05/01 23:49:26<   bestmove 6c6d
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 
+go
+2015/05/01 23:49:38<   bestmove 3a2b
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 
+go
+2015/05/01 23:49:50<   bestmove 4a5b
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 
+go
+2015/05/01 23:50:00<   bestmove 2b2c
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 2b2c 2h2c+ 
+go
+2015/05/01 23:50:11<   bestmove 5c5d
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 2b2c 2h2c+ 5c5d 2c2a 
+go
+2015/05/01 23:50:16<   bestmove 5a4b
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 2b2c 2h2c+ 5c5d 2c2a 5a4b B*3a 
+go
+2015/05/01 23:50:20<   bestmove 4b4a
+position startpos moves 7g7f 7c7d 2g2f 2c2d 2f2e 8b6b 2e2d 8a7c 2d2c+ 6c6d 2c2b 3a2b P*2d 4a5b 2d2c+ 2b2c 2h2c+ 5c5d 2c2a 5a4b B*3a 4b4a 3a5c+ 
+go
+2015/05/01 23:50:24<   bestmove resign
+gameover lose
+quit
+usi
+2015/05/01 23:50:54<   option name 子 type check default true
+2015/05/01 23:50:54<   option name USI type spin default 2 min 1 max 13
+2015/05/01 23:50:54<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2015/05/01 23:50:54<   option name 卯 type button default うさぎ
+2015/05/01 23:50:54<   option name 辰 type string default DRAGON
+2015/05/01 23:50:54<   option name 巳 type filename default スネーク.html
+2015/05/01 23:50:54<   id name KifuWarabe
+2015/05/01 23:50:54<   id author TAKAHASHI Satoshi
+2015/05/01 23:50:54<   usiok
+setoption name USI_Ponder value false
+isready
+2015/05/01 23:50:54<   readyok
+usinewgame
+position startpos moves 7g7f 
+go
+2015/05/01 23:51:02<   bestmove 8b7b
+position startpos moves 7g7f 8b7b 2g2f 
+go
+2015/05/01 23:51:08<   bestmove 7c7d
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 
+go
+2015/05/01 23:51:14<   bestmove 1c1d
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 
+go
+2015/05/01 23:51:21<   bestmove 2c2d
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 
+go
+2015/05/01 23:51:28<   bestmove 2b1c
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 
+go
+2015/05/01 23:51:39<   bestmove 1c5g+
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 
+go
+2015/05/01 23:51:58<   bestmove 5g3e
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 5g3e 8h3c+ 
+go
+2015/05/01 23:52:08<   bestmove 5a6b
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 5g3e 8h3c+ 5a6b N*5e 
+go
+2015/05/01 23:52:39<   bestmove 7b8b
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 5g3e 8h3c+ 5a6b N*5e 7b8b 5e4c 
+go
+2015/05/01 23:52:50<   bestmove 3a4b
+position startpos moves 7g7f 8b7b 2g2f 7c7d 2f2e 1c1d 2e2d 2c2d 2h2d 2b1c 2d2a+ 1c5g+ 6i6h 5g3e 8h3c+ 5a6b N*5e 7b8b 5e4c 3a4b 2a4a 
+go
+2015/05/01 23:53:07<   bestmove 4b3c
+quit
+quit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usi
+2020/11/14 11:23:52<   option name 子 type check default true
+2020/11/14 11:23:52<   option name USI type spin default 2 min 1 max 13
+2020/11/14 11:23:52<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/11/14 11:23:52<   option name 卯 type button default うさぎ
+2020/11/14 11:23:52<   option name 辰 type string default DRAGON
+2020/11/14 11:23:52<   option name 巳 type filename default スネーク.html
+2020/11/14 11:23:52<   id name KifuWarabe
+2020/11/14 11:23:52<   id author TAKAHASHI Satoshi
+2020/11/14 11:23:52<   usiok
+
+usi
+2020/11/14 11:27:03<   option name 子 type check default true
+2020/11/14 11:27:03<   option name USI type spin default 2 min 1 max 13
+2020/11/14 11:27:03<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/11/14 11:27:03<   option name 卯 type button default うさぎ
+2020/11/14 11:27:03<   option name 辰 type string default DRAGON
+2020/11/14 11:27:03<   option name 巳 type filename default スネーク.html
+2020/11/14 11:27:03<   id name KifuWarabe
+2020/11/14 11:27:03<   id author TAKAHASHI Satoshi
+2020/11/14 11:27:03<   usiok
+quit
+usi
+2020/11/14 11:27:08<   option name 子 type check default true
+2020/11/14 11:27:08<   option name USI type spin default 2 min 1 max 13
+2020/11/14 11:27:08<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/11/14 11:27:08<   option name 卯 type button default うさぎ
+2020/11/14 11:27:08<   option name 辰 type string default DRAGON
+2020/11/14 11:27:08<   option name 巳 type filename default スネーク.html
+2020/11/14 11:27:08<   id name KifuWarabe
+2020/11/14 11:27:08<   id author TAKAHASHI Satoshi
+2020/11/14 11:27:08<   usiok
+quit
+usi
+2020/11/14 11:29:58<   option name 子 type check default true
+2020/11/14 11:29:58<   option name USI type spin default 2 min 1 max 13
+2020/11/14 11:29:58<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/11/14 11:29:58<   option name 卯 type button default うさぎ
+2020/11/14 11:29:58<   option name 辰 type string default DRAGON
+2020/11/14 11:29:58<   option name 巳 type filename default スネーク.html
+2020/11/14 11:29:58<   id name KifuWarabe_WCSC25
+2020/11/14 11:29:58<   id author TAKAHASHI Satoshi
+2020/11/14 11:29:58<   usiok
+quit
+usi
+2020/11/14 11:30:11<   option name 子 type check default true
+2020/11/14 11:30:11<   option name USI type spin default 2 min 1 max 13
+2020/11/14 11:30:11<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/11/14 11:30:11<   option name 卯 type button default うさぎ
+2020/11/14 11:30:11<   option name 辰 type string default DRAGON
+2020/11/14 11:30:11<   option name 巳 type filename default スネーク.html
+2020/11/14 11:30:11<   id name KifuWarabe_WCSC25
+2020/11/14 11:30:11<   id author TAKAHASHI Satoshi
+2020/11/14 11:30:11<   usiok
+setoption name USI_Ponder value true
+setoption name USI_Hash value 256
+setoption name 子 value true
+setoption name USI value 2
+setoption name 寅 value tiger
+setoption name 辰 value DRAGON
+setoption name 巳 value スネーク.html
+quit
+usi
+2020/11/14 11:30:30<   option name 子 type check default true
+2020/11/14 11:30:30<   option name USI type spin default 2 min 1 max 13
+2020/11/14 11:30:30<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/11/14 11:30:30<   option name 卯 type button default うさぎ
+2020/11/14 11:30:30<   option name 辰 type string default DRAGON
+2020/11/14 11:30:30<   option name 巳 type filename default スネーク.html
+2020/11/14 11:30:30<   id name KifuWarabe_WCSC25
+2020/11/14 11:30:30<   id author TAKAHASHI Satoshi
+2020/11/14 11:30:30<   usiok
+setoption name USI_Ponder value true
+setoption name USI_Hash value 256
+setoption name 子 value true
+setoption name USI value 2
+setoption name 寅 value tiger
+setoption name 辰 value DRAGON
+setoption name 巳 value スネーク.html
+isready
+2020/11/14 11:30:30<   readyok
+usinewgame
+position startpos
+go btime 300000 wtime 300000 binc 5000 winc 5000
+2020/11/14 11:30:31<   bestmove 8g8f
+position startpos moves 8g8f 4a3b
+go btime 304000 wtime 304000 binc 5000 winc 5000
+2020/11/14 11:30:33<   bestmove 2g2f
+position startpos moves 8g8f 4a3b 2g2f 6a5b
+go btime 308000 wtime 308000 binc 5000 winc 5000
+2020/11/14 11:30:35<   bestmove 4g4f
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d
+go btime 312000 wtime 312000 binc 5000 winc 5000
+2020/11/14 11:30:37<   bestmove 5g5f
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c
+go btime 316000 wtime 316000 binc 5000 winc 5000
+2020/11/14 11:30:39<   bestmove 4f4e
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+
+go btime 320000 wtime 320000 binc 5000 winc 5000
+2020/11/14 11:30:42<   bestmove 4i5h
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i
+go btime 324000 wtime 324000 binc 5000 winc 5000
+2020/11/14 11:30:46<   bestmove 3g3f
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h
+go btime 327000 wtime 328000 binc 5000 winc 5000
+2020/11/14 11:30:50<   bestmove 8f8e
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g
+go btime 329000 wtime 332000 binc 5000 winc 5000
+2020/11/14 11:30:53<   bestmove 5i4h
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g 5i4h 2h1i
+go btime 332000 wtime 336000 binc 5000 winc 5000
+2020/11/14 11:30:58<   bestmove 4h4g
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g 5i4h 2h1i 4h4g 1i2i
+go btime 334000 wtime 340000 binc 5000 winc 5000
+2020/11/14 11:31:00<   bestmove 4g4h
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g 5i4h 2h1i 4h4g 1i2i 4g4h L*8f
+go btime 338000 wtime 344000 binc 5000 winc 5000
+2020/11/14 11:31:05<   bestmove 9g9f
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g 5i4h 2h1i 4h4g 1i2i 4g4h L*8f 9g9f 8g8h+
+go btime 340000 wtime 348000 binc 5000 winc 5000
+2020/11/14 11:31:11<   bestmove 4h4i
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g 5i4h 2h1i 4h4g 1i2i 4g4h L*8f 9g9f 8g8h+ 4h4i 8h9i
+go btime 341000 wtime 352000 binc 5000 winc 5000
+2020/11/14 11:31:17<   bestmove 5h5i
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g 5i4h 2h1i 4h4g 1i2i 4g4h L*8f 9g9f 8g8h+ 4h4i 8h9i 5h5i B*3h
+go btime 342000 wtime 356000 binc 5000 winc 5000
+2020/11/14 11:31:19<   bestmove 4i5h
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g 5i4h 2h1i 4h4g 1i2i 4g4h L*8f 9g9f 8g8h+ 4h4i 8h9i 5h5i B*3h 4i5h 3h4g+
+go btime 346000 wtime 360000 binc 5000 winc 5000
+2020/11/14 11:31:21<   bestmove 5h4i
+position startpos moves 8g8f 4a3b 2g2f 6a5b 4g4f 1c1d 5g5f 2b1c 4f4e 1c5g+ 4i5h 5g3i 3g3f 3i2h 8f8e S*8g 5i4h 2h1i 4h4g 1i2i 4g4h L*8f 9g9f 8g8h+ 4h4i 8h9i 5h5i B*3h 4i5h 3h4g+ 5h4i 2i3h
+go btime 350000 wtime 364000 binc 5000 winc 5000
+2020/11/14 11:31:22<   bestmove resign
+gameover lose
+isready
+2020/11/14 11:31:27<   readyok
+usinewgame
+position startpos moves 2g2f
+go btime 304000 wtime 300000 binc 5000 winc 5000
+2020/11/14 11:31:29<   bestmove 5a4b
+position startpos moves 2g2f 5a4b 6i7h
+go btime 308000 wtime 304000 binc 5000 winc 5000
+2020/11/14 11:31:31<   bestmove 8b7b
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h
+go btime 312000 wtime 308000 binc 5000 winc 5000
+2020/11/14 11:31:33<   bestmove 4c4d
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h
+go btime 316000 wtime 312000 binc 5000 winc 5000
+2020/11/14 11:31:35<   bestmove 9c9d
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h
+go btime 320000 wtime 316000 binc 5000 winc 5000
+2020/11/14 11:31:37<   bestmove 9a9b
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f
+go btime 324000 wtime 320000 binc 5000 winc 5000
+2020/11/14 11:31:39<   bestmove 2c2d
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d
+go btime 328000 wtime 324000 binc 5000 winc 5000
+2020/11/14 11:31:41<   bestmove 6c6d
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e
+go btime 332000 wtime 328000 binc 5000 winc 5000
+2020/11/14 11:31:43<   bestmove 4b4c
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g
+go btime 336000 wtime 332000 binc 5000 winc 5000
+2020/11/14 11:31:46<   bestmove 4c5d
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e
+go btime 340000 wtime 336000 binc 5000 winc 5000
+2020/11/14 11:31:49<   bestmove 2d2e
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c
+go btime 344000 wtime 340000 binc 5000 winc 5000
+2020/11/14 11:31:52<   bestmove 9d9e
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c 9d9e 2c2b+
+go btime 348000 wtime 344000 binc 5000 winc 5000
+2020/11/14 11:31:57<   bestmove 7b2b
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c 9d9e 2c2b+ 7b2b B*4d
+go btime 352000 wtime 346000 binc 5000 winc 5000
+2020/11/14 11:32:00<   bestmove 5d4c
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c 9d9e 2c2b+ 7b2b B*4d 5d4c 4d5c+
+go btime 356000 wtime 349000 binc 5000 winc 5000
+2020/11/14 11:32:02<   bestmove 4c3d
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c 9d9e 2c2b+ 7b2b B*4d 5d4c 4d5c+ 4c3d 5c4d
+go btime 360000 wtime 353000 binc 5000 winc 5000
+2020/11/14 11:32:03<   bestmove 3d2c
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c 9d9e 2c2b+ 7b2b B*4d 5d4c 4d5c+ 4c3d 5c4d 3d2c 4d4e
+go btime 364000 wtime 357000 binc 5000 winc 5000
+2020/11/14 11:32:04<   bestmove 3c3d
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c 9d9e 2c2b+ 7b2b B*4d 5d4c 4d5c+ 4c3d 5c4d 3d2c 4d4e 3c3d 2h2e
+go btime 368000 wtime 361000 binc 5000 winc 5000
+2020/11/14 11:32:06<   bestmove 2c1b
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c 9d9e 2c2b+ 7b2b B*4d 5d4c 4d5c+ 4c3d 5c4d 3d2c 4d4e 3c3d 2h2e 2c1b 4e3d
+go btime 372000 wtime 365000 binc 5000 winc 5000
+2020/11/14 11:32:08<   bestmove 2b2c
+position startpos moves 2g2f 5a4b 6i7h 8b7b 3i3h 4c4d 7i6h 9c9d 4i5h 9a9b 7g7f 2c2d 8h4d 6c6d 4d3e 4b4c 6h7g 4c5d 2f2e 2d2e P*2c 9d9e 2c2b+ 7b2b B*4d 5d4c 4d5c+ 4c3d 5c4d 3d2c 4d4e 3c3d 2h2e 2c1b 4e3d 2b2c 2e2c+
+go btime 376000 wtime 369000 binc 5000 winc 5000
+2020/11/14 11:32:09<   bestmove resign
+gameover lose
+isready
+2020/11/14 11:32:14<   readyok
+usinewgame
+position startpos
+go btime 300000 wtime 300000 binc 5000 winc 5000
+2020/11/14 11:32:15<   bestmove 2g2f
+position startpos moves 2g2f 8c8d
+go btime 304000 wtime 304000 binc 5000 winc 5000
+2020/11/14 11:32:17<   bestmove 5g5f
+position startpos moves 2g2f 8c8d 5g5f 4a3b
+go btime 308000 wtime 308000 binc 5000 winc 5000
+2020/11/14 11:32:19<   bestmove 8g8f
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b
+go btime 312000 wtime 312000 binc 5000 winc 5000
+2020/11/14 11:32:21<   bestmove 2f2e
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e
+go btime 316000 wtime 316000 binc 5000 winc 5000
+2020/11/14 11:32:24<   bestmove 4i5h
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f
+go btime 320000 wtime 320000 binc 5000 winc 5000
+2020/11/14 11:32:26<   bestmove 4g4f
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+
+go btime 324000 wtime 324000 binc 5000 winc 5000
+2020/11/14 11:32:28<   bestmove 6g6f
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h
+go btime 328000 wtime 328000 binc 5000 winc 5000
+2020/11/14 11:32:32<   bestmove 7i8h
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+
+go btime 331000 wtime 332000 binc 5000 winc 5000
+2020/11/14 11:32:37<   bestmove 1g1f
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i
+go btime 333000 wtime 336000 binc 5000 winc 5000
+2020/11/14 11:32:43<   bestmove 3g3f
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i 3g3f S*7h
+go btime 334000 wtime 340000 binc 5000 winc 5000
+2020/11/14 11:32:48<   bestmove 5i6h
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i 3g3f S*7h 5i6h 8i6i
+go btime 336000 wtime 344000 binc 5000 winc 5000
+2020/11/14 11:32:50<   bestmove 6h5g
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i 3g3f S*7h 5i6h 8i6i 6h5g 6i3i
+go btime 340000 wtime 348000 binc 5000 winc 5000
+2020/11/14 11:32:56<   bestmove 5g6h
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i 3g3f S*7h 5i6h 8i6i 6h5g 6i3i 5g6h S*6g
+go btime 341000 wtime 352000 binc 5000 winc 5000
+2020/11/14 11:32:58<   bestmove 5h6g
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i 3g3f S*7h 5i6h 8i6i 6h5g 6i3i 5g6h S*6g 5h6g B*7i
+go btime 345000 wtime 356000 binc 5000 winc 5000
+2020/11/14 11:33:00<   bestmove 6h5h
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i 3g3f S*7h 5i6h 8i6i 6h5g 6i3i 5g6h S*6g 5h6g B*7i 6h5h 7h6i
+go btime 349000 wtime 360000 binc 5000 winc 5000
+2020/11/14 11:33:01<   bestmove 5h4g
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i 3g3f S*7h 5i6h 8i6i 6h5g 6i3i 5g6h S*6g 5h6g B*7i 6h5h 7h6i 5h4g N*3e
+go btime 353000 wtime 364000 binc 5000 winc 5000
+2020/11/14 11:33:03<   bestmove 3f3e
+position startpos moves 2g2f 8c8d 5g5f 4a3b 8g8f 5a4b 2f2e 8d8e 4i5h 8e8f 4g4f 8f8g+ 6g6f 8g8h 7i8h 8b8h+ 1g1f 8h8i 3g3f S*7h 5i6h 8i6i 6h5g 6i3i 5g6h S*6g 5h6g B*7i 6h5h 7h6i 5h4g N*3e 3f3e G*3f
+go btime 357000 wtime 368000 binc 5000 winc 5000
+2020/11/14 11:33:05<   bestmove resign
+gameover lose
+isready
+2020/11/14 11:33:10<   readyok
+usinewgame
+position startpos moves 7g7f
+go btime 304000 wtime 300000 binc 5000 winc 5000
+2020/11/14 11:33:12<   bestmove 8c8d
+position startpos moves 7g7f 8c8d 2h7h
+go btime 308000 wtime 304000 binc 5000 winc 5000
+2020/11/14 11:33:14<   bestmove 8d8e
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g
+go btime 312000 wtime 308000 binc 5000 winc 5000
+2020/11/14 11:33:17<   bestmove 5c5d
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h
+go btime 316000 wtime 312000 binc 5000 winc 5000
+2020/11/14 11:33:19<   bestmove 8b8d
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h
+go btime 320000 wtime 316000 binc 5000 winc 5000
+2020/11/14 11:33:22<   bestmove 2c2d
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f
+go btime 324000 wtime 320000 binc 5000 winc 5000
+2020/11/14 11:33:24<   bestmove 8e8f
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h
+go btime 328000 wtime 324000 binc 5000 winc 5000
+2020/11/14 11:33:27<   bestmove 8f8g+
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g
+go btime 332000 wtime 328000 binc 5000 winc 5000
+2020/11/14 11:33:30<   bestmove 8d8g+
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g
+go btime 336000 wtime 332000 binc 5000 winc 5000
+2020/11/14 11:33:38<   bestmove R*6e
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b
+go btime 340000 wtime 331000 binc 5000 winc 5000
+2020/11/14 11:33:43<   bestmove 6e2e
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+
+go btime 344000 wtime 332000 binc 5000 winc 5000
+2020/11/14 11:33:50<   bestmove 2e2g+
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h
+go btime 348000 wtime 332000 binc 5000 winc 5000
+2020/11/14 11:33:56<   bestmove 2g2h
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a
+go btime 352000 wtime 332000 binc 5000 winc 5000
+2020/11/14 11:34:03<   bestmove 2h1i
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c
+go btime 356000 wtime 331000 binc 5000 winc 5000
+2020/11/14 11:34:17<   bestmove 5d5e
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b
+go btime 360000 wtime 325000 binc 5000 winc 5000
+2020/11/14 11:34:34<   bestmove 3a2b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c
+go btime 364000 wtime 315000 binc 5000 winc 5000
+2020/11/14 11:34:51<   bestmove 6a5b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a
+go btime 368000 wtime 305000 binc 5000 winc 5000
+2020/11/14 11:34:53<   bestmove 5a4b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+
+go btime 372000 wtime 309000 binc 5000 winc 5000
+2020/11/14 11:34:55<   bestmove 4b3b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+
+go btime 376000 wtime 313000 binc 5000 winc 5000
+2020/11/14 11:35:13<   bestmove 1i1g
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g
+go btime 380000 wtime 302000 binc 5000 winc 5000
+2020/11/14 11:35:33<   bestmove 3c3d
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d
+go btime 383000 wtime 290000 binc 5000 winc 5000
+2020/11/14 11:35:52<   bestmove L*8e
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d L*8e 4a4b
+go btime 387000 wtime 280000 binc 5000 winc 5000
+2020/11/14 11:35:56<   bestmove 3b3c
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d L*8e 4a4b 3b3c R*2c
+go btime 391000 wtime 284000 binc 5000 winc 5000
+2020/11/14 11:35:58<   bestmove 2b2c
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d L*8e 4a4b 3b3c R*2c 2b2c 7a3a
+go btime 395000 wtime 288000 binc 5000 winc 5000
+2020/11/14 11:36:00<   bestmove R*3b
+position startpos moves 7g7f 8c8d 2h7h 8d8e 8h7g 5c5d 7h8h 8b8d 5i4h 2c2d 8g8f 8e8f 7i7h 8f8g+ 8h8g 8d8g+ 7h8g R*6e P*8b 6e2e 8b8a+ 2e2g+ 3i3h 2g2h 8a9a 2h1i L*2c 5d5e 2c2b 3a2b N*5c 6a5b R*6a 5a4b 5c4a+ 4b3b 6a7a+ 1i1g 2i1g 3c3d G*5d L*8e 4a4b 3b3c R*2c 2b2c 7a3a R*3b S*2b
+go btime 399000 wtime 292000 binc 5000 winc 5000
+2020/11/14 11:36:02<   bestmove resign
+gameover lose
+isready
+2020/11/14 11:36:07<   readyok
+usinewgame
+position startpos
+go btime 300000 wtime 300000 binc 5000 winc 5000
+2020/11/14 11:36:08<   bestmove 8g8f
+position startpos moves 8g8f 4a3b
+go btime 304000 wtime 304000 binc 5000 winc 5000
+2020/11/14 11:36:10<   bestmove 2g2f
+position startpos moves 8g8f 4a3b 2g2f 6a5b
+go btime 308000 wtime 308000 binc 5000 winc 5000
+2020/11/14 11:36:12<   bestmove 4g4f
+quit
+usi
+2020/12/06 0:47:15<   option name 子 type check default true
+2020/12/06 0:47:15<   option name USI type spin default 2 min 1 max 13
+2020/12/06 0:47:15<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/12/06 0:47:15<   option name 卯 type button default うさぎ
+2020/12/06 0:47:15<   option name 辰 type string default DRAGON
+2020/12/06 0:47:15<   option name 巳 type filename default スネーク.html
+2020/12/06 0:47:15<   id name Satoshi TAKAHASHI
+2020/12/06 0:47:15<   id author Kifuwarazusa Bld1
+2020/12/06 0:47:15<   usiok
+isready
+2020/12/06 0:47:19<   readyok
+
+usi
+2020/12/11 23:15:12<   option name 子 type check default true
+2020/12/11 23:15:12<   option name USI type spin default 2 min 1 max 13
+2020/12/11 23:15:12<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/12/11 23:15:12<   option name 卯 type button default うさぎ
+2020/12/11 23:15:12<   option name 辰 type string default DRAGON
+2020/12/11 23:15:12<   option name 巳 type filename default スネーク.html
+2020/12/11 23:15:12<   id name Satoshi TAKAHASHI
+2020/12/11 23:15:12<   id author Kifuwarazusa Bld1
+2020/12/11 23:15:12<   usiok
+quit
+usi
+2020/12/11 23:15:24<   option name 子 type check default true
+2020/12/11 23:15:24<   option name USI type spin default 2 min 1 max 13
+2020/12/11 23:15:24<   option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+2020/12/11 23:15:24<   option name 卯 type button default うさぎ
+2020/12/11 23:15:24<   option name 辰 type string default DRAGON
+2020/12/11 23:15:24<   option name 巳 type filename default スネーク.html
+2020/12/11 23:15:24<   id name Satoshi TAKAHASHI
+2020/12/11 23:15:24<   id author Kifuwarazusa Bld1
+2020/12/11 23:15:24<   usiok
+setoption name USI_Ponder value true
+setoption name USI_Hash value 256
+setoption name 子 value true
+setoption name USI value 2
+setoption name 寅 value tiger
+setoption name 辰 value DRAGON
+setoption name 巳 value スネーク.html
+isready
+2020/12/11 23:15:24<   readyok
+usinewgame
+position startpos moves 2g2f
+go btime 301000 wtime 300000 binc 2000 winc 2000
+2020/12/11 23:15:26<   bestmove 8b5b
+position startpos moves 2g2f 8b5b 2f2e
+go btime 302000 wtime 301000 binc 2000 winc 2000
+2020/12/11 23:15:28<   bestmove 5c5d

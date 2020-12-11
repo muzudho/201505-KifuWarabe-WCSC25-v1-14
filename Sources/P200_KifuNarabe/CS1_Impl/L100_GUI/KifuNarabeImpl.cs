@@ -20,7 +20,7 @@ using Grayscale.P200_KifuNarabe.L050_Scene;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
+using Nett;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
@@ -199,8 +199,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         {
             try
             {
-                //string path = Application.StartupPath + @"\Data\data_style.txt";
-                string path = Application.StartupPath + "/../../Data/data_style.txt";
+                //string path = Application.StartupPath + @"\Profile\Data\data_style.txt";
+                string path = Application.StartupPath + "/../../Profile/Data/data_style.txt";
 #if DEBUG
                 MessageBox.Show("独自スタイルシート　path=" + path);
 #endif
@@ -262,27 +262,29 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             LarabeLoggerable logTag = LarabeLoggerList.LOGGING_BY_GUI;
             logTag.WriteLine_AddMemo("乱数のたね＝[" + LarabeRandom.Seed + "]");
 
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
             //----------
             // 道１８７
             //----------
-            Michi187Array.Load("../../Data/data_michi187.csv");
-            File.WriteAllText("../../Logs/_log_道表.html", Michi187Array.LogHtml());
+            Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Michi187")));
+            File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("MichiTableHtml")), Michi187Array.LogHtml());
 
             //----------
             // 駒の配役１８１
             //----------
-            Util_Haiyaku184Array.Load("../../Data/data_haiyaku185_UTF-8.csv", Encoding.UTF8);
+            Util_Haiyaku184Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Haiyaku185")), Encoding.UTF8);
 
             {
-                List<List<string>> rows = ForcePromotionArray.Load("../../Data/data_forcePromotion_UTF-8.csv", Encoding.UTF8);
-                File.WriteAllText("../../Logs/_log_強制転成表.html", ForcePromotionArray.LogHtml());
+                List<List<string>> rows = ForcePromotionArray.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputForcePromotion")), Encoding.UTF8);
+                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputForcePromotion")), ForcePromotionArray.LogHtml());
             }
 
             {
                 // 配役転換表
-                List<List<string>> rows = Data_HaiyakuTransition.Load("../../Data/data_syuruiToHaiyaku.csv", Encoding.UTF8);
-                File.WriteAllText("../../Logs/_log_配役転換表.html", Data_HaiyakuTransition.LogHtml());
+                List<List<string>> rows = Data_HaiyakuTransition.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputSyuruiToHaiyaku")), Encoding.UTF8);
+                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputSyuruiToHaiyaku")), Data_HaiyakuTransition.LogHtml());
             }
         }
 

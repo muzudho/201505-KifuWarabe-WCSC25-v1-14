@@ -188,8 +188,8 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
             var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
             var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
-            this.Owner.Send($"id name {engineAuthor}");
-            this.Owner.Send($"id author {engineName}");
+            this.Owner.Send($"id name {engineName}");
+            this.Owner.Send($"id author {engineAuthor}");
             this.Owner.Send("usiok");
         }
 

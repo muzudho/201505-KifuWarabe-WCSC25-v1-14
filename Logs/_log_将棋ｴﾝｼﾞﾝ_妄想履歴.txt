@@ -1,0 +1,22 @@
+[
+    {"name":"KomaDoku","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
+    ,{"name":"Himoduki","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
+    ,{"name":"Kimagure","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
+    ,{"name":"GyokuNoMamori","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
+    ,{"name":"Toosi","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
+    ,{"name":"MenomaenoFuWoTore","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
+    ,{"name":"KakuTouNoHimoduki","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
+    ,{"name":"Tukisute","masu":"65","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/ppppppppp/9/9/7P1/PPPPPPP1P/1B5R1/LNSGKGSNL w - 1"}}
+    ,{"name":"Tukisute","masu":"65","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/ppppppp1p/7p1/7P1/9/PPPPPPP1P/1B5R1/LNSGKGSNL w - 1"}}
+    ,{"name":"Tukisute","masu":"65","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/ppppppp2/7Pp/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w P 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/p1ppppp+P1/1p6p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w P 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5+P1/p1p1ppp2/1p1p4p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w BP 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkg1nl/1r5s1/p1pBppp2/1p1p4p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w Pp 1"}}
+    ,{"name":"Ido","masu":"9","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkg1nl/7s1/prp1ppp2/1p1p4p/5+B3/9/PPPPPPP1P/1B5R1/LNSGKGSNL w Pp 1"}}
+    ,{"name":"Ido","masu":"29","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/9/prp1ppp+B1/1p1p4p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w Pp 1"}}
+    ,{"name":"Ido","masu":"65","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgk1snl/4g2P1/prp1ppp+B1/1p1p4p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w p 1"}}
+    ,{"name":"Ido","masu":"78","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgk1s+Pl/4g4/prp1ppp+B1/3p4p/1p7/9/PPPPPPP1P/1B5R1/LNSGKGSNL w Np 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgk1+P1l/3g5/prp1ppp+B1/3p4p/1p7/9/PPPPPPP1P/1B5R1/LNSGKGSNL w SNp 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen ln1gk+B+P1l/1s1g5/prp1ppp2/3p4p/1p7/9/PPPPPPP1P/1B5R1/LNSGKGSNL w SNp 1"}}
+]
+

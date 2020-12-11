@@ -66,7 +66,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
             // --position="position sfen 1nsgkgsnl/9/p2pppppp/9/9/9/P2PPPPPP/1B5R1/1NSGKGSNL w L2Pl2p 1 moves 5a6b 7g7f 3a3b" \
             // --outFolder="../../Logs/"
             // --outFile="_log_局面1.png"
-            // --imgFolder="../../Data/img/gkLog/" \
+            // --imgFolder="../../Profile/Data/img/gkLog/" \
             // --kmFile="koma1.png" \
             // --sjFile="suji1.png" \
             // --kmW=20 \

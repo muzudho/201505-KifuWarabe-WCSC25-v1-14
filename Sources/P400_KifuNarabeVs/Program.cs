@@ -1,6 +1,8 @@
 ﻿using Grayscale.P200_KifuNarabe.L100_GUI;
 using System;
 using System.Windows.Forms;
+using Nett;
+using System.IO;
 
 namespace Grayscale.P400_KifuNaraVs.L100_GUI
 {
@@ -27,8 +29,13 @@ namespace Grayscale.P400_KifuNaraVs.L100_GUI
             //↑ [STAThread]指定のあるメソッドで フォームを作成してください。
 
             kifuNarabeVs.Load_AsStart();
-            kifuNarabeVs.WidgetLoaders.Add(new WidgetsLoader_KifuNarabe("../../Data/data_widgets_KifuNarabe.csv"));
-            kifuNarabeVs.WidgetLoaders.Add(new WidgetsLoader_KifuNarabeVs("../../Data/data_widgets_KifuNarabeVs.csv"));
+
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+            var narabeConfigPath = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("NarabeGuiWidgets"));
+            kifuNarabeVs.WidgetLoaders.Add(new WidgetsLoader_KifuNarabe(narabeConfigPath));
+            var vsConfigPath = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("VsGuiWidgets"));
+            kifuNarabeVs.WidgetLoaders.Add(new WidgetsLoader_KifuNarabeVs(vsConfigPath));
 
             kifuNarabeVs.LaunchForm_AsBody();
 

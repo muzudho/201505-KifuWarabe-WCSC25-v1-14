@@ -208,7 +208,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                             int haiyakuHandle = (int)kh184;
 
 
-                            sb.Append("<img src=\"../Data/img/train");
+                            sb.Append("<img src=\"../Profile/Data/img/train");
 
 
                             if (haiyakuHandle<10)

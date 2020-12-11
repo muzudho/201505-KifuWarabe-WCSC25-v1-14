@@ -57,7 +57,7 @@ namespace Grayscale.P045_Atama.L012_Lua
 
                     //----------------------------------------------------------------------------------------------------
 
-                    string file = "../../Data/lua/KifuWarabe/data_score.lua";
+                    string file = "../../Profile/Data/lua/KifuWarabe/data_score.lua";
                     //System.Windows.Forms.MessageBox.Show("[" + file + "]ファイル読込み");
 
                     Util_Lua_KifuWarabe.lua.DoFile(file);// KifuNarabeVS の、bin/Release等に入れ忘れていないこと。

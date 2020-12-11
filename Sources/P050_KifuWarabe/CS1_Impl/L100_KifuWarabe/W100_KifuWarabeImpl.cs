@@ -127,20 +127,22 @@ namespace Grayscale.P050_KifuWarabe.L100_KifuWarabe
                 //------+-----------------------------------------------------------------------------------------------------------------
                 // 準備 |
                 //------+-----------------------------------------------------------------------------------------------------------------
+                var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+                var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
                 // データの読取「道」
-                Michi187Array.Load("../../Data/data_michi187.csv");
+                Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Michi187")));
 
                 // データの読取「配役」
-                Util_Haiyaku184Array.Load("../../Data/data_haiyaku185_UTF-8.csv", Encoding.UTF8);
+                Util_Haiyaku184Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Haiyaku185")), Encoding.UTF8);
 
                 // データの読取「強制転成表」　※駒配役を生成した後で。
-                ForcePromotionArray.Load("../../Data/data_forcePromotion_UTF-8.csv", Encoding.UTF8);
-                File.WriteAllText("../../Logs/_log_強制転成表.html", ForcePromotionArray.LogHtml());
+                ForcePromotionArray.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputForcePromotion")), Encoding.UTF8);
+                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputForcePromotion")), ForcePromotionArray.LogHtml());
 
                 // データの読取「配役転換表」
-                Data_HaiyakuTransition.Load("../../Data/data_syuruiToHaiyaku.csv", Encoding.UTF8);
-                File.WriteAllText("../../Logs/_log_配役転換表.html", Data_HaiyakuTransition.LogHtml());
+                Data_HaiyakuTransition.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputSyuruiToHaiyaku")), Encoding.UTF8);
+                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputSyuruiToHaiyaku")), Data_HaiyakuTransition.LogHtml());
 
 
 
@@ -188,8 +190,7 @@ namespace Grayscale.P050_KifuWarabe.L100_KifuWarabe
 
                     //seihinName += " " + versionStr;
                 }
-                var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-                var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
                 var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
                 this.Log_Engine.WriteLine_AddMemo($"v(^▽^)v ｲｪｰｲ☆ ... {engineName} {versionStr}");
 

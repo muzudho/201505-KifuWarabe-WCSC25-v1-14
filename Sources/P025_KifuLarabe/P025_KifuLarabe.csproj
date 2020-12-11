@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Builds\Engine\Bin\P025_KifuLarabe\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Debug\P025_KifuLarabe\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Builds\Engine\Bin\P025_KifuLarabe\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Release\P025_KifuLarabe\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,9 +38,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ProjectDark.KWSupport, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\By_Circle_ProjectDark\KWSupport\ProjectDark.KWSupport.dll</HintPath>
+    <Reference Include="ProjectDark.KWSupport">
+      <HintPath>..\..\References\CircleProjectDark\ProjectDark.KWSupport.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

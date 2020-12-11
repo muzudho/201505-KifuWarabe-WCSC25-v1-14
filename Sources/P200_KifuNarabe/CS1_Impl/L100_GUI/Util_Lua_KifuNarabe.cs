@@ -89,7 +89,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
                 //----------------------------------------------------------------------------------------------------
 
-                Util_Lua_KifuNarabe.lua.DoFile("../../Data/lua/KifuNarabe/data_gui.lua");//固定
+                Util_Lua_KifuNarabe.lua.DoFile("../../Profile/Data/lua/KifuNarabe/data_gui.lua");//固定
                 Util_Lua_KifuNarabe.lua.GetFunction(luaFuncName).Call();
 
                 // FIXME:Close()でエラーが起こってしまう。

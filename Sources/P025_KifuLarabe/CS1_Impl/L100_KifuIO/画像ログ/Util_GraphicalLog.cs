@@ -348,7 +348,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             sb.AppendLine("    <meta charset=\"UTF-8\">");
             sb.AppendLine("    <title>グラフィカル局面ログ</title>");
             sb.AppendLine("    ");
-            sb.AppendLine("    <script type=\"text/javascript\" src=\"../Data/graphicalKyokumenLog.js\">");
+            sb.AppendLine("    <script type=\"text/javascript\" src=\"../Profile/Data/graphicalKyokumenLog.js\">");
             sb.AppendLine("    </script>");
             sb.AppendLine("");
             sb.AppendLine("    <script type=\"text/javascript\">");

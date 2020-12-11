@@ -154,7 +154,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             {
                 Kh185 mobility = koma.Haiyaku;
                 StringBuilder sb = new StringBuilder();
-                sb.Append("../../Data/img/mobility/");
+                sb.Append("../../Profile/Data/img/mobility/");
                 sb.Append((int)mobility);
                 sb.Append(".png");
                 Image img = Image.FromFile(sb.ToString());
