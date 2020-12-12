@@ -20,12 +20,12 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
 
 
 
-        public static Node<ShootingStarlightable, KyokumenWrapper> CurNode(ShogiGui shogiGui)
+        public static Node<IMove, KyokumenWrapper> CurNode(ShogiGui shogiGui)
         {
             return shogiGui.Model_PnlTaikyoku.Kifu.CurNode;
         }
 
-        public static Node<ShootingStarlightable, KyokumenWrapper> CurNode(KifuTree kifu)
+        public static Node<IMove, KyokumenWrapper> CurNode(KifuTree kifu)
         {
             return kifu.CurNode;
         }

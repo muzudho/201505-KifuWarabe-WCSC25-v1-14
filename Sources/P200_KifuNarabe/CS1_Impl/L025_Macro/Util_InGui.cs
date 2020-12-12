@@ -93,9 +93,9 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
             // 符号表示
             //------------------------------
             {
-                Node<ShootingStarlightable, KyokumenWrapper> node6 = shogiGui.Model_PnlTaikyoku.Kifu.CurNode;
+                Node<IMove, KyokumenWrapper> node6 = shogiGui.Model_PnlTaikyoku.Kifu.CurNode;
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(((ShootingStarlightable)node6.Key).LongTimeAgo);
+                RO_Star_Koma koma = Util_Koma.AsKoma(((IMove)node6.Key).MoveSource);
 
                 FugoJ fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma.Haiyaku)](node6.Key, new KyokumenWrapper(shogiGui.Model_PnlTaikyoku.GuiSkyConst), logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
@@ -133,7 +133,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
 
         public static void Komamove1a_49Gui(
             out Ks14 toSyurui,
-            out Starlight dst,
+            out IMoveHalf dst,
             Shape_BtnKoma btnKoma_Selected,
             Shape_BtnMasu btnMasu,
             ShogiGui shogiGui
@@ -144,13 +144,13 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
             {
                 // 成ります
 
-                toSyurui = KomaSyurui14Array.NariCaseHandle[(int)Haiyaku184Array.Syurui(Util_Koma.AsKoma(shogiGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Haiyaku)];
+                toSyurui = KomaSyurui14Array.NariCaseHandle[(int)Haiyaku184Array.Syurui(Util_Koma.AsKoma(shogiGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.MoveSource).Haiyaku)];
                 shogiGui.Shape_PnlTaikyoku.SetNaruFlag(false);
             }
             else
             {
                 // そのまま
-                toSyurui = Haiyaku184Array.Syurui(Util_Koma.AsKoma(shogiGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Haiyaku);
+                toSyurui = Haiyaku184Array.Syurui(Util_Koma.AsKoma(shogiGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.MoveSource).Haiyaku);
             }
 
 
@@ -159,7 +159,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
                 dst = new RO_MotionlessStarlight(
                     //btnKoma_Selected.Finger,
                     new RO_Star_Koma(
-                        Util_Koma.AsKoma(shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Finger).Now).Pside,
+                        Util_Koma.AsKoma(shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Finger).MoveSource).Pside,
                         btnMasu.Zahyo,
                         toSyurui
                         )
@@ -215,7 +215,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
             LarabeLoggerable logTag
             )
         {
-            RO_Star_Koma koma = Util_Koma.AsKoma(shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(figKoma).Now);
+            RO_Star_Koma koma = Util_Koma.AsKoma(shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(figKoma).MoveSource);
 
             Shape_BtnKoma btnKoma = Util_InGui.FingerToKomaBtn(figKoma, shogiGui);
 

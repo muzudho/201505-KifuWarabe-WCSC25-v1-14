@@ -1,7 +1,7 @@
 ﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
-using Grayscale.P027_SasiteSeisei.L00025_MovableMove;
+using Grayscale.P027MoveGen.L00025_MovableMove;
 using Grayscale.P006_Syugoron;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
@@ -10,7 +10,7 @@ using Grayscale.P025_KifuLarabe.L100_KifuIO;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
+namespace Grayscale.P027MoveGen.L050_MovableMove
 {
     public class MmLogGenjoImpl : MmLogGenjo
     {
@@ -26,8 +26,8 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
         public int Tesumi_yomiCur { get { return this.tesumi_yomiCur; } }
         private int tesumi_yomiCur;
 
-        public ShootingStarlightable Sasite { get { return this.sasite; } }
-        private ShootingStarlightable sasite;
+        public IMove Move { get { return this.move; } }
+        private IMove move;
 
         public LarabeLoggerable LogTag { get { return this.logTag; } }
         private LarabeLoggerable logTag;
@@ -38,7 +38,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
             GraphicalLog_Board brdMove,
             int yomuDeep,//脳内読み手数
             int tesumi_yomiCur,
-            ShootingStarlightable sasite,
+            IMove move,
             LarabeLoggerable logTag
             )
         {
@@ -46,13 +46,13 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
             this.BrdMove = brdMove;
             this.yomuDeep = yomuDeep;
             this.tesumi_yomiCur = tesumi_yomiCur;
-            this.sasite = sasite;
+            this.move = move;
             this.logTag = logTag;
         }
 
         public void Log1(Playerside pside_genTeban3)
         {
-            this.BrdMove.Caption = "移動可能_" + Converter04.Sasite_ToString_ForLog(this.Sasite, pside_genTeban3);
+            this.BrdMove.Caption = "移動可能_" + Converter04.ChangeMoveToStringForLog(this.Move, pside_genTeban3);
             this.BrdMove.Tesumi = this.Tesumi_yomiCur;
             this.BrdMove.NounaiYomiDeep = this.YomuDeep;
             this.BrdMove.GenTeban = pside_genTeban3;// 現手番
@@ -88,7 +88,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
             GraphicalLog_Board boardLog_clone = new GraphicalLog_Board(this.BrdMove);
             foreach (Finger finger in fingers_seme_IKUSA.Items)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
 
                 Gkl_KomaMasu km = new Gkl_KomaMasu(
                     Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
@@ -99,7 +99,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
 
             foreach (Finger finger in fingers_kurau_IKUSA.Items)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
 
                 this.BrdMove.KomaMasu2.Add(new Gkl_KomaMasu(
                     Util_GraphicalLog.PsideKs14_ToString(tebanKurau, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
@@ -109,7 +109,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
 
             foreach (Finger finger in fingers_seme_MOTI.Items)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
 
                 Gkl_KomaMasu km = new Gkl_KomaMasu(
                     Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
@@ -120,7 +120,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
 
             foreach (Finger finger in fingers_kurau_MOTI.Items)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
 
                 this.BrdMove.KomaMasu4.Add(new Gkl_KomaMasu(
                     Util_GraphicalLog.PsideKs14_ToString(tebanKurau, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
@@ -140,7 +140,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
             GraphicalLog_Board boardLog_clone = new GraphicalLog_Board(this.BrdMove);
             kmMove_seme_IKUSA.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(key).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(key).MoveSource);
 
                 string komaImg = Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), "");
 

@@ -34,11 +34,11 @@ namespace Grayscale.P045_Atama.L050_KyHandan
             // まず、プレイヤー１の視点で得点計算します。
             double score_player1 = 0.0d;
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, IMoveHalf light, ref bool toBreak) =>
             {
                 RO_MotionlessStarlight ms = (RO_MotionlessStarlight)light;
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
 
                 // 単純に駒の種類による点数。
                 double komaScore = 0.0d;

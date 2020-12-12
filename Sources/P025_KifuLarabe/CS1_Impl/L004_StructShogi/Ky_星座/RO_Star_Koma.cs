@@ -14,7 +14,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
     /// <summary>
     /// 駒種類による指定。
     /// </summary>
-    public class RO_Star_Koma : Starlightable
+    public class RO_Star_Koma : IMoveSource
     {
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------

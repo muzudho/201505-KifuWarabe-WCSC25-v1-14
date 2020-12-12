@@ -61,7 +61,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
             this.kifu = new KifuTreeImpl(
                     new KifuNodeImpl(
-                        Util_Sky.NULL_OBJECT_SASITE,
+                        Util_Sky.NullObjectMove,
                         new KyokumenWrapper( new SkyConst( this.guiSky)),
                         Playerside.P2
                     )

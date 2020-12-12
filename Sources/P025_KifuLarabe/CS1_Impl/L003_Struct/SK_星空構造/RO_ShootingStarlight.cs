@@ -28,7 +28,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
     /// ・駒種類：「歩」「と金」など。補助で容易。
     /// </summary>
     [Serializable]
-    public class RO_ShootingStarlight : RO_MotionlessStarlight, ShootingStarlightable
+    public class RO_ShootingStarlight : RO_MotionlessStarlight, IMove
     {
 
 
@@ -39,8 +39,8 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         /// 先後、升、配役
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        public Starlightable LongTimeAgo { get { return this.longTimeAgo; } }
-        protected Starlightable longTimeAgo;
+        public IMoveSource MoveSource { get { return this.longTimeAgo; } }
+        protected IMoveSource longTimeAgo;
 
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         /// <param name="dstSyurui"></param>
         /// <param name="srcSyurui"></param>
         /// <param name="previousTe"></param>
-        public RO_ShootingStarlight(Starlightable longTimeAgo, Starlightable now, object/*Ks14*/ tottaKomaSyurui)//Finger finger,
+        public RO_ShootingStarlight(IMoveSource longTimeAgo, IMoveSource now, object/*Ks14*/ tottaKomaSyurui)//Finger finger,
             : base(now)//finger,
         {
             this.longTimeAgo = longTimeAgo;

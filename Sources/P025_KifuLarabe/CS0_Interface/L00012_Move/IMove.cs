@@ -9,7 +9,7 @@ namespace Grayscale.P025_KifuLarabe.L00012_Atom
     /// 「移動前の星」「移動後の星」「取った駒」です。
     /// 一局面の中に限れば、重複はなくてもよいはずです。
     /// </summary>
-    public interface ShootingStarlightable : Starlight
+    public interface IMove : IMoveHalf
     {
 
         /// <summary>
@@ -17,7 +17,7 @@ namespace Grayscale.P025_KifuLarabe.L00012_Atom
         /// 先後、升、配役
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        Starlightable LongTimeAgo { get; }
+        IMoveSource MoveSource { get; }
 
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------

@@ -18,7 +18,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         /// </summary>
         bool PsideIsBlack { get; set; }
 
-        Starlight StarlightIndexOf(
+        IMoveHalf StarlightIndexOf(
             Finger finger,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",

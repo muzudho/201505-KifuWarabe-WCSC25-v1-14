@@ -30,11 +30,11 @@ namespace Grayscale.P050_KifuWarabe.L012_ScoreSibori
             }
 
 
-            List<Node<ShootingStarlightable, KyokumenWrapper>> rankedNodes = this.RankingNode_WithJudge_ForeachNextNodes(kifu.CurNode);
+            List<Node<IMove, KyokumenWrapper>> rankedNodes = this.RankingNode_WithJudge_ForeachNextNodes(kifu.CurNode);
 
             // 1番高いスコアを調べます。
             double maxScore = int.MinValue;
-            foreach (Node<ShootingStarlightable, KyokumenWrapper> node in rankedNodes)
+            foreach (Node<IMove, KyokumenWrapper> node in rankedNodes)
             {
                 if(node is KifuNode)
                 {
@@ -50,9 +50,9 @@ namespace Grayscale.P050_KifuWarabe.L012_ScoreSibori
             // 1番高いスコアのノードだけ残します。
 
 
-            Dictionary<string, Node<ShootingStarlightable, KyokumenWrapper>> dic = new Dictionary<string, Node<ShootingStarlightable, KyokumenWrapper>>();
+            Dictionary<string, Node<IMove, KyokumenWrapper>> dic = new Dictionary<string, Node<IMove, KyokumenWrapper>>();
 
-            kifu.CurNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
+            kifu.CurNode.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 double score;
                 if (node is KifuNode)
@@ -97,12 +97,12 @@ namespace Grayscale.P050_KifuWarabe.L012_ScoreSibori
         /// </summary>
         /// <param name="nextNodes"></param>
         /// <returns></returns>
-        public List<Node<ShootingStarlightable, KyokumenWrapper>> RankingNode_WithJudge_ForeachNextNodes( Node<ShootingStarlightable, KyokumenWrapper> hubNode)
+        public List<Node<IMove, KyokumenWrapper>> RankingNode_WithJudge_ForeachNextNodes( Node<IMove, KyokumenWrapper> hubNode)
         {
             // ランク付けしたあと、リスト構造に移し変えます。
-            List<Node<ShootingStarlightable, KyokumenWrapper>> list = new List<Node<ShootingStarlightable, KyokumenWrapper>>();
+            List<Node<IMove, KyokumenWrapper>> list = new List<Node<IMove, KyokumenWrapper>>();
 
-            hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 list.Add(node);
             });
@@ -115,7 +115,7 @@ namespace Grayscale.P050_KifuWarabe.L012_ScoreSibori
         }
 
 
-        public static void Sort(List<Node<ShootingStarlightable, KyokumenWrapper>> items)
+        public static void Sort(List<Node<IMove, KyokumenWrapper>> items)
         {
             items.Sort((a, b) =>
             {

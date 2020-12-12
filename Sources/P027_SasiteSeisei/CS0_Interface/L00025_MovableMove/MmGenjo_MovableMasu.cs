@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 
-namespace Grayscale.P027_SasiteSeisei.L00025_MovableMove
+namespace Grayscale.P027MoveGen.L00025_MovableMove
 {
     public interface MmGenjo_MovableMasu
     {

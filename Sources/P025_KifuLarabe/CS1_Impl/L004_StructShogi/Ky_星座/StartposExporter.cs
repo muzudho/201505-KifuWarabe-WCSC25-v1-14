@@ -188,7 +188,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             // 将棋の駒４０個の場所を確認します。
             foreach (Finger finger in src_Sky.Fingers_All().Items)
             {
-                Starlightable light = src_Sky.StarlightIndexOf(finger).Now;
+                IMoveSource light = src_Sky.StarlightIndexOf(finger).MoveSource;
                 RO_Star_Koma komaKs = Util_Koma.AsKoma(light);
 
                 Debug.Assert(Util_MasuNum.OnAll(Util_Masu.AsMasuNumber(komaKs.Masu)), "(int)koma.Masu=[" + Util_Masu.AsMasuNumber(komaKs.Masu) + "]");//升番号

@@ -46,7 +46,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             {
                 saifuKifu = new KifuTreeImpl(
                         new KifuNodeImpl(
-                            Util_Sky.NULL_OBJECT_SASITE,
+                            Util_Sky.NullObjectMove,
                             new KyokumenWrapper(new SkyConst(Util_Sky.New_Hirate())),//日本の符号読取時
                             Playerside.P2
                         )
@@ -58,7 +58,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
 
 
-            kifu.ForeachHonpu(kifu.CurNode, (int tesumi, KyokumenWrapper kWrap, Node<ShootingStarlightable, KyokumenWrapper> node6, ref bool toBreak) =>
+            kifu.ForeachHonpu(kifu.CurNode, (int tesumi, KyokumenWrapper kWrap, Node<IMove, KyokumenWrapper> node6, ref bool toBreak) =>
             {
                 if (0 == tesumi)
                 {
@@ -83,7 +83,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 ((KifuNode)saifuKifu.CurNode).AppendChildA_New(newNode);
                 saifuKifu.CurNode = newNode;
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(((ShootingStarlightable)node6.Key).LongTimeAgo);
+                RO_Star_Koma koma = Util_Koma.AsKoma(((IMove)node6.Key).MoveSource);
 
                 fugo = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma.Haiyaku)](node6.Key, saifu_kWrap, logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
@@ -115,14 +115,14 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             sb.Append(" moves ");
 
             int count = 0;
-            kifu.ForeachHonpu(kifu.CurNode, (int tesumi, KyokumenWrapper kWrap, Node<ShootingStarlightable, KyokumenWrapper> node6, ref bool toBreak) =>
+            kifu.ForeachHonpu(kifu.CurNode, (int tesumi, KyokumenWrapper kWrap, Node<IMove, KyokumenWrapper> node6, ref bool toBreak) =>
             {
                 if (0 == tesumi)
                 {
                     goto gt_EndLoop;
                 }
 
-                sb.Append(Util_Sky.ToSfenSasiteText(node6.Key));
+                sb.Append(Util_Sky.ToSfenMoveText(node6.Key));
 
                 //// TODO:デバッグ用
                 //switch (sasite.TottaKoma)

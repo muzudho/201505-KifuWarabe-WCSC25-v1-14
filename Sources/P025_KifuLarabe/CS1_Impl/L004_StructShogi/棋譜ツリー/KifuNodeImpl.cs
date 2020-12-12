@@ -9,7 +9,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 {
-    public class KifuNodeImpl : NodeImpl<ShootingStarlightable, KyokumenWrapper>, KifuNode
+    public class KifuNodeImpl : NodeImpl<IMove, KyokumenWrapper>, KifuNode
     {
 
         public Playerside Tebanside { get { return this.tebanside; } }
@@ -43,17 +43,17 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         private KyHyoka kyHyoka;
 
 
-        public KifuNodeImpl(ShootingStarlightable shootingStarlightable, KyokumenWrapper kyokumenWrapper, Playerside tebanside)
+        public KifuNodeImpl(IMove shootingStarlightable, KyokumenWrapper kyokumenWrapper, Playerside tebanside)
             : base(shootingStarlightable, kyokumenWrapper)
         {
             this.kyHyoka = new KyHyokaImpl();
             this.tebanside = tebanside;
         }
 
-        public void AppdendNextNodes(Node<ShootingStarlightable, KyokumenWrapper> hubNode)
+        public void AppdendNextNodes(Node<IMove, KyokumenWrapper> hubNode)
         {
 
-            hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 if (!this.ContainsKey_NextNodes(key))
                 {
@@ -77,13 +77,13 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         /// カレントノードは変更しません。
         /// </summary>
         public void AppendChildA_New(
-            Node<ShootingStarlightable, KyokumenWrapper> newNode
+            Node<IMove, KyokumenWrapper> newNode
             )
         {
-            System.Diagnostics.Debug.Assert(!this.ContainsKey_NextNodes(Util_Sky.ToSfenSasiteText(newNode.Key)));
+            System.Diagnostics.Debug.Assert(!this.ContainsKey_NextNodes(Util_Sky.ToSfenMoveText(newNode.Key)));
 
             // SFENをキーに、次ノードを増やします。
-            this.Add_NextNode(Util_Sky.ToSfenSasiteText(newNode.Key), newNode);
+            this.Add_NextNode(Util_Sky.ToSfenMoveText(newNode.Key), newNode);
 
             newNode.PreviousNode = this;
 
@@ -96,21 +96,21 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         /// <param name="hubNode">指し手一覧</param>
         /// <param name="logTag"></param>
         /// <returns>駒毎の、全指し手</returns>
-        public Maps_OneAndMulti<Finger, ShootingStarlightable> SplitSasite_ByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, LarabeLoggerable logTag)
+        public Maps_OneAndMulti<Finger, IMove> SplitMoveByKoma(Node<IMove, KyokumenWrapper> hubNode, LarabeLoggerable logTag)
         {
             SkyConst src_Sky = this.Value.ToKyokumenConst;
 
 
-            Maps_OneAndMulti<Finger, ShootingStarlightable> enable_teMap = new Maps_OneAndMulti<Finger, ShootingStarlightable>();
+            Maps_OneAndMulti<Finger, IMove> enable_teMap = new Maps_OneAndMulti<Finger, IMove>();
 
 
-            hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+            hubNode.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
-                ShootingStarlightable nextSasite = nextNode.Key;
+                IMove nextMove = nextNode.Key;
 
-                Finger figKoma = Util_Sky.Fingers_AtMasuNow(src_Sky, Util_Koma.AsKoma(nextSasite.LongTimeAgo).Masu).ToFirst();
+                Finger figKoma = Util_Sky.Fingers_AtMasuNow(src_Sky, Util_Koma.AsKoma(nextMove.MoveSource).Masu).ToFirst();
 
-                enable_teMap.AddOverwrite(figKoma, nextSasite);
+                enable_teMap.AddOverwrite(figKoma, nextMove);
             });
 
             return enable_teMap;
@@ -124,7 +124,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         {
             StringBuilder sb = new StringBuilder();
 
-            this.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
+            this.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 sb.AppendLine(Util_Sky.Json_1Sky(
                     node.Value.ToKyokumenConst,
@@ -154,7 +154,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 
                     if (Fingers.Error_1 != koma0)
                     {
-                        RO_Star_Koma koma1 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma0).Now);
+                        RO_Star_Koma koma1 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma0).MoveSource);
 
                         ro_Kyokumen1.Ban[suji][dan] = KomaSyurui14Array.SfenText(
                             Haiyaku184Array.Syurui(koma1.Haiyaku),
@@ -252,7 +252,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
                         }
 
 
-                        RO_Star_Koma koma1 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma0).Now);
+                        RO_Star_Koma koma1 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma0).MoveSource);
 
 
 
@@ -545,7 +545,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             Fingers komasS = Util_Sky.Fingers_ByOkibaNow(src_Sky, Okiba.Sente_Komadai, logTag);
             foreach (Finger figKoma in komasS.Items)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
 
                 Ks14 syurui = KomaSyurui14Array.NarazuCaseHandle(Haiyaku184Array.Syurui(koma.Haiyaku));
                 if (Ks14.H06_Oh == syurui)
@@ -591,7 +591,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             Fingers komasG = Util_Sky.Fingers_ByOkibaNow(src_Sky, Okiba.Gote_Komadai, logTag);
             foreach (Finger figKoma in komasG.Items)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf((int)figKoma).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf((int)figKoma).MoveSource);
 
 
                 Ks14 syurui = KomaSyurui14Array.NarazuCaseHandle(Haiyaku184Array.Syurui(koma.Haiyaku));

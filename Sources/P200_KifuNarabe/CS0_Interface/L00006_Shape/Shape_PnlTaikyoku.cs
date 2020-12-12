@@ -40,7 +40,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
         /// 棋譜[再生]中は使いません。
         /// 
         /// </summary>
-        Starlight MouseStarlightOrNull2 { get; }
+        IMoveHalf MouseStarlightOrNull2 { get; }
 
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
 
         void SetHMovedKoma(Finger value);
 
-        void SetMouseStarlightOrNull2(Starlight mouseDd);
+        void SetMouseStarlightOrNull2(IMoveHalf mouseDd);
 
         void SetNaruFlag(bool naru);
 

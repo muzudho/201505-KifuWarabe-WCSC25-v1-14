@@ -7,20 +7,20 @@ using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L007_Random;
 using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
-using Grayscale.P027_SasiteSeisei.L0005_SasiteSeisei;
-using Grayscale.P027_SasiteSeisei.L050_MovableMove;
+using Grayscale.P027MoveGen.L0005MoveGen;
+using Grayscale.P027MoveGen.L050_MovableMove;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using System;
 using System.Diagnostics;
 
-namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
+namespace Grayscale.P027MoveGen.L100MoveGen
 {
 
     /// <summary>
     /// 指し手生成ルーチン
     /// </summary>
-    public class SasiteseiseiRoutine
+    public class MoveGenRoutine
     {
 
         /// <summary>
@@ -129,9 +129,9 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
             //};
 
 #endif
-            SasiteseiseiArgs yomiArgs = new SasiteseiseiArgsImpl(isHonshogi, yomuLimitter, logF_moveKiki);
-            SasiteseiseiGenjo yomiGenjo = new SasiteseiseiGenjoImpl(yomiArgs, yomuIndex + 1, kifu.CurrentTesumi(), kifu.CountPside(node_yomiNext));
-            SasiteseiseiRoutine.WAAA_Yomu_Loop(node_yomiNext, yomiGenjo, log);
+            MoveGenArgs yomiArgs = new MoveGenArgsImpl(isHonshogi, yomuLimitter, logF_moveKiki);
+            MoveGenGenjo yomiGenjo = new MoveGenGenjoImpl(yomiArgs, yomuIndex + 1, kifu.CurrentTesumi(), kifu.CountPside(node_yomiNext));
+            MoveGenRoutine.WAAA_Yomu_Loop(node_yomiNext, yomiGenjo, log);
 
             if (0<logF_moveKiki.boards.Count)//ﾛｸﾞが残っているなら
             {
@@ -140,7 +140,7 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
                 //
                 Util_GraphicalLog.Log(
                     true,//enableLog,
-                    "SasiteRoutine#Yomi_NextNodes(00)新ログ",
+                    "MoveRoutine#Yomi_NextNodes(00)新ログ",
                     "[" + Util_GraphicalLog.BoardFileLog_ToJsonStr(logF_moveKiki) + "]"
                 );
 
@@ -160,7 +160,7 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
         /// <param name="log"></param>
         private static void WAAA_Yomu_Loop(
             KifuNode node_yomiCur,
-            SasiteseiseiGenjo yomiGenjo,
+            MoveGenGenjo yomiGenjo,
             SsssLogGenjo log
             )
         {
@@ -171,7 +171,7 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
             //
 
             // このハブ・ノード自身は空っぽで、ハブ・ノードの次ノードが、次局面のリストになっています。
-            KifuNode hub_NextNodes = SasiteseiseiRoutine.WAAAA_CreateNextNodes(yomiGenjo, node_yomiCur, log);
+            KifuNode hub_NextNodes = MoveGenRoutine.WAAAA_CreateNextNodes(yomiGenjo, node_yomiCur, log);
 
             //
             // （２）現在の局面に、読んだ局面を継ぎ足します。
@@ -179,7 +179,7 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
             node_yomiCur.AppdendNextNodes( hub_NextNodes);
 
 
-            SasiteseiseiRoutine.WAAAA_Read_NextBranch(yomiGenjo, hub_NextNodes, log);
+            MoveGenRoutine.WAAAA_Read_NextBranch(yomiGenjo, hub_NextNodes, log);
 
         }
 
@@ -198,7 +198,7 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
         /// <param name="logTag"></param>
         /// <returns>複数のノードを持つハブ・ノード</returns>
         private static KifuNode WAAAA_CreateNextNodes(
-            SasiteseiseiGenjo genjo,
+            MoveGenGenjo genjo,
             KifuNode node_yomiCur,
             SsssLogGenjo log
             )
@@ -230,20 +230,20 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
                         )
                     );
 
-                    SasiteseiseiRoutine.Log1(genjo,node_yomiCur, logBrd_move1);//ログ試し
+                    MoveGenRoutine.Log1(genjo,node_yomiCur, logBrd_move1);//ログ試し
                 }
 
 
                 // ②利きから、被王手の局面を除いたハブノード
                 if (genjo.Args.IsHonshogi)
                 {
-                    Maps_OneAndMulti<Finger, ShootingStarlightable> komaBETUAllSasites = Converter04.KomaBETUSusumeruMasus_ToKomaBETUAllSasites(komaBETUSusumeruMasus, node_yomiCur);
-                    Converter04.AssertNariSasite(komaBETUAllSasites, "#WAAAA_CreateNextNodes(1)");
+                    Maps_OneAndMulti<Finger, IMove> komaBetuAllMoves = Converter04.KomaBETUSusumeruMasus_ToKomaBETUAllMoves(komaBETUSusumeruMasus, node_yomiCur);
+                    Converter04.AssertNariMove(komaBetuAllMoves, "#WAAAA_CreateNextNodes(1)");
 
                     // 本将棋の場合、王手されている局面は削除します。
                     hubNode = Util_LegalMove.LA_RemoveMate(
                         genjo.Args.IsHonshogi,
-                        komaBETUAllSasites,
+                        komaBetuAllMoves,
                         genjo.YomuDeep,
                         genjo.Tesumi_yomiCur,
                         genjo.Pside_teban,
@@ -255,7 +255,7 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
 
                     try
                     {
-                        Converter04.AddNariSasite(node_yomiCur, hubNode, log.LogTag);
+                        Converter04.AddNariMove(node_yomiCur, hubNode, log.LogTag);
                     }
                     catch (Exception ex)
                     {
@@ -269,33 +269,33 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
                     }
 
 
-                    Converter04.AssertNariSasite(hubNode, "#WAAAA_CreateNextNodes(2)");//ここで消えていた☆
+                    Converter04.AssertNariMove(hubNode, "#WAAAA_CreateNextNodes(2)");//ここで消えていた☆
                 }
                 else
                 {
                     //そのまま変換
-                    Dictionary<ShootingStarlightable, KyokumenWrapper> ss = Converter04.KomabetuMasus_ToSasitebetuSky(
+                    Dictionary<IMove, KyokumenWrapper> ss = Converter04.KomabetuMasusToMoveBetuSky(
                         komaBETUSusumeruMasus,
                         node_yomiCur.Value.ToKyokumenConst,
                         genjo.Pside_teban,
                         log.LogTag);
-                    hubNode = Converter04.SasitebetuSky_ToHubNode(ss, KifuNodeImpl.GetReverseTebanside(genjo.Pside_teban));
+                    hubNode = Converter04.MoveBetuSkyToHubNode(ss, KifuNodeImpl.GetReverseTebanside(genjo.Pside_teban));
                 }
             }
 
             return hubNode;
         }
         private static void Log1(
-            SasiteseiseiGenjo genjo,
-            Node<ShootingStarlightable, KyokumenWrapper> node_yomiCur,
+            MoveGenGenjo genjo,
+            Node<IMove, KyokumenWrapper> node_yomiCur,
             GraphicalLog_Board logBrd_move1
             )
         {
-            logBrd_move1.sasiteOrNull = ((KifuNode)node_yomiCur).Key;
+            logBrd_move1.moveOrNull = ((KifuNode)node_yomiCur).Key;
 
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(logBrd_move1.sasiteOrNull.LongTimeAgo);
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(logBrd_move1.sasiteOrNull.Now);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(logBrd_move1.moveOrNull.MoveSource);
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(logBrd_move1.moveOrNull.MoveSource);
 
 
             // ログ試し
@@ -308,14 +308,14 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
         /// 次の枝を読みます。
         /// </summary>
         private static void WAAAA_Read_NextBranch(
-            SasiteseiseiGenjo yomiGenjo,
-            Node<ShootingStarlightable, KyokumenWrapper> hubNode_genTeban,
+            MoveGenGenjo yomiGenjo,
+            Node<IMove, KyokumenWrapper> hubNode_genTeban,
             SsssLogGenjo log
             )
         {
             // （３）次のノードをシャッフルします。
-            List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes_shuffled = Converter04.NextNodes_ToList(hubNode_genTeban, log.LogTag);
-            LarabeShuffle<Node<ShootingStarlightable, KyokumenWrapper>>.Shuffle_FisherYates(ref nextNodes_shuffled);
+            List<Node<IMove, KyokumenWrapper>> nextNodes_shuffled = Converter04.NextNodes_ToList(hubNode_genTeban, log.LogTag);
+            LarabeShuffle<Node<IMove, KyokumenWrapper>>.Shuffle_FisherYates(ref nextNodes_shuffled);
 
             // （４）次の局面
             int wideCount = 0;
@@ -339,7 +339,7 @@ namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
                     yomiGenjo.YomuDeep ++;
                     yomiGenjo.Tesumi_yomiCur++;
                     yomiGenjo.Pside_teban = yomiGenjo.Pside_teban == Playerside.P1 ? Playerside.P2 : Playerside.P1;//先後を反転します。
-                    SasiteseiseiRoutine.WAAA_Yomu_Loop(nextNode, yomiGenjo,log);
+                    MoveGenRoutine.WAAA_Yomu_Loop(nextNode, yomiGenjo,log);
                     yomiGenjo.YomuDeep--;//元に戻します。
                     yomiGenjo.Tesumi_yomiCur--;//元に戻します。
                     yomiGenjo.Pside_teban = yomiGenjo.Pside_teban == Playerside.P1 ? Playerside.P2 : Playerside.P1;//元に戻します。

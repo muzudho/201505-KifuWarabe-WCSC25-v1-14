@@ -65,7 +65,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             {
                 if (0 < genjo.InputLine.Trim().Length)
                 {
-                    ShootingStarlightable nextTe = Util_Sky.NULL_OBJECT_SASITE;
+                    IMove nextTe = Util_Sky.NullObjectMove;
                     string rest;
 
                     try
@@ -169,7 +169,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                             log.LogTag.WriteLine_AddMemo("一手指し開始　：　残りの符号つ「" + genjo.InputLine + "」");
                             bool isBack = false;
-                            Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull;
+                            Node<IMove, KyokumenWrapper> out_newNode_OrNull;
                             KifuIO.Ittesasi(
                                 nextTe,
                                 shogiGui_Base.Model_PnlTaikyoku.Kifu,
@@ -200,7 +200,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     else
                     {
                         genjo.ToBreak = true;
-                        string message = "＼（＾ｏ＾）／teSasiteオブジェクトがない☆！　inputLine=[" + genjo.InputLine + "]";
+                        string message = "＼（＾ｏ＾）／move☆！　inputLine=[" + genjo.InputLine + "]";
                         log.LogTag.WriteLine_Error(message);
                         throw new Exception(message);
                     }

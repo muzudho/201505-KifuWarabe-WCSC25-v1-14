@@ -146,7 +146,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             }
 
             // この駒について。
-            RO_Star_Koma koma = Util_Koma.AsKoma(shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(this.Finger).Now);
+            RO_Star_Koma koma = Util_Koma.AsKoma(shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(this.Finger).MoveSource);
 
             //----------
             // 配役画像

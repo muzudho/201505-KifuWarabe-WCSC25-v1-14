@@ -11,6 +11,6 @@ namespace Grayscale.P025_KifuLarabe.L00060_KifuParser
 {
     public interface KifuParserA_Result
     {
-        Node<ShootingStarlightable, KyokumenWrapper> Out_newNode_OrNull { get; set; }
+        Node<IMove, KyokumenWrapper> Out_newNode_OrNull { get; set; }
     }
 }

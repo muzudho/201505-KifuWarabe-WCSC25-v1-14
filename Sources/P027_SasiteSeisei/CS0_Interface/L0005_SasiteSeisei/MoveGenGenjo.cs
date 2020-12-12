@@ -1,11 +1,11 @@
 ﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
 
-namespace Grayscale.P027_SasiteSeisei.L0005_SasiteSeisei
+namespace Grayscale.P027MoveGen.L0005MoveGen
 {
-    public interface SasiteseiseiGenjo
+    public interface MoveGenGenjo
     {
 
-        SasiteseiseiArgs Args { get; }
+        MoveGenArgs Args { get; }
 
         /// <summary>
         /// 読み進めている現在の手目

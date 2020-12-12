@@ -5,13 +5,13 @@ using Grayscale.P025_KifuLarabe.L004_StructShogi;
 
 namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
 {
-    public interface KifuTree : Tree<ShootingStarlightable, KyokumenWrapper>
+    public interface KifuTree : Tree<IMove, KyokumenWrapper>
     {
 
         //Tree<ShootingStarlightable, KyokumenWrapper> Tree { get; }
 
 
-        Playerside CountPside(Node<ShootingStarlightable, KyokumenWrapper> node);
+        Playerside CountPside(Node<IMove, KyokumenWrapper> node);
 
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------

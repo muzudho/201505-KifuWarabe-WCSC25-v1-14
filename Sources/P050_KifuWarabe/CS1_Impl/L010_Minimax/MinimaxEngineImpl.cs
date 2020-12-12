@@ -6,7 +6,7 @@ using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P027_SasiteSeisei.L050_MovableMove;
+using Grayscale.P027MoveGen.L050_MovableMove;
 using Grayscale.P045_Atama.L00025_KyHandan;
 using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
@@ -104,10 +104,10 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
             else
             {
                 try{
-                    node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                    node.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> nextNode, ref bool toBreak) =>
                     {
                         this.Tensuduke_ForeachLeafs(
-                            nodePath + " " + Util_Sky.ToSfenSasiteText(nextNode.Key),
+                            nodePath + " " + Util_Sky.ToSfenMoveText(nextNode.Key),
                             (KifuNode)nextNode,
                             kifu,
                             kokoro,
@@ -125,7 +125,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     {
                         // 自分のノードの場合、次ノードの中で一番点数の高いもの。
                         double maxScore = double.MinValue;
-                        node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                        node.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> nextNode, ref bool toBreak) =>
                         {
                             double score = ((KifuNode)nextNode).KyHyoka.Total();
                             if (maxScore < score)
@@ -139,7 +139,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     {
                         // 相手のノードの場合、次ノードの中で一番点数の低いもの。
                         double minScore = double.MaxValue;
-                        node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                        node.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> nextNode, ref bool toBreak) =>
                         {
                             double score = ((KifuNode)nextNode).KyHyoka.Total();
                             if (score < minScore)
@@ -203,7 +203,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     )
                 );
 
-                logBrd_move1.sasiteOrNull = ((KifuNode)node).Key;
+                logBrd_move1.moveOrNull = ((KifuNode)node).Key;
 
                 logBrd_move1.NounaiYomiDeep = int.MinValue;
                 logBrd_move1.Tesumi = int.MinValue;

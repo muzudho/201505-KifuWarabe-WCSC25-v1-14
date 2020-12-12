@@ -28,7 +28,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         /// <summary>
         /// 「置き場に置けるものの素性」リストです。駒だけとは限りませんので、４０個以上になることもあります。
         /// </summary>
-        private List<Starlight> starlights;
+        private List<IMoveHalf> starlights;
 
         #endregion
 
@@ -54,7 +54,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         public SkyConst()
         {
             this.PsideIsBlack = true;
-            this.starlights = new List<Starlight>();
+            this.starlights = new List<IMoveHalf>();
         }
 
         /// <summary>
@@ -67,22 +67,22 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
             // 星々のクローン
             this.PsideIsBlack = src.PsideIsBlack;
-            this.starlights = new List<Starlight>();
+            this.starlights = new List<IMoveHalf>();
 
-            src.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            src.Foreach_Starlights((Finger finger, IMoveHalf light, ref bool toBreak) =>
             {
                 this.starlights.Add(light);
             });
         }
 
-        public Starlight StarlightIndexOf(
+        public IMoveHalf StarlightIndexOf(
             Finger finger,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
         )
         {
-            Starlight found;
+            IMoveHalf found;
 
             if (0<=(int)finger && (int)finger < this.starlights.Count)
             {
@@ -104,7 +104,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             bool toBreak = false;
 
             Finger finger = 0;
-            foreach (Starlight light in this.starlights)
+            foreach (IMoveHalf light in this.starlights)
             {
                 delegate_Sky_Foreach(finger, light, ref toBreak);
 
@@ -129,7 +129,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         {
             Fingers fingers = new Fingers();
 
-            this.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            this.Foreach_Starlights((Finger finger, IMoveHalf light, ref bool toBreak) =>
             {
                 fingers.Add(finger);
             });

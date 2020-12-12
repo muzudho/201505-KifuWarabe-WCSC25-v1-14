@@ -667,13 +667,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     if (null != movedKoma)
                     {
                         //>>>>> 移動直後の駒があるとき
-                        koma = Util_Koma.AsKoma(ui_PnlMain.ShogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(movedKoma.Finger).Now);
+                        koma = Util_Koma.AsKoma(ui_PnlMain.ShogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(movedKoma.Finger).MoveSource);
                         figKoma = movedKoma.Finger;
                     }
                     else if (null != btnKoma_Selected)
                     {
                         //>>>>> 選択されている駒があるとき
-                        koma = Util_Koma.AsKoma(ui_PnlMain.ShogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Koma).Now);
+                        koma = Util_Koma.AsKoma(ui_PnlMain.ShogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Koma).MoveSource);
                         figKoma = btnKoma_Selected.Koma;
                     }
                     else
@@ -750,7 +750,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             ui_PnlMain.ShogiGui.Model_PnlTaikyoku.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");//平手の初期局面
 
             KifuNode newNode = new KifuNodeImpl(
-                                        Util_Sky.NULL_OBJECT_SASITE,//ルートなので
+                                        Util_Sky.NullObjectMove,//ルートなので
                                         new KyokumenWrapper(Util_Sky.New_Hirate()),//[初期配置]ボタン押下時
                                         KifuNodeImpl.GetReverseTebanside(((KifuNode)ui_PnlMain.ShogiGui.Model_PnlTaikyoku.Kifu.CurNode).Tebanside)
                                         );
@@ -778,13 +778,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             {
                 // GuiからServerへ渡す情報
                 Ks14 syurui;
-                Starlight dst;
+                IMoveHalf dst;
                 Util_InGui.Komamove1a_49Gui(out syurui, out dst, btnTumandeiruKoma, shogiGui.Shape_PnlTaikyoku.NaruBtnMasu, shogiGui);
 
                 // ServerからGuiへ渡す情報
                 bool torareruKomaAri;
                 RO_Star_Koma koma_Food_after;
-                Util_InServer.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, Util_Koma.AsKoma(dst.Now), shogiGui, logTag);
+                Util_InServer.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, Util_Koma.AsKoma(dst.MoveSource), shogiGui, logTag);
 
                 Util_InGui.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, shogiGui);
             }
@@ -800,11 +800,11 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 //------------------------------
                 // 棋譜
 
-                ShootingStarlightable sasite = new RO_ShootingStarlight(
+                IMove move = new RO_ShootingStarlight(
                     //btnTumandeiruKoma.Finger,
-                    shogiGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now,
+                    shogiGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.MoveSource,
 
-                    shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger).Now,
+                    shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger).MoveSource,
 
                     shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Syurui : Ks14.H00_Null
                     );// 選択している駒の元の場所と、移動先
@@ -814,7 +814,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     StartposImporter.Assert_HirateHonsyogi(new SkyBuffer(shogiGui.Model_PnlTaikyoku.GuiSkyConst), "newNode作成前");
 
                     KifuNode newNode =new KifuNodeImpl(
-                        sasite,
+                        move,
                         new KyokumenWrapper(shogiGui.Model_PnlTaikyoku.GuiSkyConst),
                         KifuNodeImpl.GetReverseTebanside( ((KifuNode)shogiGui.Model_PnlTaikyoku.Kifu.CurNode).Tebanside)
                     );
@@ -837,10 +837,10 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 //------------------------------
                 // 符号表示
                 //------------------------------
-                RO_Star_Koma koma = Util_Koma.AsKoma(sasite.LongTimeAgo);
+                RO_Star_Koma koma = Util_Koma.AsKoma(move.MoveSource);
 
                 FugoJ fugoJ;
-                fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma.Haiyaku)](sasite, new KyokumenWrapper(shogiGui.Model_PnlTaikyoku.GuiSkyConst), logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma.Haiyaku)](move, new KyokumenWrapper(shogiGui.Model_PnlTaikyoku.GuiSkyConst), logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
                 shogiGui.Shape_PnlTaikyoku.SetFugo(fugoJ.ToText_UseDou(
                     KifuNarabe_KifuWrapper.CurNode(shogiGui.Model_PnlTaikyoku.Kifu)
@@ -868,11 +868,11 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             shogiGui.ResponseData.OutputTxt = ResponseGedanTxt.Kifu;
             shogiGui.ResponseData.ToRedraw();
 
-            ShootingStarlightable last;
+            IMove last;
             {
-                Node<ShootingStarlightable, KyokumenWrapper> kifuElement = KifuNarabe_KifuWrapper.CurNode(shogiGui.Model_PnlTaikyoku.Kifu);
+                Node<IMove, KyokumenWrapper> kifuElement = KifuNarabe_KifuWrapper.CurNode(shogiGui.Model_PnlTaikyoku.Kifu);
 
-                last = (ShootingStarlightable)kifuElement.Key;
+                last = (IMove)kifuElement.Key;
             }
             shogiGui.ChangeTurn(logTag);//マウス左ボタンを押したのでチェンジターンします。
 

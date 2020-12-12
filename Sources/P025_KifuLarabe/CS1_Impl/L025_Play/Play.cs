@@ -76,7 +76,7 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
             {
                 // ポテンシャル・ムーブを調べます。
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(donoKoma).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(donoKoma).MoveSource);
 
 
                 Ks14 syurui = Haiyaku184Array.Syurui(koma.Haiyaku);
@@ -96,7 +96,7 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
 
                     Fingers sujiKomas = Util_Sky.Fingers_InSuji(src_Sky,suji);
 
-                    Starlight fu = src_Sky.StarlightIndexOf(donoKoma);
+                    IMoveHalf fu = src_Sky.StarlightIndexOf(donoKoma);
                     Fingers existFu = Util_Sky.Matches(fu, src_Sky, sujiKomas);
 
                     if (0 < existFu.Count)

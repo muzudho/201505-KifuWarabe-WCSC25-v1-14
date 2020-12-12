@@ -17,7 +17,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
     {
         /// <summary>
         /// ************************************************************************************************************************
-        /// 符号１「7g7f」を元に、sasite を作ります。
+        /// 符号１「7g7f」を元に、move を作ります。
         /// ************************************************************************************************************************
         /// 
         /// ＜[再生]、[コマ送り]で呼び出されます＞
@@ -30,18 +30,18 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string str3, //123456789
             string str4, //abcdefghi
             string strNari, //+
-            out ShootingStarlightable sasite,
+            out IMove move,
             KifuTree kifu,
             string hint,
             int tesumi_yomiGenTeban,//読み進めている現在の手目済
             LarabeLoggerable logTag
             )
         {
-            sasite = Util_Sky.NULL_OBJECT_SASITE;
+            move = Util_Sky.NullObjectMove;
 
             SkyConst src_Sky = kifu.NodeAt(tesumi_yomiGenTeban).Value.ToKyokumenConst;
 
-            Debug.Assert(!Util_MasuNum.OnKomabukuro(Util_Masu.AsMasuNumber(((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0).Now).Masu)), "[" + tesumi_yomiGenTeban + "]手目、駒が駒袋にあった。");
+            Debug.Assert(!Util_MasuNum.OnKomabukuro(Util_Masu.AsMasuNumber(((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0).MoveSource).Masu)), "[" + tesumi_yomiGenTeban + "]手目、駒が駒袋にあった。");
 
 
             try
@@ -97,7 +97,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 if ("*" == str2)
                 {
                     //>>>>> 「打」でした。
-                    Node<ShootingStarlightable, KyokumenWrapper> siteiNode = kifu.CurNode;
+                    Node<IMove, KyokumenWrapper> siteiNode = kifu.CurNode;
 
                     // 駒台から、打った種類の駒を取得
                     koma = Util_Sky.FingerNow_BySyuruiIgnoreCase(
@@ -144,7 +144,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         sb.AppendLine("str3=[" + str3 + "]");
                         sb.AppendLine("str4=[" + str4 + "]");
                         sb.AppendLine("strNari=[" + strNari + "]");
-                        //sasite
+                        //move
                         //kifu
                         sb.AppendLine("hint=[" + hint + "]");
                         sb.AppendLine("tesumi_yomiGenTeban=[" + tesumi_yomiGenTeban + "]");
@@ -193,11 +193,11 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     }
 
                     int lastTesumi = kifu.CountTesumi(kifu.CurNode);
-                    Node<ShootingStarlightable, KyokumenWrapper> siteiNode = kifu.NodeAt(lastTesumi);
+                    Node<IMove, KyokumenWrapper> siteiNode = kifu.NodeAt(lastTesumi);
 
                     Finger srcKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase( siteiNode.Value.ToKyokumenConst,srcOkiba, srcSyurui, logTag);
 
-                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(srcKoma).Now);
+                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(srcKoma).MoveSource);
 
                         srcMasu = dstKoma.Masu;
                 }
@@ -205,7 +205,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 {
                     //>>>>> 盤上の駒を指した場合
 
-                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma).Now);
+                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma).MoveSource);
 
 
                         dstSyurui = Haiyaku184Array.Syurui(dstKoma.Haiyaku);
@@ -229,7 +229,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 // 結果
                 //------------------------------
                 // 棋譜
-                sasite = new RO_ShootingStarlight(
+                move = new RO_ShootingStarlight(
                     //koma,//TODO:
 
                     new RO_Star_Koma(
@@ -281,12 +281,12 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string strAgaruHiku, // 上|引
             string strNariNarazu, //成|不成
             string strDaHyoji, //打
-            out ShootingStarlightable sasite,
+            out IMove move,
             KifuTree kifu,
             LarabeLoggerable logTag
             )
         {
-            Node<ShootingStarlightable, KyokumenWrapper> siteiNode = kifu.CurNode;
+            Node<IMove, KyokumenWrapper> siteiNode = kifu.CurNode;
             SkyConst src_Sky = siteiNode.Value.ToKyokumenConst;
 
             //------------------------------
@@ -312,7 +312,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             {
                 // 1手前の筋、段を求めるのに使います。
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(siteiNode.Key.Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(siteiNode.Key.MoveSource);
 
                     dstMasu = koma.Masu;
             }
@@ -1190,7 +1190,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 // 将棋盤の上に駒がありました。
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(foundKoma).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(foundKoma).MoveSource);
 
                     srcMasuHandle1 = Util_Masu.AsMasuNumber(koma.Masu);
             }
@@ -1227,7 +1227,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
 
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(hitKoma).Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(hitKoma).MoveSource);
 
                 srcMasuHandle1 = Util_Masu.AsMasuNumber(koma.Masu);
             }
@@ -1247,7 +1247,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
 
             // １手を、データにします。
-            sasite = new RO_ShootingStarlight(
+            move = new RO_ShootingStarlight(
                 //foundKoma,//TODO:
 
                 new RO_Star_Koma(

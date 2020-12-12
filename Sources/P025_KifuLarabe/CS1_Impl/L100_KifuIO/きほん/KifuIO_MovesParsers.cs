@@ -44,7 +44,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             {
                 foreach (Finger koma1 in Finger_Honshogi.Items_KomaOnly)
                 {
-                    RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma1).Now);
+                    RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma1).MoveSource);
 
 
                         if (pside == koma2.Pside
