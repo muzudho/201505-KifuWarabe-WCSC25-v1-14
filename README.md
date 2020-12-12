@@ -5,15 +5,15 @@
 |                         | ファイル                                                                                   |
 | ----------------------- | ------------------------------------------------------------------------------------------ |
 | ソース                  | `Kifuwarabe_WCSC25/Kifuwarazusa.sln`    |
-| 将棋エンジン ソース     | P050_KifuWarabe                                                                            |
-| 将棋GUI ソース          | P400_KifuNaraVs                                                                            |
-| 将棋エンジン ランタイム | `Kifuwarabe_WCSC25/Builds/Engine/Bin/P050_KifuWarabe/Grayscale.P050_KifuWarabe.exe`        |
-| 設定ファイル1           | `Kifuwarabe_WCSC25/Builds/Engine/Bin/P050_KifuWarabe/Grayscale.P050_KifuWarabe.exe.config` |
+| 将棋エンジン プロジェクト     | P050_KifuWarabe                                                                            |
+| 将棋GUI プロジェクト          | P400_KifuNaraVs                                                                            |
+| 将棋エンジン ランタイム 	 | `Kifuwarabe_WCSC25/Builds/Release/Grayscale.Kifuwarazusa.Engine.exe`        |
+| 設定ファイル1           | `Kifuwarabe_WCSC25/Builds/Release/Grayscale.Kifuwarazusa.Engine.exe.config` |
 | 設定ファイル2           | `Kifuwarabe_WCSC25/Profile/Engine.toml`                                                    |
 
 * `Kifuwarabe_WCSC25` のトップ・ディレクトリーに `Logs` ディレクトリーを作成してください。
 * `Kifuwarazusa.sln` を `Release` モードで ビルドしてください。
-* 設定ファイル1 の `Grayscale.P050_KifuWarabe.exe.config` の中にある `Profile` のパスを、 設定ファイル2 の親ディレクトリー `Profile` に合わせてください。  
+* 設定ファイル1 の中にある `Profile` のパスを、 設定ファイル2 の親ディレクトリー `Profile` に合わせてください。  
 
 ## Manual
 
