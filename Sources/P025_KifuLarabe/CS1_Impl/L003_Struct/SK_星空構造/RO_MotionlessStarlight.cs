@@ -9,7 +9,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
     /// 
     /// 動かない星の光。
     /// </summary>
-    public class RO_MotionlessStarlight : IMoveHalf
+    public class RO_MotionlessStarlight : Starlight
     {
         #region プロパティー類
 
@@ -21,8 +21,8 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         /// 先後、升、配役
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        public IMoveSource MoveSource { get { return this.now; } }
-        protected IMoveSource now;
+        public Starlightable Now { get { return this.now; } }
+        protected Starlightable now;
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         /// </summary>
         /// <param name="masu"></param>
         /// <param name="syurui"></param>
-        public RO_MotionlessStarlight(IMoveSource nowStar)//Finger finger,
+        public RO_MotionlessStarlight(Starlightable nowStar)//Finger finger,
         {
             //this.finger = finger;
             this.now = nowStar;

@@ -16,7 +16,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
     public abstract class Util_Sky
     {
 
-        public static readonly IMove NullObjectMove = new RO_ShootingStarlight(
+        public static readonly ShootingStarlightable NULL_OBJECT_SASITE = new RO_ShootingStarlight(
             //Fingers.Error_1,
             new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, Ks14.H00_Null),
             new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, Ks14.H00_Null),
@@ -95,11 +95,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             int hMasu_gote = 121;
 
             // 全駒
-            src_Sky.Foreach_Starlights((Finger finger, IMoveHalf light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
             {
                 RO_MotionlessStarlight ms = (RO_MotionlessStarlight)light;
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
 
                 Ks14 ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
@@ -137,9 +137,9 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             SySet_Default<SyElement> masus = new SySet_Default<SyElement>("今の升");
 
-            src_Sky.Foreach_Starlights((Finger finger, IMoveHalf mlLight, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Starlight mlLight, ref bool toBreak) =>
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(mlLight.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(mlLight.Now);
 
 
                     if (koma.Pside == pside && Util_Masu.GetOkiba(koma.Masu) == Okiba.ShogiBan)
@@ -163,9 +163,9 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             Fingers fingers = new Fingers();
 
-            src_Sky.Foreach_Starlights((Finger finger, IMoveHalf dd, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Starlight dd, ref bool toBreak) =>
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(dd.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(dd.Now);
 
                     if (Util_Masu.GetOkiba(koma.Masu) == okiba
                         && pside == koma.Pside
@@ -195,7 +195,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                     if (Util_Masu.GetOkiba(koma.Masu) == okiba
                         && KomaSyurui14Array.Matches(koma.ToNarazuCase(), syuruiNarazuCase))
@@ -225,7 +225,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 
                     if (KomaSyurui14Array.Matches(syurui, Haiyaku184Array.Syurui(koma.Haiyaku)))
@@ -252,7 +252,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 
                     if (
@@ -283,7 +283,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                     if (
                         okiba == Util_Masu.GetOkiba(koma.Masu)
@@ -305,7 +305,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <param name="km"></param>
         /// <returns></returns>
-        public static Fingers Fingers_EachSrcNow(SkyConst src_Sky, Playerside pside, IMoveHalf itaru, SySet<SyElement> srcList, LarabeLoggerable logTag)
+        public static Fingers Fingers_EachSrcNow(SkyConst src_Sky, Playerside pside, Starlight itaru, SySet<SyElement> srcList, LarabeLoggerable logTag)
         {
             Fingers fingers = new Fingers();
 
@@ -451,7 +451,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                 int suji2;
                 if(Util_MasuNum.MasuToSuji(koma.Masu, out suji2))
@@ -485,9 +485,9 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
 
-                IMoveHalf sl = src_Sky.StarlightIndexOf(finger);
+                Starlight sl = src_Sky.StarlightIndexOf(finger);
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(sl.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(sl.Now);
 
                 int suji1;
                 int suji2;
@@ -529,7 +529,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 
                     if (okiba == Util_Masu.GetOkiba(koma.Masu))
@@ -553,10 +553,10 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             Fingers fingers = new Fingers();
 
-            src_Sky.Foreach_Starlights((Finger finger, IMoveHalf ds, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Starlight ds, ref bool toBreak) =>
             {
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(ds.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(ds.Now);
 
                     if (pside == koma.Pside)
                     {
@@ -588,13 +588,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(IMoveHalf sl, SySet<SyElement> masus, SkyConst src_Sky, LarabeLoggerable logTag)
+        public static bool ExistsIn(Starlight sl, SySet<SyElement> masus, SkyConst src_Sky, LarabeLoggerable logTag)
         {
             bool matched = false;
 
             foreach (SyElement masu in masus.Elements)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(sl.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(sl.Now);
 
 
                 Finger finger = Util_Sky.Finger_AtMasuNow_Shogiban(src_Sky, koma.Pside, masu, logTag);
@@ -621,7 +621,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             Ks14 result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
                 result = KomaSyurui14Array.NariCaseHandle[(int)Haiyaku184Array.Syurui(koma.Haiyaku)];
 
@@ -637,11 +637,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         ///         先手は 1,2,3 段。
         /// </summary>
         /// <returns></returns>
-        public static bool InAitejin(IMoveHalf ms)
+        public static bool InAitejin(Starlight ms)
         {
             bool result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
             int dan;
             Util_MasuNum.MasuToDan(koma.Masu, out dan);
@@ -654,11 +654,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <summary>
         /// 成り
         /// </summary>
-        public static bool IsNari(IMoveHalf ms)
+        public static bool IsNari(Starlight ms)
         {
             bool result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
                 result = KomaSyurui14Array.FlagNari[(int)Haiyaku184Array.Syurui(koma.Haiyaku)];
 
@@ -672,18 +672,18 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             bool result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
                 result = !KomaSyurui14Array.FlagNari[(int)Haiyaku184Array.Syurui(koma.Haiyaku)];
 
             return result;
         }
 
-        public static bool IsNareruKoma(IMoveHalf ms)
+        public static bool IsNareruKoma(Starlight ms)
         {
             bool result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
                 result = KomaSyurui14Array.FlagNareruKoma[(int)Haiyaku184Array.Syurui(koma.Haiyaku)];
 
@@ -699,7 +699,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             char result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
                 result = KomaSyurui14Array.ToGaiji(Haiyaku184Array.Syurui(koma.Haiyaku), koma.Pside);
 
@@ -710,7 +710,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// 不一致判定：　先後、駒種類  が、自分と同じものが　＜ひとつもない＞
         /// </summary>
         /// <returns></returns>
-        public static bool NeverOnaji(IMoveHalf ms, SkyConst src_Sky, params Fingers[] komaGroupArgs)
+        public static bool NeverOnaji(Starlight ms, SkyConst src_Sky, params Fingers[] komaGroupArgs)
         {
             bool unmatched = true;
 
@@ -718,8 +718,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             {
                 foreach (Finger figKoma in komaGroup.Items)
                 {
-                    RO_Star_Koma koma1 = Util_Koma.AsKoma(ms.MoveSource);
-                    RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                    RO_Star_Koma koma1 = Util_Koma.AsKoma(ms.Now);
+                    RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 
 
@@ -744,7 +744,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// 一致判定：　先後、駒種類  が、自分と同じ
         /// </summary>
         /// <returns></returns>
-        public static Fingers Matches(IMoveHalf ms, SkyConst src_Sky, params Fingers[] fingersGroupArgs)
+        public static Fingers Matches(Starlight ms, SkyConst src_Sky, params Fingers[] fingersGroupArgs)
         {
             Fingers fingers = new Fingers();
 
@@ -752,8 +752,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             {
                 foreach (Finger finger in fingers2.Items)
                 {
-                    RO_Star_Koma koma1 = Util_Koma.AsKoma(ms.MoveSource);
-                    RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                    RO_Star_Koma koma1 = Util_Koma.AsKoma(ms.Now);
+                    RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
 
                         if (
@@ -770,12 +770,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fingers;
         }
 
-        public static Json_Val ToJsonVal(IMoveHalf ms)
+        public static Json_Val ToJsonVal(Starlight ms)
         {
             Json_Obj obj = new Json_Obj();
 
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
 
                 // プレイヤーサイド
@@ -800,7 +800,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             bool result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
                 result = (Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
                     Util_Masu.Masu_ToOkiba(koma.Masu));
@@ -819,8 +819,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             bool result;
 
-            RO_Star_Koma koma1 = Util_Koma.AsKoma(ms1.MoveSource);
-            RO_Star_Koma koma2 = Util_Koma.AsKoma(ms2.MoveSource);
+            RO_Star_Koma koma1 = Util_Koma.AsKoma(ms1.Now);
+            RO_Star_Koma koma2 = Util_Koma.AsKoma(ms2.Now);
 
 
                 result = koma1.Pside == koma2.Pside;
@@ -832,11 +832,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// 先手
         /// </summary>
         /// <returns></returns>
-        public static bool IsSente(IMoveHalf ms)
+        public static bool IsSente(Starlight ms)
         {
             bool result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
                 result = Playerside.P1 == koma.Pside;
 
@@ -847,11 +847,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// 後手
         /// </summary>
         /// <returns></returns>
-        public static bool IsGote(IMoveHalf ms)
+        public static bool IsGote(Starlight ms)
         {
             bool result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(ms.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
                 result = Playerside.P2 == koma.Pside;
 
@@ -868,7 +868,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             Json_Obj obj = new Json_Obj();
 
             Json_Arr arr = new Json_Arr();
-            src_Sky.Foreach_Starlights((Finger finger, IMoveHalf light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
             {
                 if (null != light)
                 {
@@ -885,11 +885,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// “打” ＜アクション時＞
         /// </summary>
         /// <returns></returns>
-        public static bool IsDaAction(IMove move)
+        public static bool IsDaAction(ShootingStarlightable sasite)
         {
             bool result;
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.MoveSource);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
 
                 result = Okiba.ShogiBan != Util_Masu.GetOkiba(srcKoma.Masu)
                     && Okiba.Empty != Util_Masu.GetOkiba(srcKoma.Masu);//初期配置から移動しても、打にはしません。
@@ -906,19 +906,19 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// ファイル名にも使えるように、ファイル名に使えない文字を置換します。
         /// </summary>
         /// <returns></returns>
-        public static string ToSfenMoveTextForFilename(
-            IMove move,
+        public static string ToSfenSasiteText_ForFilename(
+            ShootingStarlightable sasite,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            string moveText = Util_Sky.ToSfenMoveText(move);
+            string sasiteText = Util_Sky.ToSfenSasiteText(sasite);
 
-            moveText = moveText.Replace('*', '＊');//SFENの打記号の「*」は、ファイルの文字名に使えないので。
+            sasiteText = sasiteText.Replace('*', '＊');//SFENの打記号の「*」は、ファイルの文字名に使えないので。
 
 
-            return moveText;
+            return sasiteText;
         }
 
 
@@ -928,8 +928,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
-        public static string ToSfenMoveText(
-            IMove move,
+        public static string ToSfenSasiteText(
+            ShootingStarlightable sasite,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -939,8 +939,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             try
             {
-                RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.MoveSource);
-                RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.MoveSource);
+                RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
+                RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
 
 
 
@@ -961,7 +961,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 }
 
 
-                if (Util_Sky.IsDaAction(move))
+                if (Util_Sky.IsDaAction(sasite))
                 {
                     // 打でした。
                     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1038,7 +1038,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 //------------------------------------------------------------
                 // 成
                 //------------------------------------------------------------
-                if (Util_Sky.IsNattaMove(move))
+                if (Util_Sky.IsNatta_Sasite(sasite))
                 {
                     sb.Append("+");
                 }
@@ -1051,12 +1051,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return sb.ToString();
         }
 
-        public static bool isEnableSfen(IMove move)
+        public static bool isEnableSfen(ShootingStarlightable sasite)
         {
             bool enable = true;
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.MoveSource);
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.MoveSource);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
 
 
             int srcDan;
@@ -1080,17 +1080,17 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
-        public static IMove Src(IMove move)
+        public static ShootingStarlightable Src(ShootingStarlightable sasite)
         {
             RO_ShootingStarlight result;
 
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.MoveSource);
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.MoveSource);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
 
 
                 result = new RO_ShootingStarlight(
-                    //move.Finger,//共通
+                    //sasite.Finger,//共通
 
                     new RO_Star_Koma(
                         dstKoma.Pside,
@@ -1114,8 +1114,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         public static RO_ShootingStarlight New(
             //Finger finger,
 
-            IMoveSource longTimeAgo,
-            IMoveSource now,
+            Starlightable longTimeAgo,
+            Starlightable now,
 
             Ks14 tottaKomaSyurui
         )
@@ -1132,7 +1132,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         public static string ToSfenText_TottaKomaSyurui(RO_ShootingStarlight ss)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(Util_Sky.ToSfenMoveText(ss));
+            sb.Append(Util_Sky.ToSfenSasiteText(ss));
             if (Ks14.H00_Null != (Ks14)ss.FoodKomaSyurui)
             {
                 sb.Append("(");
@@ -1147,14 +1147,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// 成った
         /// </summary>
         /// <returns></returns>
-        public static bool IsNattaMove(IMove move)
+        public static bool IsNatta_Sasite(ShootingStarlightable sasite)
         {
             // 元種類が不成、現種類が成　の場合のみ真。
             bool natta = true;
 
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.MoveSource);
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.MoveSource);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
 
 
                 // 成立しない条件を１つでも満たしていれば、偽　確定。
@@ -1184,8 +1184,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             bool result;
 
-            RO_Star_Koma koma1 = Util_Koma.AsKoma(ss.MoveSource);
-            RO_Star_Koma koma2 = Util_Koma.AsKoma(Util_Sky.Src(ss).MoveSource);
+            RO_Star_Koma koma1 = Util_Koma.AsKoma(ss.Now);
+            RO_Star_Koma koma2 = Util_Koma.AsKoma(Util_Sky.Src(ss).Now);
 
             result = Util_Masu.AsMasuNumber(koma1.Masu) != Util_Masu.AsMasuNumber(koma2.Masu);
 
@@ -1206,7 +1206,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             SySet<SyElement> result;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
             //
             // 貫通してないか？
@@ -1473,67 +1473,67 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
 
             // 王
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(0).MoveSource).Syurui == Ks14.H06_Oh, "駒0.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(0).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(1).MoveSource).Syurui == Ks14.H06_Oh, "駒1.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(1).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(0).Now).Syurui == Ks14.H06_Oh, "駒0.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(0).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(1).Now).Syurui == Ks14.H06_Oh, "駒1.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(1).Now).Syurui + "]");
 
             // 飛車
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(2).MoveSource).Syurui == Ks14.H07_Hisya || ((RO_Star_Koma)src_Sky.StarlightIndexOf(2).MoveSource).Syurui == Ks14.H09_Ryu, "駒2.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(2).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(3).MoveSource).Syurui == Ks14.H07_Hisya || ((RO_Star_Koma)src_Sky.StarlightIndexOf(3).MoveSource).Syurui == Ks14.H09_Ryu, "駒3.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(3).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui == Ks14.H07_Hisya || ((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui == Ks14.H09_Ryu, "駒2.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui == Ks14.H07_Hisya || ((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui == Ks14.H09_Ryu, "駒3.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui + "]");
 
             // 角
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(4).MoveSource).Syurui == Ks14.H08_Kaku || ((RO_Star_Koma)src_Sky.StarlightIndexOf(4).MoveSource).Syurui == Ks14.H10_Uma, "駒4.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(4).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(5).MoveSource).Syurui == Ks14.H08_Kaku || ((RO_Star_Koma)src_Sky.StarlightIndexOf(5).MoveSource).Syurui == Ks14.H10_Uma, "駒5.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(5).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui == Ks14.H08_Kaku || ((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui == Ks14.H10_Uma, "駒4.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui == Ks14.H08_Kaku || ((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui == Ks14.H10_Uma, "駒5.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui + "]");
 
             // 金
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(6).MoveSource).Syurui == Ks14.H05_Kin, "駒6.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(6).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(7).MoveSource).Syurui == Ks14.H05_Kin, "駒7.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(7).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(8).MoveSource).Syurui == Ks14.H05_Kin, "駒8.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(8).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(9).MoveSource).Syurui == Ks14.H05_Kin, "駒9.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(9).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(6).Now).Syurui == Ks14.H05_Kin, "駒6.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(6).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(7).Now).Syurui == Ks14.H05_Kin, "駒7.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(7).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(8).Now).Syurui == Ks14.H05_Kin, "駒8.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(8).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(9).Now).Syurui == Ks14.H05_Kin, "駒9.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(9).Now).Syurui + "]");
 
             // 銀
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(10).MoveSource).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(10).MoveSource).Syurui == Ks14.H14_NariGin, "駒10.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(10).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(11).MoveSource).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(11).MoveSource).Syurui == Ks14.H14_NariGin, "駒11.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(11).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(12).MoveSource).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(12).MoveSource).Syurui == Ks14.H14_NariGin, "駒12.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(12).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(13).MoveSource).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(13).MoveSource).Syurui == Ks14.H14_NariGin, "駒13.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(13).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui == Ks14.H14_NariGin, "駒10.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui == Ks14.H14_NariGin, "駒11.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui == Ks14.H14_NariGin, "駒12.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui == Ks14.H14_NariGin, "駒13.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui + "]");
 
             // 桂
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(14).MoveSource).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(14).MoveSource).Syurui == Ks14.H13_NariKei, "駒14.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(14).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(15).MoveSource).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(15).MoveSource).Syurui == Ks14.H13_NariKei, "駒15.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(15).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(16).MoveSource).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(16).MoveSource).Syurui == Ks14.H13_NariKei, "駒16.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(16).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(17).MoveSource).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(17).MoveSource).Syurui == Ks14.H13_NariKei, "駒17.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(17).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui == Ks14.H13_NariKei, "駒14.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui == Ks14.H13_NariKei, "駒15.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui == Ks14.H13_NariKei, "駒16.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui == Ks14.H13_NariKei, "駒17.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui + "]");
 
             // 香
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(18).MoveSource).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(18).MoveSource).Syurui == Ks14.H12_NariKyo, "駒18.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(18).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(19).MoveSource).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(19).MoveSource).Syurui == Ks14.H12_NariKyo, "駒19.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(19).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(20).MoveSource).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(20).MoveSource).Syurui == Ks14.H12_NariKyo, "駒20.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(20).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(21).MoveSource).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(21).MoveSource).Syurui == Ks14.H12_NariKyo, "駒21.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(21).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui == Ks14.H12_NariKyo, "駒18.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui == Ks14.H12_NariKyo, "駒19.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui == Ks14.H12_NariKyo, "駒20.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui == Ks14.H12_NariKyo, "駒21.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui + "]");
 
             // 歩
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(22).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(22).MoveSource).Syurui == Ks14.H11_Tokin, "駒22.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(22).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(23).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(23).MoveSource).Syurui == Ks14.H11_Tokin, "駒23.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(23).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(24).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(24).MoveSource).Syurui == Ks14.H11_Tokin, "駒24.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(24).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(25).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(25).MoveSource).Syurui == Ks14.H11_Tokin, "駒25.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(25).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(26).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(26).MoveSource).Syurui == Ks14.H11_Tokin, "駒26.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(26).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(27).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(27).MoveSource).Syurui == Ks14.H11_Tokin, "駒27.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(27).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(28).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(28).MoveSource).Syurui == Ks14.H11_Tokin, "駒28.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(28).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(29).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(29).MoveSource).Syurui == Ks14.H11_Tokin, "駒29.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(29).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(30).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(30).MoveSource).Syurui == Ks14.H11_Tokin, "駒30.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(30).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui == Ks14.H11_Tokin, "駒22.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui == Ks14.H11_Tokin, "駒23.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui == Ks14.H11_Tokin, "駒24.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui == Ks14.H11_Tokin, "駒25.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui == Ks14.H11_Tokin, "駒26.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui == Ks14.H11_Tokin, "駒27.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui == Ks14.H11_Tokin, "駒28.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui == Ks14.H11_Tokin, "駒29.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui == Ks14.H11_Tokin, "駒30.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui + "]");
 
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(31).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(31).MoveSource).Syurui == Ks14.H11_Tokin, "駒31.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(31).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(32).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(32).MoveSource).Syurui == Ks14.H11_Tokin, "駒32.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(32).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(33).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(33).MoveSource).Syurui == Ks14.H11_Tokin, "駒33.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(33).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(34).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(34).MoveSource).Syurui == Ks14.H11_Tokin, "駒34.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(34).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(35).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(35).MoveSource).Syurui == Ks14.H11_Tokin, "駒35.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(35).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(36).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(36).MoveSource).Syurui == Ks14.H11_Tokin, "駒36.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(36).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(37).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(37).MoveSource).Syurui == Ks14.H11_Tokin, "駒37.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(37).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(38).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(38).MoveSource).Syurui == Ks14.H11_Tokin, "駒38.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(38).MoveSource).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(39).MoveSource).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(39).MoveSource).Syurui == Ks14.H11_Tokin, "駒39.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(39).MoveSource).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui == Ks14.H11_Tokin, "駒31.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui == Ks14.H11_Tokin, "駒32.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui == Ks14.H11_Tokin, "駒33.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui == Ks14.H11_Tokin, "駒34.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui == Ks14.H11_Tokin, "駒35.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui == Ks14.H11_Tokin, "駒36.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui == Ks14.H11_Tokin, "駒37.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui == Ks14.H11_Tokin, "駒38.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui == Ks14.H11_Tokin, "駒39.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui + "]");
 
 
 
             for (int i = 0; i < 40; i++)
             {
-                RO_Star_Koma koma = (RO_Star_Koma)src_Sky.StarlightIndexOf(0).MoveSource;
+                RO_Star_Koma koma = (RO_Star_Koma)src_Sky.StarlightIndexOf(0).Now;
                 Kh185 haiyaku = koma.Haiyaku;
 
                 if (Okiba.ShogiBan == Util_Masu.Masu_ToOkiba(koma.Masu))

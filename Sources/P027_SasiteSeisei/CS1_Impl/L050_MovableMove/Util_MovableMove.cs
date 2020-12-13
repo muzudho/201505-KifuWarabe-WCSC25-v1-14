@@ -8,9 +8,9 @@ using Grayscale.P025_KifuLarabe.L050_Things;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P027MoveGen.L00025_MovableMove;
+using Grayscale.P027_SasiteSeisei.L00025_MovableMove;
 
-namespace Grayscale.P027MoveGen.L050_MovableMove
+namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
 {
     public abstract class Util_MovableMove
     {
@@ -145,7 +145,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                         masus_kurau_IKUSA,
                         mmGenjo.Src_Sky,
                         log_orNull.Enable,
-                        Converter04.ChangeMoveToStringForLog(log_orNull.Move, mmGenjo.Pside_genTeban3),
+                        Converter04.Sasite_ToString_ForLog(log_orNull.Sasite, mmGenjo.Pside_genTeban3),
                         log_orNull.LogTag
                         );// 盤上の駒の移動できる場所
                 }
@@ -171,7 +171,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                         masus_seme_IKUSA,
                         masus_kurau_IKUSA,
                         mmGenjo.Src_Sky,
-                        Converter04.ChangeMoveToStringForLog(log_orNull.Move, mmGenjo.Pside_genTeban3),
+                        Converter04.Sasite_ToString_ForLog(log_orNull.Sasite, mmGenjo.Pside_genTeban3),
                         log_orNull.LogTag
                         );
                 }

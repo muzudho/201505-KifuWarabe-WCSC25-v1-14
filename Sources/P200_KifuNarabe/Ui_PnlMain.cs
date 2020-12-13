@@ -118,13 +118,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             // 先手駒の利きを表にします。
             bool[] kikiSTable = new bool[Ui_PnlMain.NSQUARE];
 
-            Node<IMove, KyokumenWrapper> siteiNode = this.ShogiGui.Model_PnlTaikyoku.Kifu.NodeAt(
+            Node<ShootingStarlightable, KyokumenWrapper> siteiNode = this.ShogiGui.Model_PnlTaikyoku.Kifu.NodeAt(
                 this.ShogiGui.Model_PnlTaikyoku.Kifu.CountTesumi(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui))
                 );
 
             foreach (Finger figKoma in Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst, Okiba.ShogiBan, Playerside.P1).Items)
             {
-                IMoveSource light = src_Sky.StarlightIndexOf(figKoma).MoveSource;
+                Starlightable light = src_Sky.StarlightIndexOf(figKoma).Now;
                 RO_Star_Koma koma = Util_Koma.AsKoma(light);
 
 
@@ -153,7 +153,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
             foreach (Finger figKoma in Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst, Okiba.ShogiBan, Playerside.P2).Items)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 
                 int suji;
@@ -176,12 +176,12 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             Fingers fingers = Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst, Okiba.ShogiBan, this.ShogiGui.Model_PnlTaikyoku.Kifu.CountPside(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui)));
             if (0<fingers.Count)
             {
-                IMove tuginoMoveData;
+                ShootingStarlightable tuginoSasiteData;
 
                 Finger finger = fingers[LarabeRandom.Random.Next(fingers.Count)];//ランダムに１つ。
-                IMoveHalf sl = src_Sky.StarlightIndexOf(finger);
+                Starlight sl = src_Sky.StarlightIndexOf(finger);
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(sl.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(sl.Now);
 
 
                 Playerside pside_getTeban = this.ShogiGui.Model_PnlTaikyoku.Kifu.CountPside(lastTesumi);
@@ -199,7 +199,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                                 Util_MasuNum.MasuToDan(koma.Masu, out dan);
 
                                 // 前に１つ突き出させます。
-                                tuginoMoveData = new RO_ShootingStarlight(
+                                tuginoSasiteData = new RO_ShootingStarlight(
                                     //sl.Finger,
                                     new RO_Star_Koma(
                                         pside_getTeban,
@@ -237,7 +237,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                                 Util_MasuNum.MasuToDan(koma.Masu, out dan);
 
                                 // 前に１つ突き出させます。
-                                tuginoMoveData = new RO_ShootingStarlight(
+                                tuginoSasiteData = new RO_ShootingStarlight(
                                     //sl.Finger,
                                     new RO_Star_Koma(
                                         pside_getTeban,
@@ -266,9 +266,9 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     }
 
 
-                RO_Star_Koma koma2 = Util_Koma.AsKoma(tuginoMoveData.MoveSource);
+                RO_Star_Koma koma2 = Util_Koma.AsKoma(tuginoSasiteData.LongTimeAgo);
 
-                FugoJ fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](tuginoMoveData, new KyokumenWrapper(src_Sky), logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                FugoJ fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](tuginoSasiteData, new KyokumenWrapper(src_Sky), logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
                 tuginoItte = fugoJ.ToText_UseDou(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui));
             }
 
@@ -616,7 +616,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             //------------------------------------------------------------
             if (shogiGui.ResponseData.Is_RedrawStarlights())
             {
-                this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst.Foreach_Starlights((Finger finger, IMoveHalf light, ref bool toBreak) =>
+                this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
                 {
                     Util_InGui.Redraw_KomaLocation(finger, this.ShogiGui, logTag);
                 });
@@ -752,9 +752,9 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
             SkyConst siteiSky = shogiGui.Model_PnlTaikyoku.GuiSkyConst;
 
-            siteiSky.Foreach_Starlights((Finger finger, IMoveHalf ml, ref bool toBreak) =>
+            siteiSky.Foreach_Starlights((Finger finger, Starlight ml, ref bool toBreak) =>
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(ml.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(ml.Now);
 
 
                 if (Util_Masu.GetOkiba(koma.Masu) == Okiba.Gote_Komadai)
@@ -776,9 +776,9 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 {
                     bool isSpace = true;
 
-                    siteiSky.Foreach_Starlights((Finger finger, IMoveHalf ml, ref bool toBreak) =>
+                    siteiSky.Foreach_Starlights((Finger finger, Starlight ml, ref bool toBreak) =>
                     {
-                        RO_Star_Koma koma2 = Util_Koma.AsKoma(ml.MoveSource);
+                        RO_Star_Koma koma2 = Util_Koma.AsKoma(ml.Now);
 
 
                         int suji2;
@@ -829,9 +829,9 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            siteiSky.Foreach_Starlights((Finger finger, IMoveHalf ml, ref bool toBreak) =>
+            siteiSky.Foreach_Starlights((Finger finger, Starlight ml, ref bool toBreak) =>
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(ml.MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(ml.Now);
 
                 if (Util_Masu.GetOkiba(koma.Masu) == Okiba.Sente_Komadai)
                 {

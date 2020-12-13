@@ -189,9 +189,9 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// 棋譜[再生]中は使いません。
         /// 
         /// </summary>
-        public IMoveHalf MouseStarlightOrNull2 { get { return this.mouseStarlightOrNull2; } }
-        public void SetMouseStarlightOrNull2(IMoveHalf mouseDd) { this.mouseStarlightOrNull2 = mouseDd; }
-        private IMoveHalf mouseStarlightOrNull2;
+        public Starlight MouseStarlightOrNull2 { get { return this.mouseStarlightOrNull2; } }
+        public void SetMouseStarlightOrNull2(Starlight mouseDd) { this.mouseStarlightOrNull2 = mouseDd; }
+        private Starlight mouseStarlightOrNull2;
 
         /// <summary>
         /// 「取った駒_巻戻し用」

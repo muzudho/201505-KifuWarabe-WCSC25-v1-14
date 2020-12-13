@@ -30,7 +30,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         #endregion
 
 
-        public static RO_Star_Koma AsKoma(IMoveSource light)
+        public static RO_Star_Koma AsKoma(Starlightable light)
         {
             RO_Star_Koma koma;
 
@@ -50,7 +50,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         {
             RO_Star_Koma koma;
 
-            IMoveSource lightable = src_Sky.StarlightIndexOf(finger).MoveSource;
+            Starlightable lightable = src_Sky.StarlightIndexOf(finger).Now;
 
             if (lightable is RO_Star_Koma)
             {

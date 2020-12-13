@@ -86,7 +86,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             if ((int)finger < Finger_Honshogi.Items_KomaOnly.Length)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                     Playerside pside = koma.Pside;
                     Ks14 ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
@@ -111,10 +111,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// </summary>
         /// <param name="enableLog"></param>
         /// <param name="src_Sky_base"></param>
-        /// <param name="km_move"></param>
+        /// <param name="km_sasite"></param>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, SkyConst src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_move, string comment)
+        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, SkyConst src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_sasite, string comment)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -123,10 +123,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 goto gt_EndMethod;
             }
 
-            km_move.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
+            km_sasite.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 // 駒１つ
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky_base.StarlightIndexOf(key).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky_base.StarlightIndexOf(key).Now);
 
                     Ks14 ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
 
@@ -166,7 +166,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="comment"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, SkyConst src_Sky_base, Node<IMove, KyokumenWrapper> thisNode, string comment, LarabeLoggerable logTag)
+        public static string JsonElements_Node(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable, KyokumenWrapper> thisNode, string comment, LarabeLoggerable logTag)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -176,10 +176,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
 
             {
-                IMove move = thisNode.Key;
+                ShootingStarlightable sasite = thisNode.Key;
 
-                RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.MoveSource);
-                RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.MoveSource);
+                RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
+                RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
 
 
                     Finger finger = Util_Sky.Fingers_AtMasuNow(src_Sky_base,srcKoma.Masu).ToFirst();
@@ -219,7 +219,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="comment"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, SkyConst src_Sky_base, Node<IMove,KyokumenWrapper> hubNode, string comment, LarabeLoggerable logTag)
+        public static string JsonKyokumens_NextNodes(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable,KyokumenWrapper> hubNode, string comment, LarabeLoggerable logTag)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -228,12 +228,12 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 goto gt_EndMethod;
             }
 
-            hubNode.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
             {
-                IMove move = node.Key;
+                ShootingStarlightable sasite = node.Key;
 
-                RO_Star_Koma srcKoma1 = Util_Koma.AsKoma(move.MoveSource);
-                RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.MoveSource);
+                RO_Star_Koma srcKoma1 = Util_Koma.AsKoma(sasite.LongTimeAgo);
+                RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
 
 
                 Finger srcKoma2 = Util_Sky.Fingers_AtMasuNow(src_Sky_base, srcKoma1.Masu).ToFirst();
@@ -284,7 +284,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             
             foreach (int hKoma in hKomas)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(hKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(hKoma).Now);
 
 
                 string komaImg = Util_GraphicalLog.Finger_ToString(src_Sky, hKoma, "");
@@ -400,10 +400,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             foreach (GraphicalLog_Board boardLog1 in boardFileLog1.boards)
             {
                 // 指し手。分かれば。
-                string moveStr = Converter04.ChangeMoveToStringForLog(boardLog1.moveOrNull, boardLog1.GenTeban);
+                string sasiteStr = Converter04.Sasite_ToString_ForLog(boardLog1.sasiteOrNull, boardLog1.GenTeban);
 
                 //string oldCaption = boardLog1.Caption;
-                //boardLog1.Caption += "_" + moveStr;
+                //boardLog1.Caption += "_" + sasiteStr;
                 sb_json_boardsLog.Append(boardLog1.ToJsonStr());
                 //boardLog1.Caption = oldCaption;
             }

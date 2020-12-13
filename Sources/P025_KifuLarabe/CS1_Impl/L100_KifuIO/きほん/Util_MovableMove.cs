@@ -33,12 +33,12 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
             GraphicalLog_Board logBrd_move,
             int yomuDeep_forLog,//脳内読み手数
             int tesumi_yomiCur_forLog,
-            IMove moveForLog,
+            ShootingStarlightable sasite_forLog,
             LarabeLoggerable logTag
             )
         {
 
-            logBrd_move.Caption = "移動可能_" + Converter04.ChangeMoveToStringForLog(moveForLog, pside_genTeban3);
+            logBrd_move.Caption = "移動可能_" + Converter04.Sasite_ToString_ForLog(sasite_forLog, pside_genTeban3);
             logBrd_move.Tesumi = tesumi_yomiCur_forLog;
             logBrd_move.NounaiYomiDeep = yomuDeep_forLog;
             //logBrd_move.Score = 0.0d;
@@ -96,7 +96,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                 GraphicalLog_Board boardLog_clone = new GraphicalLog_Board(logBrd_move);
                 foreach (Finger finger in fingers_seme_IKUSA.Items)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                     Gkl_KomaMasu km = new Gkl_KomaMasu(
                         Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
@@ -107,7 +107,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
 
                 foreach (Finger finger in fingers_kurau_IKUSA.Items)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                     logBrd_move.KomaMasu2.Add(new Gkl_KomaMasu(
                         Util_GraphicalLog.PsideKs14_ToString(tebanKurau, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
@@ -117,7 +117,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
 
                 foreach (Finger finger in fingers_seme_MOTI.Items)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                     Gkl_KomaMasu km = new Gkl_KomaMasu(
                         Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
@@ -128,7 +128,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
 
                 foreach (Finger finger in fingers_kurau_MOTI.Items)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                     logBrd_move.KomaMasu4.Add(new Gkl_KomaMasu(
                         Util_GraphicalLog.PsideKs14_ToString(tebanKurau, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
@@ -155,7 +155,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     masus_kurau_IKUSA,
                     src_Sky,
                     enableLog,
-                    Converter04.ChangeMoveToStringForLog(moveForLog, pside_genTeban3),
+                    Converter04.Sasite_ToString_ForLog(sasite_forLog, pside_genTeban3),
                     logTag
                     );// 盤上の駒の移動できる場所
 
@@ -165,7 +165,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     masus_seme_IKUSA,
                     masus_kurau_IKUSA,
                     src_Sky,
-                    Converter04.ChangeMoveToStringForLog(moveForLog, pside_genTeban3),
+                    Converter04.Sasite_ToString_ForLog(sasite_forLog, pside_genTeban3),
                     logTag
                     );
 
@@ -173,7 +173,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                 boardLog_clone = new GraphicalLog_Board(logBrd_move);
                 kmMove_seme_IKUSA.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(key).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(key).Now);
 
                     string komaImg = Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), "");
 

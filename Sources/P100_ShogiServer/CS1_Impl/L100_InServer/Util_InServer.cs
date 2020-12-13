@@ -35,7 +35,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         /// <param name="newNode"></param>
         public static void SetCurNode_Srv(
             ShogiGui_Base shogiGui_Base,
-            Node<IMove, KyokumenWrapper> newNode
+            Node<ShootingStarlightable, KyokumenWrapper> newNode
             )
         {
             //ShogiGui shogiGui = (ShogiGui)shogiGui_Base;
@@ -252,12 +252,12 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     nextTebanside = Converter04.AlternatePside(Playerside.P2);//FIXME:逆か？
                 }
 
-                IMove move = Util_Sky.NullObjectMove;//ルートなので
+                ShootingStarlightable sasite = Util_Sky.NULL_OBJECT_SASITE;//ルートなので
 
                 SkyConst src_Sky_New = startposImporter.ToSky();
-                Node<IMove, KyokumenWrapper> newNode =
+                Node<ShootingStarlightable, KyokumenWrapper> newNode =
                         new KifuNodeImpl(
-                            move,
+                            sasite,
                             new KyokumenWrapper(new SkyConst(src_Sky_New)),
                             nextTebanside
                         );
@@ -548,7 +548,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            Node<IMove, KyokumenWrapper> removeeLeaf = shogiGui.Model_PnlTaikyoku.Kifu.CurNode;
+            Node<ShootingStarlightable, KyokumenWrapper> removeeLeaf = shogiGui.Model_PnlTaikyoku.Kifu.CurNode;
 
             if (removeeLeaf.PreviousNode == null)
             {
@@ -569,7 +569,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             //
             // そこで[巻戻し]ボタンでは、移動前の駒に従って、「進んできた動きとは逆の動き」を行います。
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(removeeLeaf.Key.MoveSource);
+            RO_Star_Koma koma = Util_Koma.AsKoma(removeeLeaf.Key.LongTimeAgo);
 
             fugoJStr = JFugoCreator15Array.ItemMethods[
                 (int)Haiyaku184Array.Syurui(koma.Haiyaku)
@@ -591,7 +591,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             foodKoma = Fingers.Error_1;//取られた駒
             bool isMakimodosi = true;
 
-            Node<IMove, KyokumenWrapper> out_newNode_OrNull;
+            Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull;
             KifuIO.Ittesasi(
                 removeeLeaf.Key,
                 shogiGui.Model_PnlTaikyoku.Kifu,
@@ -657,7 +657,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         public static void Komamove1a_50Srv(
             out bool torareruKomaAri,
             out RO_Star_Koma koma_Food_after,
-            IMoveHalf dst,
+            Starlight dst,
             Finger btnTumandeiruKoma_Koma,
             RO_Star_Koma koma1,
             ShogiGui_Base shogiGui_Base,
@@ -685,7 +685,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             //>>>>> 取る駒があったとき
             torareruKomaAri = true;
 
-            Ks14 koma_Food_pre_Syurui = Util_Koma.AsKoma(shogiGui_Base.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).MoveSource).Syurui;
+            Ks14 koma_Food_pre_Syurui = Util_Koma.AsKoma(shogiGui_Base.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now).Syurui;
 
 
             // その駒は、駒置き場に移動させます。

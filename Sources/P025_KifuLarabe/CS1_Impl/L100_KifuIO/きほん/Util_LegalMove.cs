@@ -39,7 +39,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="logTag"></param>
         public static KifuNode LA_RemoveMate(
             bool isHonshogi,
-            Maps_OneAndMulti<Finger, IMove> genTebanKomabetuAllMove1,// 現手番の、どの駒が、どんな手を指すことができるか
+            Maps_OneAndMulti<Finger, ShootingStarlightable> genTeban_komabetuAllSasite1,// 現手番の、どの駒が、どんな手を指すことができるか
             int yomuDeep,//脳内読み手数
             int tesumi_yomiGenTeban,
             Playerside pside_yomiGenTeban,
@@ -49,10 +49,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string hint,
             LarabeLoggerable logTag)
         {
-            Node<IMove, KyokumenWrapper> hubNode = UtilKomabetuMove.ToNextNodes_AsHubNode(
-                genTebanKomabetuAllMove1, siteiNode_yomiGenTeban, pside_yomiGenTeban, logTag
+            Node<ShootingStarlightable, KyokumenWrapper> hubNode = Util_KomabetuSasite.ToNextNodes_AsHubNode(
+                genTeban_komabetuAllSasite1, siteiNode_yomiGenTeban, pside_yomiGenTeban, logTag
                 );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
-            Converter04.AssertNariMove(hubNode, "#LA_RemoveMate(1)");//ここはok
+            Converter04.AssertNariSasite(hubNode, "#LA_RemoveMate(1)");//ここはok
             Util_LegalMove.Log1(hubNode,enableLog, tesumi_yomiGenTeban, hint, logTag);
 
 
@@ -69,27 +69,27 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     logF_kiki,
                     logTag);
             }
-            Converter04.AssertNariMove(hubNode, "#LA_RemoveMate(2)王手局面削除直後");//ここはok
+            Converter04.AssertNariSasite(hubNode, "#LA_RemoveMate(2)王手局面削除直後");//ここはok
 
 
             // 「指し手一覧」を、「駒別の全指し手」に分けます。
-            Maps_OneAndMulti<Finger, IMove> komabetuAllMoves2 = siteiNode_yomiGenTeban.SplitMoveByKoma(hubNode, logTag);
-            Converter04.AssertNariMove(komabetuAllMoves2, "#LA_RemoveMate(3)更に変換後");//ここはok
+            Maps_OneAndMulti<Finger, ShootingStarlightable> komabetuAllSasites2 = siteiNode_yomiGenTeban.SplitSasite_ByKoma(hubNode, logTag);
+            Converter04.AssertNariSasite(komabetuAllSasites2, "#LA_RemoveMate(3)更に変換後");//ここはok
 
             //
             // 「駒別の指し手一覧」を、「駒別の進むマス一覧」になるよう、データ構造を変換します。
             //
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの駒を、どこに進める」の一覧
-            foreach (KeyValuePair<Finger, List<IMove>> entry in komabetuAllMoves2.Items)
+            foreach (KeyValuePair<Finger, List<ShootingStarlightable>> entry in komabetuAllSasites2.Items)
             {
                 Finger finger = entry.Key;
-                List<IMove> teList = entry.Value;
+                List<ShootingStarlightable> teList = entry.Value;
 
                 // ポテンシャル・ムーブを調べます。
                 SySet<SyElement> masus_PotentialMove = new SySet_Default<SyElement>("ポテンシャルムーブ");
-                foreach (IMove te in teList)
+                foreach (ShootingStarlightable te in teList)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(te.MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(te.Now);
 
                     masus_PotentialMove.AddElement(koma.Masu);
                 }
@@ -102,14 +102,14 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
 
             // まず、ディクショナリー構造へ変換。
-            Dictionary<IMove, KyokumenWrapper> moveBetuSky = Converter04.KomabetuMasusToMoveBetuSky(
+            Dictionary<ShootingStarlightable, KyokumenWrapper> sasitebetuSky = Converter04.KomabetuMasus_ToSasitebetuSky(
                 komabetuSusumuMasus, siteiNode_yomiGenTeban.Value.ToKyokumenConst, pside_yomiGenTeban, logTag);
 
             // 棋譜ノード構造へ変換。
-            return Converter04.MoveBetuSkyToHubNode(moveBetuSky, KifuNodeImpl.GetReverseTebanside(pside_yomiGenTeban));
+            return Converter04.SasitebetuSky_ToHubNode(sasitebetuSky, KifuNodeImpl.GetReverseTebanside(pside_yomiGenTeban));
         }
         private static void Log1(
-            Node<IMove, KyokumenWrapper> hubNode,
+            Node<ShootingStarlightable, KyokumenWrapper> hubNode,
             bool enableLog,
             int tesumi_yomiGenTeban,
             string hint,
@@ -128,7 +128,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// ハブノードの次手番の局面のうち、王手がかかった局面は取り除きます。
         /// </summary>
         public static void LAA_RemoveNextNode_IfMate(
-            Node<IMove, KyokumenWrapper> hubNode,
+            Node<ShootingStarlightable, KyokumenWrapper> hubNode,
             bool enableLog,
             int yomuDeep,//脳内読み手数
             int tesumi_yomiGenTeban_forLog,//読み進めている現在の手目
@@ -138,9 +138,9 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             )
         {
             // Node<,>の形で。
-            Dictionary<string, Node<IMove, KyokumenWrapper>> newNextNodes = new Dictionary<string, Node<IMove, KyokumenWrapper>>();
+            Dictionary<string, Node<ShootingStarlightable, KyokumenWrapper>> newNextNodes = new Dictionary<string, Node<ShootingStarlightable, KyokumenWrapper>>();
 
-            hubNode.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 
@@ -188,7 +188,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             int tesumi_yomiCur_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,//現手番側
             GraphicalLog_File logF_kiki,
-            IMove moveForLog,
+            ShootingStarlightable sasite_forLog,
             LarabeLoggerable logTag
             )
         {
@@ -208,7 +208,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 "玉自殺ﾁｪｯｸ",
                 yomuDeep,
                 tesumi_yomiCur_forLog,
-                moveForLog,
+                sasite_forLog,
                 logTag);
 
             
@@ -219,14 +219,14 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             {
                 // 現手番は、後手
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now);
 
                     genTeban_kingMasu = koma.Masu;
             }
             else
             {
                 // 現手番は、先手
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now);
 
                     genTeban_kingMasu = koma.Masu;
             }
@@ -270,7 +270,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string logBrd_caption,
             int yomuDeep_forLog,//脳内読み手数
             int tesumi_yomiCur_forLog,
-            IMove moveForLog,
+            ShootingStarlightable sasite_forLog,
             LarabeLoggerable logTag
             )
         {
@@ -333,7 +333,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 GraphicalLog_Board boardLog_clone = new GraphicalLog_Board(logBrd_kiki);
                 foreach (Finger finger in fingers_seme_IKUSA.Items)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
 
                         Gkl_KomaMasu km = new Gkl_KomaMasu(
@@ -345,7 +345,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 foreach (Finger finger in fingers_kurau_IKUSA.Items)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
 
                         logBrd_kiki.KomaMasu2.Add(new Gkl_KomaMasu(
@@ -372,7 +372,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     masus_kurau_IKUSA,
                     src_Sky,
                     enableLog,
-                    Converter04.ChangeMoveToStringForLog(moveForLog, pside_genTeban3),
+                    Converter04.Sasite_ToString_ForLog(sasite_forLog, pside_genTeban3),
                     logTag
                     );// 利きを調べる側の利き（戦駒）
 
@@ -380,7 +380,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 logBrd_kiki = new GraphicalLog_Board(logBrd_kiki);
                 kmEffect_seme_IKUSA.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(key).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(key).Now);
 
 
                         string komaImg = Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), "");

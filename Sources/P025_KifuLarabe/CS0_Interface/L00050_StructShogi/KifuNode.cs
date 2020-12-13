@@ -6,14 +6,14 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
 {
-    public interface KifuNode : Node<IMove, KyokumenWrapper>
+    public interface KifuNode : Node<ShootingStarlightable, KyokumenWrapper>
     {
 
 
         ISfenPosition1 ToRO_Kyokumen1(LarabeLoggerable logTag);
         string ToSfenstring(Playerside pside, LarabeLoggerable logTag);
 
-        void AppdendNextNodes(Node<IMove, KyokumenWrapper> hubNode);
+        void AppdendNextNodes(Node<ShootingStarlightable, KyokumenWrapper> hubNode);
 
 
         /// <summary>
@@ -29,12 +29,12 @@ namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
         /// 
         /// カレントノードは変更しません。
         /// </summary>
-        void AppendChildA_New(Node<IMove, KyokumenWrapper> newNode);
+        void AppendChildA_New(Node<ShootingStarlightable, KyokumenWrapper> newNode);
 
         /// <summary>
         /// 王手がかかった局面は取り除きます。
         /// </summary>
-        Maps_OneAndMulti<Finger, IMove> SplitMoveByKoma(Node<IMove, KyokumenWrapper> hubNode, LarabeLoggerable logTag);
+        Maps_OneAndMulti<Finger, ShootingStarlightable> SplitSasite_ByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, LarabeLoggerable logTag);
 
         string Json_NextNodes_MultiSky(
             string memo,

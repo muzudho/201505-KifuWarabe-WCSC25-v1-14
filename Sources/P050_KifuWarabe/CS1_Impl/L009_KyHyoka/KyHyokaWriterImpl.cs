@@ -34,18 +34,18 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
             if (0<node.Count_NextNodes)
             {
                 // 先に奥の枝から。
-                node.Foreach_NextNodes((string key, Node<IMove, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
                 {
 
                     double score = ((KifuNode)nextNode).KyHyoka.Total();
 
                     this.Write_ForeachLeafs(
-                        nodePath + " " + Util_Sky.ToSfenMoveTextForFilename(nextNode.Key),
+                        nodePath + " " + Util_Sky.ToSfenSasiteText_ForFilename(nextNode.Key),
                         (KifuNode)nextNode,
                         kifu,
                         playerInfo,
-                        relFolder + ((int)score).ToString()+"点_"+Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
-                        //relFolder + ((int)((KifuNode)nextNode).KyHyoka.Total()).ToString() + "点_" + Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
+                        relFolder + ((int)score).ToString()+"点_"+Util_Sky.ToSfenSasiteText(nextNode.Key) + "/",
+                        //relFolder + ((int)((KifuNode)nextNode).KyHyoka.Total()).ToString() + "点_" + Util_Sky.ToSfenSasiteText(nextNode.Key) + "/",
                         reportEnvironment,
                         logTag
                         );

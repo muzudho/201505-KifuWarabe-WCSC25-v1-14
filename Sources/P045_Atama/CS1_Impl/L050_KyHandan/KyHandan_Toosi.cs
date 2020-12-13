@@ -89,7 +89,7 @@ namespace Grayscale.P045_Atama.L050_KyHandan
             //
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)// 全駒
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 if (Okiba.ShogiBan != Util_Masu.Masu_ToOkiba(koma.Masu))
                 {

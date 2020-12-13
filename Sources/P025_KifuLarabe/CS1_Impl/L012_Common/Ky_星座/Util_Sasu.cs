@@ -44,7 +44,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 }
 
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(dst_Sky.StarlightIndexOf(tottaKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(dst_Sky.StarlightIndexOf(tottaKoma).Now);
 
                     // FIXME:配役あってるか？
                 dst_Sky.AddOverwriteStarlight(tottaKoma, new RO_MotionlessStarlight(new RO_Star_Koma(pside_genTeban, akiMasu, koma.Syurui)));//tottaKoma,
@@ -54,7 +54,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             // 駒を１個動かします。
             // FIXME: 取った駒はどうなっている？
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(dst_Sky.StarlightIndexOf(finger).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(dst_Sky.StarlightIndexOf(finger).Now);
 
                 dst_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(pside_genTeban, masu, koma.Syurui)));//finger,
             }

@@ -2,9 +2,9 @@
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 
-namespace Grayscale.P027MoveGen.L0005MoveGen
+namespace Grayscale.P027_SasiteSeisei.L0005_SasiteSeisei
 {
-    public interface MoveGenArgs
+    public interface SasiteseiseiArgs
     {
 
         bool IsHonshogi { get; }

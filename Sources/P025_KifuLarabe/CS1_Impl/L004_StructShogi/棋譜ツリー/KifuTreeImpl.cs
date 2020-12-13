@@ -17,7 +17,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 
 
 
-    public class KifuTreeImpl : TreeImpl<IMove, KyokumenWrapper>, KifuTree
+    public class KifuTreeImpl : TreeImpl<ShootingStarlightable, KyokumenWrapper>, KifuTree
     {
         public const string PropName_Startpos = "prop_startpos";
 
@@ -31,14 +31,14 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         //public Tree<ShootingStarlightable, KyokumenWrapper> Tree { get { return this.tree; } }
         //private Tree<ShootingStarlightable, KyokumenWrapper> tree;
 
-        public KifuTreeImpl(Node<IMove, KyokumenWrapper> root)
+        public KifuTreeImpl(Node<ShootingStarlightable, KyokumenWrapper> root)
             : base(root)//Tree<ShootingStarlightable, KyokumenWrapper> tree
         {
             //this.tree = tree;
         }
 
 
-        public Playerside CountPside(Node<IMove, KyokumenWrapper> node)
+        public Playerside CountPside(Node<ShootingStarlightable, KyokumenWrapper> node)
         {
             return this.CountPside(this.CountTesumi(node));
         }
@@ -117,27 +117,27 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 
             Playerside genTebanside = ((KifuNode)this.CurNode).Tebanside;
             // 現在のノードを削除します。そのとき、もともとのキー を覚えておきます。
-            IMove motoKey = (IMove)this.PopCurrentNode().Key;
+            ShootingStarlightable motoKey = (ShootingStarlightable)this.PopCurrentNode().Key;
 
             // もともとのキーの、取った駒の種類だけを差替えます。
-            RO_ShootingStarlight sasikaeKey = Util_Sky.New(motoKey.MoveSource, motoKey.MoveSource, tottaSyurui);//motoKey.Finger,
+            RO_ShootingStarlight sasikaeKey = Util_Sky.New(motoKey.LongTimeAgo, motoKey.Now, tottaSyurui);//motoKey.Finger,
 
             // キーを差替えたノード
-            Node<IMove, KyokumenWrapper> sasikaeNode = new KifuNodeImpl(sasikaeKey, new KyokumenWrapper(src_Sky), genTebanside);
+            Node<ShootingStarlightable, KyokumenWrapper> sasikaeNode = new KifuNodeImpl(sasikaeKey, new KyokumenWrapper(src_Sky), genTebanside);
 
-            System.Diagnostics.Debug.Assert(!this.CurNode.ContainsKey_NextNodes(Util_Sky.ToSfenMoveText(sasikaeNode.Key)));
+            System.Diagnostics.Debug.Assert(!this.CurNode.ContainsKey_NextNodes(Util_Sky.ToSfenSasiteText(sasikaeNode.Key)));
 
 
             // さきほど　カレントノードを削除したので、
             // 今、カレントノードは、１つ前のノードになっています。
             // ここに、差替えたノードを追加します。
-            this.CurNode.Add_NextNode(Util_Sky.ToSfenMoveText(sasikaeNode.Key), sasikaeNode);
+            this.CurNode.Add_NextNode(Util_Sky.ToSfenSasiteText(sasikaeNode.Key), sasikaeNode);
             sasikaeNode.PreviousNode = this.CurNode;
 
 
             this.CurNode = sasikaeNode;
 
-            logTag.WriteLine_AddMemo("リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky.ToSfenMoveText(sasikaeKey) + "]");
+            logTag.WriteLine_AddMemo("リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky.ToSfenSasiteText(sasikaeKey) + "]");
         // memberName=[" + memberName + "] sourceFilePath=[" + sourceFilePath + "] sourceLineNumber=[" + sourceLineNumber + "]
 
         gt_EndMethod:

@@ -104,7 +104,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             {
                 this.Kifu = new KifuTreeImpl(
                         new KifuNodeImpl(
-                            Util_Sky.NullObjectMove,
+                            Util_Sky.NULL_OBJECT_SASITE,
                             new KyokumenWrapper(new SkyConst(Util_Sky.New_Hirate())),// きふわらべ起動時 // FIXME:平手とは限らないが。
                             Playerside.P2
                         )
@@ -113,7 +113,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 this.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
                 Debug.Assert(!Util_MasuNum.OnKomabukuro(
-                    Util_Masu.AsMasuNumber(((RO_Star_Koma)this.Kifu.CurNode.Value.ToKyokumenConst.StarlightIndexOf((Finger)0).MoveSource).Masu)
+                    Util_Masu.AsMasuNumber(((RO_Star_Koma)this.Kifu.CurNode.Value.ToKyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
                     ), "駒が駒袋にあった。");
             }
 
@@ -628,7 +628,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 bool isHonshogi = true;
 
                                 // 指し手を決めます。
-                                IMove bestMove = this.shogisasi.WA_Bestmove(
+                                ShootingStarlightable bestSasite = this.shogisasi.WA_Bestmove(
                                     enableLog,
                                     isHonshogi,
                                     this.Kifu,
@@ -639,9 +639,9 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
 
 
-                                if (Util_Sky.isEnableSfen(bestMove))
+                                if (Util_Sky.isEnableSfen(bestSasite))
                                 {
-                                    string sfenText = Util_Sky.ToSfenMoveText(bestMove);
+                                    string sfenText = Util_Sky.ToSfenSasiteText(bestSasite);
                                     this.owner.Log_Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
                                         "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, this.owner.Log_Engine));
 
@@ -863,7 +863,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             sb.Append("ログだせ～（＾▽＾）");
 
             this.Kifu.ForeachZenpuku(
-                this.Kifu.GetRoot(), (int tesumi, KyokumenWrapper sky, Node<IMove, KyokumenWrapper> node, ref bool toBreak) =>
+                this.Kifu.GetRoot(), (int tesumi, KyokumenWrapper sky, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
                 {
                     //sb.AppendLine("(^-^)");
 
@@ -871,7 +871,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                     {
                         if (null != node.Key)
                         {
-                            string sfenText = Util_Sky.ToSfenMoveText(node.Key);
+                            string sfenText = Util_Sky.ToSfenSasiteText(node.Key);
                             sb.Append(sfenText);
                             sb.AppendLine();
                         }

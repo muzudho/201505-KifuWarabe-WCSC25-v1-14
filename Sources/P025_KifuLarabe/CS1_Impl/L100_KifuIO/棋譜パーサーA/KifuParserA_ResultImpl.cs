@@ -7,7 +7,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
     public class KifuParserA_ResultImpl : KifuParserA_Result
     {
-        public Node<IMove, KyokumenWrapper> Out_newNode_OrNull { get; set; }
+        public Node<ShootingStarlightable, KyokumenWrapper> Out_newNode_OrNull { get; set; }
 
 
     }

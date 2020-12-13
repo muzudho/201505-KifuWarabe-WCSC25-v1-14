@@ -1,14 +1,14 @@
-﻿using Grayscale.P027MoveGen.L0005MoveGen;
+﻿using Grayscale.P027_SasiteSeisei.L0005_SasiteSeisei;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 
-namespace Grayscale.P027MoveGen.L100MoveGen
+namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
 {
-    public class MoveGenGenjoImpl : MoveGenGenjo
+    public class SasiteseiseiGenjoImpl : SasiteseiseiGenjo
     {
 
 
-        public MoveGenArgs Args { get { return this.yomiArgs; } }
-        private MoveGenArgs yomiArgs;
+        public SasiteseiseiArgs Args { get { return this.yomiArgs; } }
+        private SasiteseiseiArgs yomiArgs;
 
         /// <summary>
         /// 脳内読み手数
@@ -25,7 +25,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
         /// </summary>
         public Playerside Pside_teban { get; set; }
 
-        public MoveGenGenjoImpl(MoveGenArgs yomiArgs, int yomuDeep, int tesumi_yomiCur, Playerside pside_teban)
+        public SasiteseiseiGenjoImpl(SasiteseiseiArgs yomiArgs, int yomuDeep, int tesumi_yomiCur, Playerside pside_teban)
         {
             this.yomiArgs = yomiArgs;
             this.YomuDeep = yomuDeep;

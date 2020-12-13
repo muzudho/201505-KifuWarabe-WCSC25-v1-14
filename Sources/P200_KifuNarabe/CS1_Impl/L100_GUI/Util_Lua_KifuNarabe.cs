@@ -238,7 +238,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
             {
                 KifuNode newNode = new KifuNodeImpl(
-                            Util_Sky.NullObjectMove,//ルートなので
+                            Util_Sky.NULL_OBJECT_SASITE,//ルートなので
                             new KyokumenWrapper(new SkyConst(buffer_Sky)),
                             Playerside.P2
                         );

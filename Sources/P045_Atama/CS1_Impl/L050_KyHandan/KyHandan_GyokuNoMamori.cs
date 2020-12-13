@@ -47,7 +47,7 @@ namespace Grayscale.P045_Atama.L050_KyHandan
             RO_Star_Koma jiGyoku = null;
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)// 全駒
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 if (koma.Pside == args.PlayerInfo.Playerside && koma.Syurui == Ks14.H06_Oh)
                 {
@@ -131,7 +131,7 @@ namespace Grayscale.P045_Atama.L050_KyHandan
             int countKanagoma = 0; // カナゴマ
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)// 全駒
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 if (koma.Pside == args.PlayerInfo.Playerside &&
                     koma.Syurui == Ks14.H04_Gin &&

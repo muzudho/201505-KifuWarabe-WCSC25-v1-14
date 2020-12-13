@@ -33,7 +33,7 @@ namespace Grayscale.P050_KifuWarabe.L00052_Shogisasi
         /// <param name="playerInfo"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        IMove WA_Bestmove(
+        ShootingStarlightable WA_Bestmove(
             bool enableLog,
             bool isHonshogi,
             KifuTree kifu,

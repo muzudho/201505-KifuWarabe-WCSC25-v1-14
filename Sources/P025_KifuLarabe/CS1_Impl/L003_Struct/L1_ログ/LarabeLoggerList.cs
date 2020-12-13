@@ -19,7 +19,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
     /// </summary>
     public partial class LarabeLoggerList
     {
-        public static readonly LarabeLoggerable MoveGenRoutine = new LarabeLoggerImpl("../../Logs/_log_指し手生成ルーチン", ".txt", true, false);
+        public static readonly LarabeLoggerable SASITE_SEISEI_ROUTINE = new LarabeLoggerImpl("../../Logs/_log_指し手生成ルーチン", ".txt", true, false);
         public static readonly LarabeLoggerable LOGGING_BY_GUI = new LarabeLoggerImpl("../../Logs/_log_将棋GUI_棋譜読取", ".txt", true, false);
         public static readonly LarabeLoggerable LOGGING_BY_LARABE_STANDALONE = new LarabeLoggerImpl("../../Logs/_log_ララベProgram", ".txt", true, false);
         public static readonly LarabeLoggerable LINKED_LIST = new LarabeLoggerImpl("../../Logs/_log_リンクトリスト", ".txt", false, false);

@@ -425,7 +425,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
         public RO_Star_Koma GetKoma(Finger finger)
         {
-            return Util_Koma.AsKoma(this.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(finger).MoveSource);
+            return Util_Koma.AsKoma(this.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(finger).Now);
         }
     }
 

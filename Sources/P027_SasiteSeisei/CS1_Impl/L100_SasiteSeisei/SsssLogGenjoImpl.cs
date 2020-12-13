@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Grayscale.P027MoveGen.L0005MoveGen;
+using Grayscale.P027_SasiteSeisei.L0005_SasiteSeisei;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 
-namespace Grayscale.P027MoveGen.L100MoveGen
+namespace Grayscale.P027_SasiteSeisei.L100_SasiteSeisei
 {
     public class SsssLogGenjoImpl : SsssLogGenjo
     {

@@ -14,7 +14,7 @@ namespace Grayscale.P025_KifuLarabe.L002_GraphicLog
         /// <summary>
         /// あれば指し手。なければヌル。
         /// </summary>
-        public IMove moveOrNull{get;set;}
+        public ShootingStarlightable sasiteOrNull{get;set;}
 
         /// <summary>
         /// 説明文章（１行）。

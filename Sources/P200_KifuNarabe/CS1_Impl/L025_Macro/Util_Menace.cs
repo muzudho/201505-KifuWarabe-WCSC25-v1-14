@@ -33,7 +33,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
                 // 全駒
                 foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 
                     if (

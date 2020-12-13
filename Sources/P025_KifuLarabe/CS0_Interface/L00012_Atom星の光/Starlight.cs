@@ -11,7 +11,7 @@ namespace Grayscale.P025_KifuLarabe.L00012_Atom
     /// 
     /// 通常、今の星の位置を示していますが、拡張バージョンでは、前の星の位置も示すようになります。
     /// </summary>
-    public interface IMoveHalf
+    public interface Starlight
     {
 
         //Finger Finger { get; }
@@ -22,7 +22,7 @@ namespace Grayscale.P025_KifuLarabe.L00012_Atom
         /// 先後、升、配役
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        IMoveSource MoveSource { get; }
+        Starlightable Now { get; }
 
     }
 }

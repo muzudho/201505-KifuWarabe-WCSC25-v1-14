@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Grayscale.P027MoveGen.L00025_MovableMove;
+using Grayscale.P027_SasiteSeisei.L00025_MovableMove;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 
-namespace Grayscale.P027MoveGen.L050_MovableMove
+namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
 {
     public class MmGenjo_MovableMasuImpl : MmGenjo_MovableMasu
     {

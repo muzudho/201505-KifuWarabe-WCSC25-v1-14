@@ -6,7 +6,7 @@ using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P045_Atama.L000125_Sokutei;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P027MoveGen.L050_MovableMove;
+using Grayscale.P027_SasiteSeisei.L050_MovableMove;
 
 namespace Grayscale.P045_Atama.L025_Sokutei
 {
@@ -76,7 +76,7 @@ namespace Grayscale.P045_Atama.L025_Sokutei
             //
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)// 全駒
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 self.HMasu_PlayersideList[Util_Masu.AsMasuNumber(koma.Masu)] = koma.Pside;
             }
@@ -93,7 +93,7 @@ namespace Grayscale.P045_Atama.L025_Sokutei
                 //
                 // 駒
                 //
-                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).MoveSource);
+                RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 // 将棋盤上の戦駒のみ判定
                 if (Okiba.ShogiBan != Util_Masu.Masu_ToOkiba(koma.Masu))

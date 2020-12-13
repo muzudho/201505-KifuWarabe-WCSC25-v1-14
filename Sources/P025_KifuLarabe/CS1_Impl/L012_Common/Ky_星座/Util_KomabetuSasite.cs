@@ -14,7 +14,7 @@ using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 
 namespace Grayscale.P025_KifuLarabe.L012_Common
 {
-    public abstract class UtilKomabetuMove
+    public abstract class Util_KomabetuSasite
     {
 
         /// <summary>
@@ -24,33 +24,33 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="pside_genTeban"></param>
         /// <returns></returns>
         public static KifuNode ToNextNodes_AsHubNode(
-            Maps_OneAndMulti<Finger,IMove> komabetuAllMove,
-            Node<IMove, KyokumenWrapper> siteiNode,
+            Maps_OneAndMulti<Finger,ShootingStarlightable> komabetuAllSasite,
+            Node<ShootingStarlightable, KyokumenWrapper> siteiNode,
             Playerside pside_genTeban, LarabeLoggerable logTag)
         {
             KifuNode hubNode = new KifuNodeImpl( null, null, Playerside.Empty);//蝶番
 
 #if DEBUG
-            string dump = komabetuAllMove.Dump();
+            string dump = komabetuAllSasite.Dump();
 #endif
 
-            foreach (KeyValuePair<Finger, List<IMove>> entry1 in komabetuAllMove.Items)
+            foreach (KeyValuePair<Finger, List<ShootingStarlightable>> entry1 in komabetuAllSasite.Items)
             {
 
                 Finger figKoma = entry1.Key;// 駒
 
                 // 駒の動ける升全て
-                foreach (IMove move in entry1.Value)
+                foreach (ShootingStarlightable sasite in entry1.Value)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(move.MoveSource);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(sasite.Now);
 
                     SyElement masu = koma.Masu;
 
                     SkyConst nextSky = Util_Sasu.Sasu( siteiNode.Value.ToKyokumenConst, figKoma, masu, pside_genTeban, logTag);
 
-                    Node<IMove, KyokumenWrapper> nextNode = new KifuNodeImpl(move, new KyokumenWrapper( nextSky), KifuNodeImpl.GetReverseTebanside(pside_genTeban));//次のノード
+                    Node<ShootingStarlightable, KyokumenWrapper> nextNode = new KifuNodeImpl(sasite, new KyokumenWrapper( nextSky), KifuNodeImpl.GetReverseTebanside(pside_genTeban));//次のノード
 
-                    string sfenText = Util_Sky.ToSfenMoveText(move);
+                    string sfenText = Util_Sky.ToSfenSasiteText(sasite);
                     if (hubNode.ContainsKey_NextNodes(sfenText))
                     {
                         // 既存の指し手なら無視
@@ -58,7 +58,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                     }
                     else
                     {
-                        hubNode.Add_NextNode(Util_Sky.ToSfenMoveText(move), nextNode);
+                        hubNode.Add_NextNode(Util_Sky.ToSfenSasiteText(sasite), nextNode);
                     }
 
                 }
