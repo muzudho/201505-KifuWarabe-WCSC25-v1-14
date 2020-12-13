@@ -125,14 +125,14 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 sb.Append(Util_Sky.ToSfenMoveText(node6.Key));
 
                 //// TODO:デバッグ用
-                //switch (move.TottaKoma)
+                //switch (sasite.TottaKoma)
                 //{
                 //    case KomaSyurui.UNKNOWN:
                 //    case KomaSyurui.TOTTA_KOMA_NASI:
                 //        break;
                 //    default:
                 //        sb.Append("(");
-                //        sb.Append(Converter.SyuruiToSfen(move.Pside,move.TottaKoma));
+                //        sb.Append(Converter.SyuruiToSfen(sasite.Pside,sasite.TottaKoma));
                 //        sb.Append(")");
                 //        break;
                 //}

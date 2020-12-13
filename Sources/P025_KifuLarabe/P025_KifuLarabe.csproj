@@ -111,7 +111,7 @@
     <Compile Include="CS1_Impl\L004_StructShogi\Ky_星座\Util_Koma.cs" />
     <Compile Include="CS1_Impl\L012_Common\Ky_星座\Util_KomabetuMasubetuMasus.cs" />
     <Compile Include="CS1_Impl\L012_Common\Ky_星座\Util_KomabetuMasus.cs" />
-    <Compile Include="CS1_Impl\L012_Common\Ky_星座\UtilKomabetuMove.cs" />
+    <Compile Include="CS1_Impl\L012_Common\Ky_星座\Util_KomabetuSasite.cs" />
     <Compile Include="CS1_Impl\L012_Common\Ky_星座\Util_Sasu.cs" />
     <Compile Include="CS1_Impl\L003_Struct\Maps_OneAndMultiAndMulti.cs" />
     <Compile Include="CS1_Impl\L012_Common\Ky_星座\Finger_Honshogi.cs" />
