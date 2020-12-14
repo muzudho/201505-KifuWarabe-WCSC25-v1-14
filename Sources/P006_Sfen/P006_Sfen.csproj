@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,15 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISfenPosition1.cs" />
-    <Compile Include="ISfenPosition2.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="P006Sfen\ISfenPosition1.cs" />
+    <Compile Include="P006Sfen\ISfenPosition2.cs" />
+    <Compile Include="P006Sfen\Program.cs" />
+    <Compile Include="P006Syugoron\SyElement.cs" />
+    <Compile Include="P006Syugoron\SyElement_Default.cs" />
+    <Compile Include="P006Syugoron\SyFuncDictionary.cs" />
+    <Compile Include="P006Syugoron\SySet.cs" />
+    <Compile Include="P006Syugoron\SySet_Default.cs" />
+    <Compile Include="P006Syugoron\SySet_DirectedSegment.cs" />
+    <Compile Include="P006Syugoron\SySet_Ordered.cs" />
+    <Compile Include="P006Syugoron\SyWordDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SfenPosition1Impl.cs" />
-    <Compile Include="SfenPosition2Impl.cs" />
-    <Compile Include="SfenStringImpl.cs" />
-    <Compile Include="SfenStringReader.cs" />
-    <Compile Include="Square.cs" />
+    <Compile Include="P006Sfen\SfenPosition1Impl.cs" />
+    <Compile Include="P006Sfen\SfenPosition2Impl.cs" />
+    <Compile Include="P006Sfen\SfenStringImpl.cs" />
+    <Compile Include="P006Sfen\SfenStringReader.cs" />
+    <Compile Include="P006Sfen\Square.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

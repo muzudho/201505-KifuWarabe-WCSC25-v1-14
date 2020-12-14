@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P400_KifuNaraVs", "Sources\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P006_Sfen", "Sources\P006_Sfen\P006_Sfen.csproj", "{FF107244-EEAB-481E-9017-F6D3DFFB23DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P006_Syugoron", "Sources\P006_Syugoron\P006_Syugoron.csproj", "{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfSyugoron", "Sources\P006_Syugoron\GuiOfSyugoron.csproj", "{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -94,9 +94,9 @@
       <Project>{ff107244-eeab-481e-9017-f6d3dffb23df}</Project>
       <Name>P006_Sfen</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P006_Syugoron\P006_Syugoron.csproj">
+    <ProjectReference Include="..\P006_Syugoron\GuiOfSyugoron.csproj">
       <Project>{8da09a28-62d8-4cc2-a975-cce0cf0da4b9}</Project>
-      <Name>P006_Syugoron</Name>
+      <Name>GuiOfSyugoron</Name>
     </ProjectReference>
     <ProjectReference Include="..\P007_SfenReport\P007_SfenReport.csproj">
       <Project>{56f57764-1bf7-4cb9-9757-d69778de1bb0}</Project>
