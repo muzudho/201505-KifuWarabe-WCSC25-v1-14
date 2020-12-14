@@ -102,10 +102,6 @@
       <Project>{56f57764-1bf7-4cb9-9757-d69778de1bb0}</Project>
       <Name>UiSfenReport</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P025_KifuLarabe\P025_KifuLarabe.csproj">
-      <Project>{18fb9b6e-95b2-47fe-a2f6-4fd865abd804}</Project>
-      <Name>P025_KifuLarabe</Name>
-    </ProjectReference>
     <ProjectReference Include="..\P027_SasiteSeisei\P027_SasiteSeisei.csproj">
       <Project>{d1878a53-8467-4610-b340-c0b5285cc4e4}</Project>
       <Name>P027_SasiteSeisei</Name>

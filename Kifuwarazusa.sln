@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiSfenReport", "Sources\P007_SfenReport\UiSfenReport.csproj", "{56F57764-1BF7-4CB9-9757-D69778DE1BB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P025_KifuLarabe", "Sources\P025_KifuLarabe\P025_KifuLarabe.csproj", "{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P027_SasiteSeisei", "Sources\P027_SasiteSeisei\P027_SasiteSeisei.csproj", "{D1878A53-8467-4610-B340-C0B5285CC4E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P040_Kokoro", "Sources\P040_Kokoro\P040_Kokoro.csproj", "{70DE6137-B1F3-48B5-BBF6-99791DAF94D5}"
@@ -47,18 +45,6 @@ Global
 		{56F57764-1BF7-4CB9-9757-D69778DE1BB0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{56F57764-1BF7-4CB9-9757-D69778DE1BB0}.Release|x64.ActiveCfg = Release|Any CPU
 		{56F57764-1BF7-4CB9-9757-D69778DE1BB0}.Release|x64.Build.0 = Release|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Debug|x64.Build.0 = Debug|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Release|x64.ActiveCfg = Release|Any CPU
-		{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}.Release|x64.Build.0 = Release|Any CPU
 		{D1878A53-8467-4610-B340-C0B5285CC4E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1878A53-8467-4610-B340-C0B5285CC4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1878A53-8467-4610-B340-C0B5285CC4E4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

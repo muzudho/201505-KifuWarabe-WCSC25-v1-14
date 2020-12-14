@@ -92,9 +92,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\P025_KifuLarabe\P025_KifuLarabe.csproj">
-      <Project>{18fb9b6e-95b2-47fe-a2f6-4fd865abd804}</Project>
-      <Name>P025_KifuLarabe</Name>
+    <ProjectReference Include="..\P006_Sfen\Entities.csproj">
+      <Project>{ff107244-eeab-481e-9017-f6d3dffb23df}</Project>
+      <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\P200_KifuNarabe\P200_KifuNarabe.csproj">
       <Project>{9593acc7-348b-4868-892c-7bafbf925b9d}</Project>
