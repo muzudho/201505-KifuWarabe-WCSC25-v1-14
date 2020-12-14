@@ -58,13 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CS0_Interface\NVs00048_Engine\ShogiEngineLive.cs" />
-    <Compile Include="CS0_Interface\NVs00048_Engine\ShogiEngineManInterface.cs" />
-    <Compile Include="CS1_Impl\NVs025_Engine\ShogiEngineManInterfaceImpl.cs" />
-    <Compile Include="CS1_Impl\NVs025_Engine\ShogiEngineLiveImpl.cs" />
-    <Compile Include="CS1_Impl\NVs100_GUI\KifuNarabeVsImpl.cs" />
-    <Compile Include="CS1_Impl\NVs100_GUI\WidgetsLoader_KifuNarabeVs.cs" />
-    <Compile Include="CS0_Interface\NVs002_Ui\NVs050_ShogiGui.cs" />
+    <Compile Include="P400NarabeVs\NVs00048_Engine\ShogiEngineLive.cs" />
+    <Compile Include="P400NarabeVs\NVs00048_Engine\ShogiEngineManInterface.cs" />
+    <Compile Include="P400NarabeVs\NVs025_Engine\ShogiEngineManInterfaceImpl.cs" />
+    <Compile Include="P400NarabeVs\NVs025_Engine\ShogiEngineLiveImpl.cs" />
+    <Compile Include="P400NarabeVs\NVs100_GUI\KifuNarabeVsImpl.cs" />
+    <Compile Include="P400NarabeVs\NVs100_GUI\WidgetsLoader_KifuNarabeVs.cs" />
+    <Compile Include="P400NarabeVs\NVs002_Ui\NVs050_ShogiGui.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -96,9 +96,9 @@
       <Project>{ff107244-eeab-481e-9017-f6d3dffb23df}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P200_KifuNarabe\P200_KifuNarabe.csproj">
+    <ProjectReference Include="..\P200_KifuNarabe\GuiOfNarabe.csproj">
       <Project>{9593acc7-348b-4868-892c-7bafbf925b9d}</Project>
-      <Name>P200_KifuNarabe</Name>
+      <Name>GuiOfNarabe</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

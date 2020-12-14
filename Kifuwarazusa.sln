@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiSfenReport", "Sources\P00
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Sources\P050_KifuWarabe\Engine.csproj", "{E96A7341-B8E6-4979-8B2A-94FF2818962C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P100_ShogiServer", "Sources\P100_ShogiServer\P100_ShogiServer.csproj", "{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCase", "Sources\P100_ShogiServer\UseCase.csproj", "{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P200_KifuNarabe", "Sources\P200_KifuNarabe\P200_KifuNarabe.csproj", "{9593ACC7-348B-4868-892C-7BAFBF925B9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfNarabe", "Sources\P200_KifuNarabe\GuiOfNarabe.csproj", "{9593ACC7-348B-4868-892C-7BAFBF925B9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P400_KifuNaraVs", "Sources\P400_KifuNarabeVs\P400_KifuNaraVs.csproj", "{F021F9E5-8184-4B45-83AC-117CEF77F77A}"
 EndProject
