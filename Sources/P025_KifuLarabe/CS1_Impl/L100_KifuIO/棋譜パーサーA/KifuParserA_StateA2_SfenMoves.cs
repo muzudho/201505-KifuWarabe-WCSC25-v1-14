@@ -200,7 +200,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     else
                     {
                         genjo.ToBreak = true;
-                        string message = "＼（＾ｏ＾）／teSasiteオブジェクトがない☆！　inputLine=[" + genjo.InputLine + "]";
+                        string message = "＼（＾ｏ＾）／teMoveオブジェクトがない☆！　inputLine=[" + genjo.InputLine + "]";
                         log.LogTag.WriteLine_Error(message);
                         throw new Exception(message);
                     }

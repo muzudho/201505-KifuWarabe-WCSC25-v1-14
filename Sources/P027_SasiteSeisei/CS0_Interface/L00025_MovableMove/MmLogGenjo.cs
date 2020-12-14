@@ -4,7 +4,7 @@ using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P006_Syugoron;
 
-namespace Grayscale.P027_SasiteSeisei.L00025_MovableMove
+namespace Grayscale.P027MoveGen.L00025_MovableMove
 {
     public interface MmLogGenjo
     {
@@ -16,7 +16,7 @@ namespace Grayscale.P027_SasiteSeisei.L00025_MovableMove
 
         int Tesumi_yomiCur { get; }
 
-        ShootingStarlightable Sasite { get; }
+        ShootingStarlightable Move { get; }
 
         LarabeLoggerable LogTag { get; }
 

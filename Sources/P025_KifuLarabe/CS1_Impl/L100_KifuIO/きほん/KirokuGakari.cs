@@ -122,7 +122,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     goto gt_EndLoop;
                 }
 
-                sb.Append(Util_Sky.ToSfenSasiteText(node6.Key));
+                sb.Append(Util_Sky.ToSfenMoveText(node6.Key));
 
                 //// TODO:デバッグ用
                 //switch (move.TottaKoma)

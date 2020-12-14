@@ -40,12 +40,12 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
                     double score = ((KifuNode)nextNode).KyHyoka.Total();
 
                     this.Write_ForeachLeafs(
-                        nodePath + " " + Util_Sky.ToSfenSasiteText_ForFilename(nextNode.Key),
+                        nodePath + " " + Util_Sky.ToSfenMoveTextForFilename(nextNode.Key),
                         (KifuNode)nextNode,
                         kifu,
                         playerInfo,
-                        relFolder + ((int)score).ToString()+"点_"+Util_Sky.ToSfenSasiteText(nextNode.Key) + "/",
-                        //relFolder + ((int)((KifuNode)nextNode).KyHyoka.Total()).ToString() + "点_" + Util_Sky.ToSfenSasiteText(nextNode.Key) + "/",
+                        relFolder + ((int)score).ToString()+"点_"+Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
+                        //relFolder + ((int)((KifuNode)nextNode).KyHyoka.Total()).ToString() + "点_" + Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
                         reportEnvironment,
                         logTag
                         );

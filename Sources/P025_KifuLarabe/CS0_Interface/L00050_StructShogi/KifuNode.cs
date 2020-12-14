@@ -34,7 +34,7 @@ namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
         /// <summary>
         /// 王手がかかった局面は取り除きます。
         /// </summary>
-        Maps_OneAndMulti<Finger, ShootingStarlightable> SplitSasite_ByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, LarabeLoggerable logTag);
+        Maps_OneAndMulti<Finger, ShootingStarlightable> SplitMoveByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, LarabeLoggerable logTag);
 
         string Json_NextNodes_MultiSky(
             string memo,

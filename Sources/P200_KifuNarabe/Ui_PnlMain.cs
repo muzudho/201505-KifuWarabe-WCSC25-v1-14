@@ -176,7 +176,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             Fingers fingers = Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst, Okiba.ShogiBan, this.ShogiGui.Model_PnlTaikyoku.Kifu.CountPside(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui)));
             if (0<fingers.Count)
             {
-                ShootingStarlightable tuginoSasiteData;
+                ShootingStarlightable tuginoMoveData;
 
                 Finger finger = fingers[LarabeRandom.Random.Next(fingers.Count)];//ランダムに１つ。
                 Starlight sl = src_Sky.StarlightIndexOf(finger);
@@ -199,7 +199,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                                 Util_MasuNum.MasuToDan(koma.Masu, out dan);
 
                                 // 前に１つ突き出させます。
-                                tuginoSasiteData = new RO_ShootingStarlight(
+                                tuginoMoveData = new RO_ShootingStarlight(
                                     //sl.Finger,
                                     new RO_Star_Koma(
                                         pside_getTeban,
@@ -237,7 +237,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                                 Util_MasuNum.MasuToDan(koma.Masu, out dan);
 
                                 // 前に１つ突き出させます。
-                                tuginoSasiteData = new RO_ShootingStarlight(
+                                tuginoMoveData = new RO_ShootingStarlight(
                                     //sl.Finger,
                                     new RO_Star_Koma(
                                         pside_getTeban,
@@ -266,9 +266,9 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     }
 
 
-                RO_Star_Koma koma2 = Util_Koma.AsKoma(tuginoSasiteData.LongTimeAgo);
+                RO_Star_Koma koma2 = Util_Koma.AsKoma(tuginoMoveData.LongTimeAgo);
 
-                FugoJ fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](tuginoSasiteData, new KyokumenWrapper(src_Sky), logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                FugoJ fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](tuginoMoveData, new KyokumenWrapper(src_Sky), logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
                 tuginoItte = fugoJ.ToText_UseDou(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui));
             }
 

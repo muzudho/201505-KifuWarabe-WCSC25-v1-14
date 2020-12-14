@@ -628,7 +628,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 bool isHonshogi = true;
 
                                 // 指し手を決めます。
-                                ShootingStarlightable bestSasite = this.shogisasi.WA_Bestmove(
+                                ShootingStarlightable bestMove = this.shogisasi.WA_Bestmove(
                                     enableLog,
                                     isHonshogi,
                                     this.Kifu,
@@ -639,9 +639,9 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
 
 
-                                if (Util_Sky.isEnableSfen(bestSasite))
+                                if (Util_Sky.isEnableSfen(bestMove))
                                 {
-                                    string sfenText = Util_Sky.ToSfenSasiteText(bestSasite);
+                                    string sfenText = Util_Sky.ToSfenMoveText(bestMove);
                                     this.owner.Log_Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
                                         "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, this.owner.Log_Engine));
 
@@ -871,7 +871,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                     {
                         if (null != node.Key)
                         {
-                            string sfenText = Util_Sky.ToSfenSasiteText(node.Key);
+                            string sfenText = Util_Sky.ToSfenMoveText(node.Key);
                             sb.Append(sfenText);
                             sb.AppendLine();
                         }

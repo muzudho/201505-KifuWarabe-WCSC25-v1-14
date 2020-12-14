@@ -6,7 +6,7 @@ using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P027_SasiteSeisei.L050_MovableMove;
+using Grayscale.P027MoveGen.L050_MovableMove;
 using Grayscale.P045_Atama.L00025_KyHandan;
 using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
@@ -107,7 +107,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
                     {
                         this.Tensuduke_ForeachLeafs(
-                            nodePath + " " + Util_Sky.ToSfenSasiteText(nextNode.Key),
+                            nodePath + " " + Util_Sky.ToSfenMoveText(nextNode.Key),
                             (KifuNode)nextNode,
                             kifu,
                             kokoro,

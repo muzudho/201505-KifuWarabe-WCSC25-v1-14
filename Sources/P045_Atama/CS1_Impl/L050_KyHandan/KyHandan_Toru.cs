@@ -43,7 +43,7 @@ namespace Grayscale.P045_Atama.L050_KyHandan
 
             //// ログ
             //{
-            //    string move = Converter04.Sasite_ToString_ForLog(args.Input_node.Key);// どの指し手の局面で
+            //    string move = Converter04.Move_ToString_ForLog(args.Input_node.Key);// どの指し手の局面で
             //    ((ShogiEngine)args.Owner).Log_Engine.WriteLine_AddMemo("駒[" + Haiyaku184Array.Name[(int)koma.Haiyaku].Trim() + "(No." + (int)((Atamanosumi)args.Input_atamanosumi).Finger + ")]が、マス[" + Converter04.Masu_ToKanji(((Atamanosumi)args.Input_atamanosumi).Masu) + "]を目指したいんだぜ～☆。指し手が[" + move + "]なら、距離は[" + kyori + "]、スコアは[" + score + "]だぜ☆");
             //}
 

@@ -125,19 +125,19 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             // キーを差替えたノード
             Node<ShootingStarlightable, KyokumenWrapper> sasikaeNode = new KifuNodeImpl(sasikaeKey, new KyokumenWrapper(src_Sky), genTebanside);
 
-            System.Diagnostics.Debug.Assert(!this.CurNode.ContainsKey_NextNodes(Util_Sky.ToSfenSasiteText(sasikaeNode.Key)));
+            System.Diagnostics.Debug.Assert(!this.CurNode.ContainsKey_NextNodes(Util_Sky.ToSfenMoveText(sasikaeNode.Key)));
 
 
             // さきほど　カレントノードを削除したので、
             // 今、カレントノードは、１つ前のノードになっています。
             // ここに、差替えたノードを追加します。
-            this.CurNode.Add_NextNode(Util_Sky.ToSfenSasiteText(sasikaeNode.Key), sasikaeNode);
+            this.CurNode.Add_NextNode(Util_Sky.ToSfenMoveText(sasikaeNode.Key), sasikaeNode);
             sasikaeNode.PreviousNode = this.CurNode;
 
 
             this.CurNode = sasikaeNode;
 
-            logTag.WriteLine_AddMemo("リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky.ToSfenSasiteText(sasikaeKey) + "]");
+            logTag.WriteLine_AddMemo("リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky.ToSfenMoveText(sasikaeKey) + "]");
         // memberName=[" + memberName + "] sourceFilePath=[" + sourceFilePath + "] sourceLineNumber=[" + sourceLineNumber + "]
 
         gt_EndMethod:

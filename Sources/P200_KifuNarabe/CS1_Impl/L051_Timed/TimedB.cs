@@ -483,7 +483,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                                         {
                                                             last = siteiNode.Key;
                                                         }
-                                                        //ShootingStarlightable previousSasite = last; //符号の追加が行われる前に退避
+                                                        //ShootingStarlightable previousMove = last; //符号の追加が行われる前に退避
 
                                                         Node<ShootingStarlightable, KyokumenWrapper> newNode =
                                                             new KifuNodeImpl(

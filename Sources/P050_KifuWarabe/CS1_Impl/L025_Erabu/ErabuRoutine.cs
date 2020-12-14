@@ -23,12 +23,12 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
         /// <param name="kifu">ツリー構造になっている棋譜</param>
         /// <param name="logTag">ログ</param>
         /// <returns></returns>
-        public ShootingStarlightable Choice_BestSasite(
+        public ShootingStarlightable ChoiceBestMove(
             KifuTree kifu,
             bool enableLog, bool isHonshogi, LarabeLoggerable logTag)
         {
 
-            ShootingStarlightable bestSasite = null;
+            ShootingStarlightable bestMove = null;
 
             // これから調べる局面（next=現局面）
             Playerside pside_yomiNext = kifu.CountPside(kifu.CurNode);
@@ -46,24 +46,24 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
                 // シャッフルした最初の指し手を選びます。
                 if (0<nextNodes_shuffled.Count)
                 {
-                    bestSasite = nextNodes_shuffled[0].Key;
+                    bestMove = nextNodes_shuffled[0].Key;
                 }
 
                 // ③ランダムに１手選ぶ
-                //bestSasite = Program.SikouEngine.ErabuRoutine.ChoiceSasite_fromNextNodes_Random(kifu, node_yomiNext, logTag);
+                //bestMove = Program.SikouEngine.ErabuRoutine.ChoiceMove_fromNextNodes_Random(kifu, node_yomiNext, logTag);
             }
 
 
-            if (null == bestSasite)
+            if (null == bestMove)
             {
                 // 投了
-                bestSasite = Util_Sky.NULL_OBJECT_SASITE;
+                bestMove = Util_Sky.NULL_OBJECT_SASITE;
             }
 
             // TODO:    できれば、合法手のリストから　さらに相手番の合法手のリストを伸ばして、
             //          １手先、２手先……の局面を　ツリー構造（Model_PnlTaikyoku.Kifu）に蓄えたあと、
             //          末端の局面に評価値を付けて、ミニマックス原理を使って最善手を絞り込みたい☆
-            return bestSasite;
+            return bestMove;
         }
 
     }

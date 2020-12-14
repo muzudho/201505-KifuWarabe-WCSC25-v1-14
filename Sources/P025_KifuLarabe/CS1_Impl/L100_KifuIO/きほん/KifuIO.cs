@@ -221,7 +221,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
 
-                if (Util_Sky.IsNatta_Sasite(move))
+                if (Util_Sky.IsNattaMove(move))
                 {
                     if (back)
                     {

@@ -6,7 +6,7 @@ using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P045_Atama.L000125_Sokutei;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P027_SasiteSeisei.L050_MovableMove;
+using Grayscale.P027MoveGen.L050_MovableMove;
 
 namespace Grayscale.P045_Atama.L025_Sokutei
 {

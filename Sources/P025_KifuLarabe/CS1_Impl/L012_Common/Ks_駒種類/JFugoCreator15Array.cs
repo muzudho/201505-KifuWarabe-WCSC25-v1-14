@@ -21,7 +21,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
     /// </summary>
     public abstract class JFugoCreator15Array
     {
-        public delegate FugoJ DELEGATE_CreateJFugo(ShootingStarlightable teSasite, KyokumenWrapper kWrap, LarabeLoggerable logTag);
+        public delegate FugoJ DELEGATE_CreateJFugo(ShootingStarlightable teMove, KyokumenWrapper kWrap, LarabeLoggerable logTag);
 
         public static DELEGATE_CreateJFugo[] ItemMethods
         {

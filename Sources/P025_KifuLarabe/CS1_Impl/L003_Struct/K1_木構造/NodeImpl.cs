@@ -25,10 +25,10 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         {
             get
             {
-                return this.teSasite;
+                return this.teMove;
             }
         }
-        private T1 teSasite;
+        private T1 teMove;
 
         /// <summary>
         /// キー：SFEN ※この仕様は暫定
@@ -87,10 +87,10 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         }
 
 
-        public NodeImpl(T1 teSasite, T2 sky)
+        public NodeImpl(T1 teMove, T2 sky)
         {
             this.PreviousNode = null;
-            this.teSasite = teSasite;
+            this.teMove = teMove;
             this.Value = sky;
             this.NextNodes = new Dictionary<string, Node<T1, T2>>();
         }

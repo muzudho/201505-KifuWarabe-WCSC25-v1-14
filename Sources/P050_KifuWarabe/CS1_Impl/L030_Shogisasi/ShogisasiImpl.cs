@@ -6,8 +6,8 @@ using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P027_SasiteSeisei.L0005_SasiteSeisei;
-using Grayscale.P027_SasiteSeisei.L100_SasiteSeisei;
+using Grayscale.P027MoveGen.L0005MoveGen;
+using Grayscale.P027MoveGen.L100MoveGen;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
 using Grayscale.P045_Atama.L00025_KyHandan;
 using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
@@ -183,7 +183,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
                 // 指し手生成ルーチンで、棋譜ツリーを作ります。
                 //
                 SsssLogGenjo ssssLog = new SsssLogGenjoImpl(enableLog, logTag);
-                SasiteseiseiRoutine.WAA_Yomu_Start(kifu, isHonshogi, ssssLog);
+                MoveGenRoutine.WAA_Yomu_Start(kifu, isHonshogi, ssssLog);
             }
             catch (Exception ex)
             {
@@ -205,7 +205,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             {
                 // 点数を付ける（葉ノードに点数を付け、途中のノードの点数も出します）
                 this.MinimaxEngine.Tensuduke_ForeachLeafs(
-                    Util_Sky.ToSfenSasiteText(kifu.CurNode.Key),
+                    Util_Sky.ToSfenMoveText(kifu.CurNode.Key),
                     (KifuNode)kifu.CurNode,
                     kifu,
                     this.Kokoro,
@@ -231,11 +231,11 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             {
                 // 評価明細のログ出力。
                 this.kyHyokaWriter.Write_ForeachLeafs(
-                    Util_Sky.ToSfenSasiteText(kifu.CurNode.Key),
+                    Util_Sky.ToSfenMoveText(kifu.CurNode.Key),
                     (KifuNode)kifu.CurNode,
                     kifu,
                     playerInfo,
-                    "" + Util_Sky.ToSfenSasiteText(kifu.CurNode.Key) + "/",
+                    "" + Util_Sky.ToSfenMoveText(kifu.CurNode.Key) + "/",
                     ShogisasiImpl.REPORT_ENVIRONMENT,
                     logTag
                     );
@@ -273,9 +273,9 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             this.EdagariEngine.ScoreSibori(kifu, this.Kokoro);
 
             // 1手に決める
-            ShootingStarlightable bestSasite = this.ErabuEngine.Choice_BestSasite(kifu, enableLog, isHonshogi, logTag);
+            ShootingStarlightable bestMove = this.ErabuEngine.ChoiceBestMove(kifu, enableLog, isHonshogi, logTag);
 
-            return bestSasite;
+            return bestMove;
         }
 
     }

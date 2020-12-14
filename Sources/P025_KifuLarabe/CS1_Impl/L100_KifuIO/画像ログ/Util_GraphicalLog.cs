@@ -400,7 +400,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             foreach (GraphicalLog_Board boardLog1 in boardFileLog1.boards)
             {
                 // 指し手。分かれば。
-                string sasiteStr = Converter04.Sasite_ToString_ForLog(boardLog1.sasiteOrNull, boardLog1.GenTeban);
+                string sasiteStr = Converter04.MoveToStringForLog(boardLog1.sasiteOrNull, boardLog1.GenTeban);
 
                 //string oldCaption = boardLog1.Caption;
                 //boardLog1.Caption += "_" + sasiteStr;

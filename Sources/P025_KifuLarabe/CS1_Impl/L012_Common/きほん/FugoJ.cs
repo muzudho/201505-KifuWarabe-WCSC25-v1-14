@@ -140,13 +140,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             StringBuilder sb = new StringBuilder();
 
 
-            ShootingStarlightable curSasite = siteiNode.Key;
-            ShootingStarlightable preSasite = siteiNode.PreviousNode.Key;
+            ShootingStarlightable curMove = siteiNode.Key;
+            ShootingStarlightable preMove = siteiNode.PreviousNode.Key;
 
-            RO_Star_Koma curSrcKoma = Util_Koma.AsKoma(curSasite.LongTimeAgo);
-            RO_Star_Koma curDstKoma = Util_Koma.AsKoma(curSasite.Now);
-            RO_Star_Koma preSrcKoma = Util_Koma.AsKoma(preSasite.LongTimeAgo);
-            RO_Star_Koma preDstKoma = Util_Koma.AsKoma(preSasite.Now);
+            RO_Star_Koma curSrcKoma = Util_Koma.AsKoma(curMove.LongTimeAgo);
+            RO_Star_Koma curDstKoma = Util_Koma.AsKoma(curMove.Now);
+            RO_Star_Koma preSrcKoma = Util_Koma.AsKoma(preMove.LongTimeAgo);
+            RO_Star_Koma preDstKoma = Util_Koma.AsKoma(preMove.Now);
 
 
                 sb.Append(Converter04.Pside_ToStr(curDstKoma.Pside));
@@ -155,7 +155,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 // “同”で表記できるところは、“同”で表記します。それ以外は“筋・段”で表記します。
                 //------------------------------
                 if (
-                    null != preSasite
+                    null != preMove
                     && Util_Masu.MatchSujiDan(Util_Masu.AsMasuNumber(preDstKoma.Masu), Util_Masu.AsMasuNumber(curDstKoma.Masu))
                     )
                 {

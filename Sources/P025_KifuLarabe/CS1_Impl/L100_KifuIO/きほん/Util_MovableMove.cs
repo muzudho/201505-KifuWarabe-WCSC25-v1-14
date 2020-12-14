@@ -38,7 +38,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
             )
         {
 
-            logBrd_move.Caption = "移動可能_" + Converter04.Sasite_ToString_ForLog(sasite_forLog, pside_genTeban3);
+            logBrd_move.Caption = "移動可能_" + Converter04.MoveToStringForLog(sasite_forLog, pside_genTeban3);
             logBrd_move.Tesumi = tesumi_yomiCur_forLog;
             logBrd_move.NounaiYomiDeep = yomuDeep_forLog;
             //logBrd_move.Score = 0.0d;
@@ -155,7 +155,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     masus_kurau_IKUSA,
                     src_Sky,
                     enableLog,
-                    Converter04.Sasite_ToString_ForLog(sasite_forLog, pside_genTeban3),
+                    Converter04.MoveToStringForLog(sasite_forLog, pside_genTeban3),
                     logTag
                     );// 盤上の駒の移動できる場所
 
@@ -165,7 +165,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     masus_seme_IKUSA,
                     masus_kurau_IKUSA,
                     src_Sky,
-                    Converter04.Sasite_ToString_ForLog(sasite_forLog, pside_genTeban3),
+                    Converter04.MoveToStringForLog(sasite_forLog, pside_genTeban3),
                     logTag
                     );
 

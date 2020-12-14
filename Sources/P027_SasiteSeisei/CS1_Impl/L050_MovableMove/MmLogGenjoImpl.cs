@@ -1,7 +1,7 @@
 ﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
-using Grayscale.P027_SasiteSeisei.L00025_MovableMove;
+using Grayscale.P027MoveGen.L00025_MovableMove;
 using Grayscale.P006_Syugoron;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
@@ -10,7 +10,7 @@ using Grayscale.P025_KifuLarabe.L100_KifuIO;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
+namespace Grayscale.P027MoveGen.L050_MovableMove
 {
     public class MmLogGenjoImpl : MmLogGenjo
     {
@@ -26,7 +26,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
         public int Tesumi_yomiCur { get { return this.tesumi_yomiCur; } }
         private int tesumi_yomiCur;
 
-        public ShootingStarlightable Sasite { get { return this.move; } }
+        public ShootingStarlightable Move { get { return this.move; } }
         private ShootingStarlightable move;
 
         public LarabeLoggerable LogTag { get { return this.logTag; } }
@@ -52,7 +52,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
 
         public void Log1(Playerside pside_genTeban3)
         {
-            this.BrdMove.Caption = "移動可能_" + Converter04.Sasite_ToString_ForLog(this.Sasite, pside_genTeban3);
+            this.BrdMove.Caption = "移動可能_" + Converter04.MoveToStringForLog(this.Move, pside_genTeban3);
             this.BrdMove.Tesumi = this.Tesumi_yomiCur;
             this.BrdMove.NounaiYomiDeep = this.YomuDeep;
             this.BrdMove.GenTeban = pside_genTeban3;// 現手番

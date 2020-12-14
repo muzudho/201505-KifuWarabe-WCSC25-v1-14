@@ -906,14 +906,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// ファイル名にも使えるように、ファイル名に使えない文字を置換します。
         /// </summary>
         /// <returns></returns>
-        public static string ToSfenSasiteText_ForFilename(
+        public static string ToSfenMoveTextForFilename(
             ShootingStarlightable move,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            string sasiteText = Util_Sky.ToSfenSasiteText(move);
+            string sasiteText = Util_Sky.ToSfenMoveText(move);
 
             sasiteText = sasiteText.Replace('*', '＊');//SFENの打記号の「*」は、ファイルの文字名に使えないので。
 
@@ -928,7 +928,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
-        public static string ToSfenSasiteText(
+        public static string ToSfenMoveText(
             ShootingStarlightable move,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -1038,7 +1038,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 //------------------------------------------------------------
                 // 成
                 //------------------------------------------------------------
-                if (Util_Sky.IsNatta_Sasite(move))
+                if (Util_Sky.IsNattaMove(move))
                 {
                     sb.Append("+");
                 }
@@ -1132,7 +1132,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         public static string ToSfenText_TottaKomaSyurui(RO_ShootingStarlight ss)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(Util_Sky.ToSfenSasiteText(ss));
+            sb.Append(Util_Sky.ToSfenMoveText(ss));
             if (Ks14.H00_Null != (Ks14)ss.FoodKomaSyurui)
             {
                 sb.Append("(");
@@ -1147,7 +1147,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// 成った
         /// </summary>
         /// <returns></returns>
-        public static bool IsNatta_Sasite(ShootingStarlightable move)
+        public static bool IsNattaMove(ShootingStarlightable move)
         {
             // 元種類が不成、現種類が成　の場合のみ真。
             bool natta = true;

@@ -39,7 +39,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="logTag"></param>
         public static KifuNode LA_RemoveMate(
             bool isHonshogi,
-            Maps_OneAndMulti<Finger, ShootingStarlightable> genTeban_komabetuAllSasite1,// 現手番の、どの駒が、どんな手を指すことができるか
+            Maps_OneAndMulti<Finger, ShootingStarlightable> genTeban_komabetuAllMove1,// 現手番の、どの駒が、どんな手を指すことができるか
             int yomuDeep,//脳内読み手数
             int tesumi_yomiGenTeban,
             Playerside pside_yomiGenTeban,
@@ -49,10 +49,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string hint,
             LarabeLoggerable logTag)
         {
-            Node<ShootingStarlightable, KyokumenWrapper> hubNode = Util_KomabetuSasite.ToNextNodes_AsHubNode(
-                genTeban_komabetuAllSasite1, siteiNode_yomiGenTeban, pside_yomiGenTeban, logTag
+            Node<ShootingStarlightable, KyokumenWrapper> hubNode = UtilKomabetuMove.ToNextNodes_AsHubNode(
+                genTeban_komabetuAllMove1, siteiNode_yomiGenTeban, pside_yomiGenTeban, logTag
                 );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
-            Converter04.AssertNariSasite(hubNode, "#LA_RemoveMate(1)");//ここはok
+            Converter04.AssertNariMove(hubNode, "#LA_RemoveMate(1)");//ここはok
             Util_LegalMove.Log1(hubNode,enableLog, tesumi_yomiGenTeban, hint, logTag);
 
 
@@ -69,18 +69,18 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     logF_kiki,
                     logTag);
             }
-            Converter04.AssertNariSasite(hubNode, "#LA_RemoveMate(2)王手局面削除直後");//ここはok
+            Converter04.AssertNariMove(hubNode, "#LA_RemoveMate(2)王手局面削除直後");//ここはok
 
 
             // 「指し手一覧」を、「駒別の全指し手」に分けます。
-            Maps_OneAndMulti<Finger, ShootingStarlightable> komabetuAllSasites2 = siteiNode_yomiGenTeban.SplitSasite_ByKoma(hubNode, logTag);
-            Converter04.AssertNariSasite(komabetuAllSasites2, "#LA_RemoveMate(3)更に変換後");//ここはok
+            Maps_OneAndMulti<Finger, ShootingStarlightable> komabetuAllMoves2 = siteiNode_yomiGenTeban.SplitMoveByKoma(hubNode, logTag);
+            Converter04.AssertNariMove(komabetuAllMoves2, "#LA_RemoveMate(3)更に変換後");//ここはok
 
             //
             // 「駒別の指し手一覧」を、「駒別の進むマス一覧」になるよう、データ構造を変換します。
             //
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの駒を、どこに進める」の一覧
-            foreach (KeyValuePair<Finger, List<ShootingStarlightable>> entry in komabetuAllSasites2.Items)
+            foreach (KeyValuePair<Finger, List<ShootingStarlightable>> entry in komabetuAllMoves2.Items)
             {
                 Finger finger = entry.Key;
                 List<ShootingStarlightable> teList = entry.Value;
@@ -102,11 +102,11 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
 
             // まず、ディクショナリー構造へ変換。
-            Dictionary<ShootingStarlightable, KyokumenWrapper> sasitebetuSky = Converter04.KomabetuMasus_ToSasitebetuSky(
+            Dictionary<ShootingStarlightable, KyokumenWrapper> sasitebetuSky = Converter04.KomabetuMasus_ToMovebetuSky(
                 komabetuSusumuMasus, siteiNode_yomiGenTeban.Value.ToKyokumenConst, pside_yomiGenTeban, logTag);
 
             // 棋譜ノード構造へ変換。
-            return Converter04.SasitebetuSky_ToHubNode(sasitebetuSky, KifuNodeImpl.GetReverseTebanside(pside_yomiGenTeban));
+            return Converter04.MovebetuSky_ToHubNode(sasitebetuSky, KifuNodeImpl.GetReverseTebanside(pside_yomiGenTeban));
         }
         private static void Log1(
             Node<ShootingStarlightable, KyokumenWrapper> hubNode,
@@ -372,7 +372,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     masus_kurau_IKUSA,
                     src_Sky,
                     enableLog,
-                    Converter04.Sasite_ToString_ForLog(sasite_forLog, pside_genTeban3),
+                    Converter04.MoveToStringForLog(sasite_forLog, pside_genTeban3),
                     logTag
                     );// 利きを調べる側の利き（戦駒）
 
