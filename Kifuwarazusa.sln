@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P007_SfenReport", "Sources\P007_SfenReport\P007_SfenReport.csproj", "{56F57764-1BF7-4CB9-9757-D69778DE1BB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiSfenReport", "Sources\P007_SfenReport\UiSfenReport.csproj", "{56F57764-1BF7-4CB9-9757-D69778DE1BB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P012_KnowledgeShogi", "Sources\P012_KnowledgeShogi\P012_KnowledgeShogi.csproj", "{D41AAFBA-8568-4975-ADF1-C3D440E73744}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P040_Kokoro", "Sources\P040
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P045_Atama", "Sources\P045_Atama\P045_Atama.csproj", "{4A761C74-4788-4187-86E7-7AB84B53094D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P050_KifuWarabe", "Sources\P050_KifuWarabe\P050_KifuWarabe.csproj", "{E96A7341-B8E6-4979-8B2A-94FF2818962C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Sources\P050_KifuWarabe\Engine.csproj", "{E96A7341-B8E6-4979-8B2A-94FF2818962C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P100_ShogiServer", "Sources\P100_ShogiServer\P100_ShogiServer.csproj", "{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}"
 EndProject
@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P200_KifuNarabe", "Sources\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P400_KifuNaraVs", "Sources\P400_KifuNarabeVs\P400_KifuNaraVs.csproj", "{F021F9E5-8184-4B45-83AC-117CEF77F77A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P006_Sfen", "Sources\P006_Sfen\P006_Sfen.csproj", "{FF107244-EEAB-481E-9017-F6D3DFFB23DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Sources\P006_Sfen\Entities.csproj", "{FF107244-EEAB-481E-9017-F6D3DFFB23DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfSyugoron", "Sources\P006_Syugoron\GuiOfSyugoron.csproj", "{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}"
 EndProject

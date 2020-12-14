@@ -71,9 +71,9 @@
     <Compile Include="CS0_Interface\L00025_KyHandan\KyHandan.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\P006_Sfen\P006_Sfen.csproj">
+    <ProjectReference Include="..\P006_Sfen\Entities.csproj">
       <Project>{ff107244-eeab-481e-9017-f6d3dffb23df}</Project>
-      <Name>P006_Sfen</Name>
+      <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\P006_Syugoron\GuiOfSyugoron.csproj">
       <Project>{8da09a28-62d8-4cc2-a975-cce0cf0da4b9}</Project>

@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,6 +57,12 @@
     <Compile Include="P006Syugoron\SySet_DirectedSegment.cs" />
     <Compile Include="P006Syugoron\SySet_Ordered.cs" />
     <Compile Include="P006Syugoron\SyWordDictionary.cs" />
+    <Compile Include="P007SfenReport\L00025_Report\ReportArgs.cs" />
+    <Compile Include="P007SfenReport\L00025_Report\ReportEnvironment.cs" />
+    <Compile Include="P007SfenReport\L00050_Write\KyokumenPngWriter.cs" />
+    <Compile Include="P007SfenReport\L050_Report\ReportArgsImpl.cs" />
+    <Compile Include="P007SfenReport\L050_Report\ReportEnvironmentImpl.cs" />
+    <Compile Include="P007SfenReport\L100_Write\KyokumenPngWriterImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="P006Sfen\SfenPosition1Impl.cs" />
     <Compile Include="P006Sfen\SfenPosition2Impl.cs" />
