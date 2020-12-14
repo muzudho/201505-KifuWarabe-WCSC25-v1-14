@@ -63,6 +63,7 @@
     <Compile Include="P007SfenReport\L050_Report\ReportArgsImpl.cs" />
     <Compile Include="P007SfenReport\L050_Report\ReportEnvironmentImpl.cs" />
     <Compile Include="P007SfenReport\L100_Write\KyokumenPngWriterImpl.cs" />
+    <Compile Include="P012KnowledgeShogi\ConverterKnSh.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="P006Sfen\SfenPosition1Impl.cs" />
     <Compile Include="P006Sfen\SfenPosition2Impl.cs" />

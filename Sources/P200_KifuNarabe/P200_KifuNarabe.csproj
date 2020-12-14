@@ -162,10 +162,6 @@
       <Project>{8da09a28-62d8-4cc2-a975-cce0cf0da4b9}</Project>
       <Name>GuiOfSyugoron</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P012_KnowledgeShogi\P012_KnowledgeShogi.csproj">
-      <Project>{d41aafba-8568-4975-adf1-c3d440e73744}</Project>
-      <Name>P012_KnowledgeShogi</Name>
-    </ProjectReference>
     <ProjectReference Include="..\P025_KifuLarabe\P025_KifuLarabe.csproj">
       <Project>{18fb9b6e-95b2-47fe-a2f6-4fd865abd804}</Project>
       <Name>P025_KifuLarabe</Name>

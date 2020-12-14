@@ -186,10 +186,6 @@
       <Project>{56f57764-1bf7-4cb9-9757-d69778de1bb0}</Project>
       <Name>UiSfenReport</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P012_KnowledgeShogi\P012_KnowledgeShogi.csproj">
-      <Project>{d41aafba-8568-4975-adf1-c3d440e73744}</Project>
-      <Name>P012_KnowledgeShogi</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
