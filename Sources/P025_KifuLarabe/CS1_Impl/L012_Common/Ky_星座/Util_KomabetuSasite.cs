@@ -40,17 +40,17 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 Finger figKoma = entry1.Key;// 駒
 
                 // 駒の動ける升全て
-                foreach (ShootingStarlightable sasite in entry1.Value)
+                foreach (ShootingStarlightable move in entry1.Value)
                 {
-                    RO_Star_Koma koma = Util_Koma.AsKoma(sasite.Now);
+                    RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
                     SyElement masu = koma.Masu;
 
                     SkyConst nextSky = Util_Sasu.Sasu( siteiNode.Value.ToKyokumenConst, figKoma, masu, pside_genTeban, logTag);
 
-                    Node<ShootingStarlightable, KyokumenWrapper> nextNode = new KifuNodeImpl(sasite, new KyokumenWrapper( nextSky), KifuNodeImpl.GetReverseTebanside(pside_genTeban));//次のノード
+                    Node<ShootingStarlightable, KyokumenWrapper> nextNode = new KifuNodeImpl(move, new KyokumenWrapper( nextSky), KifuNodeImpl.GetReverseTebanside(pside_genTeban));//次のノード
 
-                    string sfenText = Util_Sky.ToSfenSasiteText(sasite);
+                    string sfenText = Util_Sky.ToSfenSasiteText(move);
                     if (hubNode.ContainsKey_NextNodes(sfenText))
                     {
                         // 既存の指し手なら無視
@@ -58,7 +58,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                     }
                     else
                     {
-                        hubNode.Add_NextNode(Util_Sky.ToSfenSasiteText(sasite), nextNode);
+                        hubNode.Add_NextNode(Util_Sky.ToSfenSasiteText(move), nextNode);
                     }
 
                 }

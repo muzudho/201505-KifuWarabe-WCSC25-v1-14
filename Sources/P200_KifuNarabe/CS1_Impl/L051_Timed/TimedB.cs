@@ -341,7 +341,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                                     System.Diagnostics.Debug.Assert(null != srcStarlight, "komaStarlightがヌル");
 
 
-                                                    ShootingStarlightable sasite = new RO_ShootingStarlight(
+                                                    ShootingStarlightable move = new RO_ShootingStarlight(
                                                         //btnKoma.Koma,
                                                         dstStarlight.Now,
                                                         srcStarlight.Now,
@@ -350,7 +350,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
 
 
                                                     // TODO: 一手[巻戻し]のときは追加したくない
-                                                    Node<ShootingStarlightable, KyokumenWrapper> newNode = new KifuNodeImpl(sasite,
+                                                    Node<ShootingStarlightable, KyokumenWrapper> newNode = new KifuNodeImpl(move,
                                                                                         new KyokumenWrapper(new SkyConst(src_Sky)),
                                                                                         KifuNodeImpl.GetReverseTebanside( ((KifuNode)shogiGui.Model_PnlTaikyoku.Kifu.CurNode).Tebanside)
                                                                                         );
@@ -367,9 +367,9 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                                     //------------------------------
                                                     FugoJ fugoJ;
 
-                                                    RO_Star_Koma koma2 = Util_Koma.AsKoma(sasite.LongTimeAgo);
+                                                    RO_Star_Koma koma2 = Util_Koma.AsKoma(move.LongTimeAgo);
 
-                                                    fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](sasite, new KyokumenWrapper(src_Sky), eventState.Flg_logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                                                    fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](move, new KyokumenWrapper(src_Sky), eventState.Flg_logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
 
                                                     shogiGui.Shape_PnlTaikyoku.SetFugo(fugoJ.ToText_UseDou(
@@ -470,7 +470,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                                         // 棋譜に符号を追加（マウスボタンが放されたとき）TODO:まだ早い。駒が成るかもしれない。
                                                         //------------------------------
 
-                                                        ShootingStarlightable sasite = new RO_ShootingStarlight(
+                                                        ShootingStarlightable move = new RO_ShootingStarlight(
                                                             //btnKoma.Koma,
                                                             shogiGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now,
 
@@ -487,7 +487,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
 
                                                         Node<ShootingStarlightable, KyokumenWrapper> newNode =
                                                             new KifuNodeImpl(
-                                                                sasite,
+                                                                move,
                                                                 new KyokumenWrapper(new SkyConst(src_Sky)),
                                                                 KifuNodeImpl.GetReverseTebanside( ((KifuNode)shogiGui.Model_PnlTaikyoku.Kifu.CurNode).Tebanside)
                                                             );
@@ -506,11 +506,11 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                                         //------------------------------
                                                         // 符号表示
                                                         //------------------------------
-                                                        RO_Star_Koma koma2 = Util_Koma.AsKoma(sasite.LongTimeAgo);
+                                                        RO_Star_Koma koma2 = Util_Koma.AsKoma(move.LongTimeAgo);
 
                                                         FugoJ fugoJ;
 
-                                                        fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](sasite, new KyokumenWrapper(src_Sky), eventState.Flg_logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                                                        fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](move, new KyokumenWrapper(src_Sky), eventState.Flg_logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
                                                         shogiGui.Shape_PnlTaikyoku.SetFugo(fugoJ.ToText_UseDou(
                                                             KifuNarabe_KifuWrapper.CurNode(shogiGui.Model_PnlTaikyoku.Kifu)

@@ -214,16 +214,16 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         ///         “同”表記に「置き換えない」バージョンです。
         /// 
         /// </summary>
-        /// <param name="sasite"></param>
+        /// <param name="move"></param>
         /// <param name="previousKomaP"></param>
         /// <returns></returns>
         public string ToText_NoUseDou(
-            RO_ShootingStarlight sasite
+            RO_ShootingStarlight move
             )
         {
             StringBuilder sb = new StringBuilder();
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(sasite.Now);
+            RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
                 sb.Append(Converter04.Pside_ToStr(koma.Pside));
 

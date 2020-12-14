@@ -26,8 +26,8 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
         public int Tesumi_yomiCur { get { return this.tesumi_yomiCur; } }
         private int tesumi_yomiCur;
 
-        public ShootingStarlightable Sasite { get { return this.sasite; } }
-        private ShootingStarlightable sasite;
+        public ShootingStarlightable Sasite { get { return this.move; } }
+        private ShootingStarlightable move;
 
         public LarabeLoggerable LogTag { get { return this.logTag; } }
         private LarabeLoggerable logTag;
@@ -38,7 +38,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
             GraphicalLog_Board brdMove,
             int yomuDeep,//脳内読み手数
             int tesumi_yomiCur,
-            ShootingStarlightable sasite,
+            ShootingStarlightable move,
             LarabeLoggerable logTag
             )
         {
@@ -46,7 +46,7 @@ namespace Grayscale.P027_SasiteSeisei.L050_MovableMove
             this.BrdMove = brdMove;
             this.yomuDeep = yomuDeep;
             this.tesumi_yomiCur = tesumi_yomiCur;
-            this.sasite = sasite;
+            this.move = move;
             this.logTag = logTag;
         }
 

@@ -176,10 +176,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
 
             {
-                ShootingStarlightable sasite = thisNode.Key;
+                ShootingStarlightable move = thisNode.Key;
 
-                RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
-                RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
+                RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);
+                RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);
 
 
                     Finger finger = Util_Sky.Fingers_AtMasuNow(src_Sky_base,srcKoma.Masu).ToFirst();
@@ -230,10 +230,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
             {
-                ShootingStarlightable sasite = node.Key;
+                ShootingStarlightable move = node.Key;
 
-                RO_Star_Koma srcKoma1 = Util_Koma.AsKoma(sasite.LongTimeAgo);
-                RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
+                RO_Star_Koma srcKoma1 = Util_Koma.AsKoma(move.LongTimeAgo);
+                RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);
 
 
                 Finger srcKoma2 = Util_Sky.Fingers_AtMasuNow(src_Sky_base, srcKoma1.Masu).ToFirst();

@@ -1050,7 +1050,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                     RO_Star_Koma koma = Util_Koma.AsKoma(siteiNode_genzai.Value.ToKyokumenConst.StarlightIndexOf(key).Now);
 
 
-                    ShootingStarlightable sasite = new RO_ShootingStarlight(
+                    ShootingStarlightable move = new RO_ShootingStarlight(
                             //key,
                             // 元
                             koma,
@@ -1068,12 +1068,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         if (komaTe.ContainsKey(key))
                         {
                             // すでに登録されている駒
-                            komaTe.AddExists( key, sasite);
+                            komaTe.AddExists( key, move);
                         }
                         else
                         {
                             // まだ登録されていない駒
-                            komaTe.AddNew(key,sasite);
+                            komaTe.AddNew(key,move);
                         }
 
                 }
@@ -1108,13 +1108,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         srcKoma.Haiyaku//TODO:ここで、駒の種類が「成り」に上書きされているバージョンも考えたい
                     );
 
-                    ShootingStarlightable sasite = new RO_ShootingStarlight(
+                    ShootingStarlightable move = new RO_ShootingStarlight(
                             //figKoma,//駒
                             srcKoma,// 移動元
                             dstKoma,// 移動先
                             Ks14.H00_Null//取った駒不明
                         );
-                    komabetuAllSasite.AddOverwrite(figKoma, sasite);
+                    komabetuAllSasite.AddOverwrite(figKoma, move);
 
                     // これが通称【水際のいんちきプログラム】なんだぜ☆
                     // 必要により、【成り】の指し手を追加します。
@@ -1236,7 +1236,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 {
                     //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
 
-                    ShootingStarlightable sasite = new RO_ShootingStarlight(
+                    ShootingStarlightable move = new RO_ShootingStarlight(
                         //figKoma,//駒
                         srcKoma,// 移動元
                         new RO_Star_Koma(
@@ -1248,7 +1248,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                     );
 
                     // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                    komaBETUAllSasites.AddNotOverwrite(figKoma, sasite);
+                    komaBETUAllSasites.AddNotOverwrite(figKoma, move);
                 }
 
             gt_EndMethod:
@@ -1287,7 +1287,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
                     if (isPromotionable)
                     {
-                        ShootingStarlightable sasite = new RO_ShootingStarlight(
+                        ShootingStarlightable move = new RO_ShootingStarlight(
                             //figKoma,//駒
                             srcKoma,// 移動元
                             new RO_Star_Koma(
@@ -1299,10 +1299,10 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         );
 
                         // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                        string sasiteStr = Util_Sky.ToSfenSasiteText(sasite);//重複防止用のキー
+                        string sasiteStr = Util_Sky.ToSfenSasiteText(move);//重複防止用のキー
                         if (!newSasiteList.ContainsKey(sasiteStr))
                         {
-                            newSasiteList.Add(sasiteStr, sasite);
+                            newSasiteList.Add(sasiteStr, move);
                         }
                     }
 
@@ -1387,9 +1387,9 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             /*
             foreach(KeyValuePair<Finger, List<ShootingStarlightable>> komaAllSasite in komabetuAllSasite.Items)
             {
-                foreach(ShootingStarlightable sasite in komaAllSasite.Value)
+                foreach(ShootingStarlightable move in komaAllSasite.Value)
                 {
-                    Starlightable lightable = sasite.Now;
+                    Starlightable lightable = move.Now;
                     RO_Star_Koma koma = Util_Koma.AsKoma(lightable);
 
                     if (KomaSyurui14Array.IsNari(koma.Syurui))
@@ -1409,8 +1409,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             /*
             hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
-                ShootingStarlightable sasite = nextNode.Key;
-                Starlightable lightable = sasite.Now;
+                ShootingStarlightable move = nextNode.Key;
+                Starlightable lightable = move.Now;
                 RO_Star_Koma koma = Util_Koma.AsKoma(lightable);
 
                 if (KomaSyurui14Array.IsNari(koma.Syurui))
@@ -1446,14 +1446,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 foreach (SyElement dstMasu in value.Elements)
                     {
 
-                        ShootingStarlightable sasite = Util_Sky.New(
+                        ShootingStarlightable move = Util_Sky.New(
                             //key,
                             new RO_Star_Koma(pside, koma.Masu, koma.Haiyaku),
                             new RO_Star_Koma(pside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
                             Ks14.H00_Null
                             );
 
-                        result_SasitebetuSky.Add(sasite, new KyokumenWrapper( Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
+                        result_SasitebetuSky.Add(move, new KyokumenWrapper( Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
                     }
             });
 
@@ -1474,14 +1474,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
                 foreach (SyElement dstMasu in value.Elements)
                     {
-                        ShootingStarlightable sasite = Util_Sky.New(
+                        ShootingStarlightable move = Util_Sky.New(
                             //key,
                             new RO_Star_Koma(pside, koma.Masu, koma.Haiyaku),
                             new RO_Star_Koma(pside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
                             Ks14.H00_Null
                             );
 
-                        result.Add(sasite, new KyokumenWrapper( Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
+                        result.Add(move, new KyokumenWrapper( Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
                     }
             });
 
@@ -1526,28 +1526,28 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return masus;
         }
 
-        public static string Sasite_ToString_ForLog(ShootingStarlightable sasite)
+        public static string Sasite_ToString_ForLog(ShootingStarlightable move)
         {
             string sasiteInfo;
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(sasite.Now);
+            RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
                 sasiteInfo = KomaSyurui14Array.ToIchimoji(Haiyaku184Array.Syurui(koma.Haiyaku));
 
             return sasiteInfo;
         }
 
-        public static string Sasite_ToString_ForLog(ShootingStarlightable sasite, Playerside pside_genTeban)
+        public static string Sasite_ToString_ForLog(ShootingStarlightable move, Playerside pside_genTeban)
         {
             string result;
 
-            if (null == sasite)
+            if (null == move)
             {
                 result = "合法手はありません。";
                 goto gt_EndMethod;
             }
 
-            RO_Star_Koma koma = Util_Koma.AsKoma(sasite.Now);
+            RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
                 // 指し手を「△歩」といった形で。
                 result = KomaSyurui14Array.ToNimoji(Haiyaku184Array.Syurui(koma.Haiyaku), pside_genTeban);

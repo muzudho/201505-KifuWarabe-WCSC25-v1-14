@@ -26,7 +26,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <summary>
         /// 一手指します。または、一手戻します。
         /// </summary>
-        /// <param name="sasite"></param>
+        /// <param name="move"></param>
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         /// <param name="figMovedKoma"></param>
@@ -37,7 +37,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="sourceFilePath"></param>
         /// <param name="sourceLineNumber"></param>
         public static void Ittesasi(
-            ShootingStarlightable sasite,
+            ShootingStarlightable move,
             KifuTree kifu,
             bool isMakimodosi,
             out Finger figMovedKoma,
@@ -56,7 +56,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             KifuIO.Kifusasi25(
                 out figMovedKoma,
-                sasite,
+                move,
                 kifu,
                 isMakimodosi,
                 logTag
@@ -69,10 +69,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
 
 
-            Ks14 syurui2 = KifuIO.Kifusasi30_Naru(sasite, isMakimodosi);
+            Ks14 syurui2 = KifuIO.Kifusasi30_Naru(move, isMakimodosi);
 
 
-            Starlight dst = KifuIO.Kifusasi35_NextMasu(syurui2, sasite, kifu, isMakimodosi);
+            Starlight dst = KifuIO.Kifusasi35_NextMasu(syurui2, move, kifu, isMakimodosi);
 
 
 
@@ -81,7 +81,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 syurui2,
                 ref figMovedKoma,
                 out figFoodKoma,
-                sasite, 
+                move, 
                 kifu,
                 isMakimodosi,
                 out out_newNode_OrNull,
@@ -105,12 +105,12 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// 
         /// </summary>
         /// <param name="figMovedKoma"></param>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         private static void Kifusasi25(
             out Finger figMovedKoma,
-            ShootingStarlightable sasite,
+            ShootingStarlightable move,
             KifuTree kifu,
             bool isMakimodosi,
             LarabeLoggerable logTag
@@ -134,7 +134,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 // 打った駒も、指した駒も、結局は将棋盤の上にあるはず。
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(sasite.Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
                 // 動かす駒
                 figMovedKoma = Util_Sky.Finger_AtMasuNow_Shogiban(
@@ -152,20 +152,20 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 //------------------------------
                 // 符号の追加（一手進む）
                 //------------------------------
-                KifuNode genKyokumenCopyNode = new KifuNodeImpl(sasite, new KyokumenWrapper(src_Sky), KifuNodeImpl.GetReverseTebanside(((KifuNode)kifu.CurNode).Tebanside));
+                KifuNode genKyokumenCopyNode = new KifuNodeImpl(move, new KyokumenWrapper(src_Sky), KifuNodeImpl.GetReverseTebanside(((KifuNode)kifu.CurNode).Tebanside));
 
                 // TODO: ↓？
                 ((KifuNode)kifu.CurNode).AppendChildA_New(genKyokumenCopyNode);
                 kifu.CurNode = genKyokumenCopyNode;
 
-                if (Util_Sky.IsDaAction(sasite))
+                if (Util_Sky.IsDaAction(move))
                 {
                     //----------
                     // 駒台から “打”
                     //----------
 
-                    RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
-                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
+                    RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);
+                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);
 
 
                     figMovedKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase(
@@ -181,8 +181,8 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     // 将棋盤から
                     //----------
 
-                    RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
-                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
+                    RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);
+                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);
 
 
                     figMovedKoma = Util_Sky.Finger_AtMasuNow_Shogiban(
@@ -202,11 +202,11 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="back"></param>
         /// <returns></returns>
         private static Ks14 Kifusasi30_Naru(
-            ShootingStarlightable sasite,
+            ShootingStarlightable move,
             bool back)
         {
             //------------------------------------------------------------
@@ -218,10 +218,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 // 成るかどうか
                 //----------
 
-                RO_Star_Koma koma = Util_Koma.AsKoma(sasite.Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
 
-                if (Util_Sky.IsNatta_Sasite(sasite))
+                if (Util_Sky.IsNatta_Sasite(move))
                 {
                     if (back)
                     {
@@ -246,20 +246,20 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// [巻戻し]時の、駒台にもどる動きを吸収。
         /// </summary>
         /// <param name="syurui2"></param>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         /// <returns></returns>
         private static Starlight Kifusasi35_NextMasu(
             Ks14 syurui2,
-            ShootingStarlightable sasite,
+            ShootingStarlightable move,
             KifuTree kifu,
             bool isMakimodosi)
         {
             Starlight dst;
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);//移動元
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);//移動先
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);//移動元
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);//移動先
 
 
             if (isMakimodosi)
@@ -291,7 +291,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
 
                 dst = new RO_MotionlessStarlight(
-                    //sasite.Finger,
+                    //move.Finger,
                     new RO_Star_Koma(dstKoma.Pside,
                     masu,//戻し先
                     syurui2)
@@ -303,7 +303,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
 
                 dst = new RO_MotionlessStarlight(
-                    //sasite.Finger,
+                    //move.Finger,
                     new RO_Star_Koma(dstKoma.Pside,
                     dstKoma.Masu,
                     syurui2)
@@ -321,7 +321,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         ///         一手進む、一手[巻戻し]に対応。
         /// 
         /// </summary>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         private static void Kifusasi52_WhenKifuRead(
@@ -329,7 +329,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             Ks14 syurui2,
             ref Finger figMovedKoma,
             out Finger out_figFoodKoma,
-            ShootingStarlightable sasite,
+            ShootingStarlightable move,
             KifuTree kifu,
             bool isMakimodosi,
             out Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull,
@@ -497,10 +497,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             //------------------------------------------------------------
             if (isMakimodosi)
             {
-                RO_Star_Koma koma = Util_Koma.AsKoma(sasite.Now);
+                RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
 
-                if (Ks14.H00_Null != (Ks14)sasite.FoodKomaSyurui)
+                if (Ks14.H00_Null != (Ks14)move.FoodKomaSyurui)
                 {
                     // 駒台から、駒を検索します。
                     Okiba okiba;
@@ -515,7 +515,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
 
                     // 取った駒は、種類が同じなら、駒台のどの駒でも同じです。
-                    Finger temp_figFoodKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase(kifu.CurNode.Value.ToKyokumenConst, okiba, (Ks14)sasite.FoodKomaSyurui, logTag);
+                    Finger temp_figFoodKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase(kifu.CurNode.Value.ToKyokumenConst, okiba, (Ks14)move.FoodKomaSyurui, logTag);
                     if (Fingers.Error_1 != temp_figFoodKoma)
                     {
                         // 取った駒のデータをセットし直します。
@@ -528,7 +528,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                                 new RO_Star_Koma(
                                     Converter04.AlternatePside(koma.Pside),//先後を逆にして駒台に置きます。
                                     koma.Masu,// マス
-                                    (Ks14)sasite.FoodKomaSyurui
+                                    (Ks14)move.FoodKomaSyurui
                                 )
                             )
                         );

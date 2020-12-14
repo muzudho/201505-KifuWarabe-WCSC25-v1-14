@@ -885,11 +885,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// “打” ＜アクション時＞
         /// </summary>
         /// <returns></returns>
-        public static bool IsDaAction(ShootingStarlightable sasite)
+        public static bool IsDaAction(ShootingStarlightable move)
         {
             bool result;
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);
 
                 result = Okiba.ShogiBan != Util_Masu.GetOkiba(srcKoma.Masu)
                     && Okiba.Empty != Util_Masu.GetOkiba(srcKoma.Masu);//初期配置から移動しても、打にはしません。
@@ -907,13 +907,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <returns></returns>
         public static string ToSfenSasiteText_ForFilename(
-            ShootingStarlightable sasite,
+            ShootingStarlightable move,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            string sasiteText = Util_Sky.ToSfenSasiteText(sasite);
+            string sasiteText = Util_Sky.ToSfenSasiteText(move);
 
             sasiteText = sasiteText.Replace('*', '＊');//SFENの打記号の「*」は、ファイルの文字名に使えないので。
 
@@ -929,7 +929,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <returns></returns>
         public static string ToSfenSasiteText(
-            ShootingStarlightable sasite,
+            ShootingStarlightable move,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -939,8 +939,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             try
             {
-                RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
-                RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
+                RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);
+                RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);
 
 
 
@@ -961,7 +961,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 }
 
 
-                if (Util_Sky.IsDaAction(sasite))
+                if (Util_Sky.IsDaAction(move))
                 {
                     // 打でした。
                     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1038,7 +1038,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 //------------------------------------------------------------
                 // 成
                 //------------------------------------------------------------
-                if (Util_Sky.IsNatta_Sasite(sasite))
+                if (Util_Sky.IsNatta_Sasite(move))
                 {
                     sb.Append("+");
                 }
@@ -1051,12 +1051,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return sb.ToString();
         }
 
-        public static bool isEnableSfen(ShootingStarlightable sasite)
+        public static bool isEnableSfen(ShootingStarlightable move)
         {
             bool enable = true;
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);
 
 
             int srcDan;
@@ -1080,17 +1080,17 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
-        public static ShootingStarlightable Src(ShootingStarlightable sasite)
+        public static ShootingStarlightable Src(ShootingStarlightable move)
         {
             RO_ShootingStarlight result;
 
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);
 
 
                 result = new RO_ShootingStarlight(
-                    //sasite.Finger,//共通
+                    //move.Finger,//共通
 
                     new RO_Star_Koma(
                         dstKoma.Pside,
@@ -1147,14 +1147,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// 成った
         /// </summary>
         /// <returns></returns>
-        public static bool IsNatta_Sasite(ShootingStarlightable sasite)
+        public static bool IsNatta_Sasite(ShootingStarlightable move)
         {
             // 元種類が不成、現種類が成　の場合のみ真。
             bool natta = true;
 
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(sasite.LongTimeAgo);
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(sasite.Now);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(move.LongTimeAgo);
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(move.Now);
 
 
                 // 成立しない条件を１つでも満たしていれば、偽　確定。

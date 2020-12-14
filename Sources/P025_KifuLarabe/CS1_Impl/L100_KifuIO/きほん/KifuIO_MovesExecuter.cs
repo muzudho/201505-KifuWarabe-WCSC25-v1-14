@@ -17,7 +17,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
     {
         /// <summary>
         /// ************************************************************************************************************************
-        /// 符号１「7g7f」を元に、sasite を作ります。
+        /// 符号１「7g7f」を元に、move を作ります。
         /// ************************************************************************************************************************
         /// 
         /// ＜[再生]、[コマ送り]で呼び出されます＞
@@ -30,14 +30,14 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string str3, //123456789
             string str4, //abcdefghi
             string strNari, //+
-            out ShootingStarlightable sasite,
+            out ShootingStarlightable move,
             KifuTree kifu,
             string hint,
             int tesumi_yomiGenTeban,//読み進めている現在の手目済
             LarabeLoggerable logTag
             )
         {
-            sasite = Util_Sky.NULL_OBJECT_SASITE;
+            move = Util_Sky.NULL_OBJECT_SASITE;
 
             SkyConst src_Sky = kifu.NodeAt(tesumi_yomiGenTeban).Value.ToKyokumenConst;
 
@@ -144,7 +144,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         sb.AppendLine("str3=[" + str3 + "]");
                         sb.AppendLine("str4=[" + str4 + "]");
                         sb.AppendLine("strNari=[" + strNari + "]");
-                        //sasite
+                        //move
                         //kifu
                         sb.AppendLine("hint=[" + hint + "]");
                         sb.AppendLine("tesumi_yomiGenTeban=[" + tesumi_yomiGenTeban + "]");
@@ -229,7 +229,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 // 結果
                 //------------------------------
                 // 棋譜
-                sasite = new RO_ShootingStarlight(
+                move = new RO_ShootingStarlight(
                     //koma,//TODO:
 
                     new RO_Star_Koma(
@@ -281,7 +281,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string strAgaruHiku, // 上|引
             string strNariNarazu, //成|不成
             string strDaHyoji, //打
-            out ShootingStarlightable sasite,
+            out ShootingStarlightable move,
             KifuTree kifu,
             LarabeLoggerable logTag
             )
@@ -1247,7 +1247,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
 
             // １手を、データにします。
-            sasite = new RO_ShootingStarlight(
+            move = new RO_ShootingStarlight(
                 //foundKoma,//TODO:
 
                 new RO_Star_Koma(
