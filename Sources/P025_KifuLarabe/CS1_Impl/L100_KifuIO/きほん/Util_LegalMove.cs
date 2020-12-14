@@ -102,11 +102,11 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
 
             // まず、ディクショナリー構造へ変換。
-            Dictionary<ShootingStarlightable, KyokumenWrapper> sasitebetuSky = Converter04.KomabetuMasus_ToMovebetuSky(
+            Dictionary<ShootingStarlightable, KyokumenWrapper> movebetuSky = Converter04.KomabetuMasus_ToMovebetuSky(
                 komabetuSusumuMasus, siteiNode_yomiGenTeban.Value.ToKyokumenConst, pside_yomiGenTeban, logTag);
 
             // 棋譜ノード構造へ変換。
-            return Converter04.MovebetuSky_ToHubNode(sasitebetuSky, KifuNodeImpl.GetReverseTebanside(pside_yomiGenTeban));
+            return Converter04.MovebetuSky_ToHubNode(movebetuSky, KifuNodeImpl.GetReverseTebanside(pside_yomiGenTeban));
         }
         private static void Log1(
             Node<ShootingStarlightable, KyokumenWrapper> hubNode,
@@ -188,7 +188,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             int tesumi_yomiCur_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,//現手番側
             GraphicalLog_File logF_kiki,
-            ShootingStarlightable sasite_forLog,
+            ShootingStarlightable move_forLog,
             LarabeLoggerable logTag
             )
         {
@@ -208,7 +208,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 "玉自殺ﾁｪｯｸ",
                 yomuDeep,
                 tesumi_yomiCur_forLog,
-                sasite_forLog,
+                move_forLog,
                 logTag);
 
             
@@ -270,7 +270,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string logBrd_caption,
             int yomuDeep_forLog,//脳内読み手数
             int tesumi_yomiCur_forLog,
-            ShootingStarlightable sasite_forLog,
+            ShootingStarlightable move_forLog,
             LarabeLoggerable logTag
             )
         {
@@ -372,7 +372,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     masus_kurau_IKUSA,
                     src_Sky,
                     enableLog,
-                    Converter04.MoveToStringForLog(sasite_forLog, pside_genTeban3),
+                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3),
                     logTag
                     );// 利きを調べる側の利き（戦駒）
 

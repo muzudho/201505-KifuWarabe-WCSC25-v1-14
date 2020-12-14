@@ -111,10 +111,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// </summary>
         /// <param name="enableLog"></param>
         /// <param name="src_Sky_base"></param>
-        /// <param name="km_sasite"></param>
+        /// <param name="km_move"></param>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, SkyConst src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_sasite, string comment)
+        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, SkyConst src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_move, string comment)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -123,7 +123,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 goto gt_EndMethod;
             }
 
-            km_sasite.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
+            km_move.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 // 駒１つ
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky_base.StarlightIndexOf(key).Now);
@@ -400,10 +400,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             foreach (GraphicalLog_Board boardLog1 in boardFileLog1.boards)
             {
                 // 指し手。分かれば。
-                string sasiteStr = Converter04.MoveToStringForLog(boardLog1.sasiteOrNull, boardLog1.GenTeban);
+                string moveStr = Converter04.MoveToStringForLog(boardLog1.moveOrNull, boardLog1.GenTeban);
 
                 //string oldCaption = boardLog1.Caption;
-                //boardLog1.Caption += "_" + sasiteStr;
+                //boardLog1.Caption += "_" + moveStr;
                 sb_json_boardsLog.Append(boardLog1.ToJsonStr());
                 //boardLog1.Caption = oldCaption;
             }

@@ -1299,10 +1299,10 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         );
 
                         // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                        string sasiteStr = Util_Sky.ToSfenMoveText(move);//重複防止用のキー
-                        if (!newMoveList.ContainsKey(sasiteStr))
+                        string moveStr = Util_Sky.ToSfenMoveText(move);//重複防止用のキー
+                        if (!newMoveList.ContainsKey(moveStr))
                         {
-                            newMoveList.Add(sasiteStr, move);
+                            newMoveList.Add(moveStr, move);
                         }
                     }
 
@@ -1333,14 +1333,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
                     try
                     {
-                        string sasiteStr = Util_Sky.ToSfenMoveText(newMove);
+                        string moveStr = Util_Sky.ToSfenMoveText(newMove);
 
-                        if (!hubNode.ContainsKey_NextNodes(sasiteStr))
+                        if (!hubNode.ContainsKey_NextNodes(moveStr))
                         {
                             // 指し手が既存でない局面だけを追加します。
 
                             hubNode.Add_NextNode(
-                                sasiteStr,
+                                moveStr,
                                 new KifuNodeImpl(
                                     newMove,
                                     kyokumenWrapper,//node_yomiCur.Value,//FIXME: 成りの手を指した局面を作りたい。
@@ -1490,11 +1490,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
 
-        public static KifuNode MovebetuSky_ToHubNode(Dictionary<ShootingStarlightable, KyokumenWrapper> sasitebetuSkys, Playerside nextTebanside)
+        public static KifuNode MovebetuSky_ToHubNode(Dictionary<ShootingStarlightable, KyokumenWrapper> movebetuSkys, Playerside nextTebanside)
         {
             KifuNode hubNode = new KifuNodeImpl(null,null,Playerside.Empty);
 
-            foreach (KeyValuePair<ShootingStarlightable, KyokumenWrapper> nextNode in sasitebetuSkys)
+            foreach (KeyValuePair<ShootingStarlightable, KyokumenWrapper> nextNode in movebetuSkys)
             {
                 hubNode.Add_NextNode(
                     Util_Sky.ToSfenMoveText(nextNode.Key),
@@ -1528,13 +1528,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
         public static string MoveToStringForLog(ShootingStarlightable move)
         {
-            string sasiteInfo;
+            string moveInfo;
 
             RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
-                sasiteInfo = KomaSyurui14Array.ToIchimoji(Haiyaku184Array.Syurui(koma.Haiyaku));
+                moveInfo = KomaSyurui14Array.ToIchimoji(Haiyaku184Array.Syurui(koma.Haiyaku));
 
-            return sasiteInfo;
+            return moveInfo;
         }
 
         public static string MoveToStringForLog(ShootingStarlightable move, Playerside pside_genTeban)

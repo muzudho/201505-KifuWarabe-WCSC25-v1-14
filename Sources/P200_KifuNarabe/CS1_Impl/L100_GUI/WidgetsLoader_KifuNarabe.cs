@@ -750,7 +750,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             ui_PnlMain.ShogiGui.Model_PnlTaikyoku.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");//平手の初期局面
 
             KifuNode newNode = new KifuNodeImpl(
-                                        Util_Sky.NULL_OBJECT_SASITE,//ルートなので
+                                        Util_Sky.NullObjectMove,//ルートなので
                                         new KyokumenWrapper(Util_Sky.New_Hirate()),//[初期配置]ボタン押下時
                                         KifuNodeImpl.GetReverseTebanside(((KifuNode)ui_PnlMain.ShogiGui.Model_PnlTaikyoku.Kifu.CurNode).Tebanside)
                                         );

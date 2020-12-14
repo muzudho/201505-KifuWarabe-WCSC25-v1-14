@@ -104,7 +104,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             {
                 this.Kifu = new KifuTreeImpl(
                         new KifuNodeImpl(
-                            Util_Sky.NULL_OBJECT_SASITE,
+                            Util_Sky.NullObjectMove,
                             new KyokumenWrapper(new SkyConst(Util_Sky.New_Hirate())),// きふわらべ起動時 // FIXME:平手とは限らないが。
                             Playerside.P2
                         )

@@ -46,7 +46,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             {
                 saifuKifu = new KifuTreeImpl(
                         new KifuNodeImpl(
-                            Util_Sky.NULL_OBJECT_SASITE,
+                            Util_Sky.NullObjectMove,
                             new KyokumenWrapper(new SkyConst(Util_Sky.New_Hirate())),//日本の符号読取時
                             Playerside.P2
                         )

@@ -16,7 +16,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
     public abstract class Util_Sky
     {
 
-        public static readonly ShootingStarlightable NULL_OBJECT_SASITE = new RO_ShootingStarlight(
+        public static readonly ShootingStarlightable NullObjectMove = new RO_ShootingStarlight(
             //Fingers.Error_1,
             new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, Ks14.H00_Null),
             new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, Ks14.H00_Null),
@@ -913,12 +913,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            string sasiteText = Util_Sky.ToSfenMoveText(move);
+            string moveText = Util_Sky.ToSfenMoveText(move);
 
-            sasiteText = sasiteText.Replace('*', '＊');//SFENの打記号の「*」は、ファイルの文字名に使えないので。
+            moveText = moveText.Replace('*', '＊');//SFENの打記号の「*」は、ファイルの文字名に使えないので。
 
 
-            return sasiteText;
+            return moveText;
         }
 
 

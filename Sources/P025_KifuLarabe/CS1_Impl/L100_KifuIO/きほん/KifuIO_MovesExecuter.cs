@@ -37,7 +37,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             LarabeLoggerable logTag
             )
         {
-            move = Util_Sky.NULL_OBJECT_SASITE;
+            move = Util_Sky.NullObjectMove;
 
             SkyConst src_Sky = kifu.NodeAt(tesumi_yomiGenTeban).Value.ToKyokumenConst;
 

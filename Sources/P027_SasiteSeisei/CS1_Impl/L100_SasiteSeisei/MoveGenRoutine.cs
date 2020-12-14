@@ -291,11 +291,11 @@ namespace Grayscale.P027MoveGen.L100MoveGen
             GraphicalLog_Board logBrd_move1
             )
         {
-            logBrd_move1.sasiteOrNull = ((KifuNode)node_yomiCur).Key;
+            logBrd_move1.moveOrNull = ((KifuNode)node_yomiCur).Key;
 
 
-            RO_Star_Koma srcKoma = Util_Koma.AsKoma(logBrd_move1.sasiteOrNull.LongTimeAgo);
-            RO_Star_Koma dstKoma = Util_Koma.AsKoma(logBrd_move1.sasiteOrNull.Now);
+            RO_Star_Koma srcKoma = Util_Koma.AsKoma(logBrd_move1.moveOrNull.LongTimeAgo);
+            RO_Star_Koma dstKoma = Util_Koma.AsKoma(logBrd_move1.moveOrNull.Now);
 
 
             // ログ試し

@@ -65,7 +65,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             {
                 if (0 < genjo.InputLine.Trim().Length)
                 {
-                    ShootingStarlightable nextTe = Util_Sky.NULL_OBJECT_SASITE;
+                    ShootingStarlightable nextTe = Util_Sky.NullObjectMove;
                     string rest;
 
                     try

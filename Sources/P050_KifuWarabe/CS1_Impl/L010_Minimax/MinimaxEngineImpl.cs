@@ -203,7 +203,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     )
                 );
 
-                logBrd_move1.sasiteOrNull = ((KifuNode)node).Key;
+                logBrd_move1.moveOrNull = ((KifuNode)node).Key;
 
                 logBrd_move1.NounaiYomiDeep = int.MinValue;
                 logBrd_move1.Tesumi = int.MinValue;

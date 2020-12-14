@@ -252,7 +252,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     nextTebanside = Converter04.AlternatePside(Playerside.P2);//FIXME:逆か？
                 }
 
-                ShootingStarlightable move = Util_Sky.NULL_OBJECT_SASITE;//ルートなので
+                ShootingStarlightable move = Util_Sky.NullObjectMove;//ルートなので
 
                 SkyConst src_Sky_New = startposImporter.ToSky();
                 Node<ShootingStarlightable, KyokumenWrapper> newNode =

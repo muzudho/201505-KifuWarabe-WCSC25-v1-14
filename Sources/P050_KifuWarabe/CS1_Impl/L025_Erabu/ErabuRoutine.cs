@@ -57,7 +57,7 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
             if (null == bestMove)
             {
                 // 投了
-                bestMove = Util_Sky.NULL_OBJECT_SASITE;
+                bestMove = Util_Sky.NullObjectMove;
             }
 
             // TODO:    できれば、合法手のリストから　さらに相手番の合法手のリストを伸ばして、

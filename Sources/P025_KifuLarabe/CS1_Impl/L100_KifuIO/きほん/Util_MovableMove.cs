@@ -33,12 +33,12 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
             GraphicalLog_Board logBrd_move,
             int yomuDeep_forLog,//脳内読み手数
             int tesumi_yomiCur_forLog,
-            ShootingStarlightable sasite_forLog,
+            ShootingStarlightable move_forLog,
             LarabeLoggerable logTag
             )
         {
 
-            logBrd_move.Caption = "移動可能_" + Converter04.MoveToStringForLog(sasite_forLog, pside_genTeban3);
+            logBrd_move.Caption = "移動可能_" + Converter04.MoveToStringForLog(move_forLog, pside_genTeban3);
             logBrd_move.Tesumi = tesumi_yomiCur_forLog;
             logBrd_move.NounaiYomiDeep = yomuDeep_forLog;
             //logBrd_move.Score = 0.0d;
@@ -155,7 +155,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     masus_kurau_IKUSA,
                     src_Sky,
                     enableLog,
-                    Converter04.MoveToStringForLog(sasite_forLog, pside_genTeban3),
+                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3),
                     logTag
                     );// 盤上の駒の移動できる場所
 
@@ -165,7 +165,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     masus_seme_IKUSA,
                     masus_kurau_IKUSA,
                     src_Sky,
-                    Converter04.MoveToStringForLog(sasite_forLog, pside_genTeban3),
+                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3),
                     logTag
                     );
 
