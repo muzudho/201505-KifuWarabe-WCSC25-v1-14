@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiSfenReport", "Sources\P007_SfenReport\UiSfenReport.csproj", "{56F57764-1BF7-4CB9-9757-D69778DE1BB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiSfenReport", "Sources\UiSfenReport\UiSfenReport.csproj", "{56F57764-1BF7-4CB9-9757-D69778DE1BB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Sources\P050_KifuWarabe\Engine.csproj", "{E96A7341-B8E6-4979-8B2A-94FF2818962C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Sources\Engine\Engine.csproj", "{E96A7341-B8E6-4979-8B2A-94FF2818962C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCase", "Sources\P100_ShogiServer\UseCase.csproj", "{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCase", "Sources\UseCase\UseCase.csproj", "{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfNarabe", "Sources\P200_KifuNarabe\GuiOfNarabe.csproj", "{9593ACC7-348B-4868-892C-7BAFBF925B9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfNarabe", "Sources\GuiOfNarabe\GuiOfNarabe.csproj", "{9593ACC7-348B-4868-892C-7BAFBF925B9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P400_KifuNaraVs", "Sources\P400_KifuNarabeVs\P400_KifuNaraVs.csproj", "{F021F9E5-8184-4B45-83AC-117CEF77F77A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfNarabeVs", "Sources\GuiOfNarabeVs\GuiOfNarabeVs.csproj", "{F021F9E5-8184-4B45-83AC-117CEF77F77A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Sources\P006_Sfen\Entities.csproj", "{FF107244-EEAB-481E-9017-F6D3DFFB23DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Sources\Entities\Entities.csproj", "{FF107244-EEAB-481E-9017-F6D3DFFB23DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfSyugoron", "Sources\P006_Syugoron\GuiOfSyugoron.csproj", "{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfSyugoron", "Sources\GuiOfSyugoron\GuiOfSyugoron.csproj", "{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfNarabeExe", "Sources\GuiOfNarabeExe\GuiOfNarabeExe.csproj", "{E4C2F60C-06BF-472F-9AFF-474BD069FE02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,18 @@ Global
 		{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}.Release|x64.ActiveCfg = Release|Any CPU
 		{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}.Release|x64.Build.0 = Release|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Debug|x64.Build.0 = Debug|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Release|x64.ActiveCfg = Release|Any CPU
+		{E4C2F60C-06BF-472F-9AFF-474BD069FE02}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

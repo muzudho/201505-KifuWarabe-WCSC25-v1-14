@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
-[assembly: AssemblyTitle("P046_KifuYomi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("将棋エンジン きふわらべ")]
+[assembly: AssemblyDescription("将棋の思考エンジンです。")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("P046_KifuYomi")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("ぐれーすけーる")]
+[assembly: AssemblyProduct("KifuWarabe_WCSC25")]
+[assembly: AssemblyCopyright("Copyright © ぐれーすけーる 2014")]
+[assembly: AssemblyTrademark("きふわらべ")]
 [assembly: AssemblyCulture("")]
 
 // ComVisible を false に設定すると、その型はこのアセンブリ内で COM コンポーネントから 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 次の GUID は、このプロジェクトが COM に公開される場合の、typelib の ID です
-[assembly: Guid("fa537ed6-2a32-4515-a525-fabd7b1f365d")]
+[assembly: Guid("e410eaaa-154f-4965-a396-bfe465f4a4be")]
 
 // アセンブリのバージョン情報は、以下の 4 つの値で構成されています:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.0.7.0")]
+[assembly: AssemblyFileVersion("2.0.3.0")]

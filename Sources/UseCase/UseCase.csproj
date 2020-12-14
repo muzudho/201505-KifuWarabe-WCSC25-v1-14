@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{18FB9B6E-95B2-47FE-A2F6-4FD865ABD804}</ProjectGuid>
+    <ProjectGuid>{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale.P025_KifuLarabe</RootNamespace>
-    <AssemblyName>Grayscale.P025_KifuLarabe</AssemblyName>
+    <RootNamespace>Grayscale.P100_ShogiServer</RootNamespace>
+    <AssemblyName>Grayscale.P100_ShogiServer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -16,34 +16,37 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\BuildsOfAnothers\Debug\P025_KifuLarabe\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Debug\P100_ShogiServer\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\BuildsOfAnothers\Release\P025_KifuLarabe\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Release\P100_ShogiServer\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ProjectDark.KWSupport">
+    <Reference Include="DynamicJson">
+      <HintPath>..\..\References\NeueCC\DynamicJson_1.2.0.0\DynamicJson.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectDark.KWSupport, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\References\CircleProjectDark\ProjectDark.KWSupport.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,24 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="P100ShogiServer\L100_InServer\Util_InServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\P006_Sfen\Entities.csproj">
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{ff107244-eeab-481e-9017-f6d3dffb23df}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P006_Syugoron\GuiOfSyugoron.csproj">
-      <Project>{8da09a28-62d8-4cc2-a975-cce0cf0da4b9}</Project>
-      <Name>GuiOfSyugoron</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\P007_SfenReport\UiSfenReport.csproj">
-      <Project>{56f57764-1bf7-4cb9-9757-d69778de1bb0}</Project>
-      <Name>UiSfenReport</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
