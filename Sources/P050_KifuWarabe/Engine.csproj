@@ -102,18 +102,6 @@
       <Project>{56f57764-1bf7-4cb9-9757-d69778de1bb0}</Project>
       <Name>UiSfenReport</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P027_SasiteSeisei\P027_SasiteSeisei.csproj">
-      <Project>{d1878a53-8467-4610-b340-c0b5285cc4e4}</Project>
-      <Name>P027_SasiteSeisei</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\P040_Kokoro\P040_Kokoro.csproj">
-      <Project>{70de6137-b1f3-48b5-bbf6-99791daf94d5}</Project>
-      <Name>P040_Kokoro</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\P045_Atama\P045_Atama.csproj">
-      <Project>{4a761c74-4788-4187-86e7-7ab84b53094d}</Project>
-      <Name>P045_Atama</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

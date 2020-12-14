@@ -45,9 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CS0_Interface\L00050_Kokoro\TenonagareGenjo.cs" />
-    <Compile Include="CS0_Interface\L00050_Kokoro\TenonagareName.cs" />
-    <Compile Include="CS1_Impl\L100_Kokoro\TenonagareGenjoImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

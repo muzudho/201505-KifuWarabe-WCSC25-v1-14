@@ -48,18 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CS0_Interface\L00025_MovableMove\MmGenjo_MovableMasu.cs" />
-    <Compile Include="CS0_Interface\L00025_MovableMove\MmLogGenjo.cs" />
-    <Compile Include="CS0_Interface\L0005_SasiteSeisei\MoveGenArgs.cs" />
-    <Compile Include="CS0_Interface\L0005_SasiteSeisei\MoveGenGenjo.cs" />
-    <Compile Include="CS0_Interface\L0005_SasiteSeisei\SsssLogGenjo.cs" />
-    <Compile Include="CS1_Impl\L050_MovableMove\MmGenjo_MovableMasuImpl.cs" />
-    <Compile Include="CS1_Impl\L050_MovableMove\MmLogGenjoImpl.cs" />
-    <Compile Include="CS1_Impl\L050_MovableMove\Util_MovableMove.cs" />
-    <Compile Include="CS1_Impl\L100_SasiteSeisei\MoveGenArgsImpl.cs" />
-    <Compile Include="CS1_Impl\L100_SasiteSeisei\MoveGenGenjoImpl.cs" />
-    <Compile Include="CS1_Impl\L100_SasiteSeisei\MoveGenRoutine.cs" />
-    <Compile Include="CS1_Impl\L100_SasiteSeisei\SsssLogGenjoImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
