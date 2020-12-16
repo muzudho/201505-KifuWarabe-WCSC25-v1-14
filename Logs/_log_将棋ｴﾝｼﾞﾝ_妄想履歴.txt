@@ -6,17 +6,24 @@
     ,{"name":"Toosi","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
     ,{"name":"MenomaenoFuWoTore","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
     ,{"name":"KakuTouNoHimoduki","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0"}}
-    ,{"name":"Tukisute","masu":"65","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/ppppppppp/9/9/7P1/PPPPPPP1P/1B5R1/LNSGKGSNL w - 1"}}
-    ,{"name":"Tukisute","masu":"65","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/ppppppp1p/7p1/7P1/9/PPPPPPP1P/1B5R1/LNSGKGSNL w - 1"}}
-    ,{"name":"Tukisute","masu":"65","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/ppppppp2/7Pp/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w P 1"}}
-    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/p1ppppp+P1/1p6p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w P 1"}}
-    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5+P1/p1p1ppp2/1p1p4p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w BP 1"}}
-    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkg1nl/1r5s1/p1pBppp2/1p1p4p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w Pp 1"}}
-    ,{"name":"Ido","masu":"9","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkg1nl/7s1/prp1ppp2/1p1p4p/5+B3/9/PPPPPPP1P/1B5R1/LNSGKGSNL w Pp 1"}}
-    ,{"name":"Ido","masu":"29","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/9/prp1ppp+B1/1p1p4p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w Pp 1"}}
-    ,{"name":"Ido","masu":"65","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgk1snl/4g2P1/prp1ppp+B1/1p1p4p/9/9/PPPPPPP1P/1B5R1/LNSGKGSNL w p 1"}}
-    ,{"name":"Ido","masu":"78","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgk1s+Pl/4g4/prp1ppp+B1/3p4p/1p7/9/PPPPPPP1P/1B5R1/LNSGKGSNL w Np 1"}}
-    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgk1+P1l/3g5/prp1ppp+B1/3p4p/1p7/9/PPPPPPP1P/1B5R1/LNSGKGSNL w SNp 1"}}
-    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen ln1gk+B+P1l/1s1g5/prp1ppp2/3p4p/1p7/9/PPPPPPP1P/1B5R1/LNSGKGSNL w SNp 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lnsgk1snl/1r4gb1/ppppppppp/9/9/1P7/P1PPPPPPP/1B5R1/LNSGKGSNL w - 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns1k1snl/1r2g1gb1/ppppppppp/9/9/1P5P1/P1PPPPP1P/1B5R1/LNSGKGSNL w - 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns1k1snl/1r2g1gb1/ppppppp1p/7p1/9/1P2P2P1/P1PP1PP1P/1B5R1/LNSGKGSNL w - 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/1r2gkgb1/ppppppp1p/7p1/9/1P2PP1P1/P1PP2P1P/1B5R1/LNSGKGSNL w - 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/1r2gkgb1/ppppp1p1p/5p1p1/9/1P2PP1P1/P1PP2P1P/1B2G2R1/LNSGK1SNL w - 1"}}
+    ,{"name":"Ido","masu":"71","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/1r2gkgb1/1pppp1p1p/p4p1p1/1P7/4PP1P1/P1PP2P1P/1B2G2R1/LNSGK1SNL w - 1"}}
+    ,{"name":"Ido","masu":"66","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/1r3kgb1/1ppppgp1p/p4p1p1/1P7/4PP1P1/P1PP2P1P/1B2GK1R1/LNSG2SNL w - 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/1r3kgb1/1ppppgp1p/5p1p1/pP7/4PP1P1/P1PP2P1P/1B2GK1R1/LNS1G1SNL w - 1"}}
+    ,{"name":"Ido","masu":"37","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/1r3kgb1/2pppgp1p/1p3p1p1/pP7/2P1PP1P1/P2P2P1P/1B2GK1R1/LNS1G1SNL w - 1"}}
+    ,{"name":"Ido","masu":"27","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/1r3kgb1/2ppp1p1p/1p3g1p1/pP7/2P1PP1P1/P2P2P1P/4GK1R1/LNS1G1SNL w Pb 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/5kgb1/2ppp1p1p/1r3g1p1/p8/2P1PP1P1/P2P2P1P/4GK1R1/LNS1G1SNL w 2Pbp 1"}}
+    ,{"name":"Ido","masu":"64","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/5kgb1/2ppp1p1p/5g1p1/p4P3/2P1P2P1/P2P2P1P/4GK1R1/L+rS1G1SNL w 2Pbnp 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/5kgb1/2ppp1p1p/7p1/p4g3/2P1P2P1/P2P2P1P/4G2R1/L+rS1GKSNL w 2Pbn2p 1"}}
+    ,{"name":"Ido","masu":"45","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/5kgb1/2ppp1p1p/7p1/p3Pg3/2P4P1/P2P2P1P/4G2R1/L1+r1GKSNL w 2Pbsn2p 1"}}
+    ,{"name":"Ido","masu":"47","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/5kgb1/2ppp1p1p/7p1/p3Pg3/2P4P1/Pn1P2P1P/4GK1R1/L1+r1G1SNL w 2Pbs2p 1"}}
+    ,{"name":"Ido","masu":"60","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/5kgb1/2ppp1p1p/7p1/p3Pg3/2P4P1/P2P1GP1P/5K1R1/+n1+r1G1SNL w 2Pbsl2p 1"}}
+    ,{"name":"Toru","masu":"0","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/5kgb1/2ppp1p1p/7p1/p3Pg3/1bP4P1/P2P1GP1P/7R1/+n1+r1GKSNL w 2Psl2p 1"}}
+    ,{"name":"Ido","masu":"35","log":{"sippai":"0","susunda":"0","seiko":"0","start_node2":"sfen lns3snl/5kgb1/2ppp1p1p/7p1/p3Pg3/1bP4P1/P2P1GP1P/4K2R1/+n3+r1SNL w 2Pgsl2p 1"}}
 ]
 
