@@ -262,18 +262,18 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Engine.WriteLine_AddMemo("Program「position」：" + ex.GetType().Name + "：" + ex.Message);
+                Logger.WriteLineAddMemo(LogTags.Engine, "Program「position」：" + ex.GetType().Name + "：" + ex.Message);
             }
         }
         private void Log1(string message)
         {
-            Logger.Engine.WriteLine_AddMemo(message);
+            Logger.WriteLineAddMemo(LogTags.Engine, message);
         }
         private void Log2(string line, KifuNode kifuNode, ILogTag logTag)
         {
             int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
 
-            Logger.Engine.WriteLine_AddMemo(Util_Sky.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine),
+            Logger.WriteLineAddMemo(LogTags.Engine, Util_Sky.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine),
                 "PgCS",
                 tesumi_yomiGenTeban_forLog//読み進めている現在の手目
                 ));
@@ -341,7 +341,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Engine.WriteLine_AddMemo("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
+                Logger.WriteLineAddMemo(LogTags.Engine, "Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
             }
         }
 
@@ -429,7 +429,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
                 SkyConst src_Sky = this.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
 
-                Logger.Engine.WriteLine_AddMemo("将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
+                Logger.WriteLineAddMemo(LogTags.Engine,"将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 
 
                 Result_Ajimi result_Ajimi = this.ajimiEngine.Ajimi(src_Sky);
@@ -491,14 +491,14 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 if (Util_Sky.isEnableSfen(bestMove))
                                 {
                                     string sfenText = Util_Sky.ToSfenMoveText(bestMove);
-                                    Logger.Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
+                                    Logger.WriteLineAddMemo(LogTags.Engine,"(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
                                         "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
 
                                     this.owner.Send("bestmove " + sfenText);//指し手を送ります。
                                 }
                                 else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                                 {
-                                    Logger.Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
+                                    Logger.WriteLineAddMemo(LogTags.Engine,"(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
                                         "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
 
                                     // 投了ｗ！
@@ -512,7 +512,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 Debug.Fail(message);
 
                                 // どうにもできないので  ログだけ取って無視します。
-                                Logger.Engine.WriteLine_Error(message);
+                                Logger.WriteLineError(LogTags.Engine,message);
                             }
                         }
                         break;
@@ -527,7 +527,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Engine.WriteLine_AddMemo("Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
+                Logger.WriteLineAddMemo(LogTags.Engine,"Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
             }
 
 
@@ -632,7 +632,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Engine.WriteLine_AddMemo("Program「stop」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.WriteLineAddMemo(LogTags.Engine,"Program「stop」：" + ex.GetType().Name + " " + ex.Message);
             }
         }
 
@@ -697,7 +697,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Engine.WriteLine_AddMemo("Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.WriteLineAddMemo(LogTags.Engine,"Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
             }
         }
 

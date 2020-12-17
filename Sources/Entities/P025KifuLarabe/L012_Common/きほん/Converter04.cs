@@ -133,7 +133,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                     break;
                 default:
                     string message = "筋[" + num + "]をアルファベットに変えることはできませんでした。";
-                    Logger.Error.WriteLine_Error( message);
+                    Logger.WriteLineError(LogTags.Error, message);
                     throw new Exception(message);
             }
 

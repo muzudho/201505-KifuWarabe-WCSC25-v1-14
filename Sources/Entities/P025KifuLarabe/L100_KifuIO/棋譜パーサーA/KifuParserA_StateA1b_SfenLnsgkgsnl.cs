@@ -97,7 +97,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                Logger.Error.WriteLine_Error( message);
+                Logger.WriteLineError(LogTags.Error, message);
             }
 
             return genjo.InputLine;

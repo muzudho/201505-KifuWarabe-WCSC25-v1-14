@@ -221,7 +221,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //------------------------------------------------------------
             // それでは定刻になりましたので……
             //------------------------------------------------------------
-            #region ↓詳説
             //
             // 図.
             //
@@ -233,25 +232,21 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //
             //
             // 対局開始前に、将棋所から送られてくる文字が isready です。
-            #endregion
-
 
             //------------------------------------------------------------
             // 将棋エンジン「おっおっ、設定を終わらせておかなければ（汗、汗…）」
             //------------------------------------------------------------
-            Logger.Engine.WriteLine_AddMemo("┏━━━━━設定━━━━━┓");
+            Logger.WriteLineAddMemo(LogTags.Engine, "┏━━━━━設定━━━━━┓");
             foreach (KeyValuePair<string, string> pair in this.Owner.SetoptionDictionary)
             {
                 // ここで将棋エンジンの設定を済ませておいてください。
-                Logger.Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
             }
-            Logger.Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━┛");
-
+            Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━┛");
 
             //------------------------------------------------------------
             // よろしくお願いします(^▽^)！
             //------------------------------------------------------------
-            #region ↓詳説
             //
             // 図.
             //
@@ -263,7 +258,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //
             //
             // いつでも対局する準備が整っていましたら、 readyok を送り返します。
-            #endregion
             this.Owner.Send("readyok");
         }
 
@@ -273,7 +267,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //------------------------------------------------------------
             // 対局時計が ポチッ とされました
             //------------------------------------------------------------
-            #region ↓詳説
             //
             // 図.
             //
@@ -285,8 +278,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //
             //
             // 対局が始まったときに送られてくる文字が usinewgame です。
-            #endregion
-
 
             // 無限ループ（１つ目）を抜けます。無限ループ（２つ目）に進みます。
             result_Usi = Result_UsiLoop1.Break;
@@ -299,7 +290,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //------------------------------------------------------------
             // おつかれさまでした
             //------------------------------------------------------------
-            #region ↓詳説
             //
             // 図.
             //
@@ -311,13 +301,10 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //
             //
             // 将棋エンジンを止めるときに送られてくる文字が quit です。
-            #endregion
-
 
             //------------------------------------------------------------
             // ﾉｼ
             //------------------------------------------------------------
-            #region ↓詳説
             //
             // 図.
             //
@@ -328,9 +315,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //      │
             //
             //
-            #endregion
-            Logger.Engine.WriteLine_AddMemo("(^-^)ﾉｼ");
-
+            Logger.WriteLineAddMemo(LogTags.Engine, "(^-^)ﾉｼ");
 
             // このプログラムを終了します。
             result_Usi = Result_UsiLoop1.Quit;

@@ -55,7 +55,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
                 //------------------------------
                 // ログファイルを削除します。
                 //------------------------------
-                LarabeLoggerList.GetDefaultList().RemoveFile();
+                Logger.RemoveAllLogFile();
 
 
                 ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -167,7 +167,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
             else
             {
                 //>>>>>>>>>> メッセージを受け取りました。
-                LarabeLoggerList.GetDefaultList().DefaultFile.WriteLine_R(line);
+                Logger.WriteLineR(LogTags.Default, line);
 
                 if (line.StartsWith("option"))
                 {

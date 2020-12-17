@@ -120,7 +120,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                                     koma83,//どの駒を
                                     null,
                                     Masu_Honshogi.ban83_８三//初期位置
-                                    , Logger.Engine);
+                                    , LogTags.Engine);
                                 goto gt_Next1;
                             }
 
@@ -152,7 +152,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                         koma1,
                         null,
                         new Basho(LarabeRandom.Random.Next(0, 80))// 目指すマス
-                        , Logger.Engine);
+                        , LogTags.Engine);
                 }
                 else
                 {
@@ -190,7 +190,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                     atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(LogTags.Engine),
                         TenonagareName.Toru,
                         0.1d,//1.0d,
-                        koma1, koma2, new Basho(0), Logger.Engine);
+                        koma1, koma2, new Basho(0), LogTags.Engine);
 
                     // 目指す
                 }
@@ -257,12 +257,12 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
             this.TenonagareItems.Add(kiokuHow);
         }
 
-        public void WriteTenonagare(object obj_sikouEngine, LarabeLoggerable logTag)
+        public void WriteTenonagare(object obj_sikouEngine, ILogTag logTag)
         {
             ShogisasiImpl shogisasi = (ShogisasiImpl)obj_sikouEngine;
 
             // 追記ではなく、上書きにしたい☆
-            Logger.MousouRireki.WriteLine_OverMemo(
+            Logger.WriteLineOverMemo(LogTags.MousouRireki,
                 shogisasi.Kokoro.TenonagareToJsonVal().ToString()
                 );
         }
@@ -271,9 +271,9 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
         {
             try
             {
-                if (File.Exists(Logger.MousouRireki.LogRecord.FileName))
+                if (File.Exists(Logger.GetRecord(LogTags.MousouRireki).FileName))
                 {
-                    string mousouRirekiLog = System.IO.File.ReadAllText(Logger.MousouRireki.LogRecord.FileName, Encoding.UTF8);
+                    string mousouRirekiLog = System.IO.File.ReadAllText(Logger.GetRecord(LogTags.MousouRireki).FileName, Encoding.UTF8);
 
 #if DEBUG
                     MessageBox.Show( mousouRirekiLog, "妄想履歴ログ有り　（デバッグモード　正常）" );

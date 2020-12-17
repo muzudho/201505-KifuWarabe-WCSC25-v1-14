@@ -5,6 +5,7 @@
     /// </summary>
     public class LogTags
     {
+        public static readonly ILogTag Default = new LogTag("Default");
         public static readonly ILogTag NarabePaint = new LogTag("NarabePaint");
         public static readonly ILogTag NarabeNetwork = new LogTag("NarabeNetwork");
         public static readonly ILogTag MoveGenRoutine = new LogTag("MoveGenRoutine");

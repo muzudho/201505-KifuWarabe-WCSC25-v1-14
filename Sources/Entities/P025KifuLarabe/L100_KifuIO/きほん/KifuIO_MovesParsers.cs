@@ -225,7 +225,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                         // どうにもできないので  ログだけ取って無視します。
                         string message = "TuginoItte_Sfen.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」　m.Groups.Count=「" + m.Groups.Count + "」";
-                        Logger.Error.WriteLine_Error( message);
+                        Logger.WriteLineError(LogTags.Error, message);
                     }
                 }
 
@@ -239,7 +239,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = "TuginoItte_Sfen.GetData_FromText（B）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」";
-                Logger.Error.WriteLine_Error( message);
+                Logger.WriteLineError(LogTags.Error, message);
             }
 
             return successful;

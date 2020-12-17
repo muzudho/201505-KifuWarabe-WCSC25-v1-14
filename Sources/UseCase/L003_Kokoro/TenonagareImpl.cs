@@ -1,4 +1,5 @@
-﻿using Grayscale.P006Sfen;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P006Sfen;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
@@ -34,7 +35,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
         public TenonagareImpl(
             ISfenPosition1 ro_Kyokumen1ForKioku_OrNull,
             TenonagareName name, double scoreKeisu, RO_Star_Koma koma1, RO_Star_Koma koma2, Basho masu,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
             : base(name, scoreKeisu, koma1, koma2, masu)
         {

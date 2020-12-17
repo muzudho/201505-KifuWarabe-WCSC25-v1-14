@@ -107,7 +107,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             if (null == src_Sky)
             {
                 string message = "ノードを追加しようとしましたが、指定されたnewSkyがヌルです。";
-                Logger.Error.WriteLine_Error(message);
+                Logger.WriteLineError(LogTags.Error,message);
                 throw new Exception(message);
             }
 

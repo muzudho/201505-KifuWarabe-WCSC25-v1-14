@@ -79,7 +79,6 @@
     <Compile Include="P025KifuLarabe\L00012_Atom星の光\Starlightable.cs" />
     <Compile Include="P025KifuLarabe\L00025_Struct\K1_木構造\Node.cs" />
     <Compile Include="P025KifuLarabe\L00025_Struct\K1_木構造\Tree.cs" />
-    <Compile Include="Logger\LarabeLoggerable.cs" />
     <Compile Include="P025KifuLarabe\L00025_Struct\SK_星空構造\Sky.cs" />
     <Compile Include="P025KifuLarabe\L00050_StructShogi\KifuNode.cs" />
     <Compile Include="P025KifuLarabe\L00050_StructShogi\KifuTree.cs" />
@@ -110,8 +109,6 @@
     <Compile Include="P025KifuLarabe\L003_Struct\Couple.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\K1_木構造\NodeImpl.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\K1_木構造\TreeImpl.cs" />
-    <Compile Include="Logger\LarabeLoggerImpl.cs" />
-    <Compile Include="Logger\LarabeLoggerList.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\List_OneAndMulti.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\Maps_OneAndMulti.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\Maps_OneAndMultiAndMulti.cs" />

@@ -36,7 +36,7 @@
             Util_Message.Upload(line);
 
             // 送信記録をつけます。
-            Logger.Client.WriteLine_S(line);
+            Logger.WriteLineS(LogTags.Client,line);
         }
 
         /// <summary>

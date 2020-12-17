@@ -4,7 +4,7 @@ using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P050_KifuWarabe.L030_Shogisasi;
 using System.Collections.Generic;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P050_KifuWarabe.L00049_Kokoro
 {
@@ -32,7 +32,7 @@ namespace Grayscale.P050_KifuWarabe.L00049_Kokoro
         /// 頭の隅コレクションのWrite。
         /// </summary>
         /// <param name="obj_sikouEngine"></param>
-        void WriteTenonagare(object obj_sikouEngine, LarabeLoggerable logTag);
+        void WriteTenonagare(object obj_sikouEngine, ILogTag logTag);
 
         Json_Val TenonagareToJsonVal();
 

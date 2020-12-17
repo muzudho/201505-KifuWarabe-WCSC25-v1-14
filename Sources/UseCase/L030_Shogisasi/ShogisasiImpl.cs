@@ -116,7 +116,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
 
             // 「駒得」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.KomaDoku, ordKmdk, null, null, new Basho(0), Logger.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.KomaDoku, ordKmdk, null, null, new Basho(0), LogTags.Engine));
 
             //--------------------------------------------------------------------------------------------------------------
             //
@@ -124,7 +124,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
 
             // 「紐付き」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Himoduki, ordHmdk, null, null, new Basho(0), Logger.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Himoduki, ordHmdk, null, null, new Basho(0), LogTags.Engine));
 
             //--------------------------------------------------------------------------------------------------------------
             //
@@ -132,18 +132,18 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
 
             // 「気まぐれ」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Kimagure, ordKmgr, null, null, new Basho(0), Logger.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Kimagure, ordKmgr, null, null, new Basho(0), LogTags.Engine));
 
             //--------------------------------------------------------------------------------------------------------------
 
             // 「玉の守り」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.GyokuNoMamori, ordGm, null, null, new Basho(0), Logger.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.GyokuNoMamori, ordGm, null, null, new Basho(0), LogTags.Engine));
 
             // 「飛車道が通っている」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Toosi, ord7, null, null, new Basho(0), Logger.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Toosi, ord7, null, null, new Basho(0), LogTags.Engine));
 
             // 「目の前の歩を取れ」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.MenomaenoFuWoTore, ord8, null, null, new Basho(0), Logger.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.MenomaenoFuWoTore, ord8, null, null, new Basho(0), LogTags.Engine));
 
             //--------------------------------------------------------------------------------------------------------------
             //
@@ -151,7 +151,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
 
             // 「角頭の紐付き」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.KakuTouNoHimoduki, ordKahd, null, null, new Basho(0), Logger.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.KakuTouNoHimoduki, ordKahd, null, null, new Basho(0), LogTags.Engine));
 
         }
 
@@ -192,7 +192,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
                 Debug.Fail(message);
 
                 // どうにもできないので  ログだけ取って、上に投げます。
-                Logger.Engine.WriteLine_Error(message);
+                Logger.WriteLineError(LogTags.Engine,message);
                 throw ;
             }
 
@@ -222,7 +222,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
                 Debug.Fail(message);
 
                 // どうにもできないので  ログだけ取って、上に投げます。
-                Logger.Engine.WriteLine_Error(message);
+                Logger.WriteLineError(LogTags.Engine,message);
                 throw ;
             }
 

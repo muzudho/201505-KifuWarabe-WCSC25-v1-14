@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
@@ -166,7 +166,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="comment"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable, KyokumenWrapper> thisNode, string comment, LarabeLoggerable logTag)
+        public static string JsonElements_Node(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable, KyokumenWrapper> thisNode, string comment, ILogTag logTag)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -219,7 +219,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="comment"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable,KyokumenWrapper> hubNode, string comment, LarabeLoggerable logTag)
+        public static string JsonKyokumens_NextNodes(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable,KyokumenWrapper> hubNode, string comment, ILogTag logTag)
         {
             StringBuilder sb = new StringBuilder();
 

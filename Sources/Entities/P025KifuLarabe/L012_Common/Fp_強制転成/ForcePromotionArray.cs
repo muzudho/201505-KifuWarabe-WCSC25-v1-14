@@ -100,7 +100,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         "「強制転成表」に、int型数値でないものが指定されていました。\n" +
                         "rowCount=[" + rowCount + "]\n" +
                         "masuHandle=[" + masuHandle + "]\n";
-                        Logger.Error.WriteLine_Error( message);
+                        Logger.WriteLineError(LogTags.Error, message);
                         throw new Exception(message);
                     }
 

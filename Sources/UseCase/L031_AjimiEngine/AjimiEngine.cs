@@ -24,15 +24,11 @@ namespace Grayscale.P050_KifuWarabe.L031_AjimiEngine
         {
             Result_Ajimi result_Ajimi = Result_Ajimi.Empty;
 
-
-
             RO_Star_Koma koma1 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now);
             RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now);
-            Logger.Engine.WriteLine_AddMemo("将棋サーバー「ではここで、王さまがどこにいるか確認してみましょう」");
-            Logger.Engine.WriteLine_AddMemo("▲王の置き場＝" + Util_Masu.GetOkiba(koma1.Masu));
-            Logger.Engine.WriteLine_AddMemo("△王の置き場＝" + Util_Masu.GetOkiba(koma2.Masu));
-
-
+            Logger.WriteLineAddMemo(LogTags.Engine, "将棋サーバー「ではここで、王さまがどこにいるか確認してみましょう」");
+            Logger.WriteLineAddMemo(LogTags.Engine, "▲王の置き場＝" + Util_Masu.GetOkiba(koma1.Masu));
+            Logger.WriteLineAddMemo(LogTags.Engine, "△王の置き場＝" + Util_Masu.GetOkiba(koma2.Masu));
 
             if(Util_Masu.GetOkiba(koma1.Masu) != Okiba.ShogiBan)
             {
