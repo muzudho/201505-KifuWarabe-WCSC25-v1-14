@@ -136,19 +136,14 @@
 
 
 
-                //************************************************************************************************************************
                 // ループ（全体）
-                //************************************************************************************************************************
                 while (true)
                 {
 #if DEBUG_STOPPABLE
             MessageBox.Show("きふわらべのMainの無限ループでブレイク☆！", "デバッグ");
             System.Diagnostics.Debugger.Break();
 #endif
-                    //************************************************************************************************************************
                     // ループ（１つ目）
-                    //************************************************************************************************************************
-                    UsiLoop1 usiLoop1 = new UsiLoop1(playing);
                     Result_UsiLoop1 result_UsiLoop1;
 
                     while (true)
@@ -189,9 +184,25 @@
                                 playing.SetOption(name, value);
                             }
                         }
-                        else if ("isready" == line) { usiLoop1.AtLoop_OnIsready(line, ref result_UsiLoop1); }
-                        else if ("usinewgame" == line) { usiLoop1.AtLoop_OnUsinewgame(line, ref result_UsiLoop1); }
-                        else if ("quit" == line) { usiLoop1.AtLoop_OnQuit(line, ref result_UsiLoop1); }
+                        else if ("isready" == line)
+                        {
+                            playing.ReadyOk();
+                        }
+                        else if ("usinewgame" == line)
+                        {
+                            playing.UsiNewGame();
+
+                            // 無限ループ（１つ目）を抜けます。無限ループ（２つ目）に進みます。
+                            result_UsiLoop1 = Result_UsiLoop1.Break;
+                            // return;
+                        }
+                        else if ("quit" == line)
+                        {
+                            playing.Quit();
+
+                            // このプログラムを終了します。
+                            result_UsiLoop1 = Result_UsiLoop1.Quit;
+                        }
                         else
                         {
                             //------------------------------------------------------------
