@@ -1,23 +1,18 @@
-﻿using Codeplex.Data;//DynamicJson
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P025_KifuLarabe.L007_Random;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P045_Atama.L00025_KyHandan;
-using Grayscale.P045_Atama.L025_Sokutei;
-using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
-using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-using Grayscale.P050_KifuWarabe.L030_Shogisasi;
-//スプライト番号
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.Windows.Forms;
-using Grayscale.P040_Kokoro.L100_Kokoro;
+using Codeplex.Data;//DynamicJson
+using Grayscale.P025_KifuLarabe.L00012_Atom;
+using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.P025_KifuLarabe.L004_StructShogi;
+using Grayscale.P025_KifuLarabe.L007_Random;
+using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
+using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
+using Grayscale.P050_KifuWarabe.L00049_Kokoro;
+using Grayscale.P050_KifuWarabe.L030_Shogisasi;
 
 namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 {
@@ -303,9 +298,9 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 //#endif
 
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
+                        // MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
                         throw ;
                     }
 
@@ -313,9 +308,10 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 
                 }
             }
-            catch(Exception ex)                
+            catch(Exception)                
             {
-                MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
+                // MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
+                throw;
             }
 
 

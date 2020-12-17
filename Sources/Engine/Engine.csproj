@@ -55,33 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="L00049_Kokoro\Kokoro.cs" />
-    <Compile Include="L00050_KyHyoka\KyHyokaCalculator.cs" />
-    <Compile Include="L00050_KyHyoka\KyHyokaWriter.cs" />
-    <Compile Include="L00051_Minimax\MinimaxEngine.cs" />
-    <Compile Include="L00052_Shogisasi\Shogisasi.cs" />
-    <Compile Include="L002_Log\PerformanceMetrics.cs" />
-    <Compile Include="L003_Kokoro\ResultKioku.cs" />
-    <Compile Include="L003_Kokoro\KokoroImpl.cs" />
-    <Compile Include="L003_Kokoro\TenonagareImpl.cs" />
-    <Compile Include="L009_KyHyoka\KyHyokaCalculatorImpl.cs" />
-    <Compile Include="L009_KyHyoka\KyHyokaWriterImpl.cs" />
-    <Compile Include="L010_Minimax\MinimaxEngineImpl.cs" />
-    <Compile Include="L012_ScoreSibori\ScoreSiboriEngine.cs" />
-    <Compile Include="L025_Erabu\ErabuRoutine.cs" />
-    <Compile Include="L031_AjimiEngine\AjimiEngine.cs" />
-    <Compile Include="L030_Shogisasi\Seikaku.cs" />
-    <Compile Include="L030_Shogisasi\ShogisasiImpl.cs" />
-    <Compile Include="L031_AjimiEngine\Result_Ajimi.cs" />
     <Compile Include="L050_UsiLoop\ShogiGui_Warabe.cs" />
-    <Compile Include="L003_Kokoro\PlayerInfoImpl.cs" />
     <Compile Include="L050_UsiLoop\Result_UsiLoop1.cs" />
     <Compile Include="L050_UsiLoop\UsiLoop1.cs" />
     <Compile Include="L050_UsiLoop\UsiLoop2.cs" />
     <Compile Include="L050_UsiLoop\Result_UsiLoop2.cs" />
     <Compile Include="ProgramSupport.cs" />
-    <Compile Include="L00049_Kokoro\Tenonagare.cs" />
-    <Compile Include="L00025_UsiLoop\ShogiEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +76,10 @@
     <ProjectReference Include="..\UiSfenReport\UiSfenReport.csproj">
       <Project>{56f57764-1bf7-4cb9-9757-d69778de1bb0}</Project>
       <Name>UiSfenReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UseCase\UseCases.csproj">
+      <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
+      <Name>UseCases</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

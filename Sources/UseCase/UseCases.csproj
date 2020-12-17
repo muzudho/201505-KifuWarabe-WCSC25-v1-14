@@ -54,11 +54,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P100ShogiServer\L100_InServer\Util_InServer.cs" />
+    <Compile Include="L00025_UsiLoop\ShogiEngine.cs" />
+    <Compile Include="L00049_Kokoro\Kokoro.cs" />
+    <Compile Include="L00049_Kokoro\Tenonagare.cs" />
+    <Compile Include="L00050_KyHyoka\KyHyokaCalculator.cs" />
+    <Compile Include="L00050_KyHyoka\KyHyokaWriter.cs" />
+    <Compile Include="L00051_Minimax\MinimaxEngine.cs" />
+    <Compile Include="L00052_Shogisasi\Shogisasi.cs" />
+    <Compile Include="L002_Log\PerformanceMetrics.cs" />
+    <Compile Include="L003_Kokoro\KokoroImpl.cs" />
+    <Compile Include="L003_Kokoro\PlayerInfoImpl.cs" />
+    <Compile Include="L003_Kokoro\ResultKioku.cs" />
+    <Compile Include="L003_Kokoro\TenonagareImpl.cs" />
+    <Compile Include="L009_KyHyoka\KyHyokaCalculatorImpl.cs" />
+    <Compile Include="L009_KyHyoka\KyHyokaWriterImpl.cs" />
+    <Compile Include="L010_Minimax\MinimaxEngineImpl.cs" />
+    <Compile Include="L012_ScoreSibori\ScoreSiboriEngine.cs" />
+    <Compile Include="L025_Erabu\ErabuRoutine.cs" />
+    <Compile Include="L030_Shogisasi\Seikaku.cs" />
+    <Compile Include="L030_Shogisasi\ShogisasiImpl.cs" />
+    <Compile Include="L031_AjimiEngine\AjimiEngine.cs" />
+    <Compile Include="L031_AjimiEngine\Result_Ajimi.cs" />
+    <Compile Include="L100InServer\Util_InServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiSfenReport", "Sources\UiS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Sources\Engine\Engine.csproj", "{E96A7341-B8E6-4979-8B2A-94FF2818962C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCase", "Sources\UseCase\UseCase.csproj", "{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "Sources\UseCase\UseCases.csproj", "{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfNarabe", "Sources\GuiOfNarabe\GuiOfNarabe.csproj", "{9593ACC7-348B-4868-892C-7BAFBF925B9D}"
 EndProject

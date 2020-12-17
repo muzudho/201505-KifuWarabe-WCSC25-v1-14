@@ -158,9 +158,9 @@
       <Project>{ff107244-eeab-481e-9017-f6d3dffb23df}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UseCase\UseCase.csproj">
+    <ProjectReference Include="..\UseCase\UseCases.csproj">
       <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
-      <Name>UseCase</Name>
+      <Name>UseCases</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

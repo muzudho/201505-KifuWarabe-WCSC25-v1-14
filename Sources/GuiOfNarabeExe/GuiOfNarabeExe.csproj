@@ -83,9 +83,9 @@
       <Project>{9593acc7-348b-4868-892c-7bafbf925b9d}</Project>
       <Name>GuiOfNarabe</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UseCase\UseCase.csproj">
+    <ProjectReference Include="..\UseCase\UseCases.csproj">
       <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
-      <Name>UseCase</Name>
+      <Name>UseCases</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
