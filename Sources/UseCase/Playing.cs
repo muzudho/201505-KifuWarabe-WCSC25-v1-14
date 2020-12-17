@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using Grayscale.Kifuwarazusa.Entities;
     using Grayscale.P025_KifuLarabe.L00012_Atom;
+    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
     using Grayscale.P045_Atama.L00025_KyHandan;
     using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
     using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
@@ -27,9 +28,13 @@
         /// </summary>
         public Shogisasi shogisasi;
 
-
         public PlayerInfo PlayerInfo { get { return this.playerInfo; } }
         private PlayerInfo playerInfo;
+
+        /// <summary>
+        /// 棋譜です。
+        /// </summary>
+        public KifuTree Kifu { get; set; }
 
         /// <summary>
         /// コンストラクター
@@ -306,6 +311,11 @@
             //
             //
             Logger.WriteLineAddMemo(LogTags.Engine, "(^-^)ﾉｼ");
+        }
+
+        public void Position()
+        {
+
         }
     }
 }

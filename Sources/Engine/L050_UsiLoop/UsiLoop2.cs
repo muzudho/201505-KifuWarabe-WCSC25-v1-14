@@ -1,48 +1,39 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P025_KifuLarabe.L100_KifuIO;
-using Grayscale.P050_KifuWarabe.CS1_Impl.W050_UsiLoop;
-using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
-using Grayscale.P050_KifuWarabe.L030_Shogisasi;
-using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P025_KifuLarabe.L00060_KifuParser;
-using Grayscale.P007_SfenReport.L100_Write;
-using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
-using Grayscale.Kifuwarazusa.Entities;
-using Grayscale.Kifuwarazusa.UseCases;
-
-namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
+﻿namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 {
-
+    using Grayscale.P025_KifuLarabe.L00012_Atom;
+    using Grayscale.P025_KifuLarabe.L00025_Struct;
+    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+    using Grayscale.P025_KifuLarabe.L004_StructShogi;
+    using Grayscale.P025_KifuLarabe.L012_Common;
+    using Grayscale.P025_KifuLarabe.L100_KifuIO;
+    using Grayscale.P050_KifuWarabe.CS1_Impl.W050_UsiLoop;
+    using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
+    using Grayscale.P050_KifuWarabe.L030_Shogisasi;
+    using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+    using Grayscale.P025_KifuLarabe.L00060_KifuParser;
+    using Grayscale.P007_SfenReport.L100_Write;
+    using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
+    using Grayscale.Kifuwarazusa.Entities;
+    using Grayscale.Kifuwarazusa.UseCases;
     /// <summary>
     /// USIの２番目のループです。
     /// </summary>
     public class UsiLoop2
     {
-        public ShogiEngine owner;
+        public ShogiEngine playing;
         private Shogisasi shogisasi;
 
         /// <summary>
         /// 手目済カウントです。
         /// </summary>
         public int TesumiCount { get; set; }
-
-
-        /// <summary>
-        /// 棋譜です。
-        /// </summary>
-        public KifuTree Kifu { get; set; }
-
 
         /// <summary>
         /// 「go」の属性一覧です。
@@ -63,12 +54,12 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
         private AjimiEngine ajimiEngine;
 
-        public UsiLoop2(Shogisasi shogisasi, ShogiEngine owner)
+        public UsiLoop2(Playing playing, Shogisasi shogisasi)
         {
-            this.owner = owner;
+            this.playing = playing;
             this.shogisasi = shogisasi;
 
-            this.ajimiEngine = new AjimiEngine(owner);
+            this.ajimiEngine = new AjimiEngine(playing);
 
             //
             // 図.
@@ -100,18 +91,18 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
             // 棋譜
             {
-                this.Kifu = new KifuTreeImpl(
+                playing.Kifu = new KifuTreeImpl(
                         new KifuNodeImpl(
                             Util_Sky.NullObjectMove,
                             new KyokumenWrapper(new SkyConst(Util_Sky.New_Hirate())),// きふわらべ起動時 // FIXME:平手とは限らないが。
                             Playerside.P2
                         )
                 );
-                this.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Playerside.P1);
-                this.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
+                playing.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Playerside.P1);
+                playing.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
                 Debug.Assert(!Util_MasuNum.OnKomabukuro(
-                    Util_Masu.AsMasuNumber(((RO_Star_Koma)this.Kifu.CurNode.Value.ToKyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
+                    Util_Masu.AsMasuNumber(((RO_Star_Koma)playing.Kifu.CurNode.Value.ToKyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
                     ), "駒が駒袋にあった。");
             }
 
@@ -135,146 +126,17 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             }
         }
 
-        public void AtLoop_OnPosition(string line, ref Result_UsiLoop2 result_Usi)
-        {
-            try
-            {
-                //------------------------------------------------------------
-                // これが棋譜です
-                //------------------------------------------------------------
-                #region ↓詳説
-                //
-                // 図.
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      ～
-                //      │2014/08/02 2:03:35> position startpos moves 2g2f
-                //      │
-                //
-                // ↑↓この将棋エンジンは後手で、平手初期局面から、先手が初手  ▲２六歩  を指されたことが分かります。
-                //
-                //        ９  ８  ７  ６  ５  ４  ３  ２  １                 ９  ８  ７  ６  ５  ４  ３  ２  １
-                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                //      │香│桂│銀│金│玉│金│銀│桂│香│一           │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │飛│  │  │  │  │  │角│  │二           │  │ｒ│  │  │  │  │  │ｂ│  │ｂ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │歩│  │六           │  │  │  │  │  │  │  │Ｐ│  │ｆ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │歩│歩│歩│歩│歩│歩│歩│  │歩│七           │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│  │Ｐ│ｇ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
-                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                //
-                // または
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      ～
-                //      │2014/08/02 2:03:35> position sfen lnsgkgsnl/9/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 1 moves 5a6b 7g7f 3a3b
-                //      │
-                //
-                // ↑↓将棋所のサンプルによると、“２枚落ち初期局面から△６二玉、▲７六歩、△３二銀と進んだ局面”とのことです。
-                //
-                //                                           ＜初期局面＞    ９  ８  ７  ６  ５  ４  ３  ２  １
-                //                                                         ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                //                                                         │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ  ←lnsgkgsnl
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │  │  │  │  │  │  │  │  │ｂ  ←9
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ  ←ppppppppp
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │  │  │  │  │  │  │  │  │ｄ  ←9
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │  │  │  │  │  │  │  │  │ｅ  ←9
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │  │  │  │  │  │  │  │  │ｆ  ←9
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ  ←PPPPPPPPP
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ  ←1B5R1
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ  ←LNSGKGSNL
-                //                                                         └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                //
-                //        ９  ８  ７  ６  ５  ４  ３  ２  １   ＜３手目＞    ９  ８  ７  ６  ５  ４  ３  ２  １
-                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                //      │香│桂│銀│金│  │金│  │桂│香│一           │ｌ│ｎ│ｓ│ｇ│  │ｇ│  │ｎ│ｌ│ａ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │玉│  │  │銀│  │  │二           │  │  │  │ｋ│  │  │ｓ│  │  │ｂ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │歩│  │  │  │  │  │  │六           │  │  │Ｐ│  │  │  │  │  │  │ｆ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │歩│歩│  │歩│歩│歩│歩│歩│歩│七           │Ｐ│Ｐ│  │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
-                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                //
-
-                // 手番になったときに、“まず”、将棋所から送られてくる文字が position です。
-                // このメッセージを読むと、駒の配置が分かります。
-                //
-                // “が”、まだ指してはいけません。
-                #endregion
-                this.Log1("（＾△＾）positionきたｺﾚ！");
-
-                // 入力行を解析します。
-                KifuParserA_Result result = new KifuParserA_ResultImpl();
-                new KifuParserA_Impl().Execute_All(
-                    ref result,
-                    new ShogiGui_Warabe(this.Kifu),
-                    new KifuParserA_GenjoImpl(line),
-                    new KifuParserA_LogImpl( LogTags.Engine, "Program#Main(Warabe)")
-                    );
-                this.Log2(line, (KifuNode)result.Out_newNode_OrNull, LogTags.Engine);
-
-
-                //------------------------------------------------------------
-                // じっとがまん
-                //------------------------------------------------------------
-                #region ↓詳説
-                //
-                // 応答は無用です。
-                // 多分、将棋所もまだ準備ができていないのではないでしょうか（？）
-                //
-                #endregion
-
-            }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                Logger.WriteLineAddMemo(LogTags.Engine, "Program「position」：" + ex.GetType().Name + "：" + ex.Message);
-            }
-        }
-        private void Log1(string message)
+        public void Log1(string message)
         {
             Logger.WriteLineAddMemo(LogTags.Engine, message);
         }
-        private void Log2(string line, KifuNode kifuNode, ILogTag logTag)
+        public void Log2(string line, KifuNode kifuNode, ILogTag logTag, Playing playing)
         {
             int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
 
-            Logger.WriteLineAddMemo(LogTags.Engine, Util_Sky.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine),
+            Logger.WriteLineAddMemo(
+                LogTags.Engine,
+                Util_Sky.Json_1Sky(playing.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine),
                 "PgCS",
                 tesumi_yomiGenTeban_forLog//読み進めている現在の手目
                 ));
@@ -352,7 +214,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
         /// </summary>
         /// <param name="line"></param>
         /// <param name="result_Usi"></param>
-        public void AtLoop_OnGo(string line, ref Result_UsiLoop2 result_Usi)
+        public void AtLoop_OnGo(string line, ref Result_UsiLoop2 result_Usi, Playing playing)
         {
             try
             {
@@ -421,14 +283,14 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
                 // ┏━━━━サンプル・プログラム━━━━┓
 
-                int latestTesumi = this.Kifu.CountTesumi(this.Kifu.CurNode);//現・手目済
-                this.owner.PlayerInfo.Playerside = this.Kifu.CountPside(latestTesumi);// 先後
+                int latestTesumi = playing.Kifu.CountTesumi(playing.Kifu.CurNode);//現・手目済
+                this.playing.PlayerInfo.Playerside = playing.Kifu.CountPside(latestTesumi);// 先後
 
 //#if DEBUG
 //                MessageBox.Show("["+latestTesumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
 //#endif
 
-                SkyConst src_Sky = this.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
+                SkyConst src_Sky = playing.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
 
                 Logger.WriteLineAddMemo(LogTags.Engine,"将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 
@@ -481,8 +343,8 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 ShootingStarlightable bestMove = this.shogisasi.WA_Bestmove(
                                     enableLog,
                                     isHonshogi,
-                                    this.Kifu,
-                                    this.owner.PlayerInfo,
+                                    playing.Kifu,
+                                    this.playing.PlayerInfo,
                                     LogTags.Engine
                                     );
 
@@ -493,14 +355,14 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 {
                                     string sfenText = Util_Sky.ToSfenMoveText(bestMove);
                                     Logger.WriteLineAddMemo(LogTags.Engine,"(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
-                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
+                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine));
 
                                     Playing.Send("bestmove " + sfenText);//指し手を送ります。
                                 }
                                 else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                                 {
                                     Logger.WriteLineAddMemo(LogTags.Engine,"(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
-                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
+                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine));
 
                                     // 投了ｗ！
                                     Playing.Send("bestmove resign");
@@ -707,13 +569,13 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
         /// </summary>
         /// <param name="line"></param>
         /// <param name="result_Usi"></param>
-        public void AtLoop_OnLogdase(string line, ref Result_UsiLoop2 result_Usi)
+        public void AtLoop_OnLogdase(string line, ref Result_UsiLoop2 result_Usi, Playing playing)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("ログだせ～（＾▽＾）");
 
-            this.Kifu.ForeachZenpuku(
-                this.Kifu.GetRoot(), (int tesumi, KyokumenWrapper sky, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
+            playing.Kifu.ForeachZenpuku(
+                playing.Kifu.GetRoot(), (int tesumi, KyokumenWrapper sky, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
                 {
                     //sb.AppendLine("(^-^)");
 

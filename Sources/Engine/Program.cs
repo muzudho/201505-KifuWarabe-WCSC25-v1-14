@@ -4,16 +4,19 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
+    using System.Text.RegularExpressions;
+    using Grayscale.Kifuwarazusa.Entities;
+    using Grayscale.Kifuwarazusa.UseCases;
     using Grayscale.P025_KifuLarabe.L00012_Atom;
-    using Grayscale.P025_KifuLarabe.L00025_Struct;
+    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+    using Grayscale.P025_KifuLarabe.L00060_KifuParser;
     using Grayscale.P025_KifuLarabe.L004_StructShogi;
     using Grayscale.P025_KifuLarabe.L012_Common;
+    using Grayscale.P025_KifuLarabe.L100_KifuIO;
+    using Grayscale.P050_KifuWarabe.CS1_Impl.W050_UsiLoop;
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
     using Grayscale.P050_KifuWarabe.L050_UsiLoop;
-    using Grayscale.Kifuwarazusa.UseCases;
     using Nett;
-    using Grayscale.Kifuwarazusa.Entities;
-    using System.Text.RegularExpressions;
 
     /// <summary>
     /// 将棋エンジン　きふわらべ
@@ -243,7 +246,7 @@
                     //************************************************************************************************************************
                     // ループ（２つ目）
                     //************************************************************************************************************************
-                    UsiLoop2 usiLoop2 = new UsiLoop2(playing.shogisasi, playing);
+                    UsiLoop2 usiLoop2 = new UsiLoop2(playing, playing.shogisasi);
                     playing.shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
 
                     //PerformanceMetrics performanceMetrics = new PerformanceMetrics();//使ってない？
@@ -257,15 +260,137 @@
                         Logger.WriteLineAddMemo(LogTags.Client,line);
                         Logger.WriteLineR(LogTags.Default, line);
 
-
                         if (line.StartsWith("position")) {
-                            usiLoop2.AtLoop_OnPosition(line, ref result_Usi);
+                            try
+                            {
+                                //------------------------------------------------------------
+                                // これが棋譜です
+                                //------------------------------------------------------------
+                                //
+                                // 図.
+                                //
+                                //      log.txt
+                                //      ┌────────────────────────────────────────
+                                //      ～
+                                //      │2014/08/02 2:03:35> position startpos moves 2g2f
+                                //      │
+                                //
+                                // ↑↓この将棋エンジンは後手で、平手初期局面から、先手が初手  ▲２六歩  を指されたことが分かります。
+                                //
+                                //        ９  ８  ７  ６  ５  ４  ３  ２  １                 ９  ８  ７  ６  ５  ４  ３  ２  １
+                                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
+                                //      │香│桂│銀│金│玉│金│銀│桂│香│一           │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │飛│  │  │  │  │  │角│  │二           │  │ｒ│  │  │  │  │  │ｂ│  │ｂ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │  │  │  │  │  │  │歩│  │六           │  │  │  │  │  │  │  │Ｐ│  │ｆ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │歩│歩│歩│歩│歩│歩│歩│  │歩│七           │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│  │Ｐ│ｇ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
+                                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
+                                //
+                                // または
+                                //
+                                //      log.txt
+                                //      ┌────────────────────────────────────────
+                                //      ～
+                                //      │2014/08/02 2:03:35> position sfen lnsgkgsnl/9/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 1 moves 5a6b 7g7f 3a3b
+                                //      │
+                                //
+                                // ↑↓将棋所のサンプルによると、“２枚落ち初期局面から△６二玉、▲７六歩、△３二銀と進んだ局面”とのことです。
+                                //
+                                //                                           ＜初期局面＞    ９  ８  ７  ６  ５  ４  ３  ２  １
+                                //                                                         ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
+                                //                                                         │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ  ←lnsgkgsnl
+                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //                                                         │  │  │  │  │  │  │  │  │  │ｂ  ←9
+                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //                                                         │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ  ←ppppppppp
+                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //                                                         │  │  │  │  │  │  │  │  │  │ｄ  ←9
+                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //                                                         │  │  │  │  │  │  │  │  │  │ｅ  ←9
+                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //                                                         │  │  │  │  │  │  │  │  │  │ｆ  ←9
+                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //                                                         │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ  ←PPPPPPPPP
+                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //                                                         │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ  ←1B5R1
+                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //                                                         │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ  ←LNSGKGSNL
+                                //                                                         └─┴─┴─┴─┴─┴─┴─┴─┴─┘
+                                //
+                                //        ９  ８  ７  ６  ５  ４  ３  ２  １   ＜３手目＞    ９  ８  ７  ６  ５  ４  ３  ２  １
+                                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
+                                //      │香│桂│銀│金│  │金│  │桂│香│一           │ｌ│ｎ│ｓ│ｇ│  │ｇ│  │ｎ│ｌ│ａ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │  │  │玉│  │  │銀│  │  │二           │  │  │  │ｋ│  │  │ｓ│  │  │ｂ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │  │歩│  │  │  │  │  │  │六           │  │  │Ｐ│  │  │  │  │  │  │ｆ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │歩│歩│  │歩│歩│歩│歩│歩│歩│七           │Ｐ│Ｐ│  │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
+                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+                                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
+                                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
+                                //
+
+                                // 手番になったときに、“まず”、将棋所から送られてくる文字が position です。
+                                // このメッセージを読むと、駒の配置が分かります。
+                                //
+                                // “が”、まだ指してはいけません。
+                                usiLoop2.Log1("（＾△＾）positionきたｺﾚ！");
+
+                                // 入力行を解析します。
+                                KifuParserA_Result result = new KifuParserA_ResultImpl();
+                                new KifuParserA_Impl().Execute_All(
+                                    ref result,
+                                    new ShogiGui_Warabe(playing.Kifu),
+                                    new KifuParserA_GenjoImpl(line),
+                                    new KifuParserA_LogImpl(LogTags.Engine, "Program#Main(Warabe)")
+                                    );
+                                usiLoop2.Log2(line, (KifuNode)result.Out_newNode_OrNull, LogTags.Engine, playing);
+
+
+                                //------------------------------------------------------------
+                                // じっとがまん
+                                //------------------------------------------------------------
+                                //
+                                // 応答は無用です。
+                                // 多分、将棋所もまだ準備ができていないのではないでしょうか（？）
+                                //
+                                playing.Position();
+                            }
+                            catch (Exception ex)
+                            {
+                                // エラーが起こりました。
+                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                // どうにもできないので  ログだけ取って無視します。
+                                Logger.WriteLineAddMemo(LogTags.Engine, "Program「position」：" + ex.GetType().Name + "：" + ex.Message);
+                            }
                         }
                         else if (line.StartsWith("go ponder")) { usiLoop2.AtLoop_OnGoponder(line, ref result_Usi); }
-                        else if (line.StartsWith("go")) { usiLoop2.AtLoop_OnGo(line, ref result_Usi); }// 「go ponder」「go mate」「go infinite」とは区別します。
+                        else if (line.StartsWith("go")) { usiLoop2.AtLoop_OnGo(line, ref result_Usi, playing); }// 「go ponder」「go mate」「go infinite」とは区別します。
                         else if (line.StartsWith("stop")) { usiLoop2.AtLoop_OnStop(line, ref result_Usi); }
                         else if (line.StartsWith("gameover")) { usiLoop2.AtLoop_OnGameover(line, ref result_Usi); }
-                        else if ("logdase" == line) { usiLoop2.AtLoop_OnLogdase(line, ref result_Usi); }
+                        else if ("logdase" == line) { usiLoop2.AtLoop_OnLogdase(line, ref result_Usi, playing); }
                         else
                         {
                             //------------------------------------------------------------
@@ -340,7 +465,7 @@
                     //      └──────┴──────┘
                     //
                     Logger.WriteLineAddMemo(LogTags.Engine, "KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
-                    foreach (KeyValuePair<string, string> pair in usiLoop2.owner.SetoptionDictionary)
+                    foreach (KeyValuePair<string, string> pair in usiLoop2.playing.SetoptionDictionary)
                     {
                         Logger.WriteLineAddMemo(LogTags.Engine,pair.Key + "=" + pair.Value);
                     }
