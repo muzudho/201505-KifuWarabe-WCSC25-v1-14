@@ -2,13 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using Grayscale.Kifuwarazusa.Entities;
     using Grayscale.P025_KifuLarabe.L00012_Atom;
+    using Grayscale.P025_KifuLarabe.L00025_Struct;
     using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+    using Grayscale.P025_KifuLarabe.L012_Common;
+    using Grayscale.P025_KifuLarabe.L100_KifuIO;
     using Grayscale.P045_Atama.L00025_KyHandan;
     using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
     using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
     using Grayscale.P050_KifuWarabe.L003_Kokoro;
+    using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
 
     public class Playing : ShogiEngine
     {
@@ -35,6 +40,18 @@
         /// 棋譜です。
         /// </summary>
         public KifuTree Kifu { get; set; }
+
+        /// <summary>
+        /// 手目済カウントです。
+        /// </summary>
+        public int TesumiCount { get; set; }
+
+        /// <summary>
+        /// 「go」の属性一覧です。
+        /// </summary>
+        public Dictionary<string, string> GoProperties { get; set; }
+
+        public AjimiEngine AjimiEngine { get; set; }
 
         /// <summary>
         /// コンストラクター
@@ -315,6 +332,241 @@
 
         public void Position()
         {
+            //------------------------------------------------------------
+            // これが棋譜です
+            //------------------------------------------------------------
+            //
+            // 図.
+            //
+            //      log.txt
+            //      ┌────────────────────────────────────────
+            //      ～
+            //      │2014/08/02 2:03:35> position startpos moves 2g2f
+            //      │
+            //
+            // ↑↓この将棋エンジンは後手で、平手初期局面から、先手が初手  ▲２六歩  を指されたことが分かります。
+            //
+            //        ９  ８  ７  ６  ５  ４  ３  ２  １                 ９  ８  ７  ６  ５  ４  ３  ２  １
+            //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
+            //      │香│桂│銀│金│玉│金│銀│桂│香│一           │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │飛│  │  │  │  │  │角│  │二           │  │ｒ│  │  │  │  │  │ｂ│  │ｂ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │  │  │  │  │  │  │歩│  │六           │  │  │  │  │  │  │  │Ｐ│  │ｆ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │歩│歩│歩│歩│歩│歩│歩│  │歩│七           │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│  │Ｐ│ｇ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
+            //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
+            //
+            // または
+            //
+            //      log.txt
+            //      ┌────────────────────────────────────────
+            //      ～
+            //      │2014/08/02 2:03:35> position sfen lnsgkgsnl/9/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 1 moves 5a6b 7g7f 3a3b
+            //      │
+            //
+            // ↑↓将棋所のサンプルによると、“２枚落ち初期局面から△６二玉、▲７六歩、△３二銀と進んだ局面”とのことです。
+            //
+            //                                           ＜初期局面＞    ９  ８  ７  ６  ５  ４  ３  ２  １
+            //                                                         ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
+            //                                                         │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ  ←lnsgkgsnl
+            //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //                                                         │  │  │  │  │  │  │  │  │  │ｂ  ←9
+            //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //                                                         │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ  ←ppppppppp
+            //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //                                                         │  │  │  │  │  │  │  │  │  │ｄ  ←9
+            //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //                                                         │  │  │  │  │  │  │  │  │  │ｅ  ←9
+            //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //                                                         │  │  │  │  │  │  │  │  │  │ｆ  ←9
+            //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //                                                         │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ  ←PPPPPPPPP
+            //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //                                                         │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ  ←1B5R1
+            //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //                                                         │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ  ←LNSGKGSNL
+            //                                                         └─┴─┴─┴─┴─┴─┴─┴─┴─┘
+            //
+            //        ９  ８  ７  ６  ５  ４  ３  ２  １   ＜３手目＞    ９  ８  ７  ６  ５  ４  ３  ２  １
+            //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
+            //      │香│桂│銀│金│  │金│  │桂│香│一           │ｌ│ｎ│ｓ│ｇ│  │ｇ│  │ｎ│ｌ│ａ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │  │  │玉│  │  │銀│  │  │二           │  │  │  │ｋ│  │  │ｓ│  │  │ｂ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │  │歩│  │  │  │  │  │  │六           │  │  │Ｐ│  │  │  │  │  │  │ｆ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │歩│歩│  │歩│歩│歩│歩│歩│歩│七           │Ｐ│Ｐ│  │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
+            //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
+            //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
+            //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
+            //
+        }
+
+        public void GoPonder()
+        {
+            try
+            {
+
+                //------------------------------------------------------------
+                // 将棋所が次に呼びかけるまで、考えていてください
+                //------------------------------------------------------------
+                //
+                // 図.
+                //
+                //      log.txt
+                //      ┌────────────────────────────────────────
+                //      ～
+                //      │2014/08/02 2:03:35> go ponder
+                //      │
+                //
+
+                // 先読み用です。
+                // 今回のプログラムでは対応しません。
+                //
+                // 将棋エンジンが  将棋所に向かって  「bestmove ★ ponder ★」といったメッセージを送ったとき、
+                // 将棋所は「go ponder」というメッセージを返してくると思います。
+                //
+                // 恐らく  このメッセージを受け取っても、将棋エンジンは気にせず  考え続けていればいいのではないでしょうか。
+
+
+                //------------------------------------------------------------
+                // じっとがまん
+                //------------------------------------------------------------
+                //
+                // まだ指してはいけません。
+                // 指したら反則です。相手はまだ指していないのだ☆ｗ
+                //
+            }
+            catch (Exception ex)
+            {
+                // エラーが起こりました。
+                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                // どうにもできないので  ログだけ取って無視します。
+                Logger.WriteLineAddMemo(LogTags.Engine, "Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
+            }
+        }
+
+        public void Go(string btime, string wtime, string byoyomi, string binc, string winc)
+        {
+            // ┏━━━━サンプル・プログラム━━━━┓
+
+            int latestTesumi = this.Kifu.CountTesumi(this.Kifu.CurNode);//現・手目済
+            this.PlayerInfo.Playerside = this.Kifu.CountPside(latestTesumi);// 先後
+
+            //#if DEBUG
+            //                MessageBox.Show("["+latestTesumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
+            //#endif
+
+            SkyConst src_Sky = this.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
+
+            // + line
+            Logger.WriteLineAddMemo(LogTags.Engine, "将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　");
+
+
+            Result_Ajimi result_Ajimi = this.AjimiEngine.Ajimi(src_Sky);
+
+
+            //------------------------------------------------------------
+            // わたしの手番のとき、王様が　将棋盤上からいなくなっていれば、投了します。
+            //------------------------------------------------------------
+            //
+            //      将棋ＧＵＩ『きふならべ』用☆　将棋盤上に王さまがいないときに、本将棋で　go　コマンドが送られてくることは無いのでは☆？
+            //
+            switch (result_Ajimi)
+            {
+                case Result_Ajimi.Lost_SenteOh:// 先手の王さまが将棋盤上にいないとき☆
+                case Result_Ajimi.Lost_GoteOh:// または、後手の王さまが将棋盤上にいないとき☆
+                    {
+                        //------------------------------------------------------------
+                        // 投了
+                        //------------------------------------------------------------
+                        //
+                        // 図.
+                        //
+                        //      log.txt
+                        //      ┌────────────────────────────────────────
+                        //      ～
+                        //      │2014/08/02 2:36:21< bestmove resign
+                        //      │
+                        //
+
+                        // この将棋エンジンは、後手とします。
+                        // ２０手目、投了  を決め打ちで返します。
+                        Playing.Send("bestmove resign");//投了
+                    }
+                    break;
+                default:// どちらの王さまも、まだまだ健在だぜ☆！
+                    {
+                        try
+                        {
+                            //------------------------------------------------------------
+                            // 指し手のチョイス
+                            //------------------------------------------------------------
+                            bool enableLog = false;
+                            bool isHonshogi = true;
+
+                            // 指し手を決めます。
+                            ShootingStarlightable bestMove = this.shogisasi.WA_Bestmove(
+                                enableLog,
+                                isHonshogi,
+                                this.Kifu,
+                                this.PlayerInfo,
+                                LogTags.Engine
+                                );
+
+
+
+
+                            if (Util_Sky.isEnableSfen(bestMove))
+                            {
+                                string sfenText = Util_Sky.ToSfenMoveText(bestMove);
+                                Logger.WriteLineAddMemo(LogTags.Engine, "(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
+                                    "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
+
+                                Playing.Send("bestmove " + sfenText);//指し手を送ります。
+                            }
+                            else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
+                            {
+                                Logger.WriteLineAddMemo(LogTags.Engine, "(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
+                                    "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
+
+                                // 投了ｗ！
+                                Playing.Send("bestmove resign");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            //>>>>> エラーが起こりました。
+                            string message = ex.GetType().Name + " " + ex.Message + "：ベスト指し手のチョイスをしたときです。：";
+                            Debug.Fail(message);
+
+                            // どうにもできないので  ログだけ取って無視します。
+                            Logger.WriteLineError(LogTags.Engine, message);
+                        }
+                    }
+                    break;
+            }
+            // ┗━━━━サンプル・プログラム━━━━┛
 
         }
     }

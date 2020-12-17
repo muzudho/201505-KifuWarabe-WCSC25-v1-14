@@ -22,6 +22,7 @@
     using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
     using Grayscale.Kifuwarazusa.Entities;
     using Grayscale.Kifuwarazusa.UseCases;
+
     /// <summary>
     /// USIの２番目のループです。
     /// </summary>
@@ -29,17 +30,6 @@
     {
         public ShogiEngine playing;
         private Shogisasi shogisasi;
-
-        /// <summary>
-        /// 手目済カウントです。
-        /// </summary>
-        public int TesumiCount { get; set; }
-
-        /// <summary>
-        /// 「go」の属性一覧です。
-        /// </summary>
-        public Dictionary<string, string> GoProperties { get; set; }
-
 
         /// <summary>
         /// 「go ponder」の属性一覧です。
@@ -52,14 +42,13 @@
         /// </summary>
         public Dictionary<string, string> GameoverProperties { get; set; }
 
-        private AjimiEngine ajimiEngine;
 
         public UsiLoop2(Playing playing, Shogisasi shogisasi)
         {
             this.playing = playing;
             this.shogisasi = shogisasi;
 
-            this.ajimiEngine = new AjimiEngine(playing);
+            playing.AjimiEngine = new AjimiEngine(playing);
 
             //
             // 図.
@@ -87,7 +76,7 @@
             //      │    │                          │            │2           │自分が指したときにはカウントを変えません。                              │
             //      └──┴─────────────┴──────┴──────┴────────────────────────────────────┘
             //
-            this.TesumiCount = 0;// ｎ手目
+            playing.TesumiCount = 0;// ｎ手目
 
             // 棋譜
             {
@@ -108,10 +97,10 @@
 
             // goの属性一覧
             {
-                this.GoProperties = new Dictionary<string, string>();
-                this.GoProperties["btime"] = "";
-                this.GoProperties["wtime"] = "";
-                this.GoProperties["byoyomi"] = "";
+                playing.GoProperties = new Dictionary<string, string>();
+                playing.GoProperties["btime"] = "";
+                playing.GoProperties["wtime"] = "";
+                playing.GoProperties["byoyomi"] = "";
             }
 
             // go ponderの属性一覧
@@ -158,248 +147,6 @@
             }
         }
         
-
-        public void AtLoop_OnGoponder(string line, ref Result_UsiLoop2 result_Usi)
-        {
-            try
-            {
-
-                //------------------------------------------------------------
-                // 将棋所が次に呼びかけるまで、考えていてください
-                //------------------------------------------------------------
-                #region ↓詳説
-                //
-                // 図.
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      ～
-                //      │2014/08/02 2:03:35> go ponder
-                //      │
-                //
-
-                // 先読み用です。
-                // 今回のプログラムでは対応しません。
-                //
-                // 将棋エンジンが  将棋所に向かって  「bestmove ★ ponder ★」といったメッセージを送ったとき、
-                // 将棋所は「go ponder」というメッセージを返してくると思います。
-                //
-                // 恐らく  このメッセージを受け取っても、将棋エンジンは気にせず  考え続けていればいいのではないでしょうか。
-                #endregion
-
-
-                //------------------------------------------------------------
-                // じっとがまん
-                //------------------------------------------------------------
-                #region ↓詳説
-                //
-                // まだ指してはいけません。
-                // 指したら反則です。相手はまだ指していないのだ☆ｗ
-                //
-                #endregion
-            }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                Logger.WriteLineAddMemo(LogTags.Engine, "Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
-            }
-        }
-
-
-        /// <summary>
-        /// 「go ponder」「go mate」「go infinite」とは区別します。
-        /// </summary>
-        /// <param name="line"></param>
-        /// <param name="result_Usi"></param>
-        public void AtLoop_OnGo(string line, ref Result_UsiLoop2 result_Usi, Playing playing)
-        {
-            try
-            {
-
-                //------------------------------------------------------------
-                // あなたの手番です
-                //------------------------------------------------------------
-                #region ↓詳説
-                //
-                // 図.
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      ～
-                //      │2014/08/02 2:36:19> go btime 599000 wtime 600000 byoyomi 60000
-                //      │
-                //
-                // もう指していいときに、将棋所から送られてくる文字が go です。
-                //
-                #endregion
-
-                // ｎ手目を 2 増やします。
-                // 相手の手番と、自分の手番の 2つが増えた、という数え方です。
-                this.TesumiCount += 2;
-
-                //------------------------------------------------------------
-                // 先手 3:00  後手 0:00  記録係「50秒ぉ～」
-                //------------------------------------------------------------
-                #region ↓詳説
-                //
-                // 上図のメッセージのままだと使いにくいので、
-                // あとで使いやすいように Key と Value の表に分けて持ち直します。
-                //
-                // 図.
-                //
-                //      goDictionary
-                //      ┌──────┬──────┐
-                //      │Key         │Value       │
-                //      ┝━━━━━━┿━━━━━━┥
-                //      │btime       │599000      │
-                //      ├──────┼──────┤
-                //      │wtime       │600000      │
-                //      ├──────┼──────┤
-                //      │byoyomi     │60000       │
-                //      └──────┴──────┘
-                //      単位はミリ秒ですので、599000 は 59.9秒 です。
-                //
-                #endregion
-                Regex regex = new Regex(@"go btime (\d+) wtime (\d+) byoyomi (\d+)", RegexOptions.Singleline);
-                Match m = regex.Match(line);
-
-                if (m.Success)
-                {
-                    this.GoProperties["btime"] = (string)m.Groups[1].Value;
-                    this.GoProperties["wtime"] = (string)m.Groups[2].Value;
-                    this.GoProperties["byoyomi"] = (string)m.Groups[3].Value;
-                }
-                else
-                {
-                    this.GoProperties["btime"] = "";
-                    this.GoProperties["wtime"] = "";
-                    this.GoProperties["byoyomi"] = "";
-                }
-
-
-
-                // ┏━━━━サンプル・プログラム━━━━┓
-
-                int latestTesumi = playing.Kifu.CountTesumi(playing.Kifu.CurNode);//現・手目済
-                this.playing.PlayerInfo.Playerside = playing.Kifu.CountPside(latestTesumi);// 先後
-
-//#if DEBUG
-//                MessageBox.Show("["+latestTesumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
-//#endif
-
-                SkyConst src_Sky = playing.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
-
-                Logger.WriteLineAddMemo(LogTags.Engine,"将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
-
-
-                Result_Ajimi result_Ajimi = this.ajimiEngine.Ajimi(src_Sky);
-
-
-                //------------------------------------------------------------
-                // わたしの手番のとき、王様が　将棋盤上からいなくなっていれば、投了します。
-                //------------------------------------------------------------
-                //
-                //      将棋ＧＵＩ『きふならべ』用☆　将棋盤上に王さまがいないときに、本将棋で　go　コマンドが送られてくることは無いのでは☆？
-                //
-                switch (result_Ajimi)
-                {
-                    case Result_Ajimi.Lost_SenteOh:// 先手の王さまが将棋盤上にいないとき☆
-                    case Result_Ajimi.Lost_GoteOh:// または、後手の王さまが将棋盤上にいないとき☆
-                        {
-                            //------------------------------------------------------------
-                            // 投了
-                            //------------------------------------------------------------
-                            #region ↓詳説
-                            //
-                            // 図.
-                            //
-                            //      log.txt
-                            //      ┌────────────────────────────────────────
-                            //      ～
-                            //      │2014/08/02 2:36:21< bestmove resign
-                            //      │
-                            //
-
-                            // この将棋エンジンは、後手とします。
-                            // ２０手目、投了  を決め打ちで返します。
-                            #endregion
-                            Playing.Send("bestmove resign");//投了
-                        }
-                        break;
-                    default:// どちらの王さまも、まだまだ健在だぜ☆！
-                        {
-                            try
-                            {
-                                //------------------------------------------------------------
-                                // 指し手のチョイス
-                                //------------------------------------------------------------
-                                bool enableLog = false;
-                                bool isHonshogi = true;
-
-                                // 指し手を決めます。
-                                ShootingStarlightable bestMove = this.shogisasi.WA_Bestmove(
-                                    enableLog,
-                                    isHonshogi,
-                                    playing.Kifu,
-                                    this.playing.PlayerInfo,
-                                    LogTags.Engine
-                                    );
-
-
-
-
-                                if (Util_Sky.isEnableSfen(bestMove))
-                                {
-                                    string sfenText = Util_Sky.ToSfenMoveText(bestMove);
-                                    Logger.WriteLineAddMemo(LogTags.Engine,"(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
-                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine));
-
-                                    Playing.Send("bestmove " + sfenText);//指し手を送ります。
-                                }
-                                else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
-                                {
-                                    Logger.WriteLineAddMemo(LogTags.Engine,"(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
-                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine));
-
-                                    // 投了ｗ！
-                                    Playing.Send("bestmove resign");
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                //>>>>> エラーが起こりました。
-                                string message = ex.GetType().Name + " " + ex.Message + "：ベスト指し手のチョイスをしたときです。：";
-                                Debug.Fail(message);
-
-                                // どうにもできないので  ログだけ取って無視します。
-                                Logger.WriteLineError(LogTags.Engine,message);
-                            }
-                        }
-                        break;
-                }
-                // ┗━━━━サンプル・プログラム━━━━┛
-
-
-            }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                Logger.WriteLineAddMemo(LogTags.Engine,"Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
-            }
-
-
-            //System.C onsole.WriteLine();
-
-            //throw new Exception("デバッグだぜ☆！　エラーはキャッチできたかな～☆？（＾▽＾）");
-        }
-
-
         public void AtLoop_OnStop(string line, ref Result_UsiLoop2 result_Usi)
         {
             try

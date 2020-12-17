@@ -2,12 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
     using System.Text;
     using System.Text.RegularExpressions;
     using Grayscale.Kifuwarazusa.Entities;
     using Grayscale.Kifuwarazusa.UseCases;
     using Grayscale.P025_KifuLarabe.L00012_Atom;
+    using Grayscale.P025_KifuLarabe.L00025_Struct;
     using Grayscale.P025_KifuLarabe.L00050_StructShogi;
     using Grayscale.P025_KifuLarabe.L00060_KifuParser;
     using Grayscale.P025_KifuLarabe.L004_StructShogi;
@@ -15,6 +17,7 @@
     using Grayscale.P025_KifuLarabe.L100_KifuIO;
     using Grayscale.P050_KifuWarabe.CS1_Impl.W050_UsiLoop;
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
+    using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
     using Grayscale.P050_KifuWarabe.L050_UsiLoop;
     using Nett;
 
@@ -155,7 +158,7 @@
 
                         // 将棋サーバーから何かメッセージが届いていないか、見てみます。
                         string line = Util_Message.Download_BlockingIO();
-                        Logger.WriteLineAddMemo(LogTags.Client,line);
+                        Logger.WriteLineAddMemo(LogTags.Client, line);
                         Logger.WriteLineR(LogTags.Default, line);
 
                         if ("usi" == line)
@@ -233,8 +236,8 @@
                                 break;
                         }
 
-                    //gt_NextTime1:
-                    //    ;
+                        //gt_NextTime1:
+                        //    ;
                     }
                 end_loop1:
 
@@ -243,9 +246,7 @@
                         break;//全体ループを抜けます。
                     }
 
-                    //************************************************************************************************************************
                     // ループ（２つ目）
-                    //************************************************************************************************************************
                     UsiLoop2 usiLoop2 = new UsiLoop2(playing, playing.shogisasi);
                     playing.shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
 
@@ -257,100 +258,13 @@
 
                         // 将棋サーバーから何かメッセージが届いていないか、見てみます。
                         string line = Util_Message.Download_BlockingIO();
-                        Logger.WriteLineAddMemo(LogTags.Client,line);
+                        Logger.WriteLineAddMemo(LogTags.Client, line);
                         Logger.WriteLineR(LogTags.Default, line);
 
-                        if (line.StartsWith("position")) {
+                        if (line.StartsWith("position"))
+                        {
                             try
                             {
-                                //------------------------------------------------------------
-                                // これが棋譜です
-                                //------------------------------------------------------------
-                                //
-                                // 図.
-                                //
-                                //      log.txt
-                                //      ┌────────────────────────────────────────
-                                //      ～
-                                //      │2014/08/02 2:03:35> position startpos moves 2g2f
-                                //      │
-                                //
-                                // ↑↓この将棋エンジンは後手で、平手初期局面から、先手が初手  ▲２六歩  を指されたことが分かります。
-                                //
-                                //        ９  ８  ７  ６  ５  ４  ３  ２  １                 ９  ８  ７  ６  ５  ４  ３  ２  １
-                                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                                //      │香│桂│銀│金│玉│金│銀│桂│香│一           │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │飛│  │  │  │  │  │角│  │二           │  │ｒ│  │  │  │  │  │ｂ│  │ｂ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │歩│  │六           │  │  │  │  │  │  │  │Ｐ│  │ｆ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │歩│歩│歩│歩│歩│歩│歩│  │歩│七           │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│  │Ｐ│ｇ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
-                                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                                //
-                                // または
-                                //
-                                //      log.txt
-                                //      ┌────────────────────────────────────────
-                                //      ～
-                                //      │2014/08/02 2:03:35> position sfen lnsgkgsnl/9/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 1 moves 5a6b 7g7f 3a3b
-                                //      │
-                                //
-                                // ↑↓将棋所のサンプルによると、“２枚落ち初期局面から△６二玉、▲７六歩、△３二銀と進んだ局面”とのことです。
-                                //
-                                //                                           ＜初期局面＞    ９  ８  ７  ６  ５  ４  ３  ２  １
-                                //                                                         ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                                //                                                         │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ  ←lnsgkgsnl
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │  │  │  │  │  │  │  │  │ｂ  ←9
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ  ←ppppppppp
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │  │  │  │  │  │  │  │  │ｄ  ←9
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │  │  │  │  │  │  │  │  │ｅ  ←9
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │  │  │  │  │  │  │  │  │ｆ  ←9
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ  ←PPPPPPPPP
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ  ←1B5R1
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ  ←LNSGKGSNL
-                                //                                                         └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                                //
-                                //        ９  ８  ７  ６  ５  ４  ３  ２  １   ＜３手目＞    ９  ８  ７  ６  ５  ４  ３  ２  １
-                                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                                //      │香│桂│銀│金│  │金│  │桂│香│一           │ｌ│ｎ│ｓ│ｇ│  │ｇ│  │ｎ│ｌ│ａ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │玉│  │  │銀│  │  │二           │  │  │  │ｋ│  │  │ｓ│  │  │ｂ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │歩│  │  │  │  │  │  │六           │  │  │Ｐ│  │  │  │  │  │  │ｆ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │歩│歩│  │歩│歩│歩│歩│歩│歩│七           │Ｐ│Ｐ│  │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
-                                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                                //
-
                                 // 手番になったときに、“まず”、将棋所から送られてくる文字が position です。
                                 // このメッセージを読むと、駒の配置が分かります。
                                 //
@@ -386,8 +300,83 @@
                                 Logger.WriteLineAddMemo(LogTags.Engine, "Program「position」：" + ex.GetType().Name + "：" + ex.Message);
                             }
                         }
-                        else if (line.StartsWith("go ponder")) { usiLoop2.AtLoop_OnGoponder(line, ref result_Usi); }
-                        else if (line.StartsWith("go")) { usiLoop2.AtLoop_OnGo(line, ref result_Usi, playing); }// 「go ponder」「go mate」「go infinite」とは区別します。
+                        else if (line.StartsWith("go ponder"))
+                        {
+                            playing.GoPonder();
+                        }
+                        // 「go ponder」「go mate」「go infinite」とは区別します。
+                        else if (line.StartsWith("go"))
+                        {
+                            try
+                            {
+                                //------------------------------------------------------------
+                                // あなたの手番です
+                                //------------------------------------------------------------
+                                //
+                                // 図.
+                                //
+                                //      log.txt
+                                //      ┌────────────────────────────────────────
+                                //      ～
+                                //      │2014/08/02 2:36:19> go btime 599000 wtime 600000 byoyomi 60000
+                                //      │
+                                //
+                                // もう指していいときに、将棋所から送られてくる文字が go です。
+                                //
+
+                                // ｎ手目を 2 増やします。
+                                // 相手の手番と、自分の手番の 2つが増えた、という数え方です。
+                                playing.TesumiCount += 2;
+
+                                //------------------------------------------------------------
+                                // 先手 3:00  後手 0:00  記録係「50秒ぉ～」
+                                //------------------------------------------------------------
+                                //
+                                // 上図のメッセージのままだと使いにくいので、
+                                // あとで使いやすいように Key と Value の表に分けて持ち直します。
+                                //
+                                // 図.
+                                //
+                                //      goDictionary
+                                //      ┌──────┬──────┐
+                                //      │Key         │Value       │
+                                //      ┝━━━━━━┿━━━━━━┥
+                                //      │btime       │599000      │
+                                //      ├──────┼──────┤
+                                //      │wtime       │600000      │
+                                //      ├──────┼──────┤
+                                //      │byoyomi     │60000       │
+                                //      └──────┴──────┘
+                                //      単位はミリ秒ですので、599000 は 59.9秒 です。
+                                //
+                                Regex regex = new Regex(@"go btime (\d+) wtime (\d+) byoyomi (\d+)", RegexOptions.Singleline);
+                                Match m = regex.Match(line);
+
+                                if (m.Success)
+                                {
+                                    playing.Go((string)m.Groups[1].Value, (string)m.Groups[2].Value, (string)m.Groups[3].Value, "", "");
+                                }
+                                else
+                                {
+                                    // (2020-12-16 wed) フィッシャー・クロック・ルールに対応☆（＾～＾）
+                                    regex = new Regex(@"go btime (\d+) wtime (\d+) binc (\d+) winc (\d+)", RegexOptions.Singleline);
+                                    m = regex.Match(line);
+
+                                    playing.Go((string)m.Groups[1].Value, (string)m.Groups[2].Value, "", (string)m.Groups[3].Value, (string)m.Groups[4].Value);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                // エラーが起こりました。
+                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                // どうにもできないので  ログだけ取って無視します。
+                                Logger.WriteLineAddMemo(LogTags.Engine, "Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
+                            }
+                            //System.C onsole.WriteLine();
+
+                            //throw new Exception("デバッグだぜ☆！　エラーはキャッチできたかな～☆？（＾▽＾）");
+                        }
                         else if (line.StartsWith("stop")) { usiLoop2.AtLoop_OnStop(line, ref result_Usi); }
                         else if (line.StartsWith("gameover")) { usiLoop2.AtLoop_OnGameover(line, ref result_Usi); }
                         else if ("logdase" == line) { usiLoop2.AtLoop_OnLogdase(line, ref result_Usi, playing); }
@@ -415,8 +404,8 @@
                                 break;
                         }
 
-                    //gt_NextTime2:
-                    //    ;
+                        //gt_NextTime2:
+                        //    ;
                     }
                 end_loop2:
                     ;
@@ -467,13 +456,13 @@
                     Logger.WriteLineAddMemo(LogTags.Engine, "KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
                     foreach (KeyValuePair<string, string> pair in usiLoop2.playing.SetoptionDictionary)
                     {
-                        Logger.WriteLineAddMemo(LogTags.Engine,pair.Key + "=" + pair.Value);
+                        Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
                     }
-                    Logger.WriteLineAddMemo(LogTags.Engine,"┗━━━━━━━━━━━━━━━━━━┛");
-                    Logger.WriteLineAddMemo(LogTags.Engine,"┏━確認━━━━goDictionary━━━━━┓");
-                    foreach (KeyValuePair<string, string> pair in usiLoop2.GoProperties)
+                    Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.WriteLineAddMemo(LogTags.Engine, "┏━確認━━━━goDictionary━━━━━┓");
+                    foreach (KeyValuePair<string, string> pair in playing.GoProperties)
                     {
-                        Logger.WriteLineAddMemo(LogTags.Engine,pair.Key + "=" + pair.Value);
+                        Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
                     }
 
                     //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
@@ -485,13 +474,13 @@
                     //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
                     //}
 
-                    Logger.WriteLineAddMemo(LogTags.Engine,"┗━━━━━━━━━━━━━━━━━━┛");
-                    Logger.WriteLineAddMemo(LogTags.Engine,"┏━確認━━━━gameoverDictionary━━┓");
+                    Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.WriteLineAddMemo(LogTags.Engine, "┏━確認━━━━gameoverDictionary━━┓");
                     foreach (KeyValuePair<string, string> pair in usiLoop2.GameoverProperties)
                     {
-                        Logger.WriteLineAddMemo(LogTags.Engine,pair.Key + "=" + pair.Value);
+                        Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
                     }
-                    Logger.WriteLineAddMemo(LogTags.Engine,"┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━━━━━━━┛");
                 }
 
             }
@@ -501,7 +490,7 @@
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.WriteLineAddMemo(LogTags.Engine,"Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.WriteLineAddMemo(LogTags.Engine, "Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
             }
 
             // 終了時に、妄想履歴のログを残します。
