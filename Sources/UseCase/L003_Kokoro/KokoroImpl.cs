@@ -271,9 +271,9 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
         {
             try
             {
-                if (File.Exists(Logger.Log_MousouRireki.FileName))
+                if (File.Exists(Logger.Log_MousouRireki.LogRecord.FileName))
                 {
-                    string mousouRirekiLog = System.IO.File.ReadAllText(Logger.Log_MousouRireki.FileName, Encoding.UTF8);
+                    string mousouRirekiLog = System.IO.File.ReadAllText(Logger.Log_MousouRireki.LogRecord.FileName, Encoding.UTF8);
 
 #if DEBUG
                     MessageBox.Show( mousouRirekiLog, "妄想履歴ログ有り　（デバッグモード　正常）" );

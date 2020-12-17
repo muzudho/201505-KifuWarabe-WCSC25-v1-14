@@ -49,7 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logger\ILogRecord.cs" />
     <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Logger\LogRecord.cs" />
     <Compile Include="P006Sfen\ISfenPosition1.cs" />
     <Compile Include="P006Sfen\ISfenPosition2.cs" />
     <Compile Include="P006Sfen\Program.cs" />
@@ -74,7 +76,7 @@
     <Compile Include="P025KifuLarabe\L00012_Atom星の光\Starlightable.cs" />
     <Compile Include="P025KifuLarabe\L00025_Struct\K1_木構造\Node.cs" />
     <Compile Include="P025KifuLarabe\L00025_Struct\K1_木構造\Tree.cs" />
-    <Compile Include="P025KifuLarabe\L00025_Struct\L1_ログ\LarabeLoggerable.cs" />
+    <Compile Include="Logger\LarabeLoggerable.cs" />
     <Compile Include="P025KifuLarabe\L00025_Struct\SK_星空構造\Sky.cs" />
     <Compile Include="P025KifuLarabe\L00050_StructShogi\KifuNode.cs" />
     <Compile Include="P025KifuLarabe\L00050_StructShogi\KifuTree.cs" />
@@ -105,8 +107,8 @@
     <Compile Include="P025KifuLarabe\L003_Struct\Couple.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\K1_木構造\NodeImpl.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\K1_木構造\TreeImpl.cs" />
-    <Compile Include="P025KifuLarabe\L003_Struct\L1_ログ\LarabeLoggerImpl.cs" />
-    <Compile Include="P025KifuLarabe\L003_Struct\L1_ログ\LarabeLoggerList.cs" />
+    <Compile Include="Logger\LarabeLoggerImpl.cs" />
+    <Compile Include="Logger\LarabeLoggerList.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\List_OneAndMulti.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\Maps_OneAndMulti.cs" />
     <Compile Include="P025KifuLarabe\L003_Struct\Maps_OneAndMultiAndMulti.cs" />
@@ -162,7 +164,7 @@
     <Compile Include="P025KifuLarabe\L012_Common\きほん\Converter04.cs" />
     <Compile Include="P025KifuLarabe\L012_Common\きほん\FugoJ.cs" />
     <Compile Include="P025KifuLarabe\L012_Common\きほん\KomanoKidou.cs" />
-    <Compile Include="P025KifuLarabe\L012_Common\ロガー\Logger_Masus.cs" />
+    <Compile Include="P025KifuLarabe\ロガー\Logger_Masus.cs" />
     <Compile Include="P025KifuLarabe\L025_Play\Play.cs" />
     <Compile Include="P025KifuLarabe\L025_Play\Play_KomaAndMove.cs" />
     <Compile Include="P025KifuLarabe\L050_Things\Util_Things.cs" />

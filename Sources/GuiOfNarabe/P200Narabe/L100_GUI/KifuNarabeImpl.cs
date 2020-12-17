@@ -32,7 +32,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
     {
 
         #region ロガー
-        private static readonly LarabeLoggerable PAINT = new LarabeLoggerImpl("../../Logs/_log_将棋GUI_ﾍﾟｲﾝﾄ", ".txt", true, false);
+        private static readonly LarabeLoggerable PAINT = new LarabeLoggerImpl("../../Logs/#将棋GUI_ﾍﾟｲﾝﾄ", true, false);
         public LarabeLoggerable Logger_Paint
         {
             get
@@ -41,7 +41,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             }
         }
 
-        private static readonly LarabeLoggerable NETWORK = new LarabeLoggerImpl("../../Logs/_log_将棋GUI_ﾈｯﾄﾜｰｸ", ".txt", true, false);
+        private static readonly LarabeLoggerable NETWORK = new LarabeLoggerImpl("../../Logs/#将棋GUI_ﾈｯﾄﾜｰｸ", true, false);
         public LarabeLoggerable Logger_Network
         {
             get

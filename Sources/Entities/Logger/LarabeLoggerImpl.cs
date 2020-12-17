@@ -1,68 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.CompilerServices;
-using System.Diagnostics;
-
-using Grayscale.P025_KifuLarabe.L00025_Struct;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L00025_Struct
 {
-
-
     /// <summary>
     /// 継承できる列挙型として利用☆
     /// </summary>
     public class LarabeLoggerImpl : LarabeLoggerable
     {
-
-        /// <summary>
-        /// ファイル名
-        /// </summary>
-        public string FileName { get { return this.FileNameWoe + this.Extension; } }
-
-        /// <summary>
-        /// ファイル名
-        /// </summary>
-        public string FileNameWoe { get { return this.fileNameWoe; } }
-        private string fileNameWoe;
-
-        /// <summary>
-        /// 拡張子
-        /// </summary>
-        public string Extension { get { return this.extension; } }
-        private string extension;
-
-        /// <summary>
-        /// ログ出力の有無。
-        /// </summary>
-        public bool Enable { get { return this.enable; } }
-        private bool enable;
-
-
-        /// <summary>
-        /// タイムスタンプ出力の有無。
-        /// </summary>
-        public bool Print_TimeStamp { get { return this.print_TimeStamp; } }
-        private bool print_TimeStamp;
-
-
+        public LogRecord LogRecord { get; private set; }
 
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        /// <param name="fileNameWoe">拡張子抜きファイル名</param>
-        /// <param name="extension">拡張子</param>
-        /// <param name="enable">ログ出力の有無</param>
-        public LarabeLoggerImpl(string fileNameWoe, string extension, bool enable, bool print_TimeStamp)
+        /// <param name="fileNameStem">拡張子抜きファイル名</param>
+        /// <param name="enabled">ログ出力の有無</param>
+        /// <param name="timeStampPrintable">タイムスタンプの有無</param>
+        public LarabeLoggerImpl(string fileNameStem, bool enabled, bool timeStampPrintable)
         {
-            this.fileNameWoe = fileNameWoe;
-            this.extension = extension;
-            this.enable = enable;
-            this.print_TimeStamp = print_TimeStamp;
+            this.LogRecord = new LogRecord(fileNameStem, enabled, timeStampPrintable);
         }
 
 
@@ -91,33 +49,20 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             }
 
             // Return true if the fields match:
-            return (this.FileNameWoe+this.Extension == p.FileNameWoe+p.Extension);
+            return (this.LogRecord.FileName == p.LogRecord.FileName);
         }
 
-
-
-
-
-
-
-
-
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// メモを、ログ・ファイルの末尾に追記します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="line"></param>
         public void WriteLine_AddMemo(
             string line
             )
         {
-            bool enable = this.Enable;
-            bool print_TimeStamp = this.Print_TimeStamp;
-            string fileName = this.FileName;
+            bool enable = this.LogRecord.Enabled;
+            bool print_TimeStamp = this.LogRecord.TimeStampPrintable;
+            string fileName = this.LogRecord.FileName;
 
             if (!enable)
             {
@@ -155,26 +100,17 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             ;
         }
 
-
-
-
-
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// エラーを、ログ・ファイルに記録します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="line"></param>
         public void WriteLine_Error(
             string line
             )
         {
-            bool enable = this.Enable;
-            bool printTimestamp = this.Print_TimeStamp;
-            string fileName = this.FileName;
+            bool enable = this.LogRecord.Enabled;
+            bool printTimestamp = this.LogRecord.TimeStampPrintable;
+            string fileName = this.LogRecord.FileName;
 
             if (!enable)
             {
@@ -215,27 +151,17 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             ;
         }
 
-
-
-
-
-
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// メモを、ログ・ファイルに記録します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="line"></param>
         public void WriteLine_OverMemo(
             string line
             )
         {
-            bool enable = this.Enable;
-            bool printTimestamp = this.Print_TimeStamp;
-            string fileName = this.FileName;
+            bool enable = this.LogRecord.Enabled;
+            bool printTimestamp = this.LogRecord.TimeStampPrintable;
+            string fileName = this.LogRecord.FileName;
 
             if (!enable)
             {
@@ -273,17 +199,8 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             ;
         }
 
-
-
-
-
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// サーバーへ送ったコマンドを、ログ・ファイルに記録します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="line"></param>
         public void WriteLine_S(
@@ -294,9 +211,9 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             //[CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            bool enable = this.Enable;
-            bool print_TimeStamp = this.Print_TimeStamp;
-            string fileName = this.FileName;
+            bool enable = this.LogRecord.Enabled;
+            bool print_TimeStamp = this.LogRecord.TimeStampPrintable;
+            string fileName = this.LogRecord.FileName;
 
             if (!enable)
             {
@@ -334,11 +251,8 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             ;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// サーバーから受け取ったコマンドを、ログ・ファイルに記録します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="line"></param>
         public void WriteLine_R(
@@ -349,9 +263,9 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             //[CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            bool enable = this.Enable;
-            bool print_TimeStamp = this.Print_TimeStamp;
-            string fileName = this.FileName;
+            bool enable = this.LogRecord.Enabled;
+            bool print_TimeStamp = this.LogRecord.TimeStampPrintable;
+            string fileName = this.LogRecord.FileName;
 
             if (!enable)
             {
@@ -388,8 +302,5 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         gt_EndMethod:
             ;
         }
-
     }
-
-
 }

@@ -19,11 +19,11 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
     /// </summary>
     public partial class LarabeLoggerList
     {
-        public static readonly LarabeLoggerable MoveGenRoutine = new LarabeLoggerImpl("../../Logs/_log_指し手生成ルーチン", ".txt", true, false);
-        public static readonly LarabeLoggerable LOGGING_BY_GUI = new LarabeLoggerImpl("../../Logs/_log_将棋GUI_棋譜読取", ".txt", true, false);
-        public static readonly LarabeLoggerable LOGGING_BY_LARABE_STANDALONE = new LarabeLoggerImpl("../../Logs/_log_ララベProgram", ".txt", true, false);
-        public static readonly LarabeLoggerable LINKED_LIST = new LarabeLoggerImpl("../../Logs/_log_リンクトリスト", ".txt", false, false);
-        public static readonly LarabeLoggerable ERROR = new LarabeLoggerImpl("../../Logs/_log_エラー", ".txt", true, false);
+        public static readonly LarabeLoggerable MoveGenRoutine = new LarabeLoggerImpl("../../Logs/#指し手生成ルーチン", true, false);
+        public static readonly LarabeLoggerable LOGGING_BY_GUI = new LarabeLoggerImpl("../../Logs/#将棋GUI_棋譜読取", true, false);
+        public static readonly LarabeLoggerable LOGGING_BY_LARABE_STANDALONE = new LarabeLoggerImpl("../../Logs/#ララベProgram", true, false);
+        public static readonly LarabeLoggerable LINKED_LIST = new LarabeLoggerImpl("../../Logs/#リンクトリスト", false, false);
+        public static readonly LarabeLoggerable ERROR = new LarabeLoggerImpl("../../Logs/#エラー", true, false);
 
 
         /// <summary>
@@ -35,8 +35,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             if (null == LarabeLoggerList.defaultList)
             {
                 LarabeLoggerList.defaultList = new LarabeLoggerList(
-                    "../../Logs/_log_default_false_(" + System.Diagnostics.Process.GetCurrentProcess() + ")",
-                    ".txt",
+                    "../../Logs/#default(" + System.Diagnostics.Process.GetCurrentProcess() + ")",
                     false,
                     false
                     );
@@ -70,10 +69,10 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         /// <param name="fileNameWoe">拡張子抜きのファイル名。(with out extension)</param>
         /// <param name="extensionWd">ドット付き拡張子。(with dot)</param>
         /// <param name="enable">ログ出力のON/OFF</param>
-        /// <param name="print_TimeStamp">タイムスタンプ出力のON/OFF</param>
-        public LarabeLoggerList(string defaultLogFileNameWoe, string extensionWd, bool enable, bool print_TimeStamp)
+        /// <param name="timeStampPrintable">タイムスタンプ出力のON/OFF</param>
+        public LarabeLoggerList(string defaultLogFileStem, bool enable, bool timeStampPrintable)
         {
-            this.defaultFile = new LarabeLoggerImpl(defaultLogFileNameWoe, extensionWd, enable, print_TimeStamp);
+            this.defaultFile = new LarabeLoggerImpl(defaultLogFileStem, enable, timeStampPrintable);
 
             this.tagList = new List<LarabeLoggerable>();
         }
@@ -94,11 +93,11 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
         {
             try
             {
-                System.IO.File.Delete(this.defaultFile.FileName);
+                System.IO.File.Delete(this.defaultFile.LogRecord.FileName);
 
                 foreach (LarabeLoggerable tag in this.tagList)
                 {
-                    System.IO.File.Delete(tag.FileNameWoe+tag.Extension);
+                    System.IO.File.Delete(tag.LogRecord.FileName);
                 }
             }
             catch (Exception ex)
