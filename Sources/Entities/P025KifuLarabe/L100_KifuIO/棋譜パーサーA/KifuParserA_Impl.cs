@@ -69,8 +69,8 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             try
             {
-                log.LogTag.WriteLine_AddMemo("┏━━━━━┓");
-                log.LogTag.WriteLine_AddMemo("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                Logger.WriteLineAddMemo(log.LogTag, "┏━━━━━┓");
+                Logger.WriteLineAddMemo(log.LogTag, "わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
 
                 KifuParserA_State nextState;
                 genjo.InputLine = this.State.Execute(
@@ -114,8 +114,8 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             try
             {
-                log.LogTag.WriteLine_AddMemo("┏━━━━━━━━━━┓");
-                log.LogTag.WriteLine_AddMemo("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                Logger.WriteLineAddMemo(log.LogTag, "┏━━━━━━━━━━┓");
+                Logger.WriteLineAddMemo(log.LogTag, "わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
 
                 KifuParserA_State nextState = this.State;
 

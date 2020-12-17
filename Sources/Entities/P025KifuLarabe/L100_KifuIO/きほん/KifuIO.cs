@@ -14,15 +14,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
-
-
     public abstract class KifuIO
     {
-
-
         /// <summary>
         /// 一手指します。または、一手戻します。
         /// </summary>
@@ -43,7 +40,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             out Finger figMovedKoma,
             out Finger figFoodKoma,
             out Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull,
-            LarabeLoggerable logTag
+            ILogTag logTag
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -97,7 +94,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 Node<ShootingStarlightable, KyokumenWrapper> removedLeaf = kifu.PopCurrentNode();
             }
 
-            logTag.WriteLine_AddMemo("一手指しが終わったぜ☆　ノードが追加されているんじゃないか☆？　");
+            Logger.WriteLineAddMemo(logTag, "一手指しが終わったぜ☆　ノードが追加されているんじゃないか☆？　");
         }
 
 
@@ -113,7 +110,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             ShootingStarlightable move,
             KifuTree kifu,
             bool isMakimodosi,
-            LarabeLoggerable logTag
+            ILogTag logTag
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -314,9 +311,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 棋譜[再生]時用（マウス操作のときは関係ない）
-        /// ************************************************************************************************************************
         /// 
         ///         一手進む、一手[巻戻し]に対応。
         /// 
@@ -333,7 +328,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             KifuTree kifu,
             bool isMakimodosi,
             out Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             out_figFoodKoma = Fingers.Error_1;
@@ -558,12 +553,8 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
         }
 
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒台の空いている升を返します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="okiba">先手駒台、または後手駒台</param>
         /// <param name="uc_Main">メインパネル</param>

@@ -1,24 +1,19 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
+﻿using System;
+using System.Diagnostics;
+using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L012_Common;
+using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L100_GUI;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;
-using System;
-using System.Diagnostics;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
 {
-
-
     /// <summary>
-    /// ************************************************************************************************************************
     ///  プロセスラッパー
-    /// ************************************************************************************************************************
     /// 
     ///     １つの将棋エンジンと通信します。１対１の関係になります。
     ///     このクラスを、将棋エンジンのコンソールだ、と想像して使います。
@@ -27,9 +22,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
     public class ShogiEngineLiveImpl : ShogiEngineLive
     {
         /// <summary>
-        /// ------------------------------------------------------------------------------------------------------------------------
         /// 将棋エンジンと会話できるオブジェクトです。
-        /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
         public ShogiEngineManInterface ShogiEngineManInterface{get;set;}
 
@@ -42,14 +35,12 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
                 // USIコマンドを将棋エンジンに送ったタイミングで、なにかすることがあれば、
                 // ここに書きます。
                 //
-                Logger.NarabeNetwork.WriteLine_S(line);
+                Logger.WriteLineS(LogTags.NarabeNetwork, line);
             };
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 将棋エンジンを起動します。
-        /// ************************************************************************************************************************
         /// </summary>
         public void Start(string shogiEngineFilePath)
         {
@@ -113,11 +104,8 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
             ;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// この将棋サーバーを終了したときにする挙動を、ここに書きます。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -127,11 +115,9 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 手番が替わったときの挙動を、ここに書きます。
-        /// ************************************************************************************************************************
         /// </summary>
-        public void ChangeTurn99(KifuTree kifu, LarabeLoggerable logTag)
+        public void ChangeTurn99(KifuTree kifu, ILogTag logTag)
         {
             if (!this.ShogiEngineManInterface.IsLive())
             {
@@ -163,9 +149,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 将棋エンジンから、データを非同期受信(*1)します。
-        /// ************************************************************************************************************************
         /// 
         ///         *1…こっちの都合に合わせず、データが飛んできます。
         /// 
@@ -236,15 +220,12 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
 
                     Ui_PnlMain.input99 += line.Substring("bestmove".Length+"".Length);
 
-                    Logger.Gui.WriteLine_AddMemo("USI受信：bestmove input99=[" + Ui_PnlMain.input99 + "]");
+                    Logger.WriteLineAddMemo(LogTags.Gui,"USI受信：bestmove input99=[" + Ui_PnlMain.input99 + "]");
                 }
                 else
                 {
                 }
             }
         }
-
     }
-
-
 }

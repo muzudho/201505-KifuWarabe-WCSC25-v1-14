@@ -9,21 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L012_Common
 {
     public abstract class Util_Sasu
     {
-
         public static SkyConst Sasu(
             SkyConst src_Sky,//現局面
             Finger finger,//動かす駒
             SyElement masu,//移動先マス
             Playerside pside_genTeban,//動かす駒がどちらのプレイヤーのものか
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
-
             SkyBuffer dst_Sky = new SkyBuffer(src_Sky.Clone()); // 現局面をコピーします。
 
             // 移動先に相手の駒がないか、確認します。
@@ -61,6 +60,5 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             return new SkyConst( dst_Sky);
         }
-
     }
 }

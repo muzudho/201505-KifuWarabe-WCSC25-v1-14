@@ -6,6 +6,7 @@ using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L100_GUI;
 using Grayscale.P400_KifuNaraVs.L025_ShogiEngine;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;
+using Grayscale.Kifuwarazusa.Entities;
 
 //スプライト番号
 namespace Grayscale.P400_KifuNaraVs.L100_GUI
@@ -26,7 +27,7 @@ namespace Grayscale.P400_KifuNaraVs.L100_GUI
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        public override void ChangeTurn( LarabeLoggerable logTag)
+        public override void ChangeTurn( ILogTag logTag)
         {
             this.ShogiEnginePrWrapperLauncher.ChangeTurn99(this.Model_PnlTaikyoku.Kifu, logTag);
         }

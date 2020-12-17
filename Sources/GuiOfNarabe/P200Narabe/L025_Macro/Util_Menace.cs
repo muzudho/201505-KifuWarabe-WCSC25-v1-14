@@ -6,6 +6,7 @@ using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P006_Syugoron;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L025_Macro
 {
@@ -14,7 +15,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         /// <summary>
         /// v(^▽^)v超能力『メナス』だぜ☆ 未来の脅威を予測し、可視化するぜ☆ｗｗｗ
         /// </summary>
-        public static void Menace( ShogiGui shogiGui, LarabeLoggerable logTag)
+        public static void Menace( ShogiGui shogiGui, ILogTag logTag)
         {
             if (0 < shogiGui.Model_PnlTaikyoku.GuiTesumi)
             {

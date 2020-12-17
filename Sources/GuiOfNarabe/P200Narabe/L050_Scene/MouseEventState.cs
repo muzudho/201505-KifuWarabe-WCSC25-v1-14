@@ -5,7 +5,7 @@ using Grayscale.P025_KifuLarabe.L00025_Struct;
 using System.Windows.Forms;
 using System.Drawing;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L050_Scene
 {
@@ -26,8 +26,8 @@ namespace Grayscale.P200_KifuNarabe.L050_Scene
         private Point mouseLocation;
 
 
-        public LarabeLoggerable Flg_logTag { get { return this.flg_logTag; } }
-        private LarabeLoggerable flg_logTag;
+        public ILogTag Flg_logTag { get { return this.flg_logTag; } }
+        private ILogTag flg_logTag;
 
         public MouseEventState()
         {
@@ -37,7 +37,7 @@ namespace Grayscale.P200_KifuNarabe.L050_Scene
             this.flg_logTag = null;
         }
 
-        public MouseEventState(SceneName name1, MouseEventStateName name2, Point mouseLocation, LarabeLoggerable logTag)
+        public MouseEventState(SceneName name1, MouseEventStateName name2, Point mouseLocation, ILogTag logTag)
         {
             this.name1 = name1;
             this.name2 = name2;

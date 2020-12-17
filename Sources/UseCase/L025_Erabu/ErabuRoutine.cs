@@ -1,4 +1,5 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 //スプライト番号
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
@@ -6,17 +7,13 @@ using Grayscale.P025_KifuLarabe.L007_Random;
 using Grayscale.P025_KifuLarabe.L012_Common;
 using System.Collections.Generic;
 
-
 namespace Grayscale.P050_KifuWarabe.L025_Erabu
 {
-
-
     /// <summary>
     /// 選ぶエンジン
     /// </summary>
     public class ErabuEngine
     {
-
         /// <summary>
         /// たった１つの指し手（ベストムーブ）を選びます。
         /// </summary>
@@ -25,9 +22,8 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
         /// <returns></returns>
         public ShootingStarlightable ChoiceBestMove(
             KifuTree kifu,
-            bool enableLog, bool isHonshogi, LarabeLoggerable logTag)
+            bool enableLog, bool isHonshogi, ILogTag logTag)
         {
-
             ShootingStarlightable bestMove = null;
 
             // これから調べる局面（next=現局面）
@@ -36,8 +32,6 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
             {
                 // 次のノードをリストにします。
                 List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes = Converter04.NextNodes_ToList(kifu.CurNode, logTag);
-
-
 
                 // 次のノードをシャッフルします。
                 List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes_shuffled = Converter04.NextNodes_ToList(kifu.CurNode, logTag);
@@ -53,7 +47,6 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
                 //bestMove = Program.SikouEngine.ErabuRoutine.ChoiceMove_fromNextNodes_Random(kifu, node_yomiNext, logTag);
             }
 
-
             if (null == bestMove)
             {
                 // 投了
@@ -65,8 +58,5 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
             //          末端の局面に評価値を付けて、ミニマックス原理を使って最善手を絞り込みたい☆
             return bestMove;
         }
-
     }
-
-
 }

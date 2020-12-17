@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L012_Common
 {
@@ -21,7 +21,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
     /// </summary>
     public abstract class JFugoCreator15Array
     {
-        public delegate FugoJ DELEGATE_CreateJFugo(ShootingStarlightable teMove, KyokumenWrapper kWrap, LarabeLoggerable logTag);
+        public delegate FugoJ DELEGATE_CreateJFugo(ShootingStarlightable teMove, KyokumenWrapper kWrap, ILogTag logTag);
 
         public static DELEGATE_CreateJFugo[] ItemMethods
         {
@@ -56,7 +56,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
 
-        public static FugoJ CreateNullKoma(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateNullKoma(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ result;
 
@@ -93,7 +93,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <param name="move">移動先、移動元、両方のマス番号</param>
         /// <returns></returns>
-        public static FugoJ CreateFu(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateFu(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ result;
 
@@ -190,7 +190,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return result;
         }
 
-        public static FugoJ CreateKyo(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateKyo(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -300,7 +300,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateKei(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateKei(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -414,7 +414,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateGin(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateGin(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -585,7 +585,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateKin(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateKin(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -613,7 +613,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             ShootingStarlightable move,//移動先、移動元、両方のマス番号
             KyokumenWrapper kWrap,
             out MigiHidari migiHidari, out AgaruHiku agaruHiku, out NariNarazu nari, out DaHyoji daHyoji,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             SkyConst src_Sky = kWrap.ToKyokumenConst;
@@ -771,7 +771,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             nari = NariNarazu.CTRL_SONOMAMA;
         }
 
-        public static FugoJ CreateOh(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateOh(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -818,7 +818,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateHisya(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateHisya(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -985,7 +985,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateKaku(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateKaku(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -1152,7 +1152,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateRyu(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateRyu(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -1347,7 +1347,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateUma(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateUma(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -1543,7 +1543,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateTokin(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateTokin(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -1567,7 +1567,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateNariKyo(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateNariKyo(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             MigiHidari migiHidari;
             AgaruHiku agaruHiku;
@@ -1591,7 +1591,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateNariKei(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateNariKei(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -1615,7 +1615,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateNariGin(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateNariGin(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -1640,7 +1640,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateErrorKoma(ShootingStarlightable move, KyokumenWrapper kWrap, LarabeLoggerable logTag)
+        public static FugoJ CreateErrorKoma(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
         {
             FugoJ fugo;
 
@@ -1687,8 +1687,5 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             return fugo;
         }
-
     }
-
-
 }

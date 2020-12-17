@@ -14,15 +14,8 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P100_ShogiServer.L100_InServer
 {
-
-
     public class Util_InServer
     {
-
-
-
-
-
         /// <summary>
         /// 「棋譜ツリーのカレントノード」の差替え、
         /// および
@@ -47,9 +40,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             shogiGui_Base.Model_PnlTaikyoku.SetGuiSky(newNode.Value.ToKyokumenConst);
             shogiGui_Base.Model_PnlTaikyoku.GuiTesumi = Util_InServer.CountCurTesumi2(shogiGui_Base);
             shogiGui_Base.Model_PnlTaikyoku.GuiPside = Util_InServer.CurPside(shogiGui_Base);
-
         }
-
 
         public static int CountCurTesumi2(ShogiGui_Base shogiGui_Base)
         {
@@ -62,9 +53,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// １手進む
-        /// ************************************************************************************************************************
         /// 
         /// ＜棋譜読込用＞＜マウス入力非対応＞
         /// 
@@ -101,13 +90,13 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 {
                     // 最初はここ
 
-                    Logger.Gui.WriteLine_AddMemo("... ...");
-                    Logger.Gui.WriteLine_AddMemo("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                    Logger.WriteLineAddMemo(LogTags.Gui,"... ...");
+                    Logger.WriteLineAddMemo(LogTags.Gui,"ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         shogiGui_Base,
                         genjo,
-                        new KifuParserA_LogImpl(Logger.Gui, hint + ":Ui_01MenuB#ReadLine_TuginoItteSusumu")
+                        new KifuParserA_LogImpl(LogTags.Gui, hint + ":Ui_01MenuB#ReadLine_TuginoItteSusumu")
                         );
 
                     Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -131,13 +120,13 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
                     {
                         string message = "ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
-                        Logger.Gui.WriteLine_AddMemo(message);
+                        Logger.WriteLineAddMemo(LogTags.Gui,message);
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             shogiGui_Base,
                             genjo,
-                            new KifuParserA_LogImpl(Logger.Gui, hint + ":平手等解析したい")
+                            new KifuParserA_LogImpl(LogTags.Gui, hint + ":平手等解析したい")
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -150,12 +139,12 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
 
                     {
-                        Logger.Gui.WriteLine_AddMemo("ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
+                        Logger.WriteLineAddMemo(LogTags.Gui,"ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             shogiGui_Base,
                             genjo,
-                            new KifuParserA_LogImpl(Logger.Gui, hint + ":ﾑｰﾌﾞｽ等解析したい")
+                            new KifuParserA_LogImpl(LogTags.Gui, hint + ":ﾑｰﾌﾞｽ等解析したい")
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -177,12 +166,12 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 //
                 if (kifuParserA_Impl.State is KifuParserA_StateA2_SfenMoves)
                 {
-                    Logger.Gui.WriteLine_AddMemo("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
+                    Logger.WriteLineAddMemo(LogTags.Gui,"ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         shogiGui_Base,
                         genjo,
-                        new KifuParserA_LogImpl(Logger.Gui, hint + ":一手処理したい")
+                        new KifuParserA_LogImpl(LogTags.Gui, hint + ":一手処理したい")
                         );
 
                     if (null != result.Out_newNode_OrNull)
@@ -214,7 +203,6 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             return successful;
         }
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -229,9 +217,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             KifuParserA_Log log
             )
         {
-            // ************************************************************************************************************************
             // SFENの初期配置の書き方(*1)を元に、駒を並べます。
-            // ************************************************************************************************************************
             // 
             //     *1…「position startpos moves 7g7f 3c3d 2g2f」といった書き方。
             //     
@@ -528,20 +514,15 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             }
         }
 
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// [巻戻し]ボタン
-        /// ************************************************************************************************************************
         /// </summary>
         public static bool Makimodosi_Srv(
             out Finger movedKoma,
             out Finger foodKoma,
             out string fugoJStr,
             ShogiGui_Base shogiGui,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             bool successful = false;
@@ -581,9 +562,6 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             ).ToText_UseDou(removeeLeaf);
             //MessageBox.Show("[巻戻し]符号＝" + fugoJStr, "デバッグ");
 
-
-
-
             //------------------------------
             // 前の手に戻します
             //------------------------------
@@ -600,7 +578,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 out movedKoma,
                 out foodKoma,
                 out out_newNode_OrNull,
-                Logger.Gui
+                LogTags.Gui
                 );
 
             successful = true;
@@ -610,14 +588,8 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             return successful;
         }
 
-
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// [コマ送り]ボタン
-        /// ************************************************************************************************************************
         /// 
         /// vsコンピューター対局でも、タイマーによって[コマ送り]が実行されます。
         /// 
@@ -625,7 +597,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         public static bool Komaokuri_Srv(
             ref string inputLine,
             ShogiGui_Base shogiGui_Base,
-            LarabeLoggerable logTag
+            ILogTag logTag
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -644,13 +616,8 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             return true;
         }
 
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒を動かします(1)。マウスボタンが押下されたとき。
-        /// ************************************************************************************************************************
         /// 
         /// 成る、成らない関連。
         /// 
@@ -662,10 +629,9 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             Finger btnTumandeiruKoma_Koma,
             RO_Star_Koma koma1,
             ShogiGui_Base shogiGui_Base,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
-
             Finger btnKoma_Food_Koma;
 
             torareruKomaAri = false;

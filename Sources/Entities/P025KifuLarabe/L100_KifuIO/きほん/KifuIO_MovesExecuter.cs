@@ -17,9 +17,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
     public abstract class KifuIO_MovesExecuter
     {
         /// <summary>
-        /// ************************************************************************************************************************
         /// 符号１「7g7f」を元に、move を作ります。
-        /// ************************************************************************************************************************
         /// 
         /// ＜[再生]、[コマ送り]で呼び出されます＞
         /// </summary>
@@ -35,7 +33,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             KifuTree kifu,
             string hint,
             int tesumi_yomiGenTeban,//読み進めている現在の手目済
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             move = Util_Sky.NullObjectMove;
@@ -43,7 +41,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             SkyConst src_Sky = kifu.NodeAt(tesumi_yomiGenTeban).Value.ToKyokumenConst;
 
             Debug.Assert(!Util_MasuNum.OnKomabukuro(Util_Masu.AsMasuNumber(((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0).Now).Masu)), "[" + tesumi_yomiGenTeban + "]手目、駒が駒袋にあった。");
-
 
             try
             {
@@ -57,7 +54,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     //>>>>>>>>>> 「打」でした。
 
                     Converter04.SfenUttaSyurui(str1, out uttaSyurui);
-
                 }
                 else
                 {
@@ -91,8 +87,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 int dan;
                 dan = Converter04.Alphabet_ToInt(str4);
 
-
-
                 Finger koma;
 
                 if ("*" == str2)
@@ -112,7 +106,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         Debug.Fail(message);
                         throw new Exception(message);
                     }
-
 
                     //// FIXME: 打のとき、srcSuji、srcDan が Int.Min
                 }
@@ -284,7 +277,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string strDaHyoji, //打
             out ShootingStarlightable move,
             KifuTree kifu,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             Node<ShootingStarlightable, KyokumenWrapper> siteiNode = kifu.CurNode;
@@ -357,7 +350,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             if (Ks14.H01_Fu == srcSyurui)
             {
-                #region 歩
                 //************************************************************
                 // 歩
                 //************************************************************
@@ -382,7 +374,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
                 }
-                #endregion
             }
             else if (Ks14.H07_Hisya == srcSyurui)
             {

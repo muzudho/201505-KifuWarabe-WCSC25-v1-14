@@ -1,14 +1,7 @@
-﻿
-using Grayscale.P025_KifuLarabe.L00025_Struct;
+﻿using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-
-using Grayscale.P200_KifuNarabe.L050_Scene;
-//DynamicJson
-//スプライト番号
-
 using Grayscale.P200_KifuNarabe.L100_GUI;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
 
 namespace Grayscale.P400_KifuNaraVs.L100_GUI
 {
@@ -31,7 +24,7 @@ namespace Grayscale.P400_KifuNaraVs.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;

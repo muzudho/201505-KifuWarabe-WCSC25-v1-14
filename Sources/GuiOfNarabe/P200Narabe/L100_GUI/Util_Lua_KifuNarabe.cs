@@ -19,7 +19,7 @@ using NLua;
 using System;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
@@ -30,7 +30,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 #endif
 
         public static ShogiGui ShogiGui { get; set; }
-        public static LarabeLoggerable LogTag { get; set; }
+        public static ILogTag LogTag { get; set; }
 
         /// <summary>
         /// 

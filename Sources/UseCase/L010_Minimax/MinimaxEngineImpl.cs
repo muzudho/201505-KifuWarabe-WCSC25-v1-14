@@ -27,7 +27,6 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
     /// </summary>
     public class MinimaxEngineImpl : MinimaxEngine
     {
-
         //private static int logFileCounter;
 
         private ShogiEngine owner;
@@ -41,7 +40,6 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
 
         }
 
-
         /// <summary>
         /// 棋譜ツリーの、ノードのネクストノードに、点数を付けていきます。
         /// </summary>
@@ -53,10 +51,9 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
             PlayerInfo playerInfo,
             ReportEnvironment reportEnvironment,//MinimaxEngineImpl.REPORT_ENVIRONMENT
             GraphicalLog_File logF_kiki,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
-
             // 次ノードの有無
             if (node.Count_NextNodes < 1)
             {
@@ -100,7 +97,6 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     Logger.Engine.WriteLine_Error(message);
                     throw ;
                 }
-
             }
             else
             {
@@ -165,7 +161,6 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
             }
         }
 
-
         /// <summary>
         /// 盤１個分のログ。
         /// </summary>
@@ -175,7 +170,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
             KifuTree kifu,
             ReportEnvironment reportEnvironment,
             GraphicalLog_File logF_kiki,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             //

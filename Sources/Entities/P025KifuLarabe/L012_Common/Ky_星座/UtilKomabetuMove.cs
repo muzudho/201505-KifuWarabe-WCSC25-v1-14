@@ -14,6 +14,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 #else
 using System.Collections.Generic;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P006_Syugoron;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
@@ -26,7 +27,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 {
     public abstract class UtilKomabetuMove
     {
-
         /// <summary>
         /// 次の局面の一覧をもった、入れ物ノードを返します。
         /// </summary>
@@ -36,7 +36,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         public static KifuNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,ShootingStarlightable> komabetuAllMove,
             Node<ShootingStarlightable, KyokumenWrapper> siteiNode,
-            Playerside pside_genTeban, LarabeLoggerable logTag)
+            Playerside pside_genTeban, ILogTag logTag)
         {
             KifuNode hubNode = new KifuNodeImpl( null, null, Playerside.Empty);//蝶番
 

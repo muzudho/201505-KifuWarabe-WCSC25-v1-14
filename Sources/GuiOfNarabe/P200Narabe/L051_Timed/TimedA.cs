@@ -9,34 +9,28 @@ using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L051_Timed
 {
-
-
     /// <summary>
     /// ▲人間vs△コンピューター対局のやりとりです。
     /// </summary>
     public class TimedA : TimedAbstract
     {
-
-
         private ShogiGui shogiGui;
-
 
         public TimedA(ShogiGui shogiGui)
         {
             this.shogiGui = shogiGui;
         }
 
-
         public override void Step()
         {
-            LarabeLoggerable logTag = Logger.Gui;
+            ILogTag logTag = LogTags.Gui;
 
             // 将棋エンジンからの入力が、input99 に溜まるものとします。
             if (0 < shogiGui.Input99.Length)
             {
 
                 string message = "timer入力 input99=[" + shogiGui.Input99 + "]";
-                logTag.WriteLine_AddMemo(message);
+                Logger.WriteLineAddMemo(logTag,message);
 
                 //
                 // 棋譜入力テキストボックスに、指し手「（例）6a6b」を入力するための一連の流れです。

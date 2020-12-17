@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using System;
 using System.Diagnostics;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P027MoveGen.L100MoveGen
 {
@@ -264,7 +265,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
                         Debug.Fail(message);
 
                         // どうにもできないので  ログだけ取って、上に投げます。
-                        log.LogTag.WriteLine_Error(message);
+                        Logger.WriteLineError(log.LogTag, message);
                         throw ;
                     }
 

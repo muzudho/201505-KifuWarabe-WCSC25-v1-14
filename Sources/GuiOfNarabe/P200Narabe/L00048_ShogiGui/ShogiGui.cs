@@ -1,4 +1,5 @@
-﻿using Grayscale.P025_KifuLarabe.L00025_Struct;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
@@ -32,7 +33,7 @@ namespace Grayscale.P200_KifuNarabe.L00048_ShogiGui
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        void ChangeTurn(LarabeLoggerable logTag);
+        void ChangeTurn(ILogTag logTag);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
@@ -71,7 +72,7 @@ namespace Grayscale.P200_KifuNarabe.L00048_ShogiGui
         void SetScene(SceneName scene);
 
 
-        void Response(string mutexString, LarabeLoggerable logTag);
+        void Response(string mutexString, ILogTag logTag);
 
 
 

@@ -8,12 +8,12 @@ using Grayscale.P025_KifuLarabe.L050_Things;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L200_KifuIO
 {
     public abstract class Util_MovableMove
     {
-
         /// <summary>
         /// 指定された局面で、指定された手番の駒の、移動可能マスを算出します。
         /// 利きを調べる目的ではありません。
@@ -34,10 +34,9 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
             int yomuDeep_forLog,//脳内読み手数
             int tesumi_yomiCur_forLog,
             ShootingStarlightable move_forLog,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
-
             logBrd_move.Caption = "移動可能_" + Converter04.MoveToStringForLog(move_forLog, pside_genTeban3);
             logBrd_move.Tesumi = tesumi_yomiCur_forLog;
             logBrd_move.NounaiYomiDeep = yomuDeep_forLog;
@@ -201,14 +200,12 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     //>>>>> エラーが起こりました。
 
                     // どうにもできないので  ログだけ取って無視します。
-                    logTag.WriteLine_Error( ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：");
+                    Logger.WriteLineError(logTag, ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：");
                     throw ;
                 }
-
             }
 
             return sMs_move;
         }
-
     }
 }

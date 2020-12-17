@@ -79,7 +79,6 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
 
         private KyHyokaWriter kyHyokaWriter;
 
-
         public ShogisasiImpl(ShogiEngine owner)
         {
             this.owner = owner;
@@ -170,7 +169,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             bool isHonshogi,
             KifuTree kifu,
             PlayerInfo playerInfo,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
 

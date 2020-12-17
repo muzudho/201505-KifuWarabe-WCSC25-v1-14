@@ -58,7 +58,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 {
                     //>>>>> 棋譜が始まります。
 
-                    log.LogTag.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
+                    Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
 
                     genjo.InputLine = genjo.InputLine.Substring("moves".Length);
                     genjo.InputLine = genjo.InputLine.Trim();
@@ -68,7 +68,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 }
                 else
                 {
-                    log.LogTag.WriteLine_AddMemo("＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
+                    Logger.WriteLineAddMemo(log.LogTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
                     genjo.ToBreak = true;
                 }
             }

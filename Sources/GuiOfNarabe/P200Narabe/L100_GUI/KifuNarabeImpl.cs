@@ -120,7 +120,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             }
         }
 
-        public void SetFlowB(SceneName name1, LarabeLoggerable logTag)
+        public void SetFlowB(SceneName name1, ILogTag logTag)
         {
             this.flowB = name1;
 
@@ -238,8 +238,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
         public void Load_AsStart()
         {
-            LarabeLoggerable logTag = Logger.Gui;
-            logTag.WriteLine_AddMemo("乱数のたね＝[" + LarabeRandom.Seed + "]");
+            ILogTag logTag = LogTags.Gui;
+            Logger.WriteLineAddMemo(logTag,"乱数のたね＝[" + LarabeRandom.Seed + "]");
 
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -311,11 +311,9 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 手番が替わったときの挙動を、ここに書きます。
-        /// ************************************************************************************************************************
         /// </summary>
-        public virtual void ChangeTurn(LarabeLoggerable logTag)
+        public virtual void ChangeTurn(ILogTag logTag)
         {
         }
 
@@ -336,15 +334,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 将棋エンジンを起動します。
-        /// ************************************************************************************************************************
         /// </summary>
         public virtual void Start(string shogiEngineFilePath)
         {
         }
 
-        public void Response( string mutexString, LarabeLoggerable logTag)
+        public void Response( string mutexString, ILogTag logTag)
         {
             Ui_PnlMain ui_PnlMain = ((Ui_ShogiForm1)this.OwnerForm).Ui_PnlMain1;
 

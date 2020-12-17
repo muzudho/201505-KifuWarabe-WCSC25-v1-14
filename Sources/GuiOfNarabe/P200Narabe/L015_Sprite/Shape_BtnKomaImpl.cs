@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P200_KifuNarabe.L00006_Shape;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L015_Sprite
 {
@@ -122,9 +123,8 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// ************************************************************************************************************************
         /// </summary>
         /// <param name="g1"></param>
-        public void Paint(Graphics g1, ShogiGui shogiGui, LarabeLoggerable logTag)
+        public void Paint(Graphics g1, ShogiGui shogiGui, ILogTag logTag)
         {
-
             if (!this.Visible)
             {
                 goto gt_EndMethod;

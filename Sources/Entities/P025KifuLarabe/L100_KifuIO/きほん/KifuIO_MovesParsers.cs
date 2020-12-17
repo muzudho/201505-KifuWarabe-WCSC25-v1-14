@@ -22,9 +22,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
     {
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 将棋盤上での検索
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="srcAll">候補マス</param>
         /// <param name="komas"></param>
@@ -32,7 +30,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         public static bool Hit_JfugoParser(
             Playerside pside, Ks14 syurui, SySet<SyElement> srcAll,
             KifuTree kifu,
-            out Finger foundKoma, LarabeLoggerable logTag)
+            out Finger foundKoma, ILogTag logTag)
         {
             SkyConst src_Sky = kifu.CurNode.Value.ToKyokumenConst;
 
@@ -66,9 +64,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// テキスト形式の符号「▲７六歩△３四歩▲２六歩…」の最初の要素を、切り取ってプロセスに変換します。
-        /// ************************************************************************************************************************
         /// 
         /// [再生]、[コマ送り]で利用。
         /// </summary>
@@ -86,7 +82,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             out string str9,
             out string rest,
             KifuTree kifu,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             //nextTe = null;
@@ -146,7 +142,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                logTag.WriteLine_AddMemo("TuginoItte_JapanFugo.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」");
+                Logger.WriteLineAddMemo(logTag, "TuginoItte_JapanFugo.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」");
             }
 
 
@@ -157,9 +153,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// テキスト形式の符号「7g7f 3c3d 6g6f…」の最初の要素を、切り取ってプロセスに変換します。
-        /// ************************************************************************************************************************
         /// 
         /// [再生]、[コマ送り]で利用。
         /// </summary>
@@ -173,7 +167,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             out string str5,
             out string rest,
             KifuTree kifu,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             bool successful = false;

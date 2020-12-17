@@ -114,7 +114,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 
                                 // ８三の駒を、８九に向かって前進させます。
                                 
-                                atamanosumi = new TenonagareImpl( save_node.ToRO_Kyokumen1(Logger.Engine),
+                                atamanosumi = new TenonagareImpl( save_node.ToRO_Kyokumen1(LogTags.Engine),
                                     TenonagareName.Tukisute,
                                     1000.0d,
                                     koma83,//どの駒を
@@ -146,7 +146,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                         default: koma1 = Util_Koma.FromFinger(src_Sky, -1); break;
                     }
                     
-                    atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(Logger.Engine),
+                    atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(LogTags.Engine),
                         TenonagareName.Ido,// 「移動」タイプの狙い
                         0.05d,//1.0d,
                         koma1,
@@ -187,7 +187,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                     }
 
                     // 「取る」タイプの狙い
-                    atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(Logger.Engine),
+                    atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(LogTags.Engine),
                         TenonagareName.Toru,
                         0.1d,//1.0d,
                         koma1, koma2, new Basho(0), Logger.Engine);

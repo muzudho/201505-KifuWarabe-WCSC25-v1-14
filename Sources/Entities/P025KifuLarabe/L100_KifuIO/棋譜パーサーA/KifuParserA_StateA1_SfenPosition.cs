@@ -59,7 +59,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     // 平手の初期配置です。
                     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                    log.LogTag.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
+                    Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
 
                     genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
                     genjo.InputLine = genjo.InputLine.Trim();
@@ -75,7 +75,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 }
                 else
                 {
-                    log.LogTag.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆");
+                    Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆");
                     nextState = KifuParserA_StateA1b_SfenLnsgkgsnl.GetInstance();
                 }
             }

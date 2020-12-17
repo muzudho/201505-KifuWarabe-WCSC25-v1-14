@@ -1,18 +1,16 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P045_Atama.L00025_KyHandan;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 
 namespace Grayscale.P050_KifuWarabe.L00052_Shogisasi
 {
-
     /// <summary>
     /// 将棋指し。
     /// </summary>
     public interface Shogisasi
     {
-
         /// <summary>
         /// 心エンジン。
         /// </summary>
@@ -22,7 +20,6 @@ namespace Grayscale.P050_KifuWarabe.L00052_Shogisasi
         /// 対局開始のとき。
         /// </summary>
         void OnTaikyokuKaisi();
-
                 
         /// <summary>
         /// 指し手を決めます。
@@ -38,9 +35,7 @@ namespace Grayscale.P050_KifuWarabe.L00052_Shogisasi
             bool isHonshogi,
             KifuTree kifu,
             PlayerInfo playerInfo,
-            LarabeLoggerable logTag
+            ILogTag logTag
             );
-
     }
-
 }

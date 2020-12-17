@@ -20,17 +20,15 @@ using System.Collections.Generic;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L051_Timed
 {
-
-
     /// <summary>
     /// マウス操作の一連の流れです。（主に１手指す動き）
     /// </summary>
     public class TimedB : TimedAbstract
     {
-
         private ShogiGui shogiGui;
 
         /// <summary>
@@ -38,8 +36,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
         /// </summary>
         public Queue<MouseEventState> MouseEventQueue { get; set; }
 
-
-        public static void Check_MouseoverKomaKiki(object obj_shogiGui, Finger finger, LarabeLoggerable logTag)
+        public static void Check_MouseoverKomaKiki(object obj_shogiGui, Finger finger, ILogTag logTag)
         {
             ShogiGui shogiGui = (ShogiGui)obj_shogiGui;
 

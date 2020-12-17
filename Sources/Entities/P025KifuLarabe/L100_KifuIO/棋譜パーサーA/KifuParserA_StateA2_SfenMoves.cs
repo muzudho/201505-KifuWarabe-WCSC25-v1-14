@@ -19,13 +19,11 @@ using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
-
     /// <summary>
     /// 「moves」を読込みました。
     /// </summary>
     public class KifuParserA_StateA2_SfenMoves : KifuParserA_State
     {
-
         public static KifuParserA_StateA2_SfenMoves GetInstance()
         {
             if (null == instance)
@@ -36,7 +34,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             return instance;
         }
         private static KifuParserA_StateA2_SfenMoves instance;
-
 
         private KifuParserA_StateA2_SfenMoves()
         {
@@ -51,7 +48,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             KifuParserA_Log log
             )
         {
-
             // 現局面。
             SkyConst src_Sky = shogiGui_Base.Model_PnlTaikyoku.Kifu.CurNode.Value.ToKyokumenConst;
 //            Debug.Assert(!Util_MasuNum.OnKomabukuro((int)((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0).Now).Masu), "カレント、駒が駒袋にあった。");
@@ -133,7 +129,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                             {
                                 //「6g6f」形式でもなかった☆
 
-                                log.LogTag.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　！？　次の一手が読めない☆　inputLine=[" + genjo.InputLine + "]");
+                                Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　！？　次の一手が読めない☆　inputLine=[" + genjo.InputLine + "]");
                                 genjo.ToBreak = true;
                                 goto gt_EndMethod;
                             }
@@ -168,7 +164,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                             // ★棋譜読込専用  駒移動
                             //------------------------------
 
-                            log.LogTag.WriteLine_AddMemo("一手指し開始　：　残りの符号つ「" + genjo.InputLine + "」");
+                            Logger.WriteLineAddMemo(log.LogTag, "一手指し開始　：　残りの符号つ「" + genjo.InputLine + "」");
                             bool isBack = false;
                             Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull;
                             KifuIO.Ittesasi(
@@ -181,7 +177,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                                 log.LogTag
                                 );
                             result.Out_newNode_OrNull = out_newNode_OrNull;
-                            log.LogTag.WriteLine_AddMemo(Util_Sky.Json_1Sky(
+                            Logger.WriteLineAddMemo(log.LogTag, Util_Sky.Json_1Sky(
                                 src_Sky, "一手指し終了",
                                 log.Hint + "_SFENパース2",
                                 tesumi_yomiGenTeban_forLog//読み進めている現在の手目
@@ -194,7 +190,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                             // どうにもできないので  ログだけ取って無視します。
                             string message = this.GetType().Name + "#Execute（B）：" + ex.GetType().Name + "：" + ex.Message;
-                            log.LogTag.WriteLine_Error(message);
+                            Logger.WriteLineError(log.LogTag,message);
                         }
 
                     }
@@ -202,13 +198,13 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     {
                         genjo.ToBreak = true;
                         string message = "＼（＾ｏ＾）／teMoveオブジェクトがない☆！　inputLine=[" + genjo.InputLine + "]";
-                        log.LogTag.WriteLine_Error(message);
+                        Logger.WriteLineError(log.LogTag,message);
                         throw new Exception(message);
                     }
                 }
                 else
                 {
-                    log.LogTag.WriteLine_AddMemo("（＾△＾）現局面まで進んだのかだぜ☆？\n" + Util_Sky.Json_1Sky(
+                    Logger.WriteLineAddMemo(log.LogTag,"（＾△＾）現局面まで進んだのかだぜ☆？\n" + Util_Sky.Json_1Sky(
                         src_Sky, "棋譜パース",
                         log.Hint + "_SFENパース3",
                         tesumi_yomiGenTeban_forLog//読み進めている現在の手目
@@ -223,7 +219,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                log.LogTag.WriteLine_Error(message);
+                Logger.WriteLineError(log.LogTag,message);
             }
 
         gt_EndMethod:

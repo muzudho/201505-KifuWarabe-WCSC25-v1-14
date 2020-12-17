@@ -3,6 +3,7 @@ using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P027MoveGen.L00025_MovableMove
 {
@@ -18,7 +19,7 @@ namespace Grayscale.P027MoveGen.L00025_MovableMove
 
         ShootingStarlightable Move { get; }
 
-        LarabeLoggerable LogTag { get; }
+        ILogTag LogTag { get; }
 
         void Log1(Playerside pside_genTeban3);
 

@@ -22,19 +22,11 @@ using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L012_Common
 {
-
     /// <summary>
-    /// ************************************************************************************************************************
     /// あるデータを、別のデータに変換します。
-    /// ************************************************************************************************************************
     /// </summary>
     public abstract class Converter04
     {
-
-
-
-
-
         /// <summary>
         /// 「２八」といった表記にして返します。
         /// </summary>
@@ -55,11 +47,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return sb.ToString();
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// a～i を、1～9 に変換します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="?"></param>
         /// <returns></returns>
@@ -104,11 +93,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return num;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 1～9 を、a～i に変換します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="?"></param>
         /// <returns></returns>
@@ -154,11 +140,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return alphabet;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒の種類。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="syurui"></param>
         /// <returns></returns>
@@ -313,11 +296,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             }
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 打った駒の種類。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="syurui"></param>
         /// <returns></returns>
@@ -388,11 +368,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             }
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒の文字を、列挙型へ変換。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="moji"></param>
         /// <returns></returns>
@@ -469,9 +446,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒の文字を、列挙型へ変換。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="moji"></param>
         /// <returns></returns>
@@ -546,9 +521,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 打。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="da"></param>
         /// <returns></returns>
@@ -564,11 +537,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return daStr;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 打表示。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="daStr"></param>
         /// <returns></returns>
@@ -584,11 +554,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return daHyoji;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 成り
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="nari"></param>
         /// <returns></returns>
@@ -611,11 +578,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return nariStr;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 成り。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="nariStr"></param>
         /// <returns></returns>
@@ -639,11 +603,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return nari;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 先後。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="psideStr"></param>
         /// <returns></returns>
@@ -706,9 +667,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 先後。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="pside"></param>
         /// <returns></returns>
@@ -731,11 +690,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return psideStr;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 先後。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="pside"></param>
         /// <returns></returns>
@@ -759,11 +715,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return psideStr;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 右左。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="migiHidari"></param>
         /// <returns></returns>
@@ -793,11 +746,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return str;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 寄、右、左、直、なし
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="migiHidariStr"></param>
         /// <returns></returns>
@@ -827,11 +777,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return migiHidari;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 上がる、引く
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="agaruHiku"></param>
         /// <returns></returns>
@@ -861,11 +808,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return str;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 上がる、引く。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="agaruHikuStr"></param>
         /// <returns></returns>
@@ -895,11 +839,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return agaruHiku;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 先後の交代
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="pside">先後</param>
         /// <returns>ひっくりかえった先後</returns>
@@ -925,7 +866,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return result;
         }
 
-
         /// <summary>
         /// 変換『「駒→手」のコレクション』→『「駒、指し手」のペアのリスト』
         /// </summary>
@@ -948,7 +888,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             return kmList;
         }
-
 
         ///// <summary>
         ///// 変換『「指し手→局面」のコレクション』→『「駒、指し手」のペアのリスト』
@@ -979,14 +918,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         //    return kmList;
         //}
 
-
         /// <summary>
         /// 変換『「指し手→局面」のコレクション』→『「駒、指し手」のペアのリスト』
         /// </summary>
         public static List<Couple<Finger, SyElement>> NextNodes_ToKamList(
             SkyConst src_Sky_genzai,
             Node<ShootingStarlightable,KyokumenWrapper> hubNode,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             List<Couple<Finger, SyElement>> kmList = new List<Couple<Finger, SyElement>>();
@@ -1014,7 +952,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         public static List<Node<ShootingStarlightable, KyokumenWrapper>> NextNodes_ToList(
             Node<ShootingStarlightable, KyokumenWrapper> hubNode,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             List<Node<ShootingStarlightable, KyokumenWrapper>> list = new List<Node<ShootingStarlightable, KyokumenWrapper>>();
@@ -1028,7 +966,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return list;
         }
 
-
         /// <summary>
         /// 変換「自駒が動ける升」→「自駒が動ける手」
         /// </summary>
@@ -1039,7 +976,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             Node<ShootingStarlightable, KyokumenWrapper> siteiNode_genzai
             )
         {
-
             Maps_OneAndMulti<Finger, ShootingStarlightable> komaTe = new Maps_OneAndMulti<Finger, ShootingStarlightable>();
 
             //
@@ -1082,7 +1018,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             return komaTe;
         }
-
 
         /// <summary>
         /// 変換「各（自駒が動ける升）」→「各（自駒が動ける手）」
@@ -1132,6 +1067,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             return komabetuAllMove;
         }
+
         /// <summary>
         /// 「成り」ができるなら真。
         /// </summary>
@@ -1213,6 +1149,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             ;
             return successful;
         }
+
         /// <summary>
         /// これが通称【水際のいんちきプログラム】なんだぜ☆
         /// 必要により、【成り】の指し手を追加します。
@@ -1260,6 +1197,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 throw new Exception("Convert04.cs#AddNariMoveでｴﾗｰ。:"+ex.GetType().Name+":"+ex.Message);
             }
         }
+
         /// <summary>
         /// これが通称【水際のいんちきプログラム】なんだぜ☆
         /// 必要により、【成り】の指し手を追加します。
@@ -1267,7 +1205,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         public static void AddNariMove(
             KifuNode node_yomiCur,
             KifuNode hubNode,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             try
@@ -1369,7 +1307,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         Debug.Fail(message);
 
                         // どうにもできないので  ログだけ取って、上に投げます。
-                        logTag.WriteLine_Error(message);
+                        Logger.WriteLineError(logTag,message);
                         throw ;
                     }
 
@@ -1383,6 +1321,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 throw new Exception("Convert04.cs#AddNariMoveでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
             }
         }
+
         public static void AssertNariMove(Maps_OneAndMulti<Finger, ShootingStarlightable> komabetuAllMove, string hint)
         {
             /*
@@ -1405,6 +1344,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             ;
              */
         }
+
         public static void AssertNariMove(Node<ShootingStarlightable, KyokumenWrapper> hubNode, string hint)
         {
             /*
@@ -1427,13 +1367,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
              */
         }
 
-
-
         public static Dictionary<ShootingStarlightable, KyokumenWrapper> KomabetuMasus_ToMovebetuSky(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
             SkyConst src_Sky,
             Playerside pside,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             Dictionary<ShootingStarlightable, KyokumenWrapper> resultMovebetuSky = new Dictionary<ShootingStarlightable, KyokumenWrapper>();
@@ -1463,7 +1401,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         public static Dictionary<ShootingStarlightable, KyokumenWrapper> KomabetuMasusToMovebetuSky(
-            List_OneAndMulti<Finger, SySet<SyElement>> sMs, SkyConst src_Sky, Playerside pside, LarabeLoggerable logTag)
+            List_OneAndMulti<Finger, SySet<SyElement>> sMs, SkyConst src_Sky, Playerside pside, ILogTag logTag)
         {
             Dictionary<ShootingStarlightable, KyokumenWrapper> result = new Dictionary<ShootingStarlightable, KyokumenWrapper>();
 
@@ -1489,7 +1427,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             return result;
         }
-
 
         public static KifuNode MovebetuSky_ToHubNode(Dictionary<ShootingStarlightable, KyokumenWrapper> movebetuSkys, Playerside nextTebanside)
         {

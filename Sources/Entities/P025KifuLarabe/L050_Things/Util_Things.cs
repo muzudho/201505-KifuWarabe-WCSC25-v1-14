@@ -15,7 +15,7 @@ using Grayscale.P025_KifuLarabe.L025_Play;
 using Grayscale.P006_Syugoron;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L050_Things
 {
@@ -47,7 +47,7 @@ namespace Grayscale.P025_KifuLarabe.L050_Things
             SkyConst src_Sky,
             bool enableLog,
             string hint_orNull,
-            LarabeLoggerable logTag_orNull
+            ILogTag logTag_orNull
             )
         {
             // 利きを調べる側の利き（戦駒）
@@ -77,7 +77,7 @@ namespace Grayscale.P025_KifuLarabe.L050_Things
             SySet<SyElement> masus_kurau_IKUSA,
             SkyConst src_Sky,
             string hint_orNull,
-            LarabeLoggerable logTag_orNull
+            ILogTag logTag_orNull
             )
         {
             // 「どの持ち駒を」「どこに置けるか」のコレクション。
@@ -106,7 +106,7 @@ namespace Grayscale.P025_KifuLarabe.L050_Things
             SkyConst src_Sky,
             Playerside tebanSeme,
             Playerside tebanKurau,
-            LarabeLoggerable logTag_OrNull
+            ILogTag logTag_OrNull
         )
         {
             // 戦駒

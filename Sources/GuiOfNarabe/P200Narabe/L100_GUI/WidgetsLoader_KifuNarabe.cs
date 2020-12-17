@@ -18,7 +18,7 @@ using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P200_KifuNarabe.L00047_Scene;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
@@ -305,7 +305,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -330,7 +330,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -354,7 +354,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -373,7 +373,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -392,7 +392,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -412,7 +412,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -445,7 +445,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -467,7 +467,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -498,7 +498,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -571,7 +571,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     widget.Delegate_MouseHitEvent = (
                         object obj_shogiGui2
                         , Shape_BtnKoma btnKoma_Selected
-                        , LarabeLoggerable logTag
+                        , ILogTag logTag
                         ) =>
                     {
                         ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -592,7 +592,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -612,7 +612,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -632,7 +632,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -652,7 +652,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , LarabeLoggerable logTag
+                    , ILogTag logTag
                     ) =>
                 {
                     ShogiGui shogiGui = (ShogiGui)obj_shogiGui2;
@@ -770,7 +770,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         private void After_NaruNaranai(
             ShogiGui shogiGui
             , Shape_BtnKoma btnTumandeiruKoma
-            , LarabeLoggerable logTag
+            , ILogTag logTag
         )
         {
 

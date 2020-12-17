@@ -68,7 +68,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     //          *1…初期配置を作るということです。
                     // 
 
-                    log.LogTag.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆");
+                    Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆");
                     genjo.InputLine = genjo.InputLine.Substring("position".Length);
                     genjo.InputLine = genjo.InputLine.Trim();
 
@@ -77,7 +77,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 }
                 else
                 {
-                    log.LogTag.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + shogiGui_Base.Model_PnlTaikyoku.Kifu.CountPside(shogiGui_Base.Model_PnlTaikyoku.Kifu.CurNode) + "]　hint=" + log.Hint);
+                    Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + shogiGui_Base.Model_PnlTaikyoku.Kifu.CountPside(shogiGui_Base.Model_PnlTaikyoku.Kifu.CurNode) + "]　hint=" + log.Hint);
                     nextState = KifuParserA_StateA2_SfenMoves.GetInstance();
                 }
 

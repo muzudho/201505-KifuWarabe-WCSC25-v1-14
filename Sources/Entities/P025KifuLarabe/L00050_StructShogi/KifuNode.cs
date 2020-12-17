@@ -1,4 +1,5 @@
-﻿using Grayscale.P006Sfen;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P006Sfen;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L012_Common;
@@ -10,16 +11,14 @@ namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
     {
 
 
-        ISfenPosition1 ToRO_Kyokumen1(LarabeLoggerable logTag);
-        string ToSfenstring(Playerside pside, LarabeLoggerable logTag);
+        ISfenPosition1 ToRO_Kyokumen1(ILogTag logTag);
+        string ToSfenstring(Playerside pside, ILogTag logTag);
 
         void AppdendNextNodes(Node<ShootingStarlightable, KyokumenWrapper> hubNode);
 
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 棋譜に符号を追加します。
-        /// ************************************************************************************************************************
         /// 
         /// KifuIO を通して使ってください。
         /// 
@@ -34,13 +33,13 @@ namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
         /// <summary>
         /// 王手がかかった局面は取り除きます。
         /// </summary>
-        Maps_OneAndMulti<Finger, ShootingStarlightable> SplitMoveByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, LarabeLoggerable logTag);
+        Maps_OneAndMulti<Finger, ShootingStarlightable> SplitMoveByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, ILogTag logTag);
 
         string Json_NextNodes_MultiSky(
             string memo,
             string hint,
             int tesumi_yomiGenTeban_forLog,//読み進めている現在の手目済
-            LarabeLoggerable logTag
+            ILogTag logTag
             );
 
         /// <summary>

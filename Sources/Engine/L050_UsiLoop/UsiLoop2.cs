@@ -240,9 +240,9 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                     ref result,
                     new ShogiGui_Warabe(this.Kifu),
                     new KifuParserA_GenjoImpl(line),
-                    new KifuParserA_LogImpl( Logger.Engine, "Program#Main(Warabe)")
+                    new KifuParserA_LogImpl( LogTags.Engine, "Program#Main(Warabe)")
                     );
-                this.Log2(line, (KifuNode)result.Out_newNode_OrNull, Logger.Engine);
+                this.Log2(line, (KifuNode)result.Out_newNode_OrNull, LogTags.Engine);
 
 
                 //------------------------------------------------------------
@@ -269,11 +269,11 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
         {
             Logger.Engine.WriteLine_AddMemo(message);
         }
-        private void Log2(string line, KifuNode kifuNode, LarabeLoggerable logTag)
+        private void Log2(string line, KifuNode kifuNode, ILogTag logTag)
         {
             int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
 
-            Logger.Engine.WriteLine_AddMemo(Util_Sky.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, Logger.Engine),
+            Logger.Engine.WriteLine_AddMemo(Util_Sky.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine),
                 "PgCS",
                 tesumi_yomiGenTeban_forLog//読み進めている現在の手目
                 ));
@@ -482,7 +482,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                     isHonshogi,
                                     this.Kifu,
                                     this.owner.PlayerInfo,
-                                    Logger.Engine
+                                    LogTags.Engine
                                     );
 
 
@@ -492,14 +492,14 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 {
                                     string sfenText = Util_Sky.ToSfenMoveText(bestMove);
                                     Logger.Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
-                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, Logger.Engine));
+                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
 
                                     this.owner.Send("bestmove " + sfenText);//指し手を送ります。
                                 }
                                 else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                                 {
                                     Logger.Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
-                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, Logger.Engine));
+                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
 
                                     // 投了ｗ！
                                     this.owner.Send("bestmove resign");

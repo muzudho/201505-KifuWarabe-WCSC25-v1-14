@@ -1,4 +1,5 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
@@ -21,10 +22,6 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
     /// </summary>
     public class Shape_PnlTaikyokuImpl : Shape_Abstract, Shape_PnlTaikyoku
     {
-
-
-        #region プロパティ類
-
         public Dictionary<string, UserWidget> Widgets { get; set; }
         public void SetWidget(string name, UserWidget widget)
         {
@@ -260,54 +257,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// </summary>
         private Shape_LblBoxImpl lblPside;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //------------------------------------------------------------
-        #endregion
-
 
         /// <summary>
         /// ************************************************************************************************************************
@@ -425,7 +375,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         public void Paint(
             object sender, PaintEventArgs e,
             ShogiGui shogiGui,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             if (!this.Visible)

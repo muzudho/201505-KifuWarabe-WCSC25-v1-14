@@ -11,6 +11,7 @@ using Grayscale.P025_KifuLarabe.L007_Random;
 using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
@@ -20,10 +21,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         public string Hint { get { return this.hint; } }
         private string hint;
 
-        public LarabeLoggerable LogTag { get { return this.logTag; } }
-        private LarabeLoggerable logTag;
+        public ILogTag LogTag { get { return this.logTag; } }
+        private ILogTag logTag;
 
-        public KifuParserA_LogImpl( LarabeLoggerable logTag, string hint)
+        public KifuParserA_LogImpl( ILogTag logTag, string hint)
         {
             this.hint = hint;
             this.logTag = logTag;

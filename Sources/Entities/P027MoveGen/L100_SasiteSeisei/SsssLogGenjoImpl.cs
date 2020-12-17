@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P027MoveGen.L0005MoveGen;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
 
 namespace Grayscale.P027MoveGen.L100MoveGen
 {
@@ -14,10 +10,10 @@ namespace Grayscale.P027MoveGen.L100MoveGen
         private bool enableLog;
 
 
-        public LarabeLoggerable LogTag { get { return this.logTag; } }
-        private LarabeLoggerable logTag;
+        public ILogTag LogTag { get { return this.logTag; } }
+        private ILogTag logTag;
 
-        public SsssLogGenjoImpl(bool enableLog, LarabeLoggerable logTag)
+        public SsssLogGenjoImpl(bool enableLog, ILogTag logTag)
         {
             this.enableLog = enableLog;
             this.logTag = logTag;

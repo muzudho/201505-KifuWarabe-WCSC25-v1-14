@@ -18,17 +18,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
-
-
     /// <summary>
     /// 基本的に、本将棋でなければ　正しく使えません。
     /// </summary>
     public abstract class Util_LegalMove
     {
-
         /// <summary>
         /// 指定された手の中から、王手局面を除外します。
         /// 
@@ -47,13 +45,13 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             bool enableLog,
             GraphicalLog_File logF_kiki,
             string hint,
-            LarabeLoggerable logTag)
+            ILogTag logTag)
         {
             Node<ShootingStarlightable, KyokumenWrapper> hubNode = UtilKomabetuMove.ToNextNodes_AsHubNode(
                 genTeban_komabetuAllMove1, siteiNode_yomiGenTeban, pside_yomiGenTeban, logTag
                 );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
             Converter04.AssertNariMove(hubNode, "#LA_RemoveMate(1)");//ここはok
-            Util_LegalMove.Log1(hubNode,enableLog, tesumi_yomiGenTeban, hint, logTag);
+            Util_LegalMove.Log1(hubNode, enableLog, tesumi_yomiGenTeban, hint, logTag);
 
 
             if (isHonshogi)
@@ -113,7 +111,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             bool enableLog,
             int tesumi_yomiGenTeban,
             string hint,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             Util_GraphicalLog.Log(enableLog, "Util_LegalMove(王手回避漏れ02)王手を回避するかどうかに関わらず、ひとまず全ての次の手", "[" +
@@ -134,7 +132,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             int tesumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
             GraphicalLog_File logF_kiki,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             // Node<,>の形で。
@@ -189,7 +187,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             Playerside pside_genTeban,//現手番側
             GraphicalLog_File logF_kiki,
             ShootingStarlightable move_forLog,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             bool isHonshogi = true;
@@ -199,7 +197,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             // 「相手の駒を動かしたときの利き」リスト
             // 持ち駒はどう考える？「駒を置けば、思い出王手だってある」
             List_OneAndMulti<Finger, SySet<SyElement>> sMs_effect_aiTeban = Util_LegalMove.LAAAA_GetEffect(
-                enableLog, 
+                enableLog,
                 isHonshogi,
                 src_Sky,
                 pside_genTeban,
@@ -211,7 +209,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 move_forLog,
                 logTag);
 
-            
+
             // 現手番側が受け手に回ったとします。現手番の、王の座標
             SyElement genTeban_kingMasu;
 
@@ -221,14 +219,14 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now);
 
-                    genTeban_kingMasu = koma.Masu;
+                genTeban_kingMasu = koma.Masu;
             }
             else
             {
                 // 現手番は、先手
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now);
 
-                    genTeban_kingMasu = koma.Masu;
+                genTeban_kingMasu = koma.Masu;
             }
 
 
@@ -248,7 +246,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             return mate;
         }
-        
+
 
         /// <summary>
         /// 指定された局面で、指定された手番の駒の、利きマスを算出します。
@@ -271,7 +269,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             int yomuDeep_forLog,//脳内読み手数
             int tesumi_yomiCur_forLog,
             ShootingStarlightable move_forLog,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             GraphicalLog_Board logBrd_kiki = new GraphicalLog_Board();
@@ -283,7 +281,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             logF_kiki.boards.Add(logBrd_kiki);
 
             // 《１》
-            List_OneAndMulti<Finger, SySet<SyElement>> sMs_effect = new List_OneAndMulti<Finger,SySet<SyElement>>();//盤上の駒の利き
+            List_OneAndMulti<Finger, SySet<SyElement>> sMs_effect = new List_OneAndMulti<Finger, SySet<SyElement>>();//盤上の駒の利き
             {
                 // 《１．１》
                 Playerside tebanSeme;//手番（利きを調べる側）
@@ -304,7 +302,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     {
                         logBrd_kiki.NounaiSeme = Gkl_NounaiSeme.Sente;
                     }
-                    else if(Playerside.P2 == tebanSeme)
+                    else if (Playerside.P2 == tebanSeme)
                     {
                         logBrd_kiki.NounaiSeme = Gkl_NounaiSeme.Gote;
                     }
@@ -336,11 +334,11 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
 
-                        Gkl_KomaMasu km = new Gkl_KomaMasu(
-                            Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
-                            Util_Masu.AsMasuNumber(koma.Masu)
-                            );
-                        boardLog_clone.KomaMasu1.Add(km);
+                    Gkl_KomaMasu km = new Gkl_KomaMasu(
+                        Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
+                        Util_Masu.AsMasuNumber(koma.Masu)
+                        );
+                    boardLog_clone.KomaMasu1.Add(km);
                 }
 
                 foreach (Finger finger in fingers_kurau_IKUSA.Items)
@@ -348,10 +346,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
 
-                        logBrd_kiki.KomaMasu2.Add(new Gkl_KomaMasu(
-                            Util_GraphicalLog.PsideKs14_ToString(tebanKurau, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
-                            Util_Masu.AsMasuNumber(koma.Masu)
-                            ));
+                    logBrd_kiki.KomaMasu2.Add(new Gkl_KomaMasu(
+                        Util_GraphicalLog.PsideKs14_ToString(tebanKurau, Haiyaku184Array.Syurui(koma.Haiyaku), ""),
+                        Util_Masu.AsMasuNumber(koma.Masu)
+                        ));
                 }
 
                 logBrd_kiki = boardLog_clone;
@@ -383,12 +381,12 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(key).Now);
 
 
-                        string komaImg = Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), "");
+                    string komaImg = Util_GraphicalLog.PsideKs14_ToString(tebanSeme, Haiyaku184Array.Syurui(koma.Haiyaku), "");
 
-                        foreach (Basho masu in value.Elements)
-                        {
-                            boardLog_clone.Masu_theEffect.Add((int)masu.MasuNumber);
-                        }
+                    foreach (Basho masu in value.Elements)
+                    {
+                        boardLog_clone.Masu_theEffect.Add((int)masu.MasuNumber);
+                    }
                 });
 
                 logBrd_kiki = boardLog_clone;
@@ -397,7 +395,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 try
                 {
                     // 《１》　＝　《１．４》の戦駒＋持駒
-                    sMs_effect.AddRange_New( kmEffect_seme_IKUSA);
+                    sMs_effect.AddRange_New(kmEffect_seme_IKUSA);
 
                 }
                 catch (Exception ex)
@@ -405,17 +403,13 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     //>>>>> エラーが起こりました。
 
                     // どうにもできないので  ログだけ取って無視します。
-                    logTag.WriteLine_Error( ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：");
-                    throw ;
+                    Logger.WriteLineError(logTag, ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：");
+                    throw;
                 }
 
             }
 
             return sMs_effect;
         }
-
-
-
-
     }
 }

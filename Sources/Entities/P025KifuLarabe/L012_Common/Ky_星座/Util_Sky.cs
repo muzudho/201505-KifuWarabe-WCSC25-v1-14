@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P006_Syugoron;
 using Grayscale.P006Sfen;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
@@ -22,7 +23,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, Ks14.H00_Null),
             null
             );
-
 
         public static SfenStringImpl ExportSfen(SkyConst src_Sky)
         {
@@ -56,7 +56,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return startposImporter.ToSky();
         }
 
-
         /// <summary>
         /// 「グラフィカル局面ログ」出力用だぜ☆
         /// </summary>
@@ -71,7 +70,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             //[CallerLineNumber] int sourceLineNumber = 0
             )
         {
-
             //...(^▽^)さて、局面は☆？
             StringBuilder sb = new StringBuilder();
 
@@ -131,8 +129,6 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return sb.ToString();
         }
 
-
-
         public static SySet<SyElement> Masus_Now(SkyConst src_Sky, Playerside pside)
         {
             SySet_Default<SyElement> masus = new SySet_Default<SyElement>("今の升");
@@ -152,9 +148,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// **********************************************************************************************************************
         /// 駒のハンドルを返します。
-        /// **********************************************************************************************************************
         /// </summary>
         /// <param name="okiba"></param>
         /// <param name="kifuD"></param>
@@ -179,15 +173,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒の種類（不成として扱います）を指定して、駒を検索します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="okiba"></param>
         /// <param name="syurui"></param>
         /// <param name="uc_Main"></param>
         /// <returns>無ければ -1</returns>
-        public static Finger FingerNow_BySyuruiIgnoreCase(SkyConst src_Sky, Okiba okiba, Ks14 syurui, LarabeLoggerable logTag)
+        public static Finger FingerNow_BySyuruiIgnoreCase(SkyConst src_Sky, Okiba okiba, Ks14 syurui, ILogTag logTag)
         {
             Finger found = Fingers.Error_1;
 
@@ -209,9 +201,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒のハンドル(*1)を返します。
-        /// ************************************************************************************************************************
         /// 
         ///         *1…将棋の駒１つ１つに付けられた番号です。
         /// 
@@ -219,7 +209,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers Fingers_BySyuruiNow(SkyConst src_Sky, Ks14 syurui, LarabeLoggerable logTag)
+        public static Fingers Fingers_BySyuruiNow(SkyConst src_Sky, Ks14 syurui, ILogTag logTag)
         {
             Fingers figKomas = new Fingers();
 
@@ -238,15 +228,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒のハンドルを返します。　：　置き場、種類
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="okiba"></param>
         /// <param name="syurui"></param>
         /// <param name="kifu"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByOkibaSyuruiNow(SkyConst src_Sky, Okiba okiba, Ks14 syurui, LarabeLoggerable logTag)
+        public static Fingers Fingers_ByOkibaSyuruiNow(SkyConst src_Sky, Okiba okiba, Ks14 syurui, ILogTag logTag)
         {
             Fingers komas = new Fingers();
 
@@ -268,16 +256,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒のハンドルを返します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="okiba"></param>
         /// <param name="pside"></param>
         /// <param name="syurui"></param>
         /// <param name="kifu"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByOkibaPsideSyuruiNow(SkyConst src_Sky, Okiba okiba, Playerside pside, Ks14 syurui, LarabeLoggerable logTag)
+        public static Fingers Fingers_ByOkibaPsideSyuruiNow(SkyConst src_Sky, Okiba okiba, Playerside pside, Ks14 syurui, ILogTag logTag)
         {
             Fingers figKomas = new Fingers();
 
@@ -299,13 +285,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 軌道上の駒たち
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="km"></param>
         /// <returns></returns>
-        public static Fingers Fingers_EachSrcNow(SkyConst src_Sky, Playerside pside, Starlight itaru, SySet<SyElement> srcList, LarabeLoggerable logTag)
+        public static Fingers Fingers_EachSrcNow(SkyConst src_Sky, Playerside pside, Starlight itaru, SySet<SyElement> srcList, ILogTag logTag)
         {
             Fingers fingers = new Fingers();
 
@@ -324,9 +308,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 指定のマスにある駒を返します。（本将棋用）
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
@@ -350,9 +332,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 指定のマスにある駒を返します。（本将棋用）
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
@@ -382,9 +362,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 指定のマスにある駒を返します。（本将棋用）
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
@@ -414,9 +392,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 指定のマスにあるスプライトを返します。（本将棋用）
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
@@ -439,9 +415,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 指定の筋にあるスプライトを返します。（本将棋用）
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="suji">筋番号1～9</param>
         /// <returns></returns>
@@ -467,9 +441,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 指定の場所にある駒を返します。
-        /// ************************************************************************************************************************
         /// 
         ///         先後は見ますが、将棋盤限定です。
         /// 
@@ -478,7 +450,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger Finger_AtMasuNow_Shogiban(SkyConst src_Sky, Playerside pside, SyElement masu, LarabeLoggerable logTag)
+        public static Finger Finger_AtMasuNow_Shogiban(SkyConst src_Sky, Playerside pside, SyElement masu, ILogTag logTag)
         {
             Finger foundKoma = Fingers.Error_1;
 
@@ -516,14 +488,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 指定した置き場にある駒のハンドルを返します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="kifu"></param>
         /// <param name="okiba"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByOkibaNow(SkyConst src_Sky, Okiba okiba, LarabeLoggerable logTag)
+        public static Fingers Fingers_ByOkibaNow(SkyConst src_Sky, Okiba okiba, ILogTag logTag)
         {
             Fingers komas = new Fingers();
 
@@ -542,14 +512,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒のハンドルを返します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="pside"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByPsideNow(SkyConst src_Sky,Playerside pside, LarabeLoggerable logTag)
+        public static Fingers Fingers_ByPsideNow(SkyConst src_Sky,Playerside pside, ILogTag logTag)
         {
             Fingers fingers = new Fingers();
 
@@ -568,27 +536,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fingers;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 含まれるか判定。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Starlight sl, SySet<SyElement> masus, SkyConst src_Sky, LarabeLoggerable logTag)
+        public static bool ExistsIn(Starlight sl, SySet<SyElement> masus, SkyConst src_Sky, ILogTag logTag)
         {
             bool matched = false;
 
@@ -629,9 +582,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 相手陣に入っていれば真。
-        /// ************************************************************************************************************************
         /// 
         ///         後手は 7,8,9 段。
         ///         先手は 1,2,3 段。
@@ -791,9 +742,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒台の上にあれば真。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
         public static bool OnKomadai(RO_MotionlessStarlight ms)
@@ -809,9 +758,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 先後一致判定。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="ms2"></param>
         /// <returns></returns>
@@ -899,9 +846,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// SFEN符号表記。
-        /// ************************************************************************************************************************
         /// 
         /// ファイル名にも使えるように、ファイル名に使えない文字を置換します。
         /// </summary>
@@ -921,11 +866,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return moveText;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// SFEN符号表記。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
         public static string ToSfenMoveText(
@@ -1075,9 +1017,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 元位置。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
         public static ShootingStarlightable Src(ShootingStarlightable move)
@@ -1124,9 +1064,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// SFEN符号表記。（取った駒付き）
-        /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
         public static string ToSfenText_TottaKomaSyurui(RO_ShootingStarlight ss)
@@ -1193,9 +1131,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒の移動可能升
-        /// ************************************************************************************************************************
         /// 
         /// FIXME: ポテンシャルなので、貫通している。
         /// 
@@ -1350,9 +1286,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒を、平手の初期配置に並べます。
-        /// ************************************************************************************************************************
         /// </summary>
         public static SkyConst New_Hirate()
         {

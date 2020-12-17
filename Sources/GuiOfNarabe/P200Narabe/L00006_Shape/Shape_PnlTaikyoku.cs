@@ -1,4 +1,5 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
@@ -72,7 +73,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
         void Paint(
             object sender, PaintEventArgs e,
             ShogiGui shogiGui,
-            LarabeLoggerable logTag
+            ILogTag logTag
         );
 
         /// <summary>

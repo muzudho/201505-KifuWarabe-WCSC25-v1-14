@@ -14,10 +14,6 @@ using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 {
-
-
-
-
     public class KifuTreeImpl : TreeImpl<ShootingStarlightable, KyokumenWrapper>, KifuTree
     {
         public const string PropName_Startpos = "prop_startpos";
@@ -99,7 +95,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             Ks14 tottaSyurui,
             SkyConst src_Sky,
             string hint,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             if (this.CountTesumi(this.CurNode) < 1)
@@ -138,7 +134,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 
             this.CurNode = sasikaeNode;
 
-            logTag.WriteLine_AddMemo("リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky.ToSfenMoveText(sasikaeKey) + "]");
+            Logger.WriteLineAddMemo(logTag, "リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky.ToSfenMoveText(sasikaeKey) + "]");
         // memberName=[" + memberName + "] sourceFilePath=[" + sourceFilePath + "] sourceLineNumber=[" + sourceLineNumber + "]
 
         gt_EndMethod:
@@ -152,7 +148,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         /// [ここから採譜]機能
         /// ************************************************************************************************************************
         /// </summary>
-        public void SetStartpos_KokokaraSaifu( Playerside pside, LarabeLoggerable logTag)
+        public void SetStartpos_KokokaraSaifu( Playerside pside, ILogTag logTag)
         {
 
             //------------------------------------------------------------

@@ -1,4 +1,5 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using System.Drawing;
 
@@ -11,7 +12,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
     public delegate void DELEGATE_MouseHitEvent(
          object obj_shogiGui //ShogiGui
         , Shape_BtnKoma btnKoma_Selected
-        , LarabeLoggerable logTag
+        , ILogTag logTag
     );
 
 

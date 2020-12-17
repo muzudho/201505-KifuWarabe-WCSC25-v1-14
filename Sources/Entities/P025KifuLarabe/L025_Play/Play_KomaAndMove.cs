@@ -18,7 +18,7 @@ using Grayscale.P025_KifuLarabe.L100_KifuIO;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P006_Syugoron;
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L025_Play
 {
@@ -40,7 +40,7 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
             SkyConst src_Sky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a1,
             SySet<SyElement> b,
-            LarabeLoggerable logTag_orNull
+            ILogTag logTag_orNull
             )
         {
             //GraphicalLogUtil.Log(enableLog, "Thought_KomaAndMove#MinusMasus",
@@ -80,7 +80,7 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
             SkyConst src_srcSky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a,
             SySet<SyElement> b,
-            LarabeLoggerable logTag_orNull
+            ILogTag logTag_orNull
         )
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> c = new Maps_OneAndOne<Finger, SySet<SyElement>>(a);

@@ -1,13 +1,12 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P006_Syugoron;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
-using Grayscale.P027MoveGen.L00025_MovableMove;
-using Grayscale.P006_Syugoron;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P025_KifuLarabe.L050_Things;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
-using System;
+using Grayscale.P027MoveGen.L00025_MovableMove;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P027MoveGen.L050_MovableMove
@@ -29,8 +28,8 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
         public ShootingStarlightable Move { get { return this.move; } }
         private ShootingStarlightable move;
 
-        public LarabeLoggerable LogTag { get { return this.logTag; } }
-        private LarabeLoggerable logTag;
+        public ILogTag LogTag { get { return this.logTag; } }
+        private ILogTag logTag;
 
 
         public MmLogGenjoImpl(
@@ -39,7 +38,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
             int yomuDeep,//脳内読み手数
             int tesumi_yomiCur,
             ShootingStarlightable move,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             this.enable = enable;

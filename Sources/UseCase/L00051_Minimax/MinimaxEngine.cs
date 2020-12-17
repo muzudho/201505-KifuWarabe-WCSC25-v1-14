@@ -1,5 +1,5 @@
-﻿using Grayscale.P007_SfenReport.L00025_Report;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
+﻿using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 using Grayscale.P045_Atama.L00025_KyHandan;
@@ -9,7 +9,6 @@ namespace Grayscale.P050_KifuWarabe.L00051_Minimax
 {
     public interface MinimaxEngine
     {
-
         /// <summary>
         /// 棋譜ツリーの、ノードのネクストノードに、点数を付けていきます。
         /// </summary>
@@ -21,8 +20,7 @@ namespace Grayscale.P050_KifuWarabe.L00051_Minimax
             PlayerInfo playerInfo,
             ReportEnvironment reportEnvironment,//MinimaxEngineImpl.REPORT_ENVIRONMENT
             GraphicalLog_File logF_kiki,
-            LarabeLoggerable logTag
+            ILogTag logTag
             );
-
     }
 }

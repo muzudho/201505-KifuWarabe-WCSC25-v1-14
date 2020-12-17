@@ -13,14 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L025_Play
 {
-
-
     public abstract class Play
     {
-
         /// <summary>
         /// 指定した駒全てについて、基本的な駒の動きを返します。（金は「前、ななめ前、横、下に進める」のような）
         /// </summary>
@@ -31,7 +29,7 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Get_PotentialMoves_Ikusa(
             SkyConst src_Sky,
             Fingers fingers,
-            LarabeLoggerable logTag_orNull
+            ILogTag logTag_orNull
             )
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> kiki_fMs = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの駒を、どこに進める」の一覧
@@ -65,10 +63,9 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
             SkyConst src_Sky,
             Fingers fingers,
             SySet<SyElement> okenaiMasus,
-            LarabeLoggerable logTag_orNull
+            ILogTag logTag_orNull
             )
         {
-
             // 「どの持ち駒を」「どこに置いたとき」「どこに利きがある」のコレクション。
             List_OneAndMulti<Finger, SySet<SyElement>> resultOmm = new List_OneAndMulti<Finger, SySet<SyElement>>();
 
@@ -121,8 +118,5 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
 
             return resultOmm;
         }
-
     }
-
-
 }

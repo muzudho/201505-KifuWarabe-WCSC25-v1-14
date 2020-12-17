@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P006Sfen;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
@@ -64,9 +65,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 棋譜に符号を追加します。
-        /// ************************************************************************************************************************
         /// 
         /// KifuIO を通して使ってください。
         /// 
@@ -96,7 +95,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         /// <param name="hubNode">指し手一覧</param>
         /// <param name="logTag"></param>
         /// <returns>駒毎の、全指し手</returns>
-        public Maps_OneAndMulti<Finger, ShootingStarlightable> SplitMoveByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, LarabeLoggerable logTag)
+        public Maps_OneAndMulti<Finger, ShootingStarlightable> SplitMoveByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, ILogTag logTag)
         {
             SkyConst src_Sky = this.Value.ToKyokumenConst;
 
@@ -120,7 +119,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             string memo,
             string hint,
             int tesumi_yomiGenTeban_forLog,//読み進めている現在の手目済
-            LarabeLoggerable logTag)
+            ILogTag logTag)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -138,7 +137,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         }
 
 
-        public ISfenPosition1 ToRO_Kyokumen1(LarabeLoggerable logTag)
+        public ISfenPosition1 ToRO_Kyokumen1(ILogTag logTag)
         {
             ISfenPosition1 ro_Kyokumen1 = new SfenPosition1Impl();
 
@@ -225,7 +224,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         }
 
 
-        public string ToSfenstring(Playerside pside, LarabeLoggerable logTag)
+        public string ToSfenstring(Playerside pside, ILogTag logTag)
         {
             SkyConst src_Sky = this.Value.ToKyokumenConst;
 
@@ -520,7 +519,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             out int mn,
             out int ml,
             out int mp,
-            LarabeLoggerable logTag
+            ILogTag logTag
         )
         {
             mK = 0;

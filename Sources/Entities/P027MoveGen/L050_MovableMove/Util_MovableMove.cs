@@ -9,6 +9,7 @@ using Grayscale.P025_KifuLarabe.L100_KifuIO;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P027MoveGen.L00025_MovableMove;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P027MoveGen.L050_MovableMove
 {
@@ -212,7 +213,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                     if (null != log_orNull)
                     {
                         // どうにもできないので  ログだけ取って無視します。
-                        log_orNull.LogTag.WriteLine_Error(msg);
+                        Logger.WriteLineError(log_orNull.LogTag, msg);
                     }
 
                     throw new Exception( msg,ex);

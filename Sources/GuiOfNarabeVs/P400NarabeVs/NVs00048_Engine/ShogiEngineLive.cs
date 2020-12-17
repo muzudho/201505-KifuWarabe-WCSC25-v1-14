@@ -1,7 +1,4 @@
-﻿
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L012_Common;
+﻿using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 
 namespace Grayscale.P400_KifuNaraVs.L00048_Engine
@@ -13,7 +10,7 @@ namespace Grayscale.P400_KifuNaraVs.L00048_Engine
 
         ShogiEngineManInterface ShogiEngineManInterface { get; set; }
 
-        void ChangeTurn99(KifuTree kifu, LarabeLoggerable logTag);
+        void ChangeTurn99(KifuTree kifu, ILogTag logTag);
 
     }
 }

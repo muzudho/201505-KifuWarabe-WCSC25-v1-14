@@ -1,4 +1,5 @@
 ﻿
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L100_Write;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
@@ -15,7 +16,6 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
     {
         private static int logFileCounter;
 
-
         /// <summary>
         /// 棋譜ツリーの、ノードに格納されている、局面評価明細を、出力していきます。
         /// </summary>
@@ -26,10 +26,9 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
             PlayerInfo playerInfo,
             string relFolder,
             ReportEnvironment reportEnvironment,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
-
             // 次ノードの有無
             if (0<node.Count_NextNodes)
             {
@@ -76,7 +75,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
             KifuTree kifu,
             string relFolder,
             ReportEnvironment reportEnvironment,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             // 出力先

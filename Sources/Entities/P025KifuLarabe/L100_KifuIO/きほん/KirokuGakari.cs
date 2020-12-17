@@ -8,22 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
-
     /// <summary>
-    /// ************************************************************************************************************************
     /// 記録係
-    /// ************************************************************************************************************************
     /// </summary>
     public abstract class KirokuGakari
     {
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 棋譜データを元に、符号リスト１(*1)を出力します。
-        /// ************************************************************************************************************************
         /// 
         ///     *1…「▲２六歩△８四歩▲７六歩」といった書き方。
         /// 
@@ -31,7 +26,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="fugoList"></param>
         public static string ToJapaneseKifuText(
             KifuTree kifu,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             StringBuilder sb = new StringBuilder();
@@ -96,11 +91,8 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             return sb.ToString();
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 棋譜データを元に、符号リスト２(*1)を出力します。
-        /// ************************************************************************************************************************
         /// 
         ///     *1…「position startpos moves 7g7f 3c3d 2g2f」といった書き方。
         /// 

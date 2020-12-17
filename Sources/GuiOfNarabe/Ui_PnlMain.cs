@@ -27,18 +27,12 @@ using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
-
     /// <summary>
-    /// ************************************************************************************************************************
     /// メイン画面です。
-    /// ************************************************************************************************************************
     /// </summary>
     [Serializable]
     public partial class Ui_PnlMain : UserControl
     {
-
-        #region プロパティー類
-
         public ShogiGui ShogiGui { get; set; }
 
         public SetteiFile SetteiFile
@@ -50,17 +44,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
         private SetteiFile setteiFile;
 
-
-
-        #endregion
-
-
-        #region ゲームエンジンの振りをするメソッド
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 入力欄のテキストを取得します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
         public string ReadLine1()
@@ -71,12 +56,10 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         private const int NSQUARE = 9 * 9;
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 入力欄のテキストを取得します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
-        public string ReadLine2(LarabeLoggerable logTag)
+        public string ReadLine2(ILogTag logTag)
         {
             int lastTesumi = Util_InServer.CountCurTesumi2(this.ShogiGui);
             SkyConst src_Sky = this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst;
@@ -278,9 +261,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 出力欄にテキストを出力します。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
         public void WriteLine_Syuturyoku(string text)
@@ -288,19 +269,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             this.txtOutput1.Text = text;
         }
 
-        #endregion
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// コンストラクターです。
-        /// ************************************************************************************************************************
         /// </summary>
         public Ui_PnlMain()
         {
             InitializeComponent();
         }
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -308,19 +283,14 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
         public static string input99 = "";
 
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 起動直後の流れです。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Ui_PnlMain_Load(object sender, EventArgs e)
         {
-            LarabeLoggerable logTag = Logger.Gui;
-
+            ILogTag logTag = LogTags.Gui;
 
             this.setteiFile = new SetteiFile();
             if (!this.SetteiFile.Exists())
@@ -406,11 +376,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             // あとは、操作者の入力を待ちます。
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// 描画するのはここです。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -424,16 +391,14 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             //------------------------------
             // 画面の描画です。
             //------------------------------
-            this.ShogiGui.Shape_PnlTaikyoku.Paint(sender, e, this.ShogiGui, Logger.NarabePaint);
+            this.ShogiGui.Shape_PnlTaikyoku.Paint(sender, e, this.ShogiGui, LogTags.NarabePaint);
 
         gt_EndMethod:
             ;
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// マウスが動いたときの挙動です。
-        /// ************************************************************************************************************************
         /// 
         ///         マウスが重なったときの、表示物の反応や、将棋データの変更がこの中に書かれています。
         /// 
@@ -442,7 +407,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseMove(object sender, MouseEventArgs e)
         {
-            LarabeLoggerable logTag = Logger.Gui;
+            ILogTag logTag = LogTags.Gui;
 
             if (null != this.ShogiGui.Shape_PnlTaikyoku)
             {
@@ -463,9 +428,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// マウスのボタンを押下したときの挙動です。
-        /// ************************************************************************************************************************
         /// 
         ///         マウスボタンが押下されたときの、表示物の反応や、将棋データの変更がこの中に書かれています。
         /// 
@@ -474,7 +437,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseDown(object sender, MouseEventArgs e)
         {
-            LarabeLoggerable logTag = Logger.Gui;
+            ILogTag logTag = LogTags.Gui;
 
             if (null == this.ShogiGui.Shape_PnlTaikyoku)
             {
@@ -521,15 +484,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// マウスのボタンが放されたときの挙動です。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseUp(object sender, MouseEventArgs e)
         {
-            LarabeLoggerable logTag = Logger.Gui;
+            ILogTag logTag = LogTags.Gui;
 
             // このメインパネルに、何かして欲しいという要求は、ここに入れられます。
             this.ShogiGui.ResponseData = new ResponseImpl();
@@ -567,7 +528,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             this.txtInput1.Text += value;
         }
 
-
         public enum Mutex
         {
             /// <summary>
@@ -598,9 +558,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         public Mutex MutexOwner { get; set; }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 入力欄の表示・出力欄の表示・再描画
-        /// ************************************************************************************************************************
         /// 
         /// このメインパネルに何かして欲しいことがあれば、
         /// RequestForMain に要望を入れて、この関数を呼び出してください。
@@ -609,9 +567,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// </summary>
         /// <param name="response"></param>
         public void Response(
-            Mutex mutex, ShogiGui shogiGui, LarabeLoggerable logTag)
+            Mutex mutex, ShogiGui shogiGui, ILogTag logTag)
         {
-
             //------------------------------------------------------------
             // 駒の座標再計算
             //------------------------------------------------------------
@@ -623,7 +580,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 });
             }
             shogiGui.ResponseData.Clear_RedrawStarlights();
-
 
             //------------------------------
             // 入力欄の表示
@@ -651,8 +607,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         this.WriteLine_Syuturyoku("");
 
                         // ログ
-                        logTag.WriteLine_AddMemo( "");
-                        logTag.WriteLine_AddMemo( "");
+                        Logger.WriteLineAddMemo(logTag, "");
+                        Logger.WriteLineAddMemo(logTag, "");
                     }
                     break;
 
@@ -662,7 +618,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         switch (this.ShogiGui.Shape_PnlTaikyoku.SyuturyokuKirikae)
                         {
                             case SyuturyokuKirikae.Japanese:
-                                this.WriteLine_Syuturyoku(KirokuGakari.ToJapaneseKifuText(this.ShogiGui.Model_PnlTaikyoku.Kifu, Logger.Gui));
+                                this.WriteLine_Syuturyoku(KirokuGakari.ToJapaneseKifuText(this.ShogiGui.Model_PnlTaikyoku.Kifu, LogTags.Gui));
                                 break;
                             case SyuturyokuKirikae.Sfen:
                                 this.WriteLine_Syuturyoku(KirokuGakari.ToSfen_PositionString(this.ShogiGui.Model_PnlTaikyoku.Kifu));
@@ -673,7 +629,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         }
 
                         // ログ
-                        logTag.WriteLine_AddMemo( this.txtOutput1.Text);
+                        Logger.WriteLineAddMemo(logTag, this.txtOutput1.Text);
                     }
                     break;
 
@@ -694,9 +650,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 出力欄（上段）でキーボードのキーが押されたときの挙動をここに書きます。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -713,9 +667,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 入力欄でキーボードのキーが押されたときの挙動をここに書きます。
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -731,13 +683,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             //} 
         }
 
-
-
-
         /// <summary>
-        /// ************************************************************************************************************************
         /// HTML出力。（これは作者のホームページ用に書かれています）
-        /// ************************************************************************************************************************
         /// </summary>
         public static string CreateHtml(ShogiGui shogiGui)
         {
@@ -848,7 +795,5 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
             return sb.ToString();
         }
-
-
     }
 }

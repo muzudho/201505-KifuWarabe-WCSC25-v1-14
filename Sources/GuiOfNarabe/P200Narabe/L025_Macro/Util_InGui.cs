@@ -18,6 +18,7 @@ using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 using System.Collections.Generic;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L025_Macro
 {
@@ -37,7 +38,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
             Finger foodKoma,
             string fugoJStr,
             string backedInputText,
-            LarabeLoggerable logTag)
+            ILogTag logTag)
         {
             //------------------------------
             // チェンジターン
@@ -78,7 +79,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
 
 
 
-        public static bool Komaokuri_Gui( string restText, ShogiGui shogiGui, LarabeLoggerable logTag)
+        public static bool Komaokuri_Gui( string restText, ShogiGui shogiGui, ILogTag logTag)
         {
             //------------------------------
             // チェンジ・ターン
@@ -117,9 +118,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
 
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// テキストボックスに入力された、符号の読込み
-        /// ************************************************************************************************************************
         /// </summary>
         public static string ReadLine_FromTextbox()
         {
@@ -204,15 +203,13 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
 
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 局面に合わせて、駒ボタンのx,y位置を変更します
-        /// ************************************************************************************************************************
         /// </summary>
         /// <param name="btnKoma">駒</param>
         public static void Redraw_KomaLocation(
             Finger figKoma,
             ShogiGui shogiGui,
-            LarabeLoggerable logTag
+            ILogTag logTag
             )
         {
             RO_Star_Koma koma = Util_Koma.AsKoma(shogiGui.Model_PnlTaikyoku.GuiSkyConst.StarlightIndexOf(figKoma).Now);
@@ -265,9 +262,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒のハンドル(*1)を元に、ボタンを返します。
-        /// ************************************************************************************************************************
         /// 
         ///     *1…将棋の駒１つ１つに付けられた番号です。
         /// 
@@ -292,9 +287,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 駒のハンドル(*1)を元に、ボタンを返します。
-        /// ************************************************************************************************************************
         /// 
         ///     *1…将棋の駒１つ１つに付けられた番号です。
         /// 
