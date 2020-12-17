@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using Grayscale.Kifuwarazusa.Entities;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
+using Grayscale.Kifuwarazusa.UseCases;
 using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
 using Nett;
 
@@ -35,84 +34,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
         public void AtLoop_OnUsi(string line, ref Result_UsiLoop1 result_Usi)
         {
-            //------------------------------------------------------------
-            // あなたは USI ですか？
-            //------------------------------------------------------------
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 1:31:35> usi
-            //      │
-            //
-            //
-            // 将棋所で [対局(G)]-[エンジン管理...]-[追加...] でファイルを選んだときに、
-            // 送られてくる文字が usi です。
-
-
-            //------------------------------------------------------------
-            // エンジン設定ダイアログボックスを作ります
-            //------------------------------------------------------------
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 23:40:15< option name 子 type check default true
-            //      │2014/08/02 23:40:15< option name USI type spin default 2 min 1 max 13
-            //      │2014/08/02 23:40:15< option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
-            //      │2014/08/02 23:40:15< option name 卯 type button default うさぎ
-            //      │2014/08/02 23:40:15< option name 辰 type string default DRAGON
-            //      │2014/08/02 23:40:15< option name 巳 type filename default スネーク.html
-            //      │
-            //
-            //
-            // 将棋所で [エンジン設定] ボタンを押したときに出てくるダイアログボックスに、
-            //      ・チェックボックス
-            //      ・スピン
-            //      ・コンボボックス
-            //      ・ボタン
-            //      ・テキストボックス
-            //      ・ファイル選択テキストボックス
-            // を置くことができます。
-            //
-            this.Owner.Send("option name 子 type check default true");
-            this.Owner.Send("option name USI type spin default 2 min 1 max 13");
-            this.Owner.Send("option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー");
-            this.Owner.Send("option name 卯 type button default うさぎ");
-            this.Owner.Send("option name 辰 type string default DRAGON");
-            this.Owner.Send("option name 巳 type filename default スネーク.html");
-
-
-            //------------------------------------------------------------
-            // USI です！！
-            //------------------------------------------------------------
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 2:03:33< id name fugafuga 1.00.0
-            //      │2014/08/02 2:03:33< id author hogehoge
-            //      │2014/08/02 2:03:33< usiok
-            //      │
-            //
-            // プログラム名と、作者名を送り返す必要があります。
-            // オプションも送り返せば、受け取ってくれます。
-            // usi を受け取ってから、5秒以内に usiok を送り返して完了です。
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
-            Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
-
-            this.Owner.Send($"id name {engineName} {version.Major}.{version.Minor}.{version.Build}");
-            this.Owner.Send($"id author {engineAuthor}");
-            this.Owner.Send("usiok");
         }
 
 
@@ -121,7 +42,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //------------------------------------------------------------
             // 設定してください
             //------------------------------------------------------------
-            #region ↓詳説
             //
             // 図.
             //
@@ -154,12 +74,10 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             // 将棋所から、[エンジン設定] ダイアログボックスの内容が送られてきます。
             // このダイアログボックスは、将棋エンジンから将棋所に  ダイアログボックスを作るようにメッセージを送って作ったものです。
             //
-            #endregion
 
             //------------------------------------------------------------
             // 設定を一覧表に変えます
             //------------------------------------------------------------
-            #region ↓詳説
             //
             // 上図のメッセージのままだと使いにくいので、
             // あとで使いやすいように Key と Value の表に分けて持ち直します。
@@ -175,7 +93,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //      │USI_Hash    │256         │
             //      └──────┴──────┘
             //
-            #endregion
             Regex regex = new Regex(@"setoption name ([^ ]+)(?: value (.*))?", RegexOptions.Singleline);
             Match m = regex.Match(line);
 
@@ -258,7 +175,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //
             //
             // いつでも対局する準備が整っていましたら、 readyok を送り返します。
-            this.Owner.Send("readyok");
+            Playing.Send("readyok");
         }
 
 

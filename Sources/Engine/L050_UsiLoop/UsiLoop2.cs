@@ -19,6 +19,7 @@ using Grayscale.P025_KifuLarabe.L00060_KifuParser;
 using Grayscale.P007_SfenReport.L100_Write;
 using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
 using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.UseCases;
 
 namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 {
@@ -463,7 +464,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                             // この将棋エンジンは、後手とします。
                             // ２０手目、投了  を決め打ちで返します。
                             #endregion
-                            this.owner.Send("bestmove resign");//投了
+                            Playing.Send("bestmove resign");//投了
                         }
                         break;
                     default:// どちらの王さまも、まだまだ健在だぜ☆！
@@ -494,7 +495,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                     Logger.WriteLineAddMemo(LogTags.Engine,"(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
                                         "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
 
-                                    this.owner.Send("bestmove " + sfenText);//指し手を送ります。
+                                    Playing.Send("bestmove " + sfenText);//指し手を送ります。
                                 }
                                 else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                                 {
@@ -502,7 +503,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                         "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
 
                                     // 投了ｗ！
-                                    this.owner.Send("bestmove resign");
+                                    Playing.Send("bestmove resign");
                                 }
                             }
                             catch (Exception ex)
@@ -602,7 +603,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                     //      という流れと思います。
                     #endregion
                     // この指し手は、無視されます。（無視されますが、送る必要があります）
-                    this.owner.Send("bestmove 9a9b");
+                    Playing.Send("bestmove 9a9b");
                 }
                 else
                 {
@@ -622,7 +623,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                     //
                     // 特に何もなく、すぐ指せというのですから、今考えている最善手をすぐに指します。
                     #endregion
-                    this.owner.Send("bestmove 9a9b");
+                    Playing.Send("bestmove 9a9b");
                 }
 
             }
