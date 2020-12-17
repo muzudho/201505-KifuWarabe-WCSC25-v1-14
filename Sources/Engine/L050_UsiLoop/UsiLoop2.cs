@@ -18,6 +18,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L00060_KifuParser;
 using Grayscale.P007_SfenReport.L100_Write;
 using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 {
@@ -27,8 +28,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
     /// </summary>
     public class UsiLoop2
     {
-        #region プロパティー
-        private ShogiEngine owner;
+        public ShogiEngine owner;
         private Shogisasi shogisasi;
 
         /// <summary>
@@ -61,7 +61,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
         public Dictionary<string, string> GameoverProperties { get; set; }
 
         private AjimiEngine ajimiEngine;
-        #endregion
 
         public UsiLoop2(Shogisasi shogisasi, ShogiEngine owner)
         {
@@ -70,7 +69,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
             this.ajimiEngine = new AjimiEngine(owner);
 
-            #region ↓詳説  ＜n手目＞
             //
             // 図.
             //
@@ -97,7 +95,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //      │    │                          │            │2           │自分が指したときにはカウントを変えません。                              │
             //      └──┴─────────────┴──────┴──────┴────────────────────────────────────┘
             //
-            #endregion
             this.TesumiCount = 0;// ｎ手目
 
             // 棋譜
@@ -136,154 +133,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 this.GameoverProperties["gameover"] = "";
             }
         }
-
-
-        public void AtBegin()
-        {
-            this.shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
-        }
-
-        public void AtLoop()
-        {
-            //PerformanceMetrics performanceMetrics = new PerformanceMetrics();//使ってない？
-
-            while (true)
-            {
-                Result_UsiLoop2 result_Usi = Result_UsiLoop2.None;
-
-                // 将棋サーバーから何かメッセージが届いていないか、見てみます。
-                string line = Util_Message.Download_NonStop();
-                this.owner.Log_Client.WriteLine_AddMemo(line);
-
-                if (null == line)
-                {
-                    // メッセージは届いていませんでした。
-                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                    goto gt_NextTime2;
-                }
-
-                // メッセージが届いています！
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                LarabeLoggerList.GetDefaultList().DefaultFile.WriteLine_R(line);
-
-
-                if (line.StartsWith("position")){this.AtLoop_OnPosition(line,ref result_Usi);}
-                else if (line.StartsWith("go ponder")) { this.AtLoop_OnGoponder(line, ref result_Usi); }
-                else if (line.StartsWith("go")) { this.AtLoop_OnGo(line, ref result_Usi); }// 「go ponder」「go mate」「go infinite」とは区別します。
-                else if (line.StartsWith("stop")) { this.AtLoop_OnStop(line, ref result_Usi); }
-                else if (line.StartsWith("gameover")) { this.AtLoop_OnGameover(line, ref result_Usi); }
-                else if ("logdase" == line) { this.AtLoop_OnLogdase(line, ref result_Usi); }
-                else
-                {
-                    //------------------------------------------------------------
-                    // ○△□×！？
-                    //------------------------------------------------------------
-                    #region ↓詳説
-                    //
-                    // ／(＾×＾)＼
-                    //
-
-                    // 通信が届いていますが、このプログラムでは  聞かなかったことにします。
-                    // USIプロトコルの独習を進め、対応／未対応を選んでください。
-                    //
-                    // ログだけ取って、スルーします。
-                    #endregion
-                }
-
-                switch (result_Usi)
-                {
-                    case Result_UsiLoop2.Break:
-                        goto end_loop2;
-
-                    default:
-                        break;
-                }
-
-            gt_NextTime2:
-                ;
-            }
-        end_loop2:
-            ;
-        }
-
-        public void AtEnd()
-        {
-            //-------------------+----------------------------------------------------------------------------------------------------
-            // スナップショット  |
-            //-------------------+----------------------------------------------------------------------------------------------------
-            #region ↓詳説
-            // 対局後のタイミングで、データの中身を確認しておきます。
-            // Key と Value の表の形をしています。（順不同）
-            //
-            // 図.
-            //      ※内容はサンプルです。実際と異なる場合があります。
-            //
-            //      setoptionDictionary
-            //      ┌──────┬──────┐
-            //      │Key         │Value       │
-            //      ┝━━━━━━┿━━━━━━┥
-            //      │USI_Ponder  │true        │
-            //      ├──────┼──────┤
-            //      │USI_Hash    │256         │
-            //      └──────┴──────┘
-            //
-            //      goDictionary
-            //      ┌──────┬──────┐
-            //      │Key         │Value       │
-            //      ┝━━━━━━┿━━━━━━┥
-            //      │btime       │599000      │
-            //      ├──────┼──────┤
-            //      │wtime       │600000      │
-            //      ├──────┼──────┤
-            //      │byoyomi     │60000       │
-            //      └──────┴──────┘
-            //
-            //      goMateDictionary
-            //      ┌──────┬──────┐
-            //      │Key         │Value       │
-            //      ┝━━━━━━┿━━━━━━┥
-            //      │mate        │599000      │
-            //      └──────┴──────┘
-            //
-            //      gameoverDictionary
-            //      ┌──────┬──────┐
-            //      │Key         │Value       │
-            //      ┝━━━━━━┿━━━━━━┥
-            //      │gameover    │lose        │
-            //      └──────┴──────┘
-            //
-            #endregion
-            this.owner.Log_Engine.WriteLine_AddMemo("KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
-            foreach (KeyValuePair<string, string> pair in this.owner.SetoptionDictionary)
-            {
-                this.owner.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
-            }
-            this.owner.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-            this.owner.Log_Engine.WriteLine_AddMemo("┏━確認━━━━goDictionary━━━━━┓");
-            foreach (KeyValuePair<string, string> pair in this.GoProperties)
-            {
-                this.owner.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
-            }
-
-            //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
-            //goMateProperties["mate"] = "";
-            //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-            //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┏━確認━━━━goMateDictionary━━━┓");
-            //foreach (KeyValuePair<string, string> pair in this.goMateProperties)
-            //{
-            //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
-            //}
-
-            this.owner.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-            this.owner.Log_Engine.WriteLine_AddMemo("┏━確認━━━━gameoverDictionary━━┓");
-            foreach (KeyValuePair<string, string> pair in this.GameoverProperties)
-            {
-                this.owner.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
-            }
-            this.owner.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-        }
-
 
         public void AtLoop_OnPosition(string line, ref Result_UsiLoop2 result_Usi)
         {
@@ -391,9 +240,9 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                     ref result,
                     new ShogiGui_Warabe(this.Kifu),
                     new KifuParserA_GenjoImpl(line),
-                    new KifuParserA_LogImpl( this.owner.Log_Engine, "Program#Main(Warabe)")
+                    new KifuParserA_LogImpl( Logger.Log_Engine, "Program#Main(Warabe)")
                     );
-                this.Log2(line, (KifuNode)result.Out_newNode_OrNull, this.owner.Log_Engine);
+                this.Log2(line, (KifuNode)result.Out_newNode_OrNull, Logger.Log_Engine);
 
 
                 //------------------------------------------------------------
@@ -413,18 +262,18 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                this.owner.Log_Engine.WriteLine_AddMemo("Program「position」：" + ex.GetType().Name + "：" + ex.Message);
+                Logger.Log_Engine.WriteLine_AddMemo("Program「position」：" + ex.GetType().Name + "：" + ex.Message);
             }
         }
         private void Log1(string message)
         {
-            this.owner.Log_Engine.WriteLine_AddMemo(message);
+            Logger.Log_Engine.WriteLine_AddMemo(message);
         }
         private void Log2(string line, KifuNode kifuNode, LarabeLoggerable logTag)
         {
             int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
 
-            this.owner.Log_Engine.WriteLine_AddMemo(Util_Sky.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, this.owner.Log_Engine),
+            Logger.Log_Engine.WriteLine_AddMemo(Util_Sky.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, Logger.Log_Engine),
                 "PgCS",
                 tesumi_yomiGenTeban_forLog//読み進めている現在の手目
                 ));
@@ -492,7 +341,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                this.owner.Log_Engine.WriteLine_AddMemo("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
+                Logger.Log_Engine.WriteLine_AddMemo("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
             }
         }
 
@@ -580,7 +429,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
 
                 SkyConst src_Sky = this.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
 
-                this.owner.Log_Engine.WriteLine_AddMemo("将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
+                Logger.Log_Engine.WriteLine_AddMemo("将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 
 
                 Result_Ajimi result_Ajimi = this.ajimiEngine.Ajimi(src_Sky);
@@ -633,7 +482,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                     isHonshogi,
                                     this.Kifu,
                                     this.owner.PlayerInfo,
-                                    this.owner.Log_Engine
+                                    Logger.Log_Engine
                                     );
 
 
@@ -642,15 +491,15 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 if (Util_Sky.isEnableSfen(bestMove))
                                 {
                                     string sfenText = Util_Sky.ToSfenMoveText(bestMove);
-                                    this.owner.Log_Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
-                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, this.owner.Log_Engine));
+                                    Logger.Log_Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
+                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, Logger.Log_Engine));
 
                                     this.owner.Send("bestmove " + sfenText);//指し手を送ります。
                                 }
                                 else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                                 {
-                                    this.owner.Log_Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
-                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, this.owner.Log_Engine));
+                                    Logger.Log_Engine.WriteLine_AddMemo("(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
+                                        "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, Logger.Log_Engine));
 
                                     // 投了ｗ！
                                     this.owner.Send("bestmove resign");
@@ -663,7 +512,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                                 Debug.Fail(message);
 
                                 // どうにもできないので  ログだけ取って無視します。
-                                this.owner.Log_Engine.WriteLine_Error(message);
+                                Logger.Log_Engine.WriteLine_Error(message);
                             }
                         }
                         break;
@@ -678,7 +527,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                this.owner.Log_Engine.WriteLine_AddMemo("Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
+                Logger.Log_Engine.WriteLine_AddMemo("Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
             }
 
 
@@ -783,7 +632,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                this.owner.Log_Engine.WriteLine_AddMemo("Program「stop」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Log_Engine.WriteLine_AddMemo("Program「stop」：" + ex.GetType().Name + " " + ex.Message);
             }
         }
 
@@ -848,7 +697,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                this.owner.Log_Engine.WriteLine_AddMemo("Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Log_Engine.WriteLine_AddMemo("Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
             }
         }
 

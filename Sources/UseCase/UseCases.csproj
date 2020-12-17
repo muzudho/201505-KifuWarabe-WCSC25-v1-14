@@ -7,8 +7,8 @@
     <ProjectGuid>{70AEF273-46C9-4E60-AC97-8AEADA3ED5F7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale.P100_ShogiServer</RootNamespace>
-    <AssemblyName>Grayscale.P100_ShogiServer</AssemblyName>
+    <RootNamespace>Grayscale.Kifuwarazusa.UseCases</RootNamespace>
+    <AssemblyName>Grayscale.Kifuwarazusa.UseCases</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -76,12 +76,12 @@
     <Compile Include="L031_AjimiEngine\AjimiEngine.cs" />
     <Compile Include="L031_AjimiEngine\Result_Ajimi.cs" />
     <Compile Include="L100InServer\Util_InServer.cs" />
+    <Compile Include="ProgramSupport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{ff107244-eeab-481e-9017-f6d3dffb23df}</Project>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
@@ -16,7 +17,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
     /// </summary>
     public class UsiLoop1
     {
-        private ShogiEngine Owner { get { return this.owner; } }
+        public ShogiEngine Owner { get { return this.owner; } }
         private ShogiEngine owner;
 
 
@@ -30,81 +31,6 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
         {
             this.owner = owner;
             this.Enable_usiPonder = false; // ポンダーに対応している将棋サーバーなら真です。
-        }
-
-        public void AtStart()
-        {
-        }
-
-        public Result_UsiLoop1 AtLoop()
-        {
-            Result_UsiLoop1 result_UsiLoop1;
-
-            while (true)
-            {
-                result_UsiLoop1 = Result_UsiLoop1.None;
-
-                // 将棋サーバーから何かメッセージが届いていないか、見てみます。
-                string line = Util_Message.Download_NonStop();
-                this.Owner.Log_Client.WriteLine_AddMemo(line);
-
-                if (null == line)
-                {
-                    // メッセージは届いていませんでした。
-                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                    goto gt_NextTime1;
-                }
-
-
-                // メッセージが届いています！
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                LarabeLoggerList.GetDefaultList().DefaultFile.WriteLine_R(line);
-
-
-                if ("usi" == line) { this.AtLoop_OnUsi(line, ref result_UsiLoop1); }
-                else if (line.StartsWith("setoption")) { this.AtLoop_OnSetoption(line, ref result_UsiLoop1); }
-                else if ("isready" == line) { this.AtLoop_OnIsready(line, ref result_UsiLoop1); }
-                else if ("usinewgame" == line) { this.AtLoop_OnUsinewgame(line, ref result_UsiLoop1); }
-                else if ("quit" == line) { this.AtLoop_OnQuit(line, ref result_UsiLoop1); }
-                else
-                {
-                    //------------------------------------------------------------
-                    // ○△□×！？
-                    //------------------------------------------------------------
-                    #region ↓詳説
-                    //
-                    // ／(＾×＾)＼
-                    //
-
-                    // 通信が届いていますが、このプログラムでは  聞かなかったことにします。
-                    // USIプロトコルの独習を進め、対応／未対応を選んでください。
-                    //
-                    // ログだけ取って、スルーします。
-                    #endregion
-                }
-
-                switch (result_UsiLoop1)
-                {
-                    case Result_UsiLoop1.Break:
-                        goto end_loop1;
-
-                    case Result_UsiLoop1.Quit:
-                        goto end_loop1;
-
-                    default:
-                        break;
-                }
-
-            gt_NextTime1:
-                ;
-            }
-        end_loop1:
-            return result_UsiLoop1;
-        }
-
-        public void AtEnd()
-        {
         }
 
         public void AtLoop_OnUsi(string line, ref Result_UsiLoop1 result_Usi)
@@ -313,13 +239,13 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //------------------------------------------------------------
             // 将棋エンジン「おっおっ、設定を終わらせておかなければ（汗、汗…）」
             //------------------------------------------------------------
-            this.Owner.Log_Engine.WriteLine_AddMemo("┏━━━━━設定━━━━━┓");
+            Logger.Log_Engine.WriteLine_AddMemo("┏━━━━━設定━━━━━┓");
             foreach (KeyValuePair<string, string> pair in this.Owner.SetoptionDictionary)
             {
                 // ここで将棋エンジンの設定を済ませておいてください。
-                this.Owner.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                Logger.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
             }
-            this.Owner.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━┛");
+            Logger.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━┛");
 
 
             //------------------------------------------------------------
@@ -403,7 +329,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //
             //
             #endregion
-            this.Owner.Log_Engine.WriteLine_AddMemo("(^-^)ﾉｼ");
+            Logger.Log_Engine.WriteLine_AddMemo("(^-^)ﾉｼ");
 
 
             // このプログラムを終了します。

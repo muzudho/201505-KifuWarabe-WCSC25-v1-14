@@ -60,7 +60,6 @@
     <Compile Include="L050_UsiLoop\UsiLoop1.cs" />
     <Compile Include="L050_UsiLoop\UsiLoop2.cs" />
     <Compile Include="L050_UsiLoop\Result_UsiLoop2.cs" />
-    <Compile Include="ProgramSupport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

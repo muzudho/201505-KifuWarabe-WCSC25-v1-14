@@ -18,6 +18,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P006_Syugoron;
 using System;
 using System.Diagnostics;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P050_KifuWarabe.L010_Minimax
 {
@@ -96,7 +97,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     Debug.Fail(message);
 
                     // どうにもできないので  ログだけ取って、上に投げます。
-                    this.owner.Log_Engine.WriteLine_Error(message);
+                    Logger.Log_Engine.WriteLine_Error(message);
                     throw ;
                 }
 
@@ -157,7 +158,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     Debug.Fail(message);
 
                     // どうにもできないので  ログだけ取って、上に投げます。
-                    this.owner.Log_Engine.WriteLine_Error(message);
+                    Logger.Log_Engine.WriteLine_Error(message);
                     throw ;
                 }
 

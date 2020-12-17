@@ -1,6 +1,5 @@
 ﻿namespace Grayscale.P050_KifuWarabe
 {
-    using Grayscale.P050_KifuWarabe.L100_KifuWarabe;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -9,13 +8,11 @@
     using Grayscale.P025_KifuLarabe.L00025_Struct;
     using Grayscale.P025_KifuLarabe.L004_StructShogi;
     using Grayscale.P025_KifuLarabe.L012_Common;
-    using Grayscale.P045_Atama.L00025_KyHandan;
-    using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
-    using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
-    using Grayscale.P050_KifuWarabe.L003_Kokoro;
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
     using Grayscale.P050_KifuWarabe.L050_UsiLoop;
+    using Grayscale.Kifuwarazusa.UseCases;
     using Nett;
+    using Grayscale.Kifuwarazusa.Entities;
 
     /// <summary>
     /// プログラムのエントリー・ポイントです。
@@ -31,7 +28,9 @@
         {
             // 将棋エンジン　きふわらべ
             ProgramSupport programSupport = new ProgramSupport();
-            programSupport.AtBegin();
+            // 思考エンジンの、記憶を読み取ります。
+            programSupport.shogisasi = new ShogisasiImpl(programSupport);
+            programSupport.shogisasi.Kokoro.ReadTenonagare();
 
             try
             {
@@ -108,7 +107,7 @@
                 }
 
                 var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
-                programSupport.Log_Engine.WriteLine_AddMemo($"v(^▽^)v ｲｪｰｲ☆ ... {engineName} {versionStr}");
+                Logger.Log_Engine.WriteLine_AddMemo($"v(^▽^)v ｲｪｰｲ☆ ... {engineName} {versionStr}");
 
 
                 //-----------+------------------------------------------------------------------------------------------------------------
@@ -146,9 +145,54 @@
                     // ループ（１つ目）
                     //************************************************************************************************************************
                     UsiLoop1 usiLoop1 = new UsiLoop1(programSupport);
-                    usiLoop1.AtStart();
-                    Result_UsiLoop1 result_UsiLoop1 = usiLoop1.AtLoop();
-                    usiLoop1.AtEnd();
+                    Result_UsiLoop1 result_UsiLoop1;
+
+                    while (true)
+                    {
+                        result_UsiLoop1 = Result_UsiLoop1.None;
+
+                        // 将棋サーバーから何かメッセージが届いていないか、見てみます。
+                        string line = Util_Message.Download_BlockingIO();
+                        Logger.Log_Client.WriteLine_AddMemo(line);
+                        LarabeLoggerList.GetDefaultList().DefaultFile.WriteLine_R(line);
+
+
+                        if ("usi" == line) { usiLoop1.AtLoop_OnUsi(line, ref result_UsiLoop1); }
+                        else if (line.StartsWith("setoption")) { usiLoop1.AtLoop_OnSetoption(line, ref result_UsiLoop1); }
+                        else if ("isready" == line) { usiLoop1.AtLoop_OnIsready(line, ref result_UsiLoop1); }
+                        else if ("usinewgame" == line) { usiLoop1.AtLoop_OnUsinewgame(line, ref result_UsiLoop1); }
+                        else if ("quit" == line) { usiLoop1.AtLoop_OnQuit(line, ref result_UsiLoop1); }
+                        else
+                        {
+                            //------------------------------------------------------------
+                            // ○△□×！？
+                            //------------------------------------------------------------
+                            //
+                            // ／(＾×＾)＼
+                            //
+
+                            // 通信が届いていますが、このプログラムでは  聞かなかったことにします。
+                            // USIプロトコルの独習を進め、対応／未対応を選んでください。
+                            //
+                            // ログだけ取って、スルーします。
+                        }
+
+                        switch (result_UsiLoop1)
+                        {
+                            case Result_UsiLoop1.Break:
+                                goto end_loop1;
+
+                            case Result_UsiLoop1.Quit:
+                                goto end_loop1;
+
+                            default:
+                                break;
+                        }
+
+                    //gt_NextTime1:
+                    //    ;
+                    }
+                end_loop1:
 
                     if (result_UsiLoop1 == Result_UsiLoop1.Quit)
                     {
@@ -159,9 +203,129 @@
                     // ループ（２つ目）
                     //************************************************************************************************************************
                     UsiLoop2 usiLoop2 = new UsiLoop2(programSupport.shogisasi, programSupport);
-                    usiLoop2.AtBegin();
-                    usiLoop2.AtLoop();
-                    usiLoop2.AtEnd();
+                    programSupport.shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
+
+                    //PerformanceMetrics performanceMetrics = new PerformanceMetrics();//使ってない？
+
+                    while (true)
+                    {
+                        Result_UsiLoop2 result_Usi = Result_UsiLoop2.None;
+
+                        // 将棋サーバーから何かメッセージが届いていないか、見てみます。
+                        string line = Util_Message.Download_BlockingIO();
+                        Logger.Log_Client.WriteLine_AddMemo(line);
+                        LarabeLoggerList.GetDefaultList().DefaultFile.WriteLine_R(line);
+
+
+                        if (line.StartsWith("position")) {
+                            usiLoop2.AtLoop_OnPosition(line, ref result_Usi);
+                        }
+                        else if (line.StartsWith("go ponder")) { usiLoop2.AtLoop_OnGoponder(line, ref result_Usi); }
+                        else if (line.StartsWith("go")) { usiLoop2.AtLoop_OnGo(line, ref result_Usi); }// 「go ponder」「go mate」「go infinite」とは区別します。
+                        else if (line.StartsWith("stop")) { usiLoop2.AtLoop_OnStop(line, ref result_Usi); }
+                        else if (line.StartsWith("gameover")) { usiLoop2.AtLoop_OnGameover(line, ref result_Usi); }
+                        else if ("logdase" == line) { usiLoop2.AtLoop_OnLogdase(line, ref result_Usi); }
+                        else
+                        {
+                            //------------------------------------------------------------
+                            // ○△□×！？
+                            //------------------------------------------------------------
+                            //
+                            // ／(＾×＾)＼
+                            //
+
+                            // 通信が届いていますが、このプログラムでは  聞かなかったことにします。
+                            // USIプロトコルの独習を進め、対応／未対応を選んでください。
+                            //
+                            // ログだけ取って、スルーします。
+                        }
+
+                        switch (result_Usi)
+                        {
+                            case Result_UsiLoop2.Break:
+                                goto end_loop2;
+
+                            default:
+                                break;
+                        }
+
+                    //gt_NextTime2:
+                    //    ;
+                    }
+                end_loop2:
+                    ;
+
+                    //-------------------+----------------------------------------------------------------------------------------------------
+                    // スナップショット  |
+                    //-------------------+----------------------------------------------------------------------------------------------------
+                    // 対局後のタイミングで、データの中身を確認しておきます。
+                    // Key と Value の表の形をしています。（順不同）
+                    //
+                    // 図.
+                    //      ※内容はサンプルです。実際と異なる場合があります。
+                    //
+                    //      setoptionDictionary
+                    //      ┌──────┬──────┐
+                    //      │Key         │Value       │
+                    //      ┝━━━━━━┿━━━━━━┥
+                    //      │USI_Ponder  │true        │
+                    //      ├──────┼──────┤
+                    //      │USI_Hash    │256         │
+                    //      └──────┴──────┘
+                    //
+                    //      goDictionary
+                    //      ┌──────┬──────┐
+                    //      │Key         │Value       │
+                    //      ┝━━━━━━┿━━━━━━┥
+                    //      │btime       │599000      │
+                    //      ├──────┼──────┤
+                    //      │wtime       │600000      │
+                    //      ├──────┼──────┤
+                    //      │byoyomi     │60000       │
+                    //      └──────┴──────┘
+                    //
+                    //      goMateDictionary
+                    //      ┌──────┬──────┐
+                    //      │Key         │Value       │
+                    //      ┝━━━━━━┿━━━━━━┥
+                    //      │mate        │599000      │
+                    //      └──────┴──────┘
+                    //
+                    //      gameoverDictionary
+                    //      ┌──────┬──────┐
+                    //      │Key         │Value       │
+                    //      ┝━━━━━━┿━━━━━━┥
+                    //      │gameover    │lose        │
+                    //      └──────┴──────┘
+                    //
+                    Logger.Log_Engine.WriteLine_AddMemo("KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
+                    foreach (KeyValuePair<string, string> pair in usiLoop2.owner.SetoptionDictionary)
+                    {
+                        Logger.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                    }
+                    Logger.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.Log_Engine.WriteLine_AddMemo("┏━確認━━━━goDictionary━━━━━┓");
+                    foreach (KeyValuePair<string, string> pair in usiLoop2.GoProperties)
+                    {
+                        Logger.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                    }
+
+                    //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
+                    //goMateProperties["mate"] = "";
+                    //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+                    //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┏━確認━━━━goMateDictionary━━━┓");
+                    //foreach (KeyValuePair<string, string> pair in this.goMateProperties)
+                    //{
+                    //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                    //}
+
+                    Logger.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.Log_Engine.WriteLine_AddMemo("┏━確認━━━━gameoverDictionary━━┓");
+                    foreach (KeyValuePair<string, string> pair in usiLoop2.GameoverProperties)
+                    {
+                        Logger.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                    }
+                    Logger.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
                 }
 
             }
@@ -171,10 +335,11 @@
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                programSupport.Log_Engine.WriteLine_AddMemo("Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Log_Engine.WriteLine_AddMemo("Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
             }
 
-            programSupport.AtEnd();
+            // 終了時に、妄想履歴のログを残します。
+            programSupport.shogisasi.Kokoro.WriteTenonagare(programSupport.shogisasi, Logger.Log_Engine);
         }
     }
 }

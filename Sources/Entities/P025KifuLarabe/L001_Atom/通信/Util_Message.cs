@@ -53,7 +53,7 @@ namespace Grayscale.P025_KifuLarabe.L00012_Atom
         /// 将棋エンジンが使います。
         /// </summary>
         /// <returns></returns>
-        public static string Download_NonStop()
+        public static string Download_BlockingIO()
         {
             return Console.In.ReadLine();
         }
