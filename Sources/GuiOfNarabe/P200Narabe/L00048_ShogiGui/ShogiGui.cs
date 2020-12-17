@@ -11,14 +11,6 @@ namespace Grayscale.P200_KifuNarabe.L00048_ShogiGui
 {
     public interface ShogiGui : ShogiGui_Base
     {
-
-        #region ロガー
-        LarabeLoggerable Logger_Paint { get; }
-
-        LarabeLoggerable Logger_Network { get; }
-        #endregion
-
-
         Timed TimedA { get; set; }
         Timed TimedB { get; set; }
         Timed TimedC { get; set; }

@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
@@ -231,7 +231,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                         // どうにもできないので  ログだけ取って無視します。
                         string message = "TuginoItte_Sfen.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」　m.Groups.Count=「" + m.Groups.Count + "」";
-                        LarabeLoggerList.ERROR.WriteLine_Error( message);
+                        Logger.Error.WriteLine_Error( message);
                     }
                 }
 
@@ -245,7 +245,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = "TuginoItte_Sfen.GetData_FromText（B）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」";
-                LarabeLoggerList.ERROR.WriteLine_Error( message);
+                Logger.Error.WriteLine_Error( message);
             }
 
             return successful;

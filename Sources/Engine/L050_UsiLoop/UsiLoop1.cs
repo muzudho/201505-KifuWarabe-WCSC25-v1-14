@@ -239,13 +239,13 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //------------------------------------------------------------
             // 将棋エンジン「おっおっ、設定を終わらせておかなければ（汗、汗…）」
             //------------------------------------------------------------
-            Logger.Log_Engine.WriteLine_AddMemo("┏━━━━━設定━━━━━┓");
+            Logger.Engine.WriteLine_AddMemo("┏━━━━━設定━━━━━┓");
             foreach (KeyValuePair<string, string> pair in this.Owner.SetoptionDictionary)
             {
                 // ここで将棋エンジンの設定を済ませておいてください。
-                Logger.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                Logger.Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
             }
-            Logger.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━┛");
+            Logger.Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━┛");
 
 
             //------------------------------------------------------------
@@ -329,7 +329,7 @@ namespace Grayscale.P050_KifuWarabe.L050_UsiLoop
             //
             //
             #endregion
-            Logger.Log_Engine.WriteLine_AddMemo("(^-^)ﾉｼ");
+            Logger.Engine.WriteLine_AddMemo("(^-^)ﾉｼ");
 
 
             // このプログラムを終了します。

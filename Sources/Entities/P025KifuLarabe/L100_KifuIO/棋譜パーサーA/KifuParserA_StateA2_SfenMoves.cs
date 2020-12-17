@@ -15,6 +15,7 @@ using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L00060_KifuParser;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
@@ -148,7 +149,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                         // どうにもできないので  ログだけ取って無視します。
                         string message = this.GetType().Name + "#Execute（A）：" + ex.GetType().Name + "：" + ex.Message;
-                        LarabeLoggerList.ERROR.WriteLine_Error( message);
+                        Logger.Error.WriteLine_Error( message);
                     }
 
 

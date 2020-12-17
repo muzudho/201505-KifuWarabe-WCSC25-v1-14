@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L00025_Struct
 {
@@ -19,13 +20,6 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
     /// </summary>
     public partial class LarabeLoggerList
     {
-        public static readonly LarabeLoggerable MoveGenRoutine = new LarabeLoggerImpl("../../Logs/#指し手生成ルーチン", true, false);
-        public static readonly LarabeLoggerable LOGGING_BY_GUI = new LarabeLoggerImpl("../../Logs/#将棋GUI_棋譜読取", true, false);
-        public static readonly LarabeLoggerable LOGGING_BY_LARABE_STANDALONE = new LarabeLoggerImpl("../../Logs/#ララベProgram", true, false);
-        public static readonly LarabeLoggerable LINKED_LIST = new LarabeLoggerImpl("../../Logs/#リンクトリスト", false, false);
-        public static readonly LarabeLoggerable ERROR = new LarabeLoggerImpl("../../Logs/#エラー", true, false);
-
-
         /// <summary>
         /// デフォルトのロガーリスト。
         /// </summary>
@@ -106,7 +100,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
                 // どうにもできないので  ログだけ取って　無視します。
                 string message = this.GetType().Name + "#RemoveFile：" + ex.Message;
-                LarabeLoggerList.ERROR.WriteLine_Error( message);
+                Logger.Error.WriteLine_Error( message);
             }
 
         }

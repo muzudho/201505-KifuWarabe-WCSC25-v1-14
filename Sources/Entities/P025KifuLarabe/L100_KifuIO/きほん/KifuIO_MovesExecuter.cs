@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P006_Syugoron;
 using Grayscale.P012_KnowledgeShogi;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
@@ -107,7 +108,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     if (Fingers.Error_1 == koma)
                     {
                         string message = "TuginoItte_Sfen#GetData_FromTextSub：駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。";
-                        LarabeLoggerList.ERROR.WriteLine_Error( message);
+                        Logger.Error.WriteLine_Error( message);
                         Debug.Fail(message);
                         throw new Exception(message);
                     }
@@ -160,7 +161,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                             tesumi_yomiGenTeban));
 
                         string message = sb.ToString();
-                        LarabeLoggerList.ERROR.WriteLine_Error(message);
+                        Logger.Error.WriteLine_Error(message);
                         Debug.Fail("SFEN解析中の失敗");
                         throw new Exception(message);
                     }
@@ -253,7 +254,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 // どうにもできないので　経路と情報を付け足して　更に外側に投げます。
                 string message = ex.GetType().Name + "：" + ex.Message + "　in　TuginoItte_Sfen.GetData_FromTextSub（A）　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　";
-                LarabeLoggerList.ERROR.WriteLine_Error( message);
+                Logger.Error.WriteLine_Error( message);
                 Debug.Fail(message);
                 throw new Exception(message);
             }

@@ -97,7 +97,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     Debug.Fail(message);
 
                     // どうにもできないので  ログだけ取って、上に投げます。
-                    Logger.Log_Engine.WriteLine_Error(message);
+                    Logger.Engine.WriteLine_Error(message);
                     throw ;
                 }
 
@@ -158,7 +158,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                     Debug.Fail(message);
 
                     // どうにもできないので  ログだけ取って、上に投げます。
-                    Logger.Log_Engine.WriteLine_Error(message);
+                    Logger.Engine.WriteLine_Error(message);
                     throw ;
                 }
 

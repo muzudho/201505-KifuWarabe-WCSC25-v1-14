@@ -5,6 +5,7 @@ using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L051_Timed
 {
@@ -28,7 +29,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
 
         public override void Step()
         {
-            LarabeLoggerable logTag = LarabeLoggerList.LOGGING_BY_GUI;
+            LarabeLoggerable logTag = Logger.Gui;
 
             // 将棋エンジンからの入力が、input99 に溜まるものとします。
             if (0 < shogiGui.Input99.Length)

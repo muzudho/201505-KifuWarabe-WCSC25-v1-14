@@ -23,6 +23,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P200_KifuNarabe.L015_Sprite;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
@@ -318,7 +319,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_Load(object sender, EventArgs e)
         {
-            LarabeLoggerable logTag = LarabeLoggerList.LOGGING_BY_GUI;
+            LarabeLoggerable logTag = Logger.Gui;
 
 
             this.setteiFile = new SetteiFile();
@@ -423,7 +424,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             //------------------------------
             // 画面の描画です。
             //------------------------------
-            this.ShogiGui.Shape_PnlTaikyoku.Paint(sender, e, this.ShogiGui, this.ShogiGui.Logger_Paint);
+            this.ShogiGui.Shape_PnlTaikyoku.Paint(sender, e, this.ShogiGui, Logger.NarabePaint);
 
         gt_EndMethod:
             ;
@@ -441,7 +442,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseMove(object sender, MouseEventArgs e)
         {
-            LarabeLoggerable logTag = LarabeLoggerList.LOGGING_BY_GUI;
+            LarabeLoggerable logTag = Logger.Gui;
 
             if (null != this.ShogiGui.Shape_PnlTaikyoku)
             {
@@ -473,7 +474,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseDown(object sender, MouseEventArgs e)
         {
-            LarabeLoggerable logTag = LarabeLoggerList.LOGGING_BY_GUI;
+            LarabeLoggerable logTag = Logger.Gui;
 
             if (null == this.ShogiGui.Shape_PnlTaikyoku)
             {
@@ -528,7 +529,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseUp(object sender, MouseEventArgs e)
         {
-            LarabeLoggerable logTag = LarabeLoggerList.LOGGING_BY_GUI;
+            LarabeLoggerable logTag = Logger.Gui;
 
             // このメインパネルに、何かして欲しいという要求は、ここに入れられます。
             this.ShogiGui.ResponseData = new ResponseImpl();
@@ -661,7 +662,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         switch (this.ShogiGui.Shape_PnlTaikyoku.SyuturyokuKirikae)
                         {
                             case SyuturyokuKirikae.Japanese:
-                                this.WriteLine_Syuturyoku(KirokuGakari.ToJapaneseKifuText(this.ShogiGui.Model_PnlTaikyoku.Kifu, LarabeLoggerList.LOGGING_BY_GUI));
+                                this.WriteLine_Syuturyoku(KirokuGakari.ToJapaneseKifuText(this.ShogiGui.Model_PnlTaikyoku.Kifu, Logger.Gui));
                                 break;
                             case SyuturyokuKirikae.Sfen:
                                 this.WriteLine_Syuturyoku(KirokuGakari.ToSfen_PositionString(this.ShogiGui.Model_PnlTaikyoku.Kifu));

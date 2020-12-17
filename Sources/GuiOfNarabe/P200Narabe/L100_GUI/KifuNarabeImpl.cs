@@ -21,6 +21,7 @@ using Grayscale.P200_KifuNarabe.L015_Sprite;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Nett;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
@@ -30,28 +31,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
     /// </summary>
     public class KifuNarabeImpl : ShogiGui
     {
-
-        #region ロガー
-        private static readonly LarabeLoggerable PAINT = new LarabeLoggerImpl("../../Logs/#将棋GUI_ﾍﾟｲﾝﾄ", true, false);
-        public LarabeLoggerable Logger_Paint
-        {
-            get
-            {
-                return KifuNarabeImpl.PAINT;
-            }
-        }
-
-        private static readonly LarabeLoggerable NETWORK = new LarabeLoggerImpl("../../Logs/#将棋GUI_ﾈｯﾄﾜｰｸ", true, false);
-        public LarabeLoggerable Logger_Network
-        {
-            get
-            {
-                return KifuNarabeImpl.NETWORK;
-            }
-        }
-        #endregion
-
-
         public Timed TimedA { get; set; }
         public Timed TimedB { get; set; }
         public Timed TimedC { get; set; }
@@ -259,7 +238,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
         public void Load_AsStart()
         {
-            LarabeLoggerable logTag = LarabeLoggerList.LOGGING_BY_GUI;
+            LarabeLoggerable logTag = Logger.Gui;
             logTag.WriteLine_AddMemo("乱数のたね＝[" + LarabeRandom.Seed + "]");
 
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];

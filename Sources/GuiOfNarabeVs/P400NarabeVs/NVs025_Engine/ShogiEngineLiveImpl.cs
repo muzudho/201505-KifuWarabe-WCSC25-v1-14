@@ -9,6 +9,7 @@ using Grayscale.P400_KifuNaraVs.L00048_Engine;
 using System;
 using System.Diagnostics;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
 {
@@ -25,10 +26,6 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
     /// </summary>
     public class ShogiEngineLiveImpl : ShogiEngineLive
     {
-
-
-        #region プロパティ類
-
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
         /// 将棋エンジンと会話できるオブジェクトです。
@@ -45,11 +42,9 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
                 // USIコマンドを将棋エンジンに送ったタイミングで、なにかすることがあれば、
                 // ここに書きます。
                 //
-                ownerShogiGui.Logger_Network.WriteLine_S(line);
+                Logger.NarabeNetwork.WriteLine_S(line);
             };
         }
-
-        #endregion
 
         /// <summary>
         /// ************************************************************************************************************************
@@ -241,7 +236,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
 
                     Ui_PnlMain.input99 += line.Substring("bestmove".Length+"".Length);
 
-                    LarabeLoggerList.LOGGING_BY_GUI.WriteLine_AddMemo("USI受信：bestmove input99=[" + Ui_PnlMain.input99 + "]");
+                    Logger.Gui.WriteLine_AddMemo("USI受信：bestmove input99=[" + Ui_PnlMain.input99 + "]");
                 }
                 else
                 {

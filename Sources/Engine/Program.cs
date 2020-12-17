@@ -107,7 +107,7 @@
                 }
 
                 var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
-                Logger.Log_Engine.WriteLine_AddMemo($"v(^▽^)v ｲｪｰｲ☆ ... {engineName} {versionStr}");
+                Logger.Engine.WriteLine_AddMemo($"v(^▽^)v ｲｪｰｲ☆ ... {engineName} {versionStr}");
 
 
                 //-----------+------------------------------------------------------------------------------------------------------------
@@ -153,7 +153,7 @@
 
                         // 将棋サーバーから何かメッセージが届いていないか、見てみます。
                         string line = Util_Message.Download_BlockingIO();
-                        Logger.Log_Client.WriteLine_AddMemo(line);
+                        Logger.Client.WriteLine_AddMemo(line);
                         LarabeLoggerList.GetDefaultList().DefaultFile.WriteLine_R(line);
 
 
@@ -213,7 +213,7 @@
 
                         // 将棋サーバーから何かメッセージが届いていないか、見てみます。
                         string line = Util_Message.Download_BlockingIO();
-                        Logger.Log_Client.WriteLine_AddMemo(line);
+                        Logger.Client.WriteLine_AddMemo(line);
                         LarabeLoggerList.GetDefaultList().DefaultFile.WriteLine_R(line);
 
 
@@ -298,16 +298,16 @@
                     //      │gameover    │lose        │
                     //      └──────┴──────┘
                     //
-                    Logger.Log_Engine.WriteLine_AddMemo("KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
+                    Logger.Engine.WriteLine_AddMemo("KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
                     foreach (KeyValuePair<string, string> pair in usiLoop2.owner.SetoptionDictionary)
                     {
-                        Logger.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                        Logger.Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
                     }
-                    Logger.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-                    Logger.Log_Engine.WriteLine_AddMemo("┏━確認━━━━goDictionary━━━━━┓");
+                    Logger.Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.Engine.WriteLine_AddMemo("┏━確認━━━━goDictionary━━━━━┓");
                     foreach (KeyValuePair<string, string> pair in usiLoop2.GoProperties)
                     {
-                        Logger.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                        Logger.Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
                     }
 
                     //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
@@ -319,13 +319,13 @@
                     //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
                     //}
 
-                    Logger.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-                    Logger.Log_Engine.WriteLine_AddMemo("┏━確認━━━━gameoverDictionary━━┓");
+                    Logger.Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.Engine.WriteLine_AddMemo("┏━確認━━━━gameoverDictionary━━┓");
                     foreach (KeyValuePair<string, string> pair in usiLoop2.GameoverProperties)
                     {
-                        Logger.Log_Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                        Logger.Engine.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
                     }
-                    Logger.Log_Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.Engine.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
                 }
 
             }
@@ -335,11 +335,11 @@
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Log_Engine.WriteLine_AddMemo("Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Engine.WriteLine_AddMemo("Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
             }
 
             // 終了時に、妄想履歴のログを残します。
-            programSupport.shogisasi.Kokoro.WriteTenonagare(programSupport.shogisasi, Logger.Log_Engine);
+            programSupport.shogisasi.Kokoro.WriteTenonagare(programSupport.shogisasi, Logger.Engine);
         }
     }
 }

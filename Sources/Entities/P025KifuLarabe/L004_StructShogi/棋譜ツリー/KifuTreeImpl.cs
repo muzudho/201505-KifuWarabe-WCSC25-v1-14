@@ -10,6 +10,7 @@ using Grayscale.P025_KifuLarabe.L00012_Atom;
 using System.Runtime.CompilerServices;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 {
@@ -110,7 +111,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             if (null == src_Sky)
             {
                 string message = "ノードを追加しようとしましたが、指定されたnewSkyがヌルです。";
-                LarabeLoggerList.ERROR.WriteLine_Error(message);
+                Logger.Error.WriteLine_Error(message);
                 throw new Exception(message);
             }
 

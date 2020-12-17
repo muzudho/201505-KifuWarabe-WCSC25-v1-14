@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 {
@@ -216,7 +217,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
                         "「配役転換表」に、int型数値でないものが指定されていました。\n" +
                         "rowCount=[" + rowCount2 + "]\n" +
                         "columnCount=[" + columnCount + "]\n";
-                        LarabeLoggerList.ERROR.WriteLine_Error( message);
+                        Logger.Error.WriteLine_Error( message);
                         throw new Exception(message);
                     }
 

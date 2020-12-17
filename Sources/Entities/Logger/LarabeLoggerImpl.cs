@@ -93,7 +93,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
                 // どうにもできないので  ログだけ取って　無視します。
                 string message = "Util_Log#WriteLine_AddMemo：" + ex.Message;
-                LarabeLoggerList.ERROR.WriteLine_Error(message);
+                Logger.Error.WriteLine_Error(message);
             }
 
         gt_EndMethod:
@@ -192,7 +192,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
                 // どうにもできないので  ログだけ取って　無視します。
                 string message = "Util_Log#WriteLine_OverMemo：" + ex.Message;
-                LarabeLoggerList.ERROR.WriteLine_Error(message);
+                Logger.Error.WriteLine_Error(message);
             }
 
         gt_EndMethod:
@@ -244,7 +244,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
                 // どうにもできないので  ログだけ取って　無視します。
                 string message = "Util_Log#WriteLine_S：" + ex.Message;
-                LarabeLoggerList.ERROR.WriteLine_Error(message);
+                Logger.Error.WriteLine_Error(message);
             }
 
         gt_EndMethod:
@@ -296,7 +296,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
                 // どうにもできないので  ログだけ取って　無視します。
                 string message = "Util_Log#WriteLine_R：" + ex.Message;
-                LarabeLoggerList.ERROR.WriteLine_Error(message);
+                Logger.Error.WriteLine_Error(message);
             }
 
         gt_EndMethod:

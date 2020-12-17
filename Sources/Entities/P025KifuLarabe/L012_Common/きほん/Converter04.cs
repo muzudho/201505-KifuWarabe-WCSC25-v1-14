@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using System.Diagnostics;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L012_Common
 {
@@ -146,7 +147,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                     break;
                 default:
                     string message = "筋[" + num + "]をアルファベットに変えることはできませんでした。";
-                    LarabeLoggerList.ERROR.WriteLine_Error( message);
+                    Logger.Error.WriteLine_Error( message);
                     throw new Exception(message);
             }
 

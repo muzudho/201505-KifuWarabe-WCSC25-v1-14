@@ -114,13 +114,13 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 
                                 // ８三の駒を、８九に向かって前進させます。
                                 
-                                atamanosumi = new TenonagareImpl( save_node.ToRO_Kyokumen1(Logger.Log_Engine),
+                                atamanosumi = new TenonagareImpl( save_node.ToRO_Kyokumen1(Logger.Engine),
                                     TenonagareName.Tukisute,
                                     1000.0d,
                                     koma83,//どの駒を
                                     null,
                                     Masu_Honshogi.ban83_８三//初期位置
-                                    , Logger.Log_Engine);
+                                    , Logger.Engine);
                                 goto gt_Next1;
                             }
 
@@ -146,13 +146,13 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                         default: koma1 = Util_Koma.FromFinger(src_Sky, -1); break;
                     }
                     
-                    atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(Logger.Log_Engine),
+                    atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(Logger.Engine),
                         TenonagareName.Ido,// 「移動」タイプの狙い
                         0.05d,//1.0d,
                         koma1,
                         null,
                         new Basho(LarabeRandom.Random.Next(0, 80))// 目指すマス
-                        , Logger.Log_Engine);
+                        , Logger.Engine);
                 }
                 else
                 {
@@ -187,10 +187,10 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                     }
 
                     // 「取る」タイプの狙い
-                    atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(Logger.Log_Engine),
+                    atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(Logger.Engine),
                         TenonagareName.Toru,
                         0.1d,//1.0d,
-                        koma1, koma2, new Basho(0), Logger.Log_Engine);
+                        koma1, koma2, new Basho(0), Logger.Engine);
 
                     // 目指す
                 }
@@ -262,7 +262,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
             ShogisasiImpl shogisasi = (ShogisasiImpl)obj_sikouEngine;
 
             // 追記ではなく、上書きにしたい☆
-            Logger.Log_MousouRireki.WriteLine_OverMemo(
+            Logger.MousouRireki.WriteLine_OverMemo(
                 shogisasi.Kokoro.TenonagareToJsonVal().ToString()
                 );
         }
@@ -271,9 +271,9 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
         {
             try
             {
-                if (File.Exists(Logger.Log_MousouRireki.LogRecord.FileName))
+                if (File.Exists(Logger.MousouRireki.LogRecord.FileName))
                 {
-                    string mousouRirekiLog = System.IO.File.ReadAllText(Logger.Log_MousouRireki.LogRecord.FileName, Encoding.UTF8);
+                    string mousouRirekiLog = System.IO.File.ReadAllText(Logger.MousouRireki.LogRecord.FileName, Encoding.UTF8);
 
 #if DEBUG
                     MessageBox.Show( mousouRirekiLog, "妄想履歴ログ有り　（デバッグモード　正常）" );

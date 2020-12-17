@@ -12,6 +12,7 @@ using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L00060_KifuParser;
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
@@ -85,7 +86,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                LarabeLoggerList.ERROR.WriteLine_Error( message);
+                Logger.Error.WriteLine_Error( message);
             }
 
             return genjo.InputLine;

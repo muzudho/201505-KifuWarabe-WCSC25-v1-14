@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.P006_Syugoron;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
@@ -100,13 +101,13 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 {
                     // 最初はここ
 
-                    LarabeLoggerList.LOGGING_BY_GUI.WriteLine_AddMemo("... ...");
-                    LarabeLoggerList.LOGGING_BY_GUI.WriteLine_AddMemo("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                    Logger.Gui.WriteLine_AddMemo("... ...");
+                    Logger.Gui.WriteLine_AddMemo("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         shogiGui_Base,
                         genjo,
-                        new KifuParserA_LogImpl(LarabeLoggerList.LOGGING_BY_GUI, hint + ":Ui_01MenuB#ReadLine_TuginoItteSusumu")
+                        new KifuParserA_LogImpl(Logger.Gui, hint + ":Ui_01MenuB#ReadLine_TuginoItteSusumu")
                         );
 
                     Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -130,13 +131,13 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
                     {
                         string message = "ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
-                        LarabeLoggerList.LOGGING_BY_GUI.WriteLine_AddMemo(message);
+                        Logger.Gui.WriteLine_AddMemo(message);
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             shogiGui_Base,
                             genjo,
-                            new KifuParserA_LogImpl(LarabeLoggerList.LOGGING_BY_GUI, hint + ":平手等解析したい")
+                            new KifuParserA_LogImpl(Logger.Gui, hint + ":平手等解析したい")
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -149,12 +150,12 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
 
                     {
-                        LarabeLoggerList.LOGGING_BY_GUI.WriteLine_AddMemo("ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
+                        Logger.Gui.WriteLine_AddMemo("ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             shogiGui_Base,
                             genjo,
-                            new KifuParserA_LogImpl(LarabeLoggerList.LOGGING_BY_GUI, hint + ":ﾑｰﾌﾞｽ等解析したい")
+                            new KifuParserA_LogImpl(Logger.Gui, hint + ":ﾑｰﾌﾞｽ等解析したい")
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -176,12 +177,12 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 //
                 if (kifuParserA_Impl.State is KifuParserA_StateA2_SfenMoves)
                 {
-                    LarabeLoggerList.LOGGING_BY_GUI.WriteLine_AddMemo("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
+                    Logger.Gui.WriteLine_AddMemo("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         shogiGui_Base,
                         genjo,
-                        new KifuParserA_LogImpl(LarabeLoggerList.LOGGING_BY_GUI, hint + ":一手処理したい")
+                        new KifuParserA_LogImpl(Logger.Gui, hint + ":一手処理したい")
                         );
 
                     if (null != result.Out_newNode_OrNull)
@@ -599,7 +600,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 out movedKoma,
                 out foodKoma,
                 out out_newNode_OrNull,
-                LarabeLoggerList.LOGGING_BY_GUI
+                Logger.Gui
                 );
 
             successful = true;

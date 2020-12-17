@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Grayscale.Kifuwarazusa.Entities;
 
 namespace Grayscale.P025_KifuLarabe.L012_Common
 {
@@ -100,7 +100,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         "「強制転成表」に、int型数値でないものが指定されていました。\n" +
                         "rowCount=[" + rowCount + "]\n" +
                         "masuHandle=[" + masuHandle + "]\n";
-                        LarabeLoggerList.ERROR.WriteLine_Error( message);
+                        Logger.Error.WriteLine_Error( message);
                         throw new Exception(message);
                     }
 
