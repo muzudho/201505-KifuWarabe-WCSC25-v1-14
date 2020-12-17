@@ -55,10 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="L050_UsiLoop\ShogiGui_Warabe.cs" />
-    <Compile Include="L050_UsiLoop\Result_UsiLoop1.cs" />
-    <Compile Include="L050_UsiLoop\UsiLoop2.cs" />
-    <Compile Include="L050_UsiLoop\Result_UsiLoop2.cs" />
+    <Compile Include="ShogiGui_Warabe.cs" />
+    <Compile Include="Result_UsiLoop1.cs" />
+    <Compile Include="Result_UsiLoop2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -8,6 +8,7 @@
     using System.Text.RegularExpressions;
     using Grayscale.Kifuwarazusa.Entities;
     using Grayscale.Kifuwarazusa.UseCases;
+    using Grayscale.P007_SfenReport.L100_Write;
     using Grayscale.P025_KifuLarabe.L00012_Atom;
     using Grayscale.P025_KifuLarabe.L00025_Struct;
     using Grayscale.P025_KifuLarabe.L00050_StructShogi;
@@ -20,6 +21,7 @@
     using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
     using Grayscale.P050_KifuWarabe.L050_UsiLoop;
     using Nett;
+    using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
     /// <summary>
     /// 将棋エンジン　きふわらべ
@@ -247,7 +249,66 @@
                     }
 
                     // ループ（２つ目）
-                    UsiLoop2 usiLoop2 = new UsiLoop2(playing, playing.shogisasi);
+                    playing.AjimiEngine = new AjimiEngine(playing);
+
+                    //
+                    // 図.
+                    //
+                    //      この将棋エンジンが後手とします。
+                    //
+                    //      ┌──┬─────────────┬──────┬──────┬────────────────────────────────────┐
+                    //      │順番│                          │計算        │tesumiCount │解説                                                                    │
+                    //      ┝━━┿━━━━━━━━━━━━━┿━━━━━━┿━━━━━━┿━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┥
+                    //      │   1│初回                      │            │            │相手が先手、この将棋エンジンが後手とします。                            │
+                    //      │    │                          │            │0           │もし、この将棋エンジンが先手なら、初回は tesumiCount = -1 とします。    │
+                    //      ├──┼─────────────┼──────┼──────┼────────────────────────────────────┤
+                    //      │   2│position                  │+-0         │            │                                                                        │
+                    //      │    │    (相手が指しても、     │            │            │                                                                        │
+                    //      │    │     指していないときでも │            │            │                                                                        │
+                    //      │    │     送られてきます)      │            │0           │                                                                        │
+                    //      ├──┼─────────────┼──────┼──────┼────────────────────────────────────┤
+                    //      │   3│go                        │+2          │            │+2 します                                                               │
+                    //      │    │    (相手が指した)        │            │2           │    ※「go」は、「go ponder」「go mate」「go infinite」とは区別します。 │
+                    //      ├──┼─────────────┼──────┼──────┼────────────────────────────────────┤
+                    //      │   4│go ponder                 │+-0         │            │                                                                        │
+                    //      │    │    (相手はまだ指してない)│            │2           │                                                                        │
+                    //      ├──┼─────────────┼──────┼──────┼────────────────────────────────────┤
+                    //      │   5│自分が指した              │+-0         │            │相手が指してから +2 すると決めたので、                                  │
+                    //      │    │                          │            │2           │自分が指したときにはカウントを変えません。                              │
+                    //      └──┴─────────────┴──────┴──────┴────────────────────────────────────┘
+                    //
+                    playing.TesumiCount = 0;// ｎ手目
+
+                    // 棋譜
+                    {
+                        playing.Kifu = new KifuTreeImpl(
+                                new KifuNodeImpl(
+                                    Util_Sky.NullObjectMove,
+                                    new KyokumenWrapper(new SkyConst(Util_Sky.New_Hirate())),// きふわらべ起動時 // FIXME:平手とは限らないが。
+                                    Playerside.P2
+                                )
+                        );
+                        playing.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Playerside.P1);
+                        playing.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
+
+                        Debug.Assert(!Util_MasuNum.OnKomabukuro(
+                            Util_Masu.AsMasuNumber(((RO_Star_Koma)playing.Kifu.CurNode.Value.ToKyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
+                            ), "駒が駒袋にあった。");
+                    }
+
+                    // goの属性一覧
+                    {
+                        playing.GoProperties = new Dictionary<string, string>();
+                        playing.GoProperties["btime"] = "";
+                        playing.GoProperties["wtime"] = "";
+                        playing.GoProperties["byoyomi"] = "";
+                    }
+
+                    // go ponderの属性一覧
+                    {
+                        playing.GoPonderNow = false;   // go ponderを将棋所に伝えたなら真
+                    }
+
                     playing.shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
 
                     //PerformanceMetrics performanceMetrics = new PerformanceMetrics();//使ってない？
@@ -269,7 +330,7 @@
                                 // このメッセージを読むと、駒の配置が分かります。
                                 //
                                 // “が”、まだ指してはいけません。
-                                usiLoop2.Log1("（＾△＾）positionきたｺﾚ！");
+                                Logger.WriteLineAddMemo(LogTags.Engine, "（＾△＾）positionきたｺﾚ！");
 
                                 // 入力行を解析します。
                                 KifuParserA_Result result = new KifuParserA_ResultImpl();
@@ -279,7 +340,32 @@
                                     new KifuParserA_GenjoImpl(line),
                                     new KifuParserA_LogImpl(LogTags.Engine, "Program#Main(Warabe)")
                                     );
-                                usiLoop2.Log2(line, (KifuNode)result.Out_newNode_OrNull, LogTags.Engine, playing);
+
+                                KifuNode kifuNode = (KifuNode)result.Out_newNode_OrNull;
+                                int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
+
+                                Logger.WriteLineAddMemo(
+                                    LogTags.Engine,
+                                    Util_Sky.Json_1Sky(playing.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine),
+                                    "PgCS",
+                                    tesumi_yomiGenTeban_forLog//読み進めている現在の手目
+                                    ));
+
+                                //
+                                // 局面画像ﾛｸﾞ
+                                //
+                                {
+                                    // 出力先
+                                    string fileName = "_log_ベストムーブ_最後の.png";
+
+                                    //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
+                                    KyokumenPngWriterImpl.Write1(
+                                        kifuNode.ToRO_Kyokumen1(LogTags.Engine),
+                                        "",
+                                        fileName,
+                                        ShogisasiImpl.REPORT_ENVIRONMENT
+                                        );
+                                }
 
 
                                 //------------------------------------------------------------
@@ -377,9 +463,58 @@
 
                             //throw new Exception("デバッグだぜ☆！　エラーはキャッチできたかな～☆？（＾▽＾）");
                         }
-                        else if (line.StartsWith("stop")) { usiLoop2.AtLoop_OnStop(line, ref result_Usi); }
-                        else if (line.StartsWith("gameover")) { usiLoop2.AtLoop_OnGameover(line, ref result_Usi); }
-                        else if ("logdase" == line) { usiLoop2.AtLoop_OnLogdase(line, ref result_Usi, playing); }
+                        else if (line.StartsWith("stop"))
+                        {
+                            playing.Stop();
+                        }
+                        else if (line.StartsWith("gameover"))
+                        {
+                            try
+                            {
+                                Regex regex = new Regex(@"gameover (.)", RegexOptions.Singleline);
+                                Match m = regex.Match(line);
+
+                                if (m.Success)
+                                {
+                                    playing.GameOver((string)m.Groups[1].Value);
+                                }
+
+                                // 無限ループ（２つ目）を抜けます。無限ループ（１つ目）に戻ります。
+                                result_Usi = Result_UsiLoop2.Break;
+                            }
+                            catch (Exception ex)
+                            {
+                                // エラーが起こりました。
+                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+                                // どうにもできないので  ログだけ取って無視します。
+                                Logger.WriteLineAddMemo(LogTags.Engine, "Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
+                            }
+                        }
+                        // 独自コマンド「ログ出せ」
+                        else if ("logdase" == line)
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.Append("ログだせ～（＾▽＾）");
+
+                            playing.Kifu.ForeachZenpuku(
+                                playing.Kifu.GetRoot(), (int tesumi, KyokumenWrapper sky, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
+                                {
+                                    //sb.AppendLine("(^-^)");
+
+                                    if (null != node)
+                                    {
+                                        if (null != node.Key)
+                                        {
+                                            string sfenText = Util_Sky.ToSfenMoveText(node.Key);
+                                            sb.Append(sfenText);
+                                            sb.AppendLine();
+                                        }
+                                    }
+                                });
+
+                            File.WriteAllText("../../Logs/_log_ログ出せ命令.txt", sb.ToString());
+                        }
                         else
                         {
                             //------------------------------------------------------------
@@ -454,7 +589,7 @@
                     //      └──────┴──────┘
                     //
                     Logger.WriteLineAddMemo(LogTags.Engine, "KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
-                    foreach (KeyValuePair<string, string> pair in usiLoop2.playing.SetoptionDictionary)
+                    foreach (KeyValuePair<string, string> pair in playing.SetoptionDictionary)
                     {
                         Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
                     }
@@ -474,12 +609,6 @@
                     //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
                     //}
 
-                    Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━━━━━━━┛");
-                    Logger.WriteLineAddMemo(LogTags.Engine, "┏━確認━━━━gameoverDictionary━━┓");
-                    foreach (KeyValuePair<string, string> pair in usiLoop2.GameoverProperties)
-                    {
-                        Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
-                    }
                     Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━━━━━━━┛");
                 }
 
