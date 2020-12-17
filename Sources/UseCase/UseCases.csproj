@@ -77,7 +77,6 @@
     <Compile Include="L031_AjimiEngine\Result_Ajimi.cs" />
     <Compile Include="L100InServer\Util_InServer.cs" />
     <Compile Include="Playing.cs" />
-    <Compile Include="ProgramSupport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
