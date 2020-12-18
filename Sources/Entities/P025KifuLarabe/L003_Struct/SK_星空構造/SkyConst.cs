@@ -90,9 +90,10 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             }
             else
             {
-                string message = this.GetType().Name + "#StarIndexOf：　スプライト配列の範囲を外れた添え字を指定されましたので、取得できません。スプライト番号=[" + finger + "] / スプライトの数=[" + this.starlights.Count + "]\n memberName=" + memberName + "\n sourceFilePath=" + sourceFilePath + "\n sourceLineNumber=" + sourceLineNumber;
-                Debug.Fail(message);
-                throw new Exception(message);
+                throw new Exception($@"{this.GetType().Name}#StarIndexOf：　スプライト配列の範囲を外れた添え字を指定されましたので、取得できません。スプライト番号=[{finger}] / スプライトの数=[{this.starlights.Count}
+memberName={memberName}
+sourceFilePath={sourceFilePath}
+sourceLineNumber={sourceLineNumber}");
             }
 
             return found;

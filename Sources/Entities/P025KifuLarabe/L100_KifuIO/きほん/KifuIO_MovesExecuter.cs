@@ -101,10 +101,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         uttaSyurui, logTag);
                     if (Fingers.Error_1 == koma)
                     {
-                        string message = "TuginoItte_Sfen#GetData_FromTextSub：駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。";
-                        Logger.WriteLineError(LogTags.Error, message);
-                        Debug.Fail(message);
-                        throw new Exception(message);
+                        throw new Exception($"TuginoItte_Sfen#GetData_FromTextSub：駒台から種類[{uttaSyurui}]の駒を掴もうとしましたが、エラーでした。");
                     }
 
                     //// FIXME: 打のとき、srcSuji、srcDan が Int.Min
@@ -123,40 +120,20 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         // 0手目、平手局面を想定していたが、駒がすべて駒袋に入っているときなど
                         //
 
-                        StringBuilder sb = new StringBuilder();
-                        sb.Append("TuginoItte_Sfen#GetData_FromTextSub：SFEN解析中の失敗：");
-                        sb.Append("将棋盤から [");
-                        sb.Append(srcSuji);
-                        sb.Append("]筋、[");
-                        sb.Append(srcDan);
-                        sb.Append("]段 にある駒を掴もうとしましたが、駒がありませんでした。");
-                        sb.AppendLine();
+                        var sky2 = Util_Sky.Json_1Sky(src_Sky, "エラー駒になったとき", $"{hint}_SF解3",
+                            tesumi_yomiGenTeban);
 
-                        sb.AppendLine("isHonshogi=[" + isHonshogi + "]");
-                        sb.AppendLine("str1=[" + str1 + "]");
-                        sb.AppendLine("str2=[" + str2 + "]");
-                        sb.AppendLine("str3=[" + str3 + "]");
-                        sb.AppendLine("str4=[" + str4 + "]");
-                        sb.AppendLine("strNari=[" + strNari + "]");
-                        //move
-                        //kifu
-                        sb.AppendLine("hint=[" + hint + "]");
-                        sb.AppendLine("tesumi_yomiGenTeban=[" + tesumi_yomiGenTeban + "]");
-
-                        // どんな局面なのか？
-                        {
-                            StartposExporter se = new StartposExporter(src_Sky);
-                            sb.AppendLine("局面=sfen " + Util_SfenStartposWriter.CreateSfenstring(se, true));
-                        }
-
-                        sb.Append(Util_Sky.Json_1Sky(src_Sky, "エラー駒になったとき",
-                            hint + "_SF解3",
-                            tesumi_yomiGenTeban));
-
-                        string message = sb.ToString();
-                        Logger.WriteLineError(LogTags.Error,message);
-                        Debug.Fail("SFEN解析中の失敗");
-                        throw new Exception(message);
+                        throw new Exception($@"TuginoItte_Sfen#GetData_FromTextSub：SFEN解析中の失敗： 将棋盤から [{srcSuji}]筋、[{srcDan}]段 にある駒を掴もうとしましたが、駒がありませんでした。
+isHonshogi=[{isHonshogi}]
+str1=[{str1}]
+str2=[{str2}]
+str3=[{str3}]
+str4=[{str4}]
+strNari=[{strNari}]
+hint=[{hint}]
+tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
+局面=sfen {Util_SfenStartposWriter.CreateSfenstring(new StartposExporter(src_Sky), true)}
+{sky2}");
                     }
                 }
 
@@ -246,10 +223,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 //>>>>> エラーが起こりました。
 
                 // どうにもできないので　経路と情報を付け足して　更に外側に投げます。
-                string message = ex.GetType().Name + "：" + ex.Message + "　in　TuginoItte_Sfen.GetData_FromTextSub（A）　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　";
-                Logger.WriteLineError(LogTags.Error, message);
-                Debug.Fail(message);
-                throw new Exception(message);
+                throw new Exception($"{ex.GetType().Name}：{ex.Message}　in　TuginoItte_Sfen.GetData_FromTextSub（A）　str1=「{str1}」　str2=「{str2}」　str3=「{str3}」　str4=「{str4}」　strNari=「{strNari}」　");
             }
         }
 

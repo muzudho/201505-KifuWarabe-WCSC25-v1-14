@@ -208,15 +208,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                 catch (Exception ex)
                 {
                     //>>>>> エラーが起こりました。
-                    string msg = ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：";
-
-                    if (null != log_orNull)
-                    {
-                        // どうにもできないので  ログだけ取って無視します。
-                        Logger.WriteLineError(log_orNull.LogTag, msg);
-                    }
-
-                    throw new Exception( msg,ex);
+                    throw new Exception($"{ex.GetType().Name} {ex.Message}：ランダムチョイス(50)：");
                 }
 
             }

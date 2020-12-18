@@ -76,9 +76,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             {
                 Debug.Assert((int)finger < this.Starlights.Count, "要素の個数より2大きいインデックスを指定しました。 インデックス[" + (int)finger + "]　要素の個数[" + this.Starlights.Count + "]");
 
-                string message = this.GetType().Name + "#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[" + finger + "] / this.stars.Count=[" + this.starlights.Count + "]";
-                //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
-                throw new Exception(message);
+                throw new Exception($"{this.GetType().Name}#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[{finger}] / this.stars.Count=[{this.starlights.Count}]");
             }
             else
             {
@@ -130,9 +128,10 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             }
             else
             {
-                string message = this.GetType().Name + "#StarIndexOf：　スプライトの数より多いスプライト番号を指定されましたので、取得できません。スプライト番号=[" + finger + "] / スプライトの数=[" + this.starlights.Count + "]\n memberName=" + memberName + "\n sourceFilePath=" + sourceFilePath + "\n sourceLineNumber=" + sourceLineNumber;
-                Debug.Fail(message);
-                throw new Exception(message);
+                throw new Exception($@"{this.GetType().Name}#StarIndexOf：　スプライトの数より多いスプライト番号を指定されましたので、取得できません。スプライト番号=[{finger}] / スプライトの数=[{this.starlights.Count}]
+memberName={memberName}
+sourceFilePath={sourceFilePath}
+sourceLineNumber={sourceLineNumber}");
             }
 
             return found;

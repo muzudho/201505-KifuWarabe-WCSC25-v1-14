@@ -132,9 +132,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                     alphabet = "i";
                     break;
                 default:
-                    string message = "筋[" + num + "]をアルファベットに変えることはできませんでした。";
-                    Logger.WriteLineError(LogTags.Error, message);
-                    throw new Exception(message);
+                    throw new Exception($"筋[{num}]をアルファベットに変えることはできませんでした。");
             }
 
             return alphabet;
@@ -631,7 +629,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         {
             Okiba okiba;
 
-            switch(pside)
+            switch (pside)
             {
                 case Playerside.P1:
                     okiba = Okiba.Sente_Komadai;
@@ -923,7 +921,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         public static List<Couple<Finger, SyElement>> NextNodes_ToKamList(
             SkyConst src_Sky_genzai,
-            Node<ShootingStarlightable,KyokumenWrapper> hubNode,
+            Node<ShootingStarlightable, KyokumenWrapper> hubNode,
             ILogTag logTag
             )
         {
@@ -960,7 +958,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             // TODO:
             hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
             {
-                list.Add( node);
+                list.Add(node);
             });
 
             return list;
@@ -1000,18 +998,18 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
                             Ks14.H00_Null//取った駒不明
                         );
-                        //sbSfen.Append(sbSfen.ToString());
+                    //sbSfen.Append(sbSfen.ToString());
 
-                        if (komaTe.ContainsKey(key))
-                        {
-                            // すでに登録されている駒
-                            komaTe.AddExists( key, move);
-                        }
-                        else
-                        {
-                            // まだ登録されていない駒
-                            komaTe.AddNew(key,move);
-                        }
+                    if (komaTe.ContainsKey(key))
+                    {
+                        // すでに登録されている駒
+                        komaTe.AddExists(key, move);
+                    }
+                    else
+                    {
+                        // まだ登録されていない駒
+                        komaTe.AddNew(key, move);
+                    }
 
                 }
             });
@@ -1087,7 +1085,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 goto gt_EndMethod;
             }
 
-            if(KomaSyurui14Array.IsNari(srcKoma.Syurui))
+            if (KomaSyurui14Array.IsNari(srcKoma.Syurui))
             {
                 // 既に成っている駒は、「成り」の指し手を追加すると重複エラーになります。
                 // 成りになれない、で正常終了します。
@@ -1161,41 +1159,34 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             RO_Star_Koma dstKoma
             )
         {
-            try
+            bool isPromotionable;
+            if (!Converter04.IsPromotionable(out isPromotionable, srcKoma, dstKoma))
             {
-                bool isPromotionable;
-                if (!Converter04.IsPromotionable(out isPromotionable, srcKoma, dstKoma))
-                {
-                    goto gt_EndMethod;
-                }
-
-                // 成りの資格があれば、成りの指し手を作ります。
-                if (isPromotionable)
-                {
-                    //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
-
-                    ShootingStarlightable move = new RO_ShootingStarlight(
-                        //figKoma,//駒
-                        srcKoma,// 移動元
-                        new RO_Star_Koma(
-                            dstKoma.Pside,
-                            dstKoma.Masu,
-                            KomaSyurui14Array.ToNariCase(dstKoma.Syurui)//強制的に【成り】に駒の種類を変更
-                        ),// 移動先
-                        Ks14.H00_Null//取った駒不明
-                    );
-
-                    // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                    komaBETUAllMoves.AddNotOverwrite(figKoma, move);
-                }
-
-            gt_EndMethod:
-                ;
+                goto gt_EndMethod;
             }
-            catch (Exception ex)
+
+            // 成りの資格があれば、成りの指し手を作ります。
+            if (isPromotionable)
             {
-                throw new Exception("Convert04.cs#AddNariMoveでｴﾗｰ。:"+ex.GetType().Name+":"+ex.Message);
+                //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
+
+                ShootingStarlightable move = new RO_ShootingStarlight(
+                    //figKoma,//駒
+                    srcKoma,// 移動元
+                    new RO_Star_Koma(
+                        dstKoma.Pside,
+                        dstKoma.Masu,
+                        KomaSyurui14Array.ToNariCase(dstKoma.Syurui)//強制的に【成り】に駒の種類を変更
+                    ),// 移動先
+                    Ks14.H00_Null//取った駒不明
+                );
+
+                // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
+                komaBETUAllMoves.AddNotOverwrite(figKoma, move);
             }
+
+        gt_EndMethod:
+            ;
         }
 
         /// <summary>
@@ -1208,118 +1199,111 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             ILogTag logTag
             )
         {
-            try
+            Dictionary<string, ShootingStarlightable> newMoveList = new Dictionary<string, ShootingStarlightable>();
+
+            hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
-                Dictionary<string, ShootingStarlightable> newMoveList = new Dictionary<string,ShootingStarlightable>();
+                RO_Star_Koma srcKoma = Util_Koma.AsKoma(nextNode.Key.LongTimeAgo);
+                RO_Star_Koma dstKoma = Util_Koma.AsKoma(nextNode.Key.Now);
 
-                hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                bool isPromotionable;
+                if (!Converter04.IsPromotionable(out isPromotionable, srcKoma, dstKoma))
                 {
-                    RO_Star_Koma srcKoma = Util_Koma.AsKoma(nextNode.Key.LongTimeAgo);
-                    RO_Star_Koma dstKoma = Util_Koma.AsKoma(nextNode.Key.Now);
-
-                    bool isPromotionable;
-                    if (!Converter04.IsPromotionable(out isPromotionable, srcKoma, dstKoma))
-                    {
                         // ｴﾗｰ
                         goto gt_Next1;
-                    }
+                }
 
-                    if (isPromotionable)
-                    {
-                        ShootingStarlightable move = new RO_ShootingStarlight(
-                            //figKoma,//駒
-                            srcKoma,// 移動元
-                            new RO_Star_Koma(
-                                dstKoma.Pside,
-                                dstKoma.Masu,
-                                KomaSyurui14Array.ToNariCase(dstKoma.Syurui)//強制的に【成り】に駒の種類を変更
-                            ),// 移動先
-                            Ks14.H00_Null//取った駒不明
-                        );
+                if (isPromotionable)
+                {
+                    ShootingStarlightable move = new RO_ShootingStarlight(
+                        //figKoma,//駒
+                        srcKoma,// 移動元
+                        new RO_Star_Koma(
+                            dstKoma.Pside,
+                            dstKoma.Masu,
+                            KomaSyurui14Array.ToNariCase(dstKoma.Syurui)//強制的に【成り】に駒の種類を変更
+                        ),// 移動先
+                        Ks14.H00_Null//取った駒不明
+                    );
 
                         // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
                         string moveStr = Util_Sky.ToSfenMoveText(move);//重複防止用のキー
                         if (!newMoveList.ContainsKey(moveStr))
-                        {
-                            newMoveList.Add(moveStr, move);
-                        }
+                    {
+                        newMoveList.Add(moveStr, move);
                     }
+                }
 
-                gt_Next1:
-                    ;
-                });
+            gt_Next1:
+                ;
+            });
 
-                
-                // 新しく作った【成り】の指し手を追加します。
-                foreach(ShootingStarlightable newMove in newMoveList.Values)
+
+            // 新しく作った【成り】の指し手を追加します。
+            foreach (ShootingStarlightable newMove in newMoveList.Values)
+            {
+                // 指す前の駒
+                RO_Star_Koma sasumaenoKoma = Util_Koma.AsKoma(newMove.LongTimeAgo);
+
+                // 指した駒
+                RO_Star_Koma sasitaKoma = Util_Koma.AsKoma(newMove.Now);
+
+                // 現局面
+                SkyConst src_Sky = node_yomiCur.Value.ToKyokumenConst;
+
+                // 指す前の駒を、盤上のマス目で指定
+                Finger figSasumaenoKoma = Util_Sky.Fingers_AtMasuNow(src_Sky, sasumaenoKoma.Masu).ToFirst();
+
+                // 新たな局面
+                KyokumenWrapper kyokumenWrapper = new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, figSasumaenoKoma, sasitaKoma.Masu, KifuNodeImpl.GetReverseTebanside(node_yomiCur.Tebanside), logTag));
+
+
+
+                try
                 {
-                    // 指す前の駒
-                    RO_Star_Koma sasumaenoKoma = Util_Koma.AsKoma(newMove.LongTimeAgo);
+                    string moveStr = Util_Sky.ToSfenMoveText(newMove);
 
-                    // 指した駒
-                    RO_Star_Koma sasitaKoma = Util_Koma.AsKoma(newMove.Now);
-
-                    // 現局面
-                    SkyConst src_Sky = node_yomiCur.Value.ToKyokumenConst;
-
-                    // 指す前の駒を、盤上のマス目で指定
-                    Finger figSasumaenoKoma = Util_Sky.Fingers_AtMasuNow(src_Sky, sasumaenoKoma.Masu).ToFirst();
-
-                    // 新たな局面
-                    KyokumenWrapper kyokumenWrapper = new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, figSasumaenoKoma, sasitaKoma.Masu, KifuNodeImpl.GetReverseTebanside(node_yomiCur.Tebanside), logTag));
-
-
-
-                    try
+                    if (!hubNode.ContainsKey_NextNodes(moveStr))
                     {
-                        string moveStr = Util_Sky.ToSfenMoveText(newMove);
+                        // 指し手が既存でない局面だけを追加します。
 
-                        if (!hubNode.ContainsKey_NextNodes(moveStr))
-                        {
-                            // 指し手が既存でない局面だけを追加します。
-
-                            hubNode.Add_NextNode(
-                                moveStr,
-                                new KifuNodeImpl(
-                                    newMove,
-                                    kyokumenWrapper,//node_yomiCur.Value,//FIXME: 成りの手を指した局面を作りたい。
-                                    KifuNodeImpl.GetReverseTebanside(node_yomiCur.Tebanside)
-                                )
-                                );
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        // 既存の指し手
-                        StringBuilder sb = new StringBuilder();
-                        {
-                            hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
-                            {
-                                sb.Append("「");
-                                sb.Append(Util_Sky.ToSfenMoveText(nextNode.Key));
-                                sb.Append("」");
-                            });
-                        }
-
-                        //>>>>> エラーが起こりました。
-                        string message = ex.GetType().Name + " " + ex.Message + "：新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + Util_Sky.ToSfenMoveText(newMove) + "」既存の手="+sb.ToString();
-                        Debug.Fail(message);
-
-                        // どうにもできないので  ログだけ取って、上に投げます。
-                        Logger.WriteLineError(logTag,message);
-                        throw ;
+                        hubNode.Add_NextNode(
+                            moveStr,
+                            new KifuNodeImpl(
+                                newMove,
+                                kyokumenWrapper,//node_yomiCur.Value,//FIXME: 成りの手を指した局面を作りたい。
+                                KifuNodeImpl.GetReverseTebanside(node_yomiCur.Tebanside)
+                            )
+                            );
                     }
 
                 }
+                catch (Exception ex)
+                {
+                    // 既存の指し手
+                    StringBuilder sb = new StringBuilder();
+                    {
+                        hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                        {
+                            sb.Append("「");
+                            sb.Append(Util_Sky.ToSfenMoveText(nextNode.Key));
+                            sb.Append("」");
+                        });
+                    }
+
+                    //>>>>> エラーが起こりました。
+                    string message = ex.GetType().Name + " " + ex.Message + "：新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + Util_Sky.ToSfenMoveText(newMove) + "」既存の手=" + sb.ToString();
+                    Debug.Fail(message);
+
+                    // どうにもできないので  ログだけ取って、上に投げます。
+                    Logger.WriteLineError(logTag, message);
+                    throw;
+                }
+
+            }
 
             // gt_EndMethod:
             // ;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Convert04.cs#AddNariMoveでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
-            }
         }
 
         public static void AssertNariMove(Maps_OneAndMulti<Finger, ShootingStarlightable> komabetuAllMove, string hint)
@@ -1383,17 +1367,17 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
 
                 foreach (SyElement dstMasu in value.Elements)
-                    {
+                {
 
-                        ShootingStarlightable move = Util_Sky.New(
-                            //key,
-                            new RO_Star_Koma(pside, koma.Masu, koma.Haiyaku),
-                            new RO_Star_Koma(pside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
-                            Ks14.H00_Null
-                            );
+                    ShootingStarlightable move = Util_Sky.New(
+                        //key,
+                        new RO_Star_Koma(pside, koma.Masu, koma.Haiyaku),
+                        new RO_Star_Koma(pside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
+                        Ks14.H00_Null
+                        );
 
-                        resultMovebetuSky.Add(move, new KyokumenWrapper( Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
-                    }
+                    resultMovebetuSky.Add(move, new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
+                }
             });
 
 
@@ -1412,16 +1396,16 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
 
                 foreach (SyElement dstMasu in value.Elements)
-                    {
-                        ShootingStarlightable move = Util_Sky.New(
-                            //key,
-                            new RO_Star_Koma(pside, koma.Masu, koma.Haiyaku),
-                            new RO_Star_Koma(pside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
-                            Ks14.H00_Null
-                            );
+                {
+                    ShootingStarlightable move = Util_Sky.New(
+                        //key,
+                        new RO_Star_Koma(pside, koma.Masu, koma.Haiyaku),
+                        new RO_Star_Koma(pside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
+                        Ks14.H00_Null
+                        );
 
-                        result.Add(move, new KyokumenWrapper( Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
-                    }
+                    result.Add(move, new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
+                }
             });
 
 
@@ -1430,7 +1414,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
         public static KifuNode MovebetuSky_ToHubNode(Dictionary<ShootingStarlightable, KyokumenWrapper> movebetuSkys, Playerside nextTebanside)
         {
-            KifuNode hubNode = new KifuNodeImpl(null,null,Playerside.Empty);
+            KifuNode hubNode = new KifuNodeImpl(null, null, Playerside.Empty);
 
             foreach (KeyValuePair<ShootingStarlightable, KyokumenWrapper> nextNode in movebetuSkys)
             {
@@ -1458,7 +1442,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
 
-                    masus.AddElement(koma.Masu);
+                masus.AddElement(koma.Masu);
             }
 
             return masus;
@@ -1470,7 +1454,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
-                moveInfo = KomaSyurui14Array.ToIchimoji(Haiyaku184Array.Syurui(koma.Haiyaku));
+            moveInfo = KomaSyurui14Array.ToIchimoji(Haiyaku184Array.Syurui(koma.Haiyaku));
 
             return moveInfo;
         }
@@ -1487,8 +1471,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
-                // 指し手を「△歩」といった形で。
-                result = KomaSyurui14Array.ToNimoji(Haiyaku184Array.Syurui(koma.Haiyaku), pside_genTeban);
+            // 指し手を「△歩」といった形で。
+            result = KomaSyurui14Array.ToNimoji(Haiyaku184Array.Syurui(koma.Haiyaku), pside_genTeban);
 
         gt_EndMethod:
             return result;

@@ -24,7 +24,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
                 case Playerside.P1: side2 = Playerside.P2; break;
                 case Playerside.P2: side2 = Playerside.P1; break;
                 case Playerside.Empty: side2 = Playerside.Empty; break;
-                default: throw new Exception("未定義のプレイヤーサイド [" + tebanside1 + "]");
+                default: throw new Exception($"未定義のプレイヤーサイド [{tebanside1}]");
             }
 
             return side2;

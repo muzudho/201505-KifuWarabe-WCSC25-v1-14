@@ -76,9 +76,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
                     break;
 
                 default:
-                    string message = "先後エラー";
-                    //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
-                    throw new Exception(message);
+                    throw new Exception("先後エラー");
             }
 
 
@@ -106,9 +104,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 
             if (null == src_Sky)
             {
-                string message = "ノードを追加しようとしましたが、指定されたnewSkyがヌルです。";
-                Logger.WriteLineError(LogTags.Error,message);
-                throw new Exception(message);
+                throw new Exception("ノードを追加しようとしましたが、指定されたnewSkyがヌルです。");
             }
 
 

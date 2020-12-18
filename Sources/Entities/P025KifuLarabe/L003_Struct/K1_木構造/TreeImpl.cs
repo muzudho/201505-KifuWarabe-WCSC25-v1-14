@@ -119,8 +119,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             if (this.CurNode.PreviousNode==null)
             {
                 // やってはいけない操作は、例外を返すようにします。
-                string message = "ルート局面を削除しようとしました。";
-                throw new Exception(message);
+                throw new Exception("ルート局面を削除しようとしました。");
             }
 
             //>>>>> ラスト要素がルートでなかったら
@@ -297,9 +296,8 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
             if (-1 == countTesumi)
             {
-                string message = "手目を調べるのに失敗しました。\n[0]初期局面 は必ず入っているので、ループが１回も回らないということはないはずですが、-1手目になりました。";
-                //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
-                throw new Exception(message);
+                throw new Exception($@"手目を調べるのに失敗しました。
+[0]初期局面 は必ず入っているので、ループが１回も回らないということはないはずですが、-1手目になりました。");
             }
 
             // ログ出すぎ
@@ -334,9 +332,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
             if (null == found6)
             {
-                string message = "[" + tesumi1 + "]の局面ノード6はヌルでした。";
-                //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
-                throw new Exception(message);
+                throw new Exception($"[{tesumi1}]の局面ノード6はヌルでした。");
             }
 
             return found6;

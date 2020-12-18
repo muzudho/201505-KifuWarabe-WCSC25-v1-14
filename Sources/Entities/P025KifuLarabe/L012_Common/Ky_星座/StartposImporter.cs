@@ -101,7 +101,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         break;
 
                     default:
-                        throw new Exception("未対応のmoji=[" + masuString + "]");
+                        throw new Exception($"未対応のmoji=[{masuString}]");
                 }
             });
 
@@ -317,7 +317,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         }
                         break;
 
-                    default: throw new Exception("未対応の駒種類=[" + entry.Value.Syurui + "]");
+                    default: throw new Exception($"未対応の駒種類=[{entry.Value.Syurui}]");
                 }
 
                 Debug.Assert(0<=int_finger && int_finger<=39, "finger=["+int_finger+"]" );
@@ -457,7 +457,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         break;
 
                     default:
-                        throw new Exception("未対応の駒種類=[" + entry.Value.Syurui + "]");
+                        throw new Exception($"未対応の駒種類=[{entry.Value.Syurui}]");
                 }
             }
 
