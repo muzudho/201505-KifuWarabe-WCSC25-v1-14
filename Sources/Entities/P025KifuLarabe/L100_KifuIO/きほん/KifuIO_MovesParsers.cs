@@ -30,7 +30,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         public static bool Hit_JfugoParser(
             Playerside pside, Ks14 syurui, SySet<SyElement> srcAll,
             KifuTree kifu,
-            out Finger foundKoma, ILogTag logTag)
+            out Finger foundKoma)
         {
             SkyConst src_Sky = kifu.CurNode.Value.ToKyokumenConst;
 
@@ -45,18 +45,18 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(koma1).Now);
 
 
-                        if (pside == koma2.Pside
-                            && Okiba.ShogiBan == Util_Masu.GetOkiba(koma2.Masu)
-                            && KomaSyurui14Array.Matches(syurui, Haiyaku184Array.Syurui(koma2.Haiyaku))
-                            && masu1 == koma2.Masu
-                            )
-                        {
-                            // 候補マスにいた
-                            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                            hit = true;
-                            foundKoma = koma1;
-                            break;
-                        }
+                    if (pside == koma2.Pside
+                        && Okiba.ShogiBan == Util_Masu.GetOkiba(koma2.Masu)
+                        && KomaSyurui14Array.Matches(syurui, Haiyaku184Array.Syurui(koma2.Haiyaku))
+                        && masu1 == koma2.Masu
+                        )
+                    {
+                        // 候補マスにいた
+                        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                        hit = true;
+                        foundKoma = koma1;
+                        break;
+                    }
                 }
             }
 
@@ -80,9 +80,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             out string str7,
             out string str8,
             out string str9,
-            out string rest,
-            KifuTree kifu,
-            ILogTag logTag
+            out string rest
             )
         {
             //nextTe = null;
@@ -99,51 +97,40 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             str8 = "";
             str9 = "";
 
-            try
+            //------------------------------------------------------------
+            // リスト作成
+            //------------------------------------------------------------
+            Regex regex = new Regex(
+                @"^\s*([▲△]?)(?:([123456789１２３４５６７８９])([123456789１２３４５６７８９一二三四五六七八九]))?(同)?[\s　]*(歩|香|桂|銀|金|飛|角|王|玉|と|成香|成桂|成銀|竜|龍|馬)(右|左|直)?(寄|引|上)?(成|不成)?(打?)",
+                RegexOptions.Singleline
+            );
+
+            MatchCollection mc = regex.Matches(inputLine);
+            foreach (Match m in mc)
             {
-                //------------------------------------------------------------
-                // リスト作成
-                //------------------------------------------------------------
-                Regex regex = new Regex(
-                    @"^\s*([▲△]?)(?:([123456789１２３４５６７８９])([123456789１２３４５６７８９一二三四五六七八九]))?(同)?[\s　]*(歩|香|桂|銀|金|飛|角|王|玉|と|成香|成桂|成銀|竜|龍|馬)(右|左|直)?(寄|引|上)?(成|不成)?(打?)",
-                    RegexOptions.Singleline
-                );
-
-                MatchCollection mc = regex.Matches(inputLine);
-                foreach (Match m in mc)
+                if (0 < m.Groups.Count)
                 {
-                    if (0 < m.Groups.Count)
-                    {
-                        successful = true;
+                    successful = true;
 
-                        // 残りのテキスト
-                        rest = inputLine.Substring(0, m.Index) + inputLine.Substring(m.Index + m.Length, inputLine.Length - (m.Index + m.Length));
+                    // 残りのテキスト
+                    rest = inputLine.Substring(0, m.Index) + inputLine.Substring(m.Index + m.Length, inputLine.Length - (m.Index + m.Length));
 
-                        str1 = m.Groups[1].Value;
-                        str2 = m.Groups[2].Value;
-                        str3 = m.Groups[3].Value;
-                        str4 = m.Groups[4].Value;
-                        str5 = m.Groups[5].Value;
-                        str6 = m.Groups[6].Value;
-                        str7 = m.Groups[7].Value;
-                        str8 = m.Groups[8].Value;
-                        str9 = m.Groups[9].Value;
-                    }
-
-                    // 最初の１件だけ処理して終わります。
-                    break;
+                    str1 = m.Groups[1].Value;
+                    str2 = m.Groups[2].Value;
+                    str3 = m.Groups[3].Value;
+                    str4 = m.Groups[4].Value;
+                    str5 = m.Groups[5].Value;
+                    str6 = m.Groups[6].Value;
+                    str7 = m.Groups[7].Value;
+                    str8 = m.Groups[8].Value;
+                    str9 = m.Groups[9].Value;
                 }
 
-                rest = rest.Trim();
+                // 最初の１件だけ処理して終わります。
+                break;
             }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                // どうにもできないので  ログだけ取って無視します。
-                Logger.WriteLineAddMemo(logTag, "TuginoItte_JapanFugo.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」");
-            }
+            rest = rest.Trim();
 
 
             return successful;
@@ -165,9 +152,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             out string str3,
             out string str4,
             out string str5,
-            out string rest,
-            KifuTree kifu,
-            ILogTag logTag
+            out string rest
             )
         {
             bool successful = false;
@@ -181,66 +166,38 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             //System.C onsole.WriteLine("TuginoItte_Sfen.GetData_FromText:text=[" + text + "]");
 
-            try
+            //------------------------------------------------------------
+            // リスト作成
+            //------------------------------------------------------------
+            Regex regex = new Regex(
+                @"^\s*([123456789PLNSGKRB])([abcdefghi\*])([123456789])([abcdefghi])(\+)?",
+                RegexOptions.Singleline
+            );
+
+            MatchCollection mc = regex.Matches(inputLine);
+            foreach (Match m in mc)
             {
 
 
-
-                //------------------------------------------------------------
-                // リスト作成
-                //------------------------------------------------------------
-                Regex regex = new Regex(
-                    @"^\s*([123456789PLNSGKRB])([abcdefghi\*])([123456789])([abcdefghi])(\+)?",
-                    RegexOptions.Singleline
-                );
-
-                MatchCollection mc = regex.Matches(inputLine);
-                foreach (Match m in mc)
+                if (0 < m.Groups.Count)
                 {
+                    successful = true;
 
-                    try
-                    {
+                    // 残りのテキスト
+                    rest = inputLine.Substring(0, m.Index) + inputLine.Substring(m.Index + m.Length, inputLine.Length - (m.Index + m.Length));
 
-                        if (0 < m.Groups.Count)
-                        {
-                            successful = true;
-
-                            // 残りのテキスト
-                            rest = inputLine.Substring(0, m.Index) + inputLine.Substring(m.Index + m.Length, inputLine.Length - (m.Index + m.Length));
-
-                            str1 = m.Groups[1].Value;
-                            str2 = m.Groups[2].Value;
-                            str3 = m.Groups[3].Value;
-                            str4 = m.Groups[4].Value;
-                            str5 = m.Groups[5].Value;
-                        }
-
-                        // 最初の１件だけ処理して終わります。
-                        break;
-                    }
-                    catch (Exception ex)
-                    {
-                        // エラーが起こりました。
-                        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                        // どうにもできないので  ログだけ取って無視します。
-                        string message = "TuginoItte_Sfen.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」　m.Groups.Count=「" + m.Groups.Count + "」";
-                        Logger.WriteLineError(LogTags.Error, message);
-                    }
+                    str1 = m.Groups[1].Value;
+                    str2 = m.Groups[2].Value;
+                    str3 = m.Groups[3].Value;
+                    str4 = m.Groups[4].Value;
+                    str5 = m.Groups[5].Value;
                 }
 
-                rest = rest.Trim();
-
+                // 最初の１件だけ処理して終わります。
+                break;
             }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                // どうにもできないので  ログだけ取って無視します。
-                string message = "TuginoItte_Sfen.GetData_FromText（B）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」";
-                Logger.WriteLineError(LogTags.Error, message);
-            }
+            rest = rest.Trim();
 
             return successful;
         }

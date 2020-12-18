@@ -366,7 +366,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
 
                                                     RO_Star_Koma koma2 = Util_Koma.AsKoma(move.LongTimeAgo);
 
-                                                    fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](move, new KyokumenWrapper(src_Sky), eventState.Flg_logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                                                    fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](move, new KyokumenWrapper(src_Sky));//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
 
                                                     shogiGui.Shape_PnlTaikyoku.SetFugo(fugoJ.ToText_UseDou(
@@ -507,7 +507,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
 
                                                         FugoJ fugoJ;
 
-                                                        fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](move, new KyokumenWrapper(src_Sky), eventState.Flg_logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                                                        fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](move, new KyokumenWrapper(src_Sky));//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
                                                         shogiGui.Shape_PnlTaikyoku.SetFugo(fugoJ.ToText_UseDou(
                                                             KifuNarabe_KifuWrapper.CurNode(shogiGui.Model_PnlTaikyoku.Kifu)

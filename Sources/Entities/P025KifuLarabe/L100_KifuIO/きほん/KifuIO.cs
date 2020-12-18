@@ -55,8 +55,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 out figMovedKoma,
                 move,
                 kifu,
-                isMakimodosi,
-                logTag
+                isMakimodosi
                 );
 
 
@@ -109,8 +108,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             out Finger figMovedKoma,
             ShootingStarlightable move,
             KifuTree kifu,
-            bool isMakimodosi,
-            ILogTag logTag
+            bool isMakimodosi
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -137,8 +135,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 figMovedKoma = Util_Sky.Finger_AtMasuNow_Shogiban(
                     src_Sky,
                     koma.Pside,
-                    koma.Masu,//[巻戻し]のときは、先位置が　駒の居場所。
-                    logTag
+                    koma.Masu//[巻戻し]のときは、先位置が　駒の居場所。
                     );
             }
             else
@@ -168,8 +165,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     figMovedKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase(
                         src_Sky,
                         Util_Masu.GetOkiba(srcKoma.Masu),
-                        Haiyaku184Array.Syurui(dstKoma.Haiyaku),
-                        logTag
+                        Haiyaku184Array.Syurui(dstKoma.Haiyaku)
                         );
                 }
                 else
@@ -188,8 +184,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         Util_Masu.OkibaSujiDanToMasu(
                             Util_Masu.GetOkiba(Masu_Honshogi.Items_All[Util_Masu.AsMasuNumber(dstKoma.Masu)]),
                             Util_Masu.AsMasuNumber(srcKoma.Masu)
-                            ),
-                            logTag
+                            )
                             );
 
                 }
@@ -505,7 +500,7 @@ dst.Pside={dstKoma.Pside}");
 
 
                     // 取った駒は、種類が同じなら、駒台のどの駒でも同じです。
-                    Finger temp_figFoodKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase(kifu.CurNode.Value.ToKyokumenConst, okiba, (Ks14)move.FoodKomaSyurui, logTag);
+                    Finger temp_figFoodKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase(kifu.CurNode.Value.ToKyokumenConst, okiba, (Ks14)move.FoodKomaSyurui);
                     if (Fingers.Error_1 != temp_figFoodKoma)
                     {
                         // 取った駒のデータをセットし直します。

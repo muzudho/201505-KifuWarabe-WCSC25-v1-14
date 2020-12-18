@@ -32,8 +32,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             out ShootingStarlightable move,
             KifuTree kifu,
             string hint,
-            int tesumi_yomiGenTeban,//読み進めている現在の手目済
-            ILogTag logTag
+            int tesumi_yomiGenTeban//読み進めている現在の手目済
             )
         {
             move = Util_Sky.NullObjectMove;
@@ -98,7 +97,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     koma = Util_Sky.FingerNow_BySyuruiIgnoreCase(
                         siteiNode.Value.ToKyokumenConst,
                         Converter04.Pside_ToKomadai(kifu.CountPside(kifu.CurNode)),//Okiba.Sente_Komadai,//FIXME:
-                        uttaSyurui, logTag);
+                        uttaSyurui);
                     if (Fingers.Error_1 == koma)
                     {
                         throw new Exception($"TuginoItte_Sfen#GetData_FromTextSub：駒台から種類[{uttaSyurui}]の駒を掴もうとしましたが、エラーでした。");
@@ -166,7 +165,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                     int lastTesumi = kifu.CountTesumi(kifu.CurNode);
                     Node<ShootingStarlightable, KyokumenWrapper> siteiNode = kifu.NodeAt(lastTesumi);
 
-                    Finger srcKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase( siteiNode.Value.ToKyokumenConst,srcOkiba, srcSyurui, logTag);
+                    Finger srcKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase( siteiNode.Value.ToKyokumenConst,srcOkiba, srcSyurui);
 
                     RO_Star_Koma dstKoma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(srcKoma).Now);
 
@@ -230,9 +229,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
 
 
         /// <summary>
-        /// ************************************************************************************************************************
         /// 次の１手データを作ります(*1)
-        /// ************************************************************************************************************************
         /// 
         ///         *1…符号１「▲６８銀上」を元に、「7968」を作ります。
         /// 
@@ -250,8 +247,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
             string strNariNarazu, //成|不成
             string strDaHyoji, //打
             out ShootingStarlightable move,
-            KifuTree kifu,
-            ILogTag logTag
+            KifuTree kifu
             )
         {
             Node<ShootingStarlightable, KyokumenWrapper> siteiNode = kifu.CurNode;
@@ -343,7 +339,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 SySet<SyElement> srcAll = new SySet_Default<SyElement>("J符号");
                 if (isE) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻引(pside, dst1)); }
 
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -441,7 +437,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 if (isE) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻引(pside, dst1)); }
                 if (isG) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻滑(pside, dst1)); }
 
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -540,7 +536,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 //----------
                 // 候補マスＢ
                 //----------
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -580,7 +576,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 SySet<SyElement> srcAll = new SySet_Default<SyElement>("J符号");
                 if (isE) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻引(pside, dst1)); }
 
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -642,7 +638,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 if (isI) { srcAll.AddSupersets(KomanoKidou.SrcKeimatobi_戻跳(pside, dst1)); }
                 if (isJ) { srcAll.AddSupersets(KomanoKidou.SrcKeimatobi_戻駆(pside, dst1)); }
 
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -718,7 +714,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 if (isF) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻降(pside, dst1)); }
                 if (isH) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻浮(pside, dst1)); }
 
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -807,7 +803,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 if (isF) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻降(pside, dst1)); }
                 if (isG) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻滑(pside, dst1)); }
 
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -851,7 +847,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 if (isH) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻浮(pside, dst1)); }
 
                 // 王は１つです。
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -975,7 +971,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 if (isG) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻滑(pside, dst1)); }
                 if (isH) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻浮(pside, dst1)); }
 
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -1098,7 +1094,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 if (isG) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻滑(pside, dst1)); }
                 if (isH) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻浮(pside, dst1)); }
 
-                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma, logTag))
+                if (KifuIO_MovesParsers.Hit_JfugoParser(pside, srcSyurui, srcAll, kifu, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -1124,7 +1120,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
 
 
                 Fingers komas = Util_Sky.Fingers_ByOkibaPsideSyuruiNow(
-                    siteiNode.Value.ToKyokumenConst, srcOkiba1, pside, srcSyurui, logTag);
+                    siteiNode.Value.ToKyokumenConst, srcOkiba1, pside, srcSyurui);
 
                 if (0 < komas.Count)
                 {
@@ -1183,7 +1179,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
 
                 // 駒台から、該当する駒を探します。
                 Fingers daiKomaFgs = Util_Sky.Fingers_ByOkibaPsideSyuruiNow(
-                    siteiNode.Value.ToKyokumenConst, srcOkiba1, pside, srcSyurui, logTag);//(2014-10-04 12:46)変更
+                    siteiNode.Value.ToKyokumenConst, srcOkiba1, pside, srcSyurui);//(2014-10-04 12:46)変更
 
 
                 Debug.Assert(0 < daiKomaFgs.Count, "フィンガーズが 1個未満。 srcOkiba1=[" + srcOkiba1 + "] pside=[" + pside + "] srcSyurui=[" + srcSyurui + "]");

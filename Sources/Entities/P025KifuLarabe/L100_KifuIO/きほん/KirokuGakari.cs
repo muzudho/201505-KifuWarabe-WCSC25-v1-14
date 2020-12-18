@@ -80,7 +80,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                 RO_Star_Koma koma = Util_Koma.AsKoma(((ShootingStarlightable)node6.Key).LongTimeAgo);
 
-                fugo = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma.Haiyaku)](node6.Key, saifu_kWrap, logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                fugo = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma.Haiyaku)](node6.Key, saifu_kWrap);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
                 sb.Append(fugo.ToText_UseDou( node6));
 

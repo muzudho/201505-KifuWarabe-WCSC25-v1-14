@@ -252,7 +252,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
                 RO_Star_Koma koma2 = Util_Koma.AsKoma(tuginoMoveData.LongTimeAgo);
 
-                FugoJ fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](tuginoMoveData, new KyokumenWrapper(src_Sky), logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                FugoJ fugoJ = JFugoCreator15Array.ItemMethods[(int)Haiyaku184Array.Syurui(koma2.Haiyaku)](tuginoMoveData, new KyokumenWrapper(src_Sky));//「▲２二角成」なら、馬（dst）ではなくて角（src）。
                 tuginoItte = fugoJ.ToText_UseDou(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui));
             }
 

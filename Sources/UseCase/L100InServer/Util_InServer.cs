@@ -557,8 +557,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 (int)Haiyaku184Array.Syurui(koma.Haiyaku)
             ](
                 removeeLeaf.Key,
-                new KyokumenWrapper(shogiGui.Model_PnlTaikyoku.GuiSkyConst),
-                logTag
+                new KyokumenWrapper(shogiGui.Model_PnlTaikyoku.GuiSkyConst)
             ).ToText_UseDou(removeeLeaf);
             //MessageBox.Show("[巻戻し]符号＝" + fugoJStr, "デバッグ");
 

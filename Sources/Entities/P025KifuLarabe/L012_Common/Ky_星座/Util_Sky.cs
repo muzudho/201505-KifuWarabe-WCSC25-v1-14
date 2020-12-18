@@ -179,7 +179,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="syurui"></param>
         /// <param name="uc_Main"></param>
         /// <returns>無ければ -1</returns>
-        public static Finger FingerNow_BySyuruiIgnoreCase(SkyConst src_Sky, Okiba okiba, Ks14 syurui, ILogTag logTag)
+        public static Finger FingerNow_BySyuruiIgnoreCase(SkyConst src_Sky, Okiba okiba, Ks14 syurui)
         {
             Finger found = Fingers.Error_1;
 
@@ -263,7 +263,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="syurui"></param>
         /// <param name="kifu"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByOkibaPsideSyuruiNow(SkyConst src_Sky, Okiba okiba, Playerside pside, Ks14 syurui, ILogTag logTag)
+        public static Fingers Fingers_ByOkibaPsideSyuruiNow(SkyConst src_Sky, Okiba okiba, Playerside pside, Ks14 syurui)
         {
             Fingers figKomas = new Fingers();
 
@@ -289,13 +289,13 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <param name="km"></param>
         /// <returns></returns>
-        public static Fingers Fingers_EachSrcNow(SkyConst src_Sky, Playerside pside, Starlight itaru, SySet<SyElement> srcList, ILogTag logTag)
+        public static Fingers Fingers_EachSrcNow(SkyConst src_Sky, Playerside pside, Starlight itaru, SySet<SyElement> srcList)
         {
             Fingers fingers = new Fingers();
 
             foreach (SyElement masu in srcList.Elements)
             {
-                Finger finger = Util_Sky.Finger_AtMasuNow_Shogiban(src_Sky,pside, masu, logTag);
+                Finger finger = Util_Sky.Finger_AtMasuNow_Shogiban(src_Sky,pside, masu);
                 if (Util_Finger.ForHonshogi(finger))
                 {
                     // 指定の升に駒がありました。
@@ -450,7 +450,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger Finger_AtMasuNow_Shogiban(SkyConst src_Sky, Playerside pside, SyElement masu, ILogTag logTag)
+        public static Finger Finger_AtMasuNow_Shogiban(SkyConst src_Sky, Playerside pside, SyElement masu)
         {
             Finger foundKoma = Fingers.Error_1;
 
@@ -541,7 +541,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Starlight sl, SySet<SyElement> masus, SkyConst src_Sky, ILogTag logTag)
+        public static bool ExistsIn(Starlight sl, SySet<SyElement> masus, SkyConst src_Sky)
         {
             bool matched = false;
 
@@ -550,7 +550,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 RO_Star_Koma koma = Util_Koma.AsKoma(sl.Now);
 
 
-                Finger finger = Util_Sky.Finger_AtMasuNow_Shogiban(src_Sky, koma.Pside, masu, logTag);
+                Finger finger = Util_Sky.Finger_AtMasuNow_Shogiban(src_Sky, koma.Pside, masu);
 
                 if (
                     finger != Fingers.Error_1  //2014-07-21 先後も見るように追記。

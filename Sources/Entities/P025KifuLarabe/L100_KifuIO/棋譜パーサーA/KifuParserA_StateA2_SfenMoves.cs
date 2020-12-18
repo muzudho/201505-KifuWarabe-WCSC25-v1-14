@@ -78,7 +78,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         string str8;
                         string str9;
                         if (KifuIO_MovesParsers.ParseSfen_FromText(
-                            genjo.InputLine, out str1, out str2, out str3, out str4, out str5, out rest, shogiGui_Base.Model_PnlTaikyoku.Kifu, log.LogTag)
+                            genjo.InputLine, out str1, out str2, out str3, out str4, out str5, out rest)
                             &&
                             !(str1=="" && str2=="" && str3=="" && str4=="" && str5=="")
                             )
@@ -94,8 +94,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                                 out nextTe,
                                 shogiGui_Base.Model_PnlTaikyoku.Kifu,
                                 log.Hint+"_SFENパース1",
-                                tesumi_yomiGenTeban_forLog,
-                                log.LogTag
+                                tesumi_yomiGenTeban_forLog
                                 );
                         }
                         else
@@ -104,7 +103,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
                             //「▲６六歩」形式と想定して、１手だけ読込み
                             if (KifuIO_MovesParsers.ParseJfugo_FromText(
-                                genjo.InputLine, out str1, out str2, out str3, out str4, out str5, out str6, out str7, out str8, out str9, out rest, shogiGui_Base.Model_PnlTaikyoku.Kifu, log.LogTag))
+                                genjo.InputLine, out str1, out str2, out str3, out str4, out str5, out str6, out str7, out str8, out str9, out rest))
                             {
                                 if (!(str1 == "" && str2 == "" && str3 == "" && str4 == "" && str5 == "" && str6 == "" && str7 == "" && str8 == "" && str9 == ""))
                                 {
@@ -119,8 +118,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                                         str8, //成|不成
                                         str9,  //打
                                         out nextTe,
-                                        shogiGui_Base.Model_PnlTaikyoku.Kifu,
-                                        log.LogTag
+                                        shogiGui_Base.Model_PnlTaikyoku.Kifu
                                         );
                                 }
 

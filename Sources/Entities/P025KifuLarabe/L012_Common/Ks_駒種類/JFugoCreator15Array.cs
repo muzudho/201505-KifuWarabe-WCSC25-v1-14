@@ -21,7 +21,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
     /// </summary>
     public abstract class JFugoCreator15Array
     {
-        public delegate FugoJ DELEGATE_CreateJFugo(ShootingStarlightable teMove, KyokumenWrapper kWrap, ILogTag logTag);
+        public delegate FugoJ DELEGATE_CreateJFugo(ShootingStarlightable teMove, KyokumenWrapper kWrap);
 
         public static DELEGATE_CreateJFugo[] ItemMethods
         {
@@ -56,7 +56,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
 
-        public static FugoJ CreateNullKoma(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateNullKoma(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ result;
 
@@ -93,7 +93,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         /// <param name="move">移動先、移動元、両方のマス番号</param>
         /// <returns></returns>
-        public static FugoJ CreateFu(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateFu(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ result;
 
@@ -129,7 +129,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             //----------
 
 
-            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcE, logTag);
+            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcE);
 
             if (Util_Sky.IsDaAction(move))
             {
@@ -140,7 +140,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src, srcE, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcE, src_Sky))
             {
                 // Ｅにいた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -190,7 +190,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return result;
         }
 
-        public static FugoJ CreateKyo(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateKyo(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -235,7 +235,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             //----------
 
 
-            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcE, logTag);
+            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcE);
 
             if (Util_Sky.IsDaAction(move))
             {
@@ -246,7 +246,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src, srcE, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcE, src_Sky))
             {
                 //----------
                 // 移動前はＥだった
@@ -300,7 +300,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateKei(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateKei(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -340,8 +340,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             // 競合駒
             //----------
 
-            Fingers kmI = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcI, logTag);
-            Fingers kmJ = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcJ, logTag);
+            Fingers kmI = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcI);
+            Fingers kmJ = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcJ);
 
             if (Util_Sky.IsDaAction(move))
             {
@@ -352,7 +352,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src, srcI, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcI, src_Sky))
             {
                 //----------
                 // 移動前はＩだった
@@ -360,7 +360,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.No_Print;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcJ, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcJ, src_Sky))
             {
                 //----------
                 // 移動前はＪだった
@@ -414,7 +414,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateGin(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateGin(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -452,11 +452,11 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             // 競合駒
             //----------
 
-            Fingers kmB = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcB, logTag);
-            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcD, logTag);
-            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcE, logTag);
-            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcF, logTag);
-            Fingers kmH = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcH, logTag);
+            Fingers kmB = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcB);
+            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcD);
+            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcE);
+            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcF);
+            Fingers kmH = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcH);
 
             if (Util_Sky.IsDaAction(move))
             {
@@ -467,7 +467,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src, srcB, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcB, src_Sky))
             {
                 // 移動前はＢだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -475,7 +475,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcD, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcD, src_Sky))
             {
                 // 移動前はＤだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -483,7 +483,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcE, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcE, src_Sky))
             {
                 // 移動前はＥだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -491,7 +491,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Sugu;
             }
-            else if (Util_Sky.ExistsIn(src, srcF, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcF, src_Sky))
             {
                 // 移動前はＦだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -499,7 +499,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky.ExistsIn(src, srcH, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcH, src_Sky))
             {
                 // 移動前はＨだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -585,7 +585,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateKin(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateKin(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -594,7 +594,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             NariNarazu nari;
             DaHyoji daHyoji;
 
-            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji, logTag);
+            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji);
 
             RO_Star_Koma koma = Util_Koma.AsKoma(move.LongTimeAgo);
 
@@ -612,8 +612,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         public static void CreateKin_static(
             ShootingStarlightable move,//移動先、移動元、両方のマス番号
             KyokumenWrapper kWrap,
-            out MigiHidari migiHidari, out AgaruHiku agaruHiku, out NariNarazu nari, out DaHyoji daHyoji,
-            ILogTag logTag
+            out MigiHidari migiHidari, out AgaruHiku agaruHiku, out NariNarazu nari, out DaHyoji daHyoji
             )
         {
             SkyConst src_Sky = kWrap.ToKyokumenConst;
@@ -647,12 +646,12 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             // 競合駒
             //----------
 
-            Fingers kmA = Util_Sky.Fingers_EachSrcNow(src_Sky,koma.Pside, move, srcA, logTag);
-            Fingers kmC = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcC, logTag);
-            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcD, logTag);
-            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcE, logTag);
-            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcF, logTag);
-            Fingers kmG = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcG, logTag);
+            Fingers kmA = Util_Sky.Fingers_EachSrcNow(src_Sky,koma.Pside, move, srcA);
+            Fingers kmC = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcC);
+            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcD);
+            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcE);
+            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcF);
+            Fingers kmG = Util_Sky.Fingers_EachSrcNow(src_Sky, koma.Pside, move, srcG);
 
 
             if (Util_Sky.IsDaAction(move))
@@ -664,7 +663,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src, srcA, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcA, src_Sky))
             {
                 //----------
                 // 移動前はＡだった
@@ -672,7 +671,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky.ExistsIn(src, srcC, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcC, src_Sky))
             {
                 //----------
                 // 移動前はＣだった
@@ -680,7 +679,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcF, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcF, src_Sky))
             {
                 //----------
                 // 移動前はＤだった
@@ -688,7 +687,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky.ExistsIn(src, srcE, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcE, src_Sky))
             {
                 //----------
                 // 移動前はＥだった
@@ -696,7 +695,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Sugu;
             }
-            else if (Util_Sky.ExistsIn(src, srcD, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcD, src_Sky))
             {
                 //----------
                 // 移動前はＦだった
@@ -704,7 +703,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcG, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcG, src_Sky))
             {
                 //----------
                 // 移動前はＧだった
@@ -771,7 +770,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             nari = NariNarazu.CTRL_SONOMAMA;
         }
 
-        public static FugoJ CreateOh(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateOh(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -818,7 +817,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateHisya(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateHisya(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -884,10 +883,10 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             // 棋譜の現局面：競合駒
             //----------
 
-            Fingers kmA = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcA, logTag);
-            Fingers kmC = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcC, logTag);
-            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcE, logTag);
-            Fingers kmG = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcG, logTag);
+            Fingers kmA = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcA);
+            Fingers kmC = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcC);
+            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcE);
+            Fingers kmG = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcG);
 
             if (Util_Sky.IsDaAction(move))
             {
@@ -898,7 +897,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src, srcA, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcA, src_Sky))
             {
                 //----------
                 // Ａにいた
@@ -906,7 +905,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky.ExistsIn(src, srcC, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcC, src_Sky))
             {
                 //----------
                 // Ｃにいた
@@ -914,7 +913,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcE, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcE, src_Sky))
             {
                 //----------
                 // Ｅにいた
@@ -922,7 +921,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky.ExistsIn(src, srcG, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcG, src_Sky))
             {
                 //----------
                 // Ｇにいた
@@ -985,7 +984,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateKaku(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateKaku(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -1051,10 +1050,10 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             // 競合駒
             //----------
 
-            Fingers kmB = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcB, logTag);
-            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcD, logTag);
-            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcF, logTag);
-            Fingers kmH = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcH, logTag);
+            Fingers kmB = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcB);
+            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcD);
+            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcF);
+            Fingers kmH = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcH);
 
 
             if (Util_Sky.IsDaAction(move))
@@ -1066,7 +1065,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src,srcB, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src,srcB, src_Sky))
             {
                 //----------
                 // 移動前はＢだった
@@ -1074,7 +1073,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src,srcD, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src,srcD, src_Sky))
             {
                 //----------
                 // 移動前はＤだった
@@ -1082,7 +1081,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src,srcF, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src,srcF, src_Sky))
             {
                 //----------
                 // 移動前はＦだった
@@ -1090,7 +1089,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky.ExistsIn(src,srcH, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src,srcH, src_Sky))
             {
                 //----------
                 // 移動前はＨだった
@@ -1152,7 +1151,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateRyu(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateRyu(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -1221,14 +1220,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             // 競合駒
             //----------
 
-            Fingers kmA = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcA, logTag);
-            Fingers kmB = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcB, logTag);
-            Fingers kmC = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcC, logTag);
-            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcD, logTag);
-            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcE, logTag);
-            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcF, logTag);
-            Fingers kmG = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcG, logTag);
-            Fingers kmH = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcH, logTag);
+            Fingers kmA = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcA);
+            Fingers kmB = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcB);
+            Fingers kmC = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcC);
+            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcD);
+            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcE);
+            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcF);
+            Fingers kmG = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcG);
+            Fingers kmH = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcH);
 
 
             if (Util_Sky.IsDaAction(move))
@@ -1240,7 +1239,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src, srcA, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcA, src_Sky))
             {
                 //----------
                 // 移動前はＡだった
@@ -1248,7 +1247,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky.ExistsIn(src, srcB, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcB, src_Sky))
             {
                 //----------
                 // 移動前はＢだった
@@ -1256,7 +1255,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcC, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcC, src_Sky))
             {
                 //----------
                 // 移動前はＣだった
@@ -1264,7 +1263,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcD, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcD, src_Sky))
             {
                 //----------
                 // 移動前はＤだった
@@ -1272,7 +1271,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcE, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcE, src_Sky))
             {
                 //----------
                 // 移動前はＥだった
@@ -1280,7 +1279,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky.ExistsIn(src, srcF, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcF, src_Sky))
             {
                 //----------
                 // 移動前はＦだった
@@ -1288,7 +1287,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky.ExistsIn(src, srcG, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcG, src_Sky))
             {
                 //----------
                 // 移動前はＧだった
@@ -1296,7 +1295,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky.ExistsIn(src, srcH, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcH, src_Sky))
             {
                 //----------
                 // 移動前はＨだった
@@ -1347,7 +1346,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateUma(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateUma(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -1418,14 +1417,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             //----------
 
 
-            Fingers kmA = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcA, logTag);
-            Fingers kmB = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcB, logTag);
-            Fingers kmC = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcC, logTag);
-            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcD, logTag);
-            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcE, logTag);
-            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcF, logTag);
-            Fingers kmG = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcG, logTag);
-            Fingers kmH = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcH, logTag);
+            Fingers kmA = Util_Sky.Fingers_EachSrcNow(src_Sky,dstKoma.Pside, move, srcA);
+            Fingers kmB = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcB);
+            Fingers kmC = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcC);
+            Fingers kmD = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcD);
+            Fingers kmE = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcE);
+            Fingers kmF = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcF);
+            Fingers kmG = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcG);
+            Fingers kmH = Util_Sky.Fingers_EachSrcNow(src_Sky, dstKoma.Pside, move, srcH);
 
             if (Util_Sky.IsDaAction(move))
             {
@@ -1436,7 +1435,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky.ExistsIn(src, srcB, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcB, src_Sky))
             {
                 //----------
                 // 移動前はＢだった
@@ -1444,7 +1443,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcD, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcD, src_Sky))
             {
                 //----------
                 // 移動前はＤだった
@@ -1452,7 +1451,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcF, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcF, src_Sky))
             {
                 //----------
                 // 移動前はＦだった
@@ -1460,7 +1459,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky.ExistsIn(src, srcH, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcH, src_Sky))
             {
                 //----------
                 // 移動前はＨだった
@@ -1468,7 +1467,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky.ExistsIn(src, srcA, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcA, src_Sky))
             {
                 //----------
                 // 移動前はＡだった
@@ -1476,7 +1475,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky.ExistsIn(src, srcC, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcC, src_Sky))
             {
                 //----------
                 // 移動前はＣだった
@@ -1484,7 +1483,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky.ExistsIn(src, srcE, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcE, src_Sky))
             {
                 //----------
                 // 移動前はＥだった
@@ -1492,7 +1491,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky.ExistsIn(src, srcG, src_Sky, logTag))
+            else if (Util_Sky.ExistsIn(src, srcG, src_Sky))
             {
                 //----------
                 // 移動前はＧだった
@@ -1543,7 +1542,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateTokin(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateTokin(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -1552,7 +1551,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             NariNarazu nari;
             DaHyoji daHyoji;
 
-            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji, logTag);
+            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji);
 
             RO_Star_Koma koma = Util_Koma.AsKoma(move.LongTimeAgo);
 
@@ -1567,14 +1566,14 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateNariKyo(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateNariKyo(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             MigiHidari migiHidari;
             AgaruHiku agaruHiku;
             NariNarazu nari;
             DaHyoji daHyoji;
 
-            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji, logTag);
+            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji);
 
             FugoJ fugo;
 
@@ -1591,7 +1590,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateNariKei(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateNariKei(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -1602,7 +1601,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
             RO_Star_Koma koma = Util_Koma.AsKoma(move.LongTimeAgo);
 
-            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji, logTag);
+            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji);
 
             fugo = new FugoJ(
                 Haiyaku184Array.Syurui(koma.Haiyaku),//「▲２二角成」のとき、dstだと馬になってしまう。srcの角を使う。
@@ -1615,7 +1614,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateNariGin(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateNariGin(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
@@ -1627,7 +1626,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             NariNarazu nari;
             DaHyoji daHyoji;
 
-            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji, logTag);
+            JFugoCreator15Array.CreateKin_static(move, kWrap, out migiHidari, out agaruHiku, out nari, out daHyoji);
 
             fugo = new FugoJ(
                 Haiyaku184Array.Syurui(srcKoma.Haiyaku),//「▲２二角成」のとき、dstだと馬になってしまう。srcの角を使う。
@@ -1640,7 +1639,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             return fugo;
         }
 
-        public static FugoJ CreateErrorKoma(ShootingStarlightable move, KyokumenWrapper kWrap, ILogTag logTag)
+        public static FugoJ CreateErrorKoma(ShootingStarlightable move, KyokumenWrapper kWrap)
         {
             FugoJ fugo;
 
