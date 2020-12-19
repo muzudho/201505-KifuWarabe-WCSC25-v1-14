@@ -1,7 +1,5 @@
-﻿
-// 進行が停止するテストを含むデバッグモードです。
+﻿// 進行が停止するテストを含むデバッグモードです。
 #define DEBUG_STOPPABLE
-
 
 using System;
 using System.Windows.Forms;

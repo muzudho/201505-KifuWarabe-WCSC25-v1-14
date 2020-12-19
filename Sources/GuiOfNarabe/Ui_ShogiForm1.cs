@@ -1,14 +1,14 @@
-﻿using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-using System;
+﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
     [Serializable]
     public partial class Ui_ShogiForm1 : Form
     {
-        private ShogiGui owner;
+        private NarabeRoomViewModel owner;
 
         public Ui_PnlMain Ui_PnlMain1
         {
@@ -23,7 +23,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// コンストラクターです。
         /// ************************************************************************************************************************
         /// </summary>
-        public Ui_ShogiForm1(ShogiGui owner)
+        public Ui_ShogiForm1(NarabeRoomViewModel owner)
         {
             this.owner = owner;
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         }
 
 
-        public delegate void DELEGATE_Form1_Load(ShogiGui shogiGui, object sender, EventArgs e);
+        public delegate void DELEGATE_Form1_Load(NarabeRoomViewModel shogiGui, object sender, EventArgs e);
         public DELEGATE_Form1_Load Delegate_Form1_Load { get; set; }
 
 

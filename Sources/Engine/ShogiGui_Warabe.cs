@@ -1,17 +1,18 @@
-﻿using Grayscale.P025_KifuLarabe.L00025_Struct;
+﻿using Grayscale.Kifuwarazusa.Entities.Features.Gui;
+using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 
 namespace Grayscale.P050_KifuWarabe.CS1_Impl.W050_UsiLoop
 {
 
-    public class ShogiGui_Warabe : ShogiGui_Base
+    public class ShogiGui_Warabe : IRoomViewModel
     {
 
-        public Model_PnlTaikyoku Model_PnlTaikyoku { get; set; }
+        public IGameViewModel GameViewModel { get; set; }
 
         public ShogiGui_Warabe(KifuTree kifu)
         {
-            this.Model_PnlTaikyoku = new Model_PnlTaikyokuImpl(kifu);
+            this.GameViewModel = new Model_PnlTaikyokuImpl(kifu);
         }
 
     }

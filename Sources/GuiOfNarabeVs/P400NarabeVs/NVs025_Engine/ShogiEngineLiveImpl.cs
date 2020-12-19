@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L100_GUI;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;
@@ -26,7 +25,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
         /// </summary>
         public ShogiEngineManInterface ShogiEngineManInterface{get;set;}
 
-        public ShogiEngineLiveImpl(ShogiGui ownerShogiGui)
+        public ShogiEngineLiveImpl(NarabeRoomViewModel ownerShogiGui)
         {
             this.ShogiEngineManInterface = new ShogiEngineManInterfaceImpl();
             this.ShogiEngineManInterface.ShogiServerMessenger.Delegate_ShogiServer_ToEngine = (string line) =>

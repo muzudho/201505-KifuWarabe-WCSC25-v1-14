@@ -1,4 +1,9 @@
-﻿using Grayscale.P025_KifuLarabe;
+﻿using System;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Windows.Forms;
+using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
@@ -6,24 +11,17 @@ using Grayscale.P025_KifuLarabe.L007_Random;
 using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
 using Grayscale.P100_ShogiServer.L100_InServer;
+using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
+using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L002_Log;
 using Grayscale.P200_KifuNarabe.L008_TextBoxListener;
-
+using Grayscale.P200_KifuNarabe.L015_Sprite;
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L050_Scene;
 using Grayscale.P200_KifuNarabe.L051_Timed;
-using System;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P200_KifuNarabe.L015_Sprite;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
@@ -33,7 +31,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
     [Serializable]
     public partial class Ui_PnlMain : UserControl
     {
-        public ShogiGui ShogiGui { get; set; }
+        public NarabeRoomViewModel ShogiGui { get; set; }
 
         public SetteiFile SetteiFile
         {
@@ -62,7 +60,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         public string ReadLine2(ILogTag logTag)
         {
             int lastTesumi = Util_InServer.CountCurTesumi2(this.ShogiGui);
-            SkyConst src_Sky = this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst;
+            SkyConst src_Sky = this.ShogiGui.GameViewModel.GuiSkyConst;
 
             //------------------------------------------------------------
             // 表について
@@ -102,11 +100,11 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             // 先手駒の利きを表にします。
             bool[] kikiSTable = new bool[Ui_PnlMain.NSQUARE];
 
-            Node<ShootingStarlightable, KyokumenWrapper> siteiNode = this.ShogiGui.Model_PnlTaikyoku.Kifu.NodeAt(
-                this.ShogiGui.Model_PnlTaikyoku.Kifu.CountTesumi(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui))
+            Node<ShootingStarlightable, KyokumenWrapper> siteiNode = this.ShogiGui.GameViewModel.Kifu.NodeAt(
+                this.ShogiGui.GameViewModel.Kifu.CountTesumi(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui))
                 );
 
-            foreach (Finger figKoma in Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst, Okiba.ShogiBan, Playerside.P1).Items)
+            foreach (Finger figKoma in Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.GameViewModel.GuiSkyConst, Okiba.ShogiBan, Playerside.P1).Items)
             {
                 Starlightable light = src_Sky.StarlightIndexOf(figKoma).Now;
                 RO_Star_Koma koma = Util_Koma.AsKoma(light);
@@ -135,7 +133,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             // 先手駒の利きを表にします。
             bool[] kikiGTable = new bool[Ui_PnlMain.NSQUARE];
 
-            foreach (Finger figKoma in Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst, Okiba.ShogiBan, Playerside.P2).Items)
+            foreach (Finger figKoma in Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.GameViewModel.GuiSkyConst, Okiba.ShogiBan, Playerside.P2).Items)
             {
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
@@ -157,7 +155,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             string tuginoItte = "▲９九王嘘";
 
 
-            Fingers fingers = Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst, Okiba.ShogiBan, this.ShogiGui.Model_PnlTaikyoku.Kifu.CountPside(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui)));
+            Fingers fingers = Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.GameViewModel.GuiSkyConst, Okiba.ShogiBan, this.ShogiGui.GameViewModel.Kifu.CountPside(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui)));
             if (0<fingers.Count)
             {
                 ShootingStarlightable tuginoMoveData;
@@ -168,7 +166,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 RO_Star_Koma koma = Util_Koma.AsKoma(sl.Now);
 
 
-                Playerside pside_getTeban = this.ShogiGui.Model_PnlTaikyoku.Kifu.CountPside(lastTesumi);
+                Playerside pside_getTeban = this.ShogiGui.GameViewModel.Kifu.CountPside(lastTesumi);
                     switch (pside_getTeban)
                     {
                         case Playerside.P2:
@@ -324,15 +322,15 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             //      平手に並べます。
             //
             {
-                this.ShogiGui.Model_PnlTaikyoku.Kifu.Clear();// 棋譜を空っぽにします。
-                this.ShogiGui.Model_PnlTaikyoku.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");//平手の初期局面
-                this.ShogiGui.Model_PnlTaikyoku.SetGuiSky(
+                this.ShogiGui.GameViewModel.Kifu.Clear();// 棋譜を空っぽにします。
+                this.ShogiGui.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");//平手の初期局面
+                this.ShogiGui.GameViewModel.SetGuiSky(
                     Util_Sky.New_Hirate()//起動直後
                     );
             }
 
 
-            this.ShogiGui.Model_PnlTaikyoku.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Playerside.P1);
+            this.ShogiGui.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Playerside.P1);
 
 
 
@@ -567,14 +565,14 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// </summary>
         /// <param name="response"></param>
         public void Response(
-            Mutex mutex, ShogiGui shogiGui, ILogTag logTag)
+            Mutex mutex, NarabeRoomViewModel shogiGui, ILogTag logTag)
         {
             //------------------------------------------------------------
             // 駒の座標再計算
             //------------------------------------------------------------
             if (shogiGui.ResponseData.Is_RedrawStarlights())
             {
-                this.ShogiGui.Model_PnlTaikyoku.GuiSkyConst.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+                this.ShogiGui.GameViewModel.GuiSkyConst.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
                 {
                     Util_InGui.Redraw_KomaLocation(finger, this.ShogiGui, logTag);
                 });
@@ -618,10 +616,10 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         switch (this.ShogiGui.Shape_PnlTaikyoku.SyuturyokuKirikae)
                         {
                             case SyuturyokuKirikae.Japanese:
-                                this.WriteLine_Syuturyoku(KirokuGakari.ToJapaneseKifuText(this.ShogiGui.Model_PnlTaikyoku.Kifu, LogTags.Gui));
+                                this.WriteLine_Syuturyoku(KirokuGakari.ToJapaneseKifuText(this.ShogiGui.GameViewModel.Kifu, LogTags.Gui));
                                 break;
                             case SyuturyokuKirikae.Sfen:
-                                this.WriteLine_Syuturyoku(KirokuGakari.ToSfen_PositionString(this.ShogiGui.Model_PnlTaikyoku.Kifu));
+                                this.WriteLine_Syuturyoku(KirokuGakari.ToSfen_PositionString(this.ShogiGui.GameViewModel.Kifu));
                                 break;
                             case SyuturyokuKirikae.Html:
                                 this.WriteLine_Syuturyoku(Ui_PnlMain.CreateHtml(this.ShogiGui));
@@ -686,7 +684,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <summary>
         /// HTML出力。（これは作者のホームページ用に書かれています）
         /// </summary>
-        public static string CreateHtml(ShogiGui shogiGui)
+        public static string CreateHtml(NarabeRoomViewModel shogiGui)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -698,7 +696,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            SkyConst siteiSky = shogiGui.Model_PnlTaikyoku.GuiSkyConst;
+            SkyConst siteiSky = shogiGui.GameViewModel.GuiSkyConst;
 
             siteiSky.Foreach_Starlights((Finger finger, Starlight ml, ref bool toBreak) =>
             {

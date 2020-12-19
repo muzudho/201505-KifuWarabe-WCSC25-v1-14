@@ -1,17 +1,12 @@
-﻿
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
+﻿using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.P200_KifuNarabe.L100_GUI;
-using Grayscale.P400_KifuNaraVs.L025_ShogiEngine;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;
-using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.P400_KifuNaraVs.L025_ShogiEngine;
 
-//スプライト番号
 namespace Grayscale.P400_KifuNaraVs.L100_GUI
 {
-    public class KifuNarabeVsImpl : KifuNarabeImpl, ShogiGui
+    public class KifuNarabeVsImpl : KifuNarabeImpl, NarabeRoomViewModel
     {
 
         public ShogiEngineLive ShogiEnginePrWrapperLauncher { get { return this.shogiEnginePrWrapperLauncher; } }
@@ -29,7 +24,7 @@ namespace Grayscale.P400_KifuNaraVs.L100_GUI
         /// </summary>
         public override void ChangeTurn( ILogTag logTag)
         {
-            this.ShogiEnginePrWrapperLauncher.ChangeTurn99(this.Model_PnlTaikyoku.Kifu, logTag);
+            this.ShogiEnginePrWrapperLauncher.ChangeTurn99(this.GameViewModel.Kifu, logTag);
         }
 
         /// <summary>
