@@ -293,7 +293,7 @@
                                 ref result,
                                 new DefaultRoomViewModel(playing.Kifu),
                                 new KifuParserA_GenjoImpl(line),
-                                new KifuParserA_LogImpl( "Program#Main(Warabe)")
+                                new KifuParserA_LogImpl("Program#Main(Warabe)")
                                 );
 
                             KifuNode kifuNode = (KifuNode)result.Out_newNode_OrNull;
@@ -310,11 +310,10 @@
                             //
                             {
                                 //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
-                                KyokumenPngWriterImpl.Write1(
-                                    kifuNode.ToRO_Kyokumen1(),
-                                    SpecifyLogFiles.LatestPositionLogPng.Name,
-                                    ShogisasiImpl.REPORT_ENVIRONMENT
-                                    );
+                                var ky = kifuNode.ToRO_Kyokumen1();
+                                var fullname = SpecifyLogFiles.LatestPositionLogPng.Name;
+                                var env = ShogisasiImpl.ReportEnvironment;
+                                KyokumenPngWriterImpl.Write1(ky, fullname, env);
                             }
 
 
@@ -491,12 +490,12 @@
                     //      │gameover    │lose        │
                     //      └──────┴──────┘
                     //
-                    Logger.Trace( "KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
+                    Logger.Trace("KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
                     foreach (KeyValuePair<string, string> pair in playing.SetoptionDictionary)
                     {
-                        Logger.Trace( pair.Key + "=" + pair.Value);
+                        Logger.Trace(pair.Key + "=" + pair.Value);
                     }
-                    Logger.Trace( "┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.Trace("┗━━━━━━━━━━━━━━━━━━┛");
 
                     //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
                     //goMateProperties["mate"] = "";
@@ -506,7 +505,7 @@
                     //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
                     //}
 
-                    Logger.Trace( "┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.Trace("┗━━━━━━━━━━━━━━━━━━┛");
                 }
 
             }

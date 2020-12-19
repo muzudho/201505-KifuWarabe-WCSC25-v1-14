@@ -67,9 +67,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
             // コマンドライン引数の例
             //
             // --position="position sfen 1nsgkgsnl/9/p2pppppp/9/9/9/P2PPPPPP/1B5R1/1NSGKGSNL w L2Pl2p 1 moves 5a6b 7g7f 3a3b" \
-            // 廃止 --outFolder="../../Logs/"
             // --outFile="_log_局面1.png"
-            // --imgFolder="../../Profile/Data/img/gkLog/" \
             // --kmFile="koma1.png" \
             // --sjFile="suji1.png" \
             // --kmW=20 \
@@ -82,9 +80,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
             // ヌル防止のための初期値
             Dictionary<string, string> argsDic = new Dictionary<string, string>();
             argsDic.Add("position", "position startpos moves");
-            // 廃止 argsDic.Add("outFolder", "./");//出力フォルダー "../../Logs/"
             argsDic.Add("outFile", "1.png");//出力ファイル
-            argsDic.Add("imgFolder", ".");//画像フォルダーへのパス image path
             argsDic.Add("kmFile", "2.png");//駒画像へのパス。
             argsDic.Add("kmW", "1");//駒の横幅。koma width
             argsDic.Add("kmH", "1");
@@ -115,7 +111,6 @@ namespace Grayscale.P007_SfenReport.L050_Report
             }
 
             ReportEnvironment reportEnvironment = new ReportEnvironmentImpl(
-                    argsDic["imgFolder"],
                     argsDic["kmFile"],
                     argsDic["sjFile"],
                     argsDic["kmW"],

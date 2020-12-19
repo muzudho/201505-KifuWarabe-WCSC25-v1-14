@@ -3,11 +3,6 @@
     public interface ReportEnvironment
     {
         /// <summary>
-        /// 画像フォルダーへのパス。
-        /// </summary>
-        string ImgFolder { get; }
-
-        /// <summary>
         /// 駒画像ファイル。
         /// </summary>
         string KmFile { get; }

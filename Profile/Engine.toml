@@ -14,6 +14,7 @@ Author = "Satoshi TAKAHASHI"
 
 LogDirectory = "../Logs"
 PositionPngLogDirectory = "../Logs/局面画像ﾛｸﾞ"
+PositionPngDataDirectory = "./Data/img/gkLog"
 
 NarabeGuiWidgets = "./Data/data_widgets_KifuNarabe.csv"
 VsGuiWidgets = "./Data/data_widgets_KifuNarabeVs.csv"

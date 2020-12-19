@@ -1,7 +1,6 @@
 ﻿using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L050_Report;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
@@ -20,10 +19,6 @@ using Grayscale.P050_KifuWarabe.L009_KyHyoka;
 using Grayscale.P050_KifuWarabe.L010_Minimax;
 using Grayscale.P050_KifuWarabe.L012_ScoreSibori;
 using Grayscale.P050_KifuWarabe.L025_Erabu;
-using Grayscale.P025_KifuLarabe.L100_KifuIO;
-using System;
-using System.Diagnostics;
-using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
 {
@@ -34,14 +29,12 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
     /// </summary>
     public class ShogisasiImpl : Shogisasi
     {
-        private ShogiEngine Owner { get { return this.owner; } }
-        private ShogiEngine owner;
+        private ShogiEngine Owner { get; set; }
 
-        public static ReportEnvironment REPORT_ENVIRONMENT;
+        public static ReportEnvironment ReportEnvironment;
         static ShogisasiImpl()
         {
-            ShogisasiImpl.REPORT_ENVIRONMENT = new ReportEnvironmentImpl(
-                        "../../Profile/Data/img/gkLog/",//argsDic["imgFolder"],
+            ShogisasiImpl.ReportEnvironment = new ReportEnvironmentImpl(
                         "koma1.png",//argsDic["kmFile"],
                         "suji1.png",//argsDic["sjFile"],
                         "20",//argsDic["kmW"],
@@ -80,9 +73,9 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
 
         public ShogisasiImpl(ShogiEngine owner)
         {
-            this.owner = owner;
-            this.Kokoro = new KokoroImpl(this.owner);
-            this.MinimaxEngine = new MinimaxEngineImpl(this.owner);
+            this.Owner = owner;
+            this.Kokoro = new KokoroImpl(this.Owner);
+            this.MinimaxEngine = new MinimaxEngineImpl(this.Owner);
             this.EdagariEngine = new ScoreSiboriEngine();
             this.ErabuEngine = new ErabuEngine();
 
@@ -193,7 +186,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
                 kifu,
                 this.Kokoro,
                 playerInfo,
-                ShogisasiImpl.REPORT_ENVIRONMENT,
+                ShogisasiImpl.ReportEnvironment,
                 logF_kiki
             );
 

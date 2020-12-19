@@ -5,12 +5,6 @@ namespace Grayscale.P007_SfenReport.L050_Report
     public class ReportEnvironmentImpl : ReportEnvironment
     {
         /// <summary>
-        /// 画像フォルダーへのパス。
-        /// </summary>
-        public string ImgFolder { get { return this.imgFolder; } }
-        private string imgFolder;
-
-        /// <summary>
         /// 駒画像ファイル。
         /// </summary>
         public string KmFile { get { return this.kmFile; } }
@@ -49,11 +43,10 @@ namespace Grayscale.P007_SfenReport.L050_Report
 
 
         public ReportEnvironmentImpl(
-            string imgFolder, string kmFile, string sjFile,
+            string kmFile, string sjFile,
             string kmW_str, string kmH_str, string sjW_str, string sjH_str
             )
         {
-            this.imgFolder = imgFolder;
             this.kmFile = kmFile;
             this.sjFile = sjFile;
 
