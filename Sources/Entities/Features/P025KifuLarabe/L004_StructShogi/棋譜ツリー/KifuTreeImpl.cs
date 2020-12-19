@@ -130,7 +130,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 
             this.CurNode = sasikaeNode;
 
-            Logger.WriteLineAddMemo(logTag, "リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky.ToSfenMoveText(sasikaeKey) + "]");
+            Logger.Trace("リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky.ToSfenMoveText(sasikaeKey) + "]");
         // memberName=[" + memberName + "] sourceFilePath=[" + sourceFilePath + "] sourceLineNumber=[" + sourceLineNumber + "]
 
         gt_EndMethod:

@@ -57,21 +57,20 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
             // 次ノードの有無
             if (node.Count_NextNodes < 1)
             {
-                try{
-                    // 次ノードが無ければ、このノードが、葉です。
-                    // 点数を付けます。
+                // 次ノードが無ければ、このノードが、葉です。
+                // 点数を付けます。
 
-                    // 局面スコア
-                    node.KyHyoka.Clear();
+                // 局面スコア
+                node.KyHyoka.Clear();
 
-                    // 妄想と、指定のノードを比較し、点数付けします。
-                    foreach (Tenonagare nagare in kokoro.TenonagareItems)
-                    {
-                        node.KyHyoka.Add(
-                            nagare.Name.ToString(),
-                            this.hyokaEngineImpl.LetHandan(nagare, node, playerInfo)
-                        );
-                    }
+                // 妄想と、指定のノードを比較し、点数付けします。
+                foreach (Tenonagare nagare in kokoro.TenonagareItems)
+                {
+                    node.KyHyoka.Add(
+                        nagare.Name.ToString(),
+                        this.hyokaEngineImpl.LetHandan(nagare, node, playerInfo)
+                    );
+                }
 
 #if DEBUG
                     //
@@ -86,78 +85,54 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                         logTag
                     );
 #endif
-                }
-                catch (Exception ex)
-                {
-                    //>>>>> エラーが起こりました。
-                    string message = ex.GetType().Name + " " + ex.Message + "：葉に点数を付けたときです。：";
-                    Debug.Fail(message);
-
-                    // どうにもできないので  ログだけ取って、上に投げます。
-                    Logger.WriteLineError(LogTags.Engine,message);
-                    throw ;
-                }
             }
             else
             {
-                try{
+                node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                {
+                    this.Tensuduke_ForeachLeafs(
+                        nodePath + " " + Util_Sky.ToSfenMoveText(nextNode.Key),
+                        (KifuNode)nextNode,
+                        kifu,
+                        kokoro,
+                        playerInfo,
+                        reportEnvironment,
+                        logF_kiki,
+                        logTag
+                        );
+
+                });
+
+                // このノードが、自分の手番かどうか。
+                bool jibun = playerInfo.Playerside == kifu.CountPside(node);
+                if (jibun)
+                {
+                    // 自分のノードの場合、次ノードの中で一番点数の高いもの。
+                    double maxScore = double.MinValue;
                     node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
                     {
-                        this.Tensuduke_ForeachLeafs(
-                            nodePath + " " + Util_Sky.ToSfenMoveText(nextNode.Key),
-                            (KifuNode)nextNode,
-                            kifu,
-                            kokoro,
-                            playerInfo,
-                            reportEnvironment,
-                            logF_kiki,
-                            logTag
-                            );
-
+                        double score = ((KifuNode)nextNode).KyHyoka.Total();
+                        if (maxScore < score)
+                        {
+                            maxScore = score;
+                        }
                     });
-
-                    // このノードが、自分の手番かどうか。
-                    bool jibun = playerInfo.Playerside == kifu.CountPside(node);
-                    if (jibun)
-                    {
-                        // 自分のノードの場合、次ノードの中で一番点数の高いもの。
-                        double maxScore = double.MinValue;
-                        node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
-                        {
-                            double score = ((KifuNode)nextNode).KyHyoka.Total();
-                            if (maxScore < score)
-                            {
-                                maxScore = score;
-                            }
-                        });
-                        node.SetBranchKyHyoka(new KyHyokaImpl(maxScore));
-                    }
-                    else
-                    {
-                        // 相手のノードの場合、次ノードの中で一番点数の低いもの。
-                        double minScore = double.MaxValue;
-                        node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
-                        {
-                            double score = ((KifuNode)nextNode).KyHyoka.Total();
-                            if (score < minScore)
-                            {
-                                minScore = score;
-                            }
-                        });
-                        node.SetBranchKyHyoka(new KyHyokaImpl(minScore));
-                    }
+                    node.SetBranchKyHyoka(new KyHyokaImpl(maxScore));
                 }
-                catch (Exception ex)
+                else
                 {
-                    //>>>>> エラーが起こりました。
-                    string message = ex.GetType().Name + " " + ex.Message + "：途中のノードに点数を付けたときです。：";
-                    Debug.Fail(message);
-
-                    // どうにもできないので  ログだけ取って、上に投げます。
-                    Logger.WriteLineError(LogTags.Engine,message);
-                    throw ;
+                    // 相手のノードの場合、次ノードの中で一番点数の低いもの。
+                    double minScore = double.MaxValue;
+                    node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                    {
+                        double score = ((KifuNode)nextNode).KyHyoka.Total();
+                        if (score < minScore)
+                        {
+                            minScore = score;
+                        }
+                    });
+                    node.SetBranchKyHyoka(new KyHyokaImpl(minScore));
                 }
-
             }
         }
 

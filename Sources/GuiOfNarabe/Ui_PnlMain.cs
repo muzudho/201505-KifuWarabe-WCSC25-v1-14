@@ -605,8 +605,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         this.WriteLine_Syuturyoku("");
 
                         // ログ
-                        Logger.WriteLineAddMemo(logTag, "");
-                        Logger.WriteLineAddMemo(logTag, "");
+                        Logger.Trace( "");
+                        Logger.Trace( "");
                     }
                     break;
 
@@ -627,7 +627,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         }
 
                         // ログ
-                        Logger.WriteLineAddMemo(logTag, this.txtOutput1.Text);
+                        Logger.Trace( this.txtOutput1.Text);
                     }
                     break;
 

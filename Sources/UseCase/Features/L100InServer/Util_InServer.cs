@@ -91,8 +91,8 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 {
                     // 最初はここ
 
-                    Logger.WriteLineAddMemo(LogTags.Gui,"... ...");
-                    Logger.WriteLineAddMemo(LogTags.Gui,"ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                    Logger.Trace("... ...");
+                    Logger.Trace("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         roomViewModel,
@@ -121,7 +121,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
                     {
                         string message = "ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
-                        Logger.WriteLineAddMemo(LogTags.Gui,message);
+                        Logger.Trace(message);
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
@@ -140,7 +140,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
 
                     {
-                        Logger.WriteLineAddMemo(LogTags.Gui,"ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
+                        Logger.Trace("ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             roomViewModel,
@@ -167,7 +167,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 //
                 if (kifuParserA_Impl.State is KifuParserA_StateA2_SfenMoves)
                 {
-                    Logger.WriteLineAddMemo(LogTags.Gui,"ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
+                    Logger.Trace("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         roomViewModel,

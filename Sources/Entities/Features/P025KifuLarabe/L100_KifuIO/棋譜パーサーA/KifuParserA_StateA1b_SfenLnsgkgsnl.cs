@@ -44,48 +44,35 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         {
             nextState = this;
 
-            try
-            {
-                StartposImporter startposImporter;
-                string restText;
+            StartposImporter startposImporter;
+            string restText;
 
-                bool successful = StartposImporter.TryParse(
-                    genjo.InputLine,
-                    out startposImporter,
-                    out restText
+            bool successful = StartposImporter.TryParse(
+                genjo.InputLine,
+                out startposImporter,
+                out restText
+                );
+
+            if (successful)
+            {
+                genjo.InputLine = restText;
+
+                // SFENの解析結果を渡すので、
+                // その解析結果をどう使うかは、委譲します。
+                owner.Delegate_OnChangeSky_Im_Srv(
+                    roomViewModel,
+                    startposImporter,
+                    genjo,
+                    log
                     );
 
-                if (successful)
-                {
-                    genjo.InputLine = restText;
-
-                    // SFENの解析結果を渡すので、
-                    // その解析結果をどう使うかは、委譲します。
-                    owner.Delegate_OnChangeSky_Im_Srv(
-                        roomViewModel,
-                        startposImporter,
-                        genjo,
-                        log
-                        );
-
-                    nextState = KifuParserA_StateA2_SfenMoves.GetInstance();
-                }
-                else
-                {
-                    // 解析に失敗しました。
-                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                    genjo.ToBreak = true;
-                }
-
+                nextState = KifuParserA_StateA2_SfenMoves.GetInstance();
             }
-            catch (Exception ex)
+            else
             {
-                // エラーが起こりました。
+                // 解析に失敗しました。
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                Logger.WriteLineError(LogTags.Error, message);
+                genjo.ToBreak = true;
             }
 
             return genjo.InputLine;

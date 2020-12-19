@@ -105,8 +105,8 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             double ordHmdk = 510.0d;//紐付き
             double ordKmgr = 170.0d;//きまぐれ（紐付きの1/3ぐらいで）
             double ordGm = 100.0d;//玉の守り
-            double ord7 =  50.0d;
-            double ord8 =  45.0d;
+            double ord7 = 50.0d;
+            double ord8 = 45.0d;
             double ordKahd = 10.0d;//角頭の紐付き（うまく働いていないので下げる）
 
 
@@ -177,54 +177,28 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             this.Kokoro.Omoituki(
                 playerInfo.Playerside, (KifuNode)kifu.CurNode, this.Seikaku);
 
-            try
-            {
-                //
-                // 指し手生成ルーチンで、棋譜ツリーを作ります。
-                //
-                SsssLogGenjo ssssLog = new SsssLogGenjoImpl(enableLog, logTag);
-                MoveGenRoutine.WAA_Yomu_Start(kifu, isHonshogi, ssssLog);
-            }
-            catch (Exception ex)
-            {
-                //>>>>> エラーが起こりました。
-                string message = ex.GetType().Name + " " + ex.Message + "：棋譜ツリーを作っていたときです。：";
-                Debug.Fail(message);
-
-                // どうにもできないので  ログだけ取って、上に投げます。
-                Logger.WriteLineError(LogTags.Engine,message);
-                throw ;
-            }
+            //
+            // 指し手生成ルーチンで、棋譜ツリーを作ります。
+            //
+            SsssLogGenjo ssssLog = new SsssLogGenjoImpl(enableLog, logTag);
+            MoveGenRoutine.WAA_Yomu_Start(kifu, isHonshogi, ssssLog);
 
 
 
             // デバッグ用だが、メソッドはこのオブジェクトを必要としてしまう。
             GraphicalLog_File logF_kiki = new GraphicalLog_File();
 
-            try
-            {
-                // 点数を付ける（葉ノードに点数を付け、途中のノードの点数も出します）
-                this.MinimaxEngine.Tensuduke_ForeachLeafs(
-                    Util_Sky.ToSfenMoveText(kifu.CurNode.Key),
-                    (KifuNode)kifu.CurNode,
-                    kifu,
-                    this.Kokoro,
-                    playerInfo,
-                    ShogisasiImpl.REPORT_ENVIRONMENT,
-                    logF_kiki,
-                    logTag
-                );
-            }
-            catch (Exception ex)
-            {
-                //>>>>> エラーが起こりました。
-                string message = ex.GetType().Name + " " + ex.Message + "：ノードに点数を付けたときです。：";
-                Debug.Fail(message);
-
-                // どうにもできないので  ログだけ取って、上に投げます。
-                Logger.WriteLineError(LogTags.Engine,message);
-                throw ;
-            }
+            // 点数を付ける（葉ノードに点数を付け、途中のノードの点数も出します）
+            this.MinimaxEngine.Tensuduke_ForeachLeafs(
+                Util_Sky.ToSfenMoveText(kifu.CurNode.Key),
+                (KifuNode)kifu.CurNode,
+                kifu,
+                this.Kokoro,
+                playerInfo,
+                ShogisasiImpl.REPORT_ENVIRONMENT,
+                logF_kiki,
+                logTag
+            );
 
 #if DEBUG
             try

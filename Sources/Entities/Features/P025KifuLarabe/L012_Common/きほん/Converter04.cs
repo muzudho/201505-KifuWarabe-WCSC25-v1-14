@@ -1292,11 +1292,8 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                     }
 
                     //>>>>> エラーが起こりました。
-                    string message = ex.GetType().Name + " " + ex.Message + "：新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + Util_Sky.ToSfenMoveText(newMove) + "」既存の手=" + sb.ToString();
-                    Debug.Fail(message);
-
                     // どうにもできないので  ログだけ取って、上に投げます。
-                    Logger.WriteLineError(logTag, message);
+                    Logger.Error(ex.GetType().Name + " " + ex.Message + "：新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + Util_Sky.ToSfenMoveText(newMove) + "」既存の手=" + sb.ToString());
                     throw;
                 }
 

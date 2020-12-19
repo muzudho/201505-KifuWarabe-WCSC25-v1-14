@@ -238,7 +238,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         public void Load_AsStart()
         {
             ILogTag logTag = LogTags.Gui;
-            Logger.WriteLineAddMemo(logTag,"乱数のたね＝[" + LarabeRandom.Seed + "]");
+            Logger.Trace("乱数のたね＝[" + LarabeRandom.Seed + "]");
 
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));

@@ -46,11 +46,6 @@
         /// </summary>
         public int TesumiCount { get; set; }
 
-        /// <summary>
-        /// 「go」の属性一覧です。
-        /// </summary>
-        public Dictionary<string, string> GoProperties { get; set; }
-
         public AjimiEngine AjimiEngine { get; set; }
 
         /// <summary>
@@ -82,7 +77,7 @@
             Util_Message.Upload(line);
 
             // 送信記録をつけます。
-            Logger.WriteLineS(LogTags.Client, line);
+            Logger.WriteLineS(line);
         }
 
         public void UsiOk(string engineName, string engineAuthor)
@@ -259,13 +254,13 @@
             //------------------------------------------------------------
             // 将棋エンジン「おっおっ、設定を終わらせておかなければ（汗、汗…）」
             //------------------------------------------------------------
-            Logger.WriteLineAddMemo(LogTags.Engine, "┏━━━━━設定━━━━━┓");
+            Logger.Trace("┏━━━━━設定━━━━━┓");
             foreach (KeyValuePair<string, string> pair in this.SetoptionDictionary)
             {
                 // ここで将棋エンジンの設定を済ませておいてください。
-                Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
+                Logger.Trace(pair.Key + "=" + pair.Value);
             }
-            Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━┛");
+            Logger.Trace("┗━━━━━━━━━━━━┛");
 
             //------------------------------------------------------------
             // よろしくお願いします(^▽^)！
@@ -332,7 +327,7 @@
             //      │
             //
             //
-            Logger.WriteLineAddMemo(LogTags.Engine, "(^-^)ﾉｼ");
+            Logger.Trace("(^-^)ﾉｼ");
         }
 
         public void Position()
@@ -428,47 +423,35 @@
 
         public void GoPonder()
         {
-            try
-            {
+            //------------------------------------------------------------
+            // 将棋所が次に呼びかけるまで、考えていてください
+            //------------------------------------------------------------
+            //
+            // 図.
+            //
+            //      log.txt
+            //      ┌────────────────────────────────────────
+            //      ～
+            //      │2014/08/02 2:03:35> go ponder
+            //      │
+            //
 
-                //------------------------------------------------------------
-                // 将棋所が次に呼びかけるまで、考えていてください
-                //------------------------------------------------------------
-                //
-                // 図.
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      ～
-                //      │2014/08/02 2:03:35> go ponder
-                //      │
-                //
-
-                // 先読み用です。
-                // 今回のプログラムでは対応しません。
-                //
-                // 将棋エンジンが  将棋所に向かって  「bestmove ★ ponder ★」といったメッセージを送ったとき、
-                // 将棋所は「go ponder」というメッセージを返してくると思います。
-                //
-                // 恐らく  このメッセージを受け取っても、将棋エンジンは気にせず  考え続けていればいいのではないでしょうか。
+            // 先読み用です。
+            // 今回のプログラムでは対応しません。
+            //
+            // 将棋エンジンが  将棋所に向かって  「bestmove ★ ponder ★」といったメッセージを送ったとき、
+            // 将棋所は「go ponder」というメッセージを返してくると思います。
+            //
+            // 恐らく  このメッセージを受け取っても、将棋エンジンは気にせず  考え続けていればいいのではないでしょうか。
 
 
-                //------------------------------------------------------------
-                // じっとがまん
-                //------------------------------------------------------------
-                //
-                // まだ指してはいけません。
-                // 指したら反則です。相手はまだ指していないのだ☆ｗ
-                //
-            }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                Logger.WriteLineAddMemo(LogTags.Engine, "Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
-            }
+            //------------------------------------------------------------
+            // じっとがまん
+            //------------------------------------------------------------
+            //
+            // まだ指してはいけません。
+            // 指したら反則です。相手はまだ指していないのだ☆ｗ
+            //
         }
 
         public void Go(string btime, string wtime, string byoyomi, string binc, string winc)
@@ -485,7 +468,7 @@
             SkyConst src_Sky = this.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
 
             // + line
-            Logger.WriteLineAddMemo(LogTags.Engine, "将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　");
+            Logger.Trace("将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　");
 
 
             Result_Ajimi result_Ajimi = this.AjimiEngine.Ajimi(src_Sky);
@@ -522,51 +505,39 @@
                     break;
                 default:// どちらの王さまも、まだまだ健在だぜ☆！
                     {
-                        try
+                        //------------------------------------------------------------
+                        // 指し手のチョイス
+                        //------------------------------------------------------------
+                        bool enableLog = false;
+                        bool isHonshogi = true;
+
+                        // 指し手を決めます。
+                        ShootingStarlightable bestMove = this.shogisasi.WA_Bestmove(
+                            enableLog,
+                            isHonshogi,
+                            this.Kifu,
+                            this.PlayerInfo,
+                            LogTags.Engine
+                            );
+
+
+
+
+                        if (Util_Sky.isEnableSfen(bestMove))
                         {
-                            //------------------------------------------------------------
-                            // 指し手のチョイス
-                            //------------------------------------------------------------
-                            bool enableLog = false;
-                            bool isHonshogi = true;
+                            string sfenText = Util_Sky.ToSfenMoveText(bestMove);
+                            Logger.Trace("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
+                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
 
-                            // 指し手を決めます。
-                            ShootingStarlightable bestMove = this.shogisasi.WA_Bestmove(
-                                enableLog,
-                                isHonshogi,
-                                this.Kifu,
-                                this.PlayerInfo,
-                                LogTags.Engine
-                                );
-
-
-
-
-                            if (Util_Sky.isEnableSfen(bestMove))
-                            {
-                                string sfenText = Util_Sky.ToSfenMoveText(bestMove);
-                                Logger.WriteLineAddMemo(LogTags.Engine, "(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
-                                    "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
-
-                                Playing.Send("bestmove " + sfenText);//指し手を送ります。
-                            }
-                            else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
-                            {
-                                Logger.WriteLineAddMemo(LogTags.Engine, "(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
-                                    "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
-
-                                // 投了ｗ！
-                                Playing.Send("bestmove resign");
-                            }
+                            Playing.Send("bestmove " + sfenText);//指し手を送ります。
                         }
-                        catch (Exception ex)
+                        else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                         {
-                            //>>>>> エラーが起こりました。
-                            string message = ex.GetType().Name + " " + ex.Message + "：ベスト指し手のチョイスをしたときです。：";
-                            Debug.Fail(message);
+                            Logger.Trace("(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
+                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
 
-                            // どうにもできないので  ログだけ取って無視します。
-                            Logger.WriteLineError(LogTags.Engine, message);
+                            // 投了ｗ！
+                            Playing.Send("bestmove resign");
                         }
                     }
                     break;
@@ -577,11 +548,33 @@
 
         public void Stop()
         {
-            try
-            {
+            //------------------------------------------------------------
+            // あなたの手番です  （すぐ指してください！）
+            //------------------------------------------------------------
+            //
+            // 図.
+            //
+            //      log.txt
+            //      ┌────────────────────────────────────────
+            //      ～
+            //      │2014/08/02 2:03:35> stop
+            //      │
+            //
 
+            // 何らかの理由で  すぐ指してほしいときに、将棋所から送られてくる文字が stop です。
+            //
+            // 理由は２つ考えることができます。
+            //  （１）１手前に、将棋エンジンが  将棋所に向かって「予想手」付きで指し手を伝えたのだが、
+            //        相手の応手が「予想手」とは違ったので、予想手にもとづく思考を  今すぐ変えて欲しいとき。
+            //
+            //  （２）「急いで指すボタン」が押されたときなどに送られてくるようです？
+            //
+            // stop するのは思考です。  stop を受け取ったら  すぐに最善手を指してください。
+
+            if (this.GoPonderNow)
+            {
                 //------------------------------------------------------------
-                // あなたの手番です  （すぐ指してください！）
+                // 将棋エンジン「（予想手が間違っていたって？）  △９二香 を指そうと思っていたんだが」
                 //------------------------------------------------------------
                 //
                 // 図.
@@ -589,83 +582,48 @@
                 //      log.txt
                 //      ┌────────────────────────────────────────
                 //      ～
-                //      │2014/08/02 2:03:35> stop
+                //      │2014/08/02 2:36:21< bestmove 9a9b
                 //      │
                 //
-
-                // 何らかの理由で  すぐ指してほしいときに、将棋所から送られてくる文字が stop です。
                 //
-                // 理由は２つ考えることができます。
-                //  （１）１手前に、将棋エンジンが  将棋所に向かって「予想手」付きで指し手を伝えたのだが、
-                //        相手の応手が「予想手」とは違ったので、予想手にもとづく思考を  今すぐ変えて欲しいとき。
+                //      １手前の指し手で、将棋エンジンが「bestmove ★ ponder ★」という形で  予想手付きで将棋所にメッセージを送っていたとき、
+                //      その予想手が外れていたならば、将棋所は「stop」を返してきます。
+                //      このとき  思考を打ち切って最善手の指し手をすぐに返信するわけですが、将棋所はこの返信を無視します☆ｗ
+                //      （この指し手は、外れていた予想手について考えていた“最善手”ですからゴミのように捨てられます）
+                //      その後、将棋所から「position」「go」が再送されてくるのだと思います。
                 //
-                //  （２）「急いで指すボタン」が押されたときなどに送られてくるようです？
+                //          将棋エンジン「bestmove ★ ponder ★」
+                //              ↓
+                //          将棋所      「stop」
+                //              ↓
+                //          将棋エンジン「うその指し手返信」（無視されます）←今ここ
+                //              ↓
+                //          将棋所      「position」「go」
+                //              ↓
+                //          将棋エンジン「本当の指し手」
                 //
-                // stop するのは思考です。  stop を受け取ったら  すぐに最善手を指してください。
+                //      という流れと思います。
 
-                if (this.GoPonderNow)
-                {
-                    //------------------------------------------------------------
-                    // 将棋エンジン「（予想手が間違っていたって？）  △９二香 を指そうと思っていたんだが」
-                    //------------------------------------------------------------
-                    //
-                    // 図.
-                    //
-                    //      log.txt
-                    //      ┌────────────────────────────────────────
-                    //      ～
-                    //      │2014/08/02 2:36:21< bestmove 9a9b
-                    //      │
-                    //
-                    //
-                    //      １手前の指し手で、将棋エンジンが「bestmove ★ ponder ★」という形で  予想手付きで将棋所にメッセージを送っていたとき、
-                    //      その予想手が外れていたならば、将棋所は「stop」を返してきます。
-                    //      このとき  思考を打ち切って最善手の指し手をすぐに返信するわけですが、将棋所はこの返信を無視します☆ｗ
-                    //      （この指し手は、外れていた予想手について考えていた“最善手”ですからゴミのように捨てられます）
-                    //      その後、将棋所から「position」「go」が再送されてくるのだと思います。
-                    //
-                    //          将棋エンジン「bestmove ★ ponder ★」
-                    //              ↓
-                    //          将棋所      「stop」
-                    //              ↓
-                    //          将棋エンジン「うその指し手返信」（無視されます）←今ここ
-                    //              ↓
-                    //          将棋所      「position」「go」
-                    //              ↓
-                    //          将棋エンジン「本当の指し手」
-                    //
-                    //      という流れと思います。
-
-                    // この指し手は、無視されます。（無視されますが、送る必要があります）
-                    Playing.Send("bestmove 9a9b");
-                }
-                else
-                {
-                    //------------------------------------------------------------
-                    // じゃあ、△９二香で
-                    //------------------------------------------------------------
-                    //
-                    // 図.
-                    //
-                    //      log.txt
-                    //      ┌────────────────────────────────────────
-                    //      ～
-                    //      │2014/08/02 2:36:21< bestmove 9a9b
-                    //      │
-                    //
-                    //
-                    // 特に何もなく、すぐ指せというのですから、今考えている最善手をすぐに指します。
-                    Playing.Send("bestmove 9a9b");
-                }
-
+                // この指し手は、無視されます。（無視されますが、送る必要があります）
+                Playing.Send("bestmove 9a9b");
             }
-            catch (Exception ex)
+            else
             {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                Logger.WriteLineAddMemo(LogTags.Engine, "Program「stop」：" + ex.GetType().Name + " " + ex.Message);
+                //------------------------------------------------------------
+                // じゃあ、△９二香で
+                //------------------------------------------------------------
+                //
+                // 図.
+                //
+                //      log.txt
+                //      ┌────────────────────────────────────────
+                //      ～
+                //      │2014/08/02 2:36:21< bestmove 9a9b
+                //      │
+                //
+                //
+                // 特に何もなく、すぐ指せというのですから、今考えている最善手をすぐに指します。
+                Playing.Send("bestmove 9a9b");
             }
         }
 

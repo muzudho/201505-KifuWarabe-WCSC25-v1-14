@@ -2,27 +2,17 @@
 {
     public class LogRecord : ILogRecord
     {
-        public LogRecord(string fileStem, bool enabled, bool timeStampPrintable)
+        public LogRecord(ILogFile logFile, bool enabled, bool timeStampPrintable)
         {
-            this.FileStem = fileStem;
+            this.LogFile = logFile;
             this.Enabled = enabled;
             this.TimeStampPrintable = timeStampPrintable;
         }
 
         /// <summary>
-        /// ファイル名
+        /// 出力先ファイル。
         /// </summary>
-        public string FileName { get { return $"{this.FileStem}{this.Extension}"; } }
-
-        /// <summary>
-        /// ファイル名
-        /// </summary>
-        public string FileStem { get; private set; }
-
-        /// <summary>
-        /// 拡張子は .log 固定。ファイル削除の目印にします。
-        /// </summary>
-        public string Extension { get { return ".log"; } }
+        public ILogFile LogFile { get; private set; }
 
         /// <summary>
         /// ログ出力の有無。

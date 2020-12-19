@@ -117,7 +117,7 @@
                     }
 
                     var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
-                    Logger.WriteLineAddMemo(LogTags.Engine, $"v(^▽^)v ｲｪｰｲ☆ ... {engineName} {versionStr}");
+                    Logger.Trace($"v(^▽^)v ｲｪｰｲ☆ ... {engineName} {versionStr}");
                 }
 
 
@@ -155,8 +155,7 @@
                     {
                         // 将棋サーバーから何かメッセージが届いていないか、見てみます。
                         string line = Util_Message.Download_BlockingIO();
-                        Logger.WriteLineAddMemo(LogTags.Client, line);
-                        Logger.WriteLineR(LogTags.Default, line);
+                        Logger.WriteLineR(line);
 
                         if ("usi" == line)
                         {
@@ -269,14 +268,6 @@
                             ), "駒が駒袋にあった。");
                     }
 
-                    // goの属性一覧
-                    {
-                        playing.GoProperties = new Dictionary<string, string>();
-                        playing.GoProperties["btime"] = "";
-                        playing.GoProperties["wtime"] = "";
-                        playing.GoProperties["byoyomi"] = "";
-                    }
-
                     // go ponderの属性一覧
                     {
                         playing.GoPonderNow = false;   // go ponderを将棋所に伝えたなら真
@@ -290,72 +281,59 @@
                     {
                         // 将棋サーバーから何かメッセージが届いていないか、見てみます。
                         string line = Util_Message.Download_BlockingIO();
-                        Logger.WriteLineAddMemo(LogTags.Client, line);
-                        Logger.WriteLineR(LogTags.Default, line);
+                        Logger.WriteLineR(line);
 
                         if (line.StartsWith("position"))
                         {
-                            try
-                            {
-                                // 手番になったときに、“まず”、将棋所から送られてくる文字が position です。
-                                // このメッセージを読むと、駒の配置が分かります。
-                                //
-                                // “が”、まだ指してはいけません。
-                                Logger.WriteLineAddMemo(LogTags.Engine, "（＾△＾）positionきたｺﾚ！");
+                            // 手番になったときに、“まず”、将棋所から送られてくる文字が position です。
+                            // このメッセージを読むと、駒の配置が分かります。
+                            //
+                            // “が”、まだ指してはいけません。
+                            Logger.Trace("（＾△＾）positionきたｺﾚ！");
 
-                                // 入力行を解析します。
-                                KifuParserA_Result result = new KifuParserA_ResultImpl();
-                                new KifuParserA_Impl().Execute_All(
-                                    ref result,
-                                    new DefaultRoomViewModel(playing.Kifu),
-                                    new KifuParserA_GenjoImpl(line),
-                                    new KifuParserA_LogImpl(LogTags.Engine, "Program#Main(Warabe)")
+                            // 入力行を解析します。
+                            KifuParserA_Result result = new KifuParserA_ResultImpl();
+                            new KifuParserA_Impl().Execute_All(
+                                ref result,
+                                new DefaultRoomViewModel(playing.Kifu),
+                                new KifuParserA_GenjoImpl(line),
+                                new KifuParserA_LogImpl(LogTags.Engine, "Program#Main(Warabe)")
+                                );
+
+                            KifuNode kifuNode = (KifuNode)result.Out_newNode_OrNull;
+                            int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
+
+                            Logger.Trace(
+                                Util_Sky.Json_1Sky(playing.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine),
+                                "PgCS",
+                                tesumi_yomiGenTeban_forLog//読み進めている現在の手目
+                                ));
+
+                            //
+                            // 局面画像ﾛｸﾞ
+                            //
+                            {
+                                // 出力先
+                                string fileName = "_log_ベストムーブ_最後の.png";
+
+                                //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
+                                KyokumenPngWriterImpl.Write1(
+                                    kifuNode.ToRO_Kyokumen1(LogTags.Engine),
+                                    "",
+                                    fileName,
+                                    ShogisasiImpl.REPORT_ENVIRONMENT
                                     );
-
-                                KifuNode kifuNode = (KifuNode)result.Out_newNode_OrNull;
-                                int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
-
-                                Logger.WriteLineAddMemo(
-                                    LogTags.Engine,
-                                    Util_Sky.Json_1Sky(playing.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine),
-                                    "PgCS",
-                                    tesumi_yomiGenTeban_forLog//読み進めている現在の手目
-                                    ));
-
-                                //
-                                // 局面画像ﾛｸﾞ
-                                //
-                                {
-                                    // 出力先
-                                    string fileName = "_log_ベストムーブ_最後の.png";
-
-                                    //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
-                                    KyokumenPngWriterImpl.Write1(
-                                        kifuNode.ToRO_Kyokumen1(LogTags.Engine),
-                                        "",
-                                        fileName,
-                                        ShogisasiImpl.REPORT_ENVIRONMENT
-                                        );
-                                }
-
-
-                                //------------------------------------------------------------
-                                // じっとがまん
-                                //------------------------------------------------------------
-                                //
-                                // 応答は無用です。
-                                // 多分、将棋所もまだ準備ができていないのではないでしょうか（？）
-                                //
-                                playing.Position();
                             }
-                            catch (Exception ex)
-                            {
-                                // エラーが起こりました。
-                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                                // どうにもできないので  ログだけ取って無視します。
-                                Logger.WriteLineAddMemo(LogTags.Engine, "Program「position」：" + ex.GetType().Name + "：" + ex.Message);
-                            }
+
+                            //------------------------------------------------------------
+                            // じっとがまん
+                            //------------------------------------------------------------
+                            //
+                            // 応答は無用です。
+                            // 多分、将棋所もまだ準備ができていないのではないでしょうか（？）
+                            //
+                            playing.Position();
                         }
                         else if (line.StartsWith("go ponder"))
                         {
@@ -364,71 +342,60 @@
                         // 「go ponder」「go mate」「go infinite」とは区別します。
                         else if (line.StartsWith("go"))
                         {
-                            try
+                            //------------------------------------------------------------
+                            // あなたの手番です
+                            //------------------------------------------------------------
+                            //
+                            // 図.
+                            //
+                            //      log.txt
+                            //      ┌────────────────────────────────────────
+                            //      ～
+                            //      │2014/08/02 2:36:19> go btime 599000 wtime 600000 byoyomi 60000
+                            //      │
+                            //
+                            // もう指していいときに、将棋所から送られてくる文字が go です。
+                            //
+
+                            // ｎ手目を 2 増やします。
+                            // 相手の手番と、自分の手番の 2つが増えた、という数え方です。
+                            playing.TesumiCount += 2;
+
+                            //------------------------------------------------------------
+                            // 先手 3:00  後手 0:00  記録係「50秒ぉ～」
+                            //------------------------------------------------------------
+                            //
+                            // 上図のメッセージのままだと使いにくいので、
+                            // あとで使いやすいように Key と Value の表に分けて持ち直します。
+                            //
+                            // 図.
+                            //
+                            //      goDictionary
+                            //      ┌──────┬──────┐
+                            //      │Key         │Value       │
+                            //      ┝━━━━━━┿━━━━━━┥
+                            //      │btime       │599000      │
+                            //      ├──────┼──────┤
+                            //      │wtime       │600000      │
+                            //      ├──────┼──────┤
+                            //      │byoyomi     │60000       │
+                            //      └──────┴──────┘
+                            //      単位はミリ秒ですので、599000 は 59.9秒 です。
+                            //
+                            Regex regex = new Regex(@"go btime (\d+) wtime (\d+) byoyomi (\d+)", RegexOptions.Singleline);
+                            Match m = regex.Match(line);
+
+                            if (m.Success)
                             {
-                                //------------------------------------------------------------
-                                // あなたの手番です
-                                //------------------------------------------------------------
-                                //
-                                // 図.
-                                //
-                                //      log.txt
-                                //      ┌────────────────────────────────────────
-                                //      ～
-                                //      │2014/08/02 2:36:19> go btime 599000 wtime 600000 byoyomi 60000
-                                //      │
-                                //
-                                // もう指していいときに、将棋所から送られてくる文字が go です。
-                                //
-
-                                // ｎ手目を 2 増やします。
-                                // 相手の手番と、自分の手番の 2つが増えた、という数え方です。
-                                playing.TesumiCount += 2;
-
-                                //------------------------------------------------------------
-                                // 先手 3:00  後手 0:00  記録係「50秒ぉ～」
-                                //------------------------------------------------------------
-                                //
-                                // 上図のメッセージのままだと使いにくいので、
-                                // あとで使いやすいように Key と Value の表に分けて持ち直します。
-                                //
-                                // 図.
-                                //
-                                //      goDictionary
-                                //      ┌──────┬──────┐
-                                //      │Key         │Value       │
-                                //      ┝━━━━━━┿━━━━━━┥
-                                //      │btime       │599000      │
-                                //      ├──────┼──────┤
-                                //      │wtime       │600000      │
-                                //      ├──────┼──────┤
-                                //      │byoyomi     │60000       │
-                                //      └──────┴──────┘
-                                //      単位はミリ秒ですので、599000 は 59.9秒 です。
-                                //
-                                Regex regex = new Regex(@"go btime (\d+) wtime (\d+) byoyomi (\d+)", RegexOptions.Singleline);
-                                Match m = regex.Match(line);
-
-                                if (m.Success)
-                                {
-                                    playing.Go((string)m.Groups[1].Value, (string)m.Groups[2].Value, (string)m.Groups[3].Value, "", "");
-                                }
-                                else
-                                {
-                                    // (2020-12-16 wed) フィッシャー・クロック・ルールに対応☆（＾～＾）
-                                    regex = new Regex(@"go btime (\d+) wtime (\d+) binc (\d+) winc (\d+)", RegexOptions.Singleline);
-                                    m = regex.Match(line);
-
-                                    playing.Go((string)m.Groups[1].Value, (string)m.Groups[2].Value, "", (string)m.Groups[3].Value, (string)m.Groups[4].Value);
-                                }
+                                playing.Go((string)m.Groups[1].Value, (string)m.Groups[2].Value, (string)m.Groups[3].Value, "", "");
                             }
-                            catch (Exception ex)
+                            else
                             {
-                                // エラーが起こりました。
-                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                // (2020-12-16 wed) フィッシャー・クロック・ルールに対応☆（＾～＾）
+                                regex = new Regex(@"go btime (\d+) wtime (\d+) binc (\d+) winc (\d+)", RegexOptions.Singleline);
+                                m = regex.Match(line);
 
-                                // どうにもできないので  ログだけ取って無視します。
-                                Logger.WriteLineAddMemo(LogTags.Engine, "Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
+                                playing.Go((string)m.Groups[1].Value, (string)m.Groups[2].Value, "", (string)m.Groups[3].Value, (string)m.Groups[4].Value);
                             }
                             //System.C onsole.WriteLine();
 
@@ -440,27 +407,16 @@
                         }
                         else if (line.StartsWith("gameover"))
                         {
-                            try
+                            Regex regex = new Regex(@"gameover (.)", RegexOptions.Singleline);
+                            Match m = regex.Match(line);
+
+                            if (m.Success)
                             {
-                                Regex regex = new Regex(@"gameover (.)", RegexOptions.Singleline);
-                                Match m = regex.Match(line);
-
-                                if (m.Success)
-                                {
-                                    playing.GameOver((string)m.Groups[1].Value);
-                                }
-
-                                // 無限ループ（２つ目）を抜けます。無限ループ（１つ目）に戻ります。
-                                break;
+                                playing.GameOver((string)m.Groups[1].Value);
                             }
-                            catch (Exception ex)
-                            {
-                                // エラーが起こりました。
-                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                                // どうにもできないので  ログだけ取って無視します。
-                                Logger.WriteLineAddMemo(LogTags.Engine, "Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
-                            }
+                            // 無限ループ（２つ目）を抜けます。無限ループ（１つ目）に戻ります。
+                            break;
                         }
                         // 独自コマンド「ログ出せ」
                         else if ("logdase" == line)
@@ -545,28 +501,22 @@
                     //      │gameover    │lose        │
                     //      └──────┴──────┘
                     //
-                    Logger.WriteLineAddMemo(LogTags.Engine, "KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
+                    Logger.Trace( "KifuParserA_Impl.LOGGING_BY_ENGINE, ┏━確認━━━━setoptionDictionary ━┓");
                     foreach (KeyValuePair<string, string> pair in playing.SetoptionDictionary)
                     {
-                        Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
+                        Logger.Trace( pair.Key + "=" + pair.Value);
                     }
-                    Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━━━━━━━┛");
-                    Logger.WriteLineAddMemo(LogTags.Engine, "┏━確認━━━━goDictionary━━━━━┓");
-                    foreach (KeyValuePair<string, string> pair in playing.GoProperties)
-                    {
-                        Logger.WriteLineAddMemo(LogTags.Engine, pair.Key + "=" + pair.Value);
-                    }
+                    Logger.Trace( "┗━━━━━━━━━━━━━━━━━━┛");
 
                     //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
                     //goMateProperties["mate"] = "";
-                    //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
                     //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┏━確認━━━━goMateDictionary━━━┓");
                     //foreach (KeyValuePair<string, string> pair in this.goMateProperties)
                     //{
                     //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
                     //}
 
-                    Logger.WriteLineAddMemo(LogTags.Engine, "┗━━━━━━━━━━━━━━━━━━┛");
+                    Logger.Trace( "┗━━━━━━━━━━━━━━━━━━┛");
                 }
 
             }
@@ -576,7 +526,7 @@
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.WriteLineAddMemo(LogTags.Engine, "Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Error("Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
             }
 
         end_usi:

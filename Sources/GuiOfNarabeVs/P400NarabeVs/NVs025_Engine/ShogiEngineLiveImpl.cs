@@ -23,7 +23,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
         /// <summary>
         /// 将棋エンジンと会話できるオブジェクトです。
         /// </summary>
-        public ShogiEngineManInterface ShogiEngineManInterface{get;set;}
+        public ShogiEngineManInterface ShogiEngineManInterface { get; set; }
 
         public ShogiEngineLiveImpl(NarabeRoomViewModel ownerShogiGui)
         {
@@ -34,7 +34,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
                 // USIコマンドを将棋エンジンに送ったタイミングで、なにかすることがあれば、
                 // ここに書きます。
                 //
-                Logger.WriteLineS(LogTags.NarabeNetwork, line);
+                Logger.WriteLineS(line);
             };
         }
 
@@ -166,7 +166,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
             else
             {
                 //>>>>>>>>>> メッセージを受け取りました。
-                Logger.WriteLineR(LogTags.Default, line);
+                Logger.WriteLineR(line);
 
                 if (line.StartsWith("option"))
                 {
@@ -217,9 +217,9 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
                     // 将棋エンジンが、手を指されました。
                     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                    Ui_PnlMain.input99 += line.Substring("bestmove".Length+"".Length);
+                    Ui_PnlMain.input99 += line.Substring("bestmove".Length + "".Length);
 
-                    Logger.WriteLineAddMemo(LogTags.Gui,"USI受信：bestmove input99=[" + Ui_PnlMain.input99 + "]");
+                    Logger.Trace( "USI受信：bestmove input99=[" + Ui_PnlMain.input99 + "]");
                 }
                 else
                 {

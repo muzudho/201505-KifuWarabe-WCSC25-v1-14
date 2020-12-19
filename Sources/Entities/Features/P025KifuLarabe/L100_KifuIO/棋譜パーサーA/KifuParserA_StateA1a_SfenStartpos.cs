@@ -41,34 +41,22 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         {
             nextState = this;
 
-            try
+            if (genjo.InputLine.StartsWith("moves"))
             {
-                if (genjo.InputLine.StartsWith("moves"))
-                {
-                    //>>>>> 棋譜が始まります。
+                //>>>>> 棋譜が始まります。
 
-                    Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
+                Logger.Trace("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
 
-                    genjo.InputLine = genjo.InputLine.Substring("moves".Length);
-                    genjo.InputLine = genjo.InputLine.Trim();
+                genjo.InputLine = genjo.InputLine.Substring("moves".Length);
+                genjo.InputLine = genjo.InputLine.Trim();
 
 
-                    nextState = KifuParserA_StateA2_SfenMoves.GetInstance();
-                }
-                else
-                {
-                    Logger.WriteLineAddMemo(log.LogTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
-                    genjo.ToBreak = true;
-                }
+                nextState = KifuParserA_StateA2_SfenMoves.GetInstance();
             }
-            catch (Exception ex)
+            else
             {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                Logger.WriteLineError(LogTags.Error, message);
+                Logger.Trace("＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
+                genjo.ToBreak = true;
             }
 
             return genjo.InputLine;

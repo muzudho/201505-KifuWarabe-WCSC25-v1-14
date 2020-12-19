@@ -93,7 +93,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 Node<ShootingStarlightable, KyokumenWrapper> removedLeaf = kifu.PopCurrentNode();
             }
 
-            Logger.WriteLineAddMemo(logTag, "一手指しが終わったぜ☆　ノードが追加されているんじゃないか☆？　");
+            Logger.Trace("一手指しが終わったぜ☆　ノードが追加されているんじゃないか☆？　");
         }
 
 

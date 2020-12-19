@@ -1,3 +1,7 @@
+#
+# 特に説明の無いファイルパスは Profile フォルダーからの相対パスです。
+#
+
 [Engine]
 
 # 将棋ソフトの表示名です。 後ろにバージョン番号が付くなどの加工があることがあります。
@@ -7,6 +11,8 @@ Name = "Kifuwarazusa"
 Author = "Satoshi TAKAHASHI"
 
 [Resources]
+
+LogDirectory = "../Logs"
 
 NarabeGuiWidgets = "./Data/data_widgets_KifuNarabe.csv"
 VsGuiWidgets = "./Data/data_widgets_KifuNarabeVs.csv"
@@ -18,3 +24,23 @@ InputForcePromotion = "./Data/data_forcePromotion_UTF-8.csv"
 OutputForcePromotion = "../Logs/_log_強制転成表.html"
 InputSyuruiToHaiyaku = "./Data/data_syuruiToHaiyaku.csv"
 OutputSyuruiToHaiyaku = "../Logs/_log_配役転換表.html"
+
+#
+# Resources.LogDirectory からの相対パスだぜ☆（＾～＾） 拡張子は付けるなだぜ☆（＾～＾）
+#
+[Logs]
+
+MousouRireki = "#将棋ｴﾝｼﾞﾝ_妄想履歴"
+
+GuiRecordLog = "将棋GUI_棋譜読取"
+LinkedListLog = "LinkedList"
+GuiPaint = "将棋GUI_ペイント"
+GenMoveLog = "指し手生成ルーチン"
+
+Trace = "Trace"
+Debug = "Debug"
+Info = "Info"
+Notice = "Notice"
+Warn = "Warn"
+Error = "Error"
+Fatal = "Fatal"

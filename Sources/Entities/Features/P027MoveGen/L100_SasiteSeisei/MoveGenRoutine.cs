@@ -134,7 +134,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
             MoveGenGenjo yomiGenjo = new MoveGenGenjoImpl(yomiArgs, yomuIndex + 1, kifu.CurrentTesumi(), kifu.CountPside(node_yomiNext));
             MoveGenRoutine.WAAA_Yomu_Loop(node_yomiNext, yomiGenjo, log);
 
-            if (0<logF_moveKiki.boards.Count)//ﾛｸﾞが残っているなら
+            if (0 < logF_moveKiki.boards.Count)//ﾛｸﾞが残っているなら
             {
                 //
                 // ログの書き出し
@@ -177,7 +177,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
             //
             // （２）現在の局面に、読んだ局面を継ぎ足します。
             //
-            node_yomiCur.AppdendNextNodes( hub_NextNodes);
+            node_yomiCur.AppdendNextNodes(hub_NextNodes);
 
 
             MoveGenRoutine.WAAAA_Read_NextBranch(yomiGenjo, hub_NextNodes, log);
@@ -231,7 +231,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
                         )
                     );
 
-                    MoveGenRoutine.Log1(genjo,node_yomiCur, logBrd_move1);//ログ試し
+                    MoveGenRoutine.Log1(genjo, node_yomiCur, logBrd_move1);//ログ試し
                 }
 
 
@@ -254,20 +254,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
                         "読みNextルーチン",
                         log.LogTag);
 
-                    try
-                    {
-                        Converter04.AddNariMove(node_yomiCur, hubNode, log.LogTag);
-                    }
-                    catch (Exception ex)
-                    {
-                        //>>>>> エラーが起こりました。
-                        string message = ex.GetType().Name + " " + ex.Message + "：王手局面除去後に成りの指し手を追加していた時です。：";
-                        Debug.Fail(message);
-
-                        // どうにもできないので  ログだけ取って、上に投げます。
-                        Logger.WriteLineError(log.LogTag, message);
-                        throw ;
-                    }
+                    Converter04.AddNariMove(node_yomiCur, hubNode, log.LogTag);
 
 
                     Converter04.AssertNariMove(hubNode, "#WAAAA_CreateNextNodes(2)");//ここで消えていた☆
@@ -337,10 +324,10 @@ namespace Grayscale.P027MoveGen.L100MoveGen
                 // 《９》まだ深く読むなら
                 if (yomiGenjo.YomuDeep + 1 < yomiGenjo.Args.YomuLimitter.Length)
                 {
-                    yomiGenjo.YomuDeep ++;
+                    yomiGenjo.YomuDeep++;
                     yomiGenjo.Tesumi_yomiCur++;
                     yomiGenjo.Pside_teban = yomiGenjo.Pside_teban == Playerside.P1 ? Playerside.P2 : Playerside.P1;//先後を反転します。
-                    MoveGenRoutine.WAAA_Yomu_Loop(nextNode, yomiGenjo,log);
+                    MoveGenRoutine.WAAA_Yomu_Loop(nextNode, yomiGenjo, log);
                     yomiGenjo.YomuDeep--;//元に戻します。
                     yomiGenjo.Tesumi_yomiCur--;//元に戻します。
                     yomiGenjo.Pside_teban = yomiGenjo.Pside_teban == Playerside.P1 ? Playerside.P2 : Playerside.P1;//元に戻します。

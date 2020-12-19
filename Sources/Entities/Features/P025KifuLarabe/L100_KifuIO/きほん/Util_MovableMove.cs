@@ -185,24 +185,13 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                 logBrd_move = boardLog_clone;
 
 
-                try
-                {
-                    // 《１》　＝　《１．４》の戦駒＋持駒
+                // 《１》　＝　《１．４》の戦駒＋持駒
 
-                    // 盤上の駒の移動できる場所を足します。
-                    sMs_move.AddRange_New(kmMove_seme_IKUSA);
+                // 盤上の駒の移動できる場所を足します。
+                sMs_move.AddRange_New(kmMove_seme_IKUSA);
 
-                    // 持ち駒の置ける場所を足します。
-                    sMs_move.AddRange_New(sMsMove_seme_MOTI);
-                }
-                catch (Exception ex)
-                {
-                    //>>>>> エラーが起こりました。
-
-                    // どうにもできないので  ログだけ取って無視します。
-                    Logger.WriteLineError(logTag, ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：");
-                    throw ;
-                }
+                // 持ち駒の置ける場所を足します。
+                sMs_move.AddRange_New(sMsMove_seme_MOTI);
             }
 
             return sMs_move;

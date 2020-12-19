@@ -64,29 +64,16 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             )
         {
 
-            try
-            {
-                Logger.WriteLineAddMemo(log.LogTag, "┏━━━━━┓");
-                Logger.WriteLineAddMemo(log.LogTag, "わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+            Logger.Trace( "┏━━━━━┓");
+            Logger.Trace( "わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
 
-                KifuParserA_State nextState;
-                genjo.InputLine = this.State.Execute(
-                    ref result,
-                    roomViewModel,
-                    out nextState, this,
-                    genjo, log);
-                this.State = nextState;
-
-            }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                string message = this.GetType().Name + "#Execute_Step：" + ex.GetType().Name + "：" + ex.Message;
-                Logger.WriteLineError(LogTags.Error, message);
-            }
+            KifuParserA_State nextState;
+            genjo.InputLine = this.State.Execute(
+                ref result,
+                roomViewModel,
+                out nextState, this,
+                genjo, log);
+            this.State = nextState;
 
             return genjo.InputLine;
         }
@@ -109,31 +96,19 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             )
         {
 
-            try
+            Logger.Trace("┏━━━━━━━━━━┓");
+            Logger.Trace("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+
+            KifuParserA_State nextState = this.State;
+
+            while (!genjo.ToBreak)
             {
-                Logger.WriteLineAddMemo(log.LogTag, "┏━━━━━━━━━━┓");
-                Logger.WriteLineAddMemo(log.LogTag, "わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
-
-                KifuParserA_State nextState = this.State;
-
-                while (!genjo.ToBreak)
-                {
-                    genjo.InputLine = this.State.Execute(
-                        ref result,
-                        roomViewModel,
-                        out nextState, this,
-                        genjo, log);
-                    this.State = nextState;
-                }
-            }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                string message = this.GetType().Name + "#Execute_All：" + ex.GetType().Name + "：" + ex.Message;
-                Logger.WriteLineError(LogTags.Error, message);
+                genjo.InputLine = this.State.Execute(
+                    ref result,
+                    roomViewModel,
+                    out nextState, this,
+                    genjo, log);
+                this.State = nextState;
             }
 
 

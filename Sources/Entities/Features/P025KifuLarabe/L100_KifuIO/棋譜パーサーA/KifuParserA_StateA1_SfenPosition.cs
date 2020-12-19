@@ -44,41 +44,29 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         {
             nextState = this;
 
-            try
+            if (genjo.InputLine.StartsWith("startpos"))
             {
-                if (genjo.InputLine.StartsWith("startpos"))
-                {
-                    // 平手の初期配置です。
-                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                    Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
-
-                    genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
-                    genjo.InputLine = genjo.InputLine.Trim();
-
-                    {
-                        roomViewModel.GameViewModel.Kifu.Clear();// 棋譜を空っぽにします。
-
-                        roomViewModel.GameViewModel.Kifu.GetRoot().Value.SetKyokumen(new SkyConst(Util_Sky.New_Hirate()));//SFENのstartpos解析時
-                        roomViewModel.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");//平手の初期局面
-                    }
-
-                    nextState = KifuParserA_StateA1a_SfenStartpos.GetInstance();
-                }
-                else
-                {
-                    Logger.WriteLineAddMemo(log.LogTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆");
-                    nextState = KifuParserA_StateA1b_SfenLnsgkgsnl.GetInstance();
-                }
-            }
-            catch (Exception ex)
-            {
-                // エラーが起こりました。
+                // 平手の初期配置です。
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                // どうにもできないので  ログだけ取って無視します。
-                string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                Logger.WriteLineError(LogTags.Error, message);
+                Logger.Trace("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
+
+                genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
+                genjo.InputLine = genjo.InputLine.Trim();
+
+                {
+                    roomViewModel.GameViewModel.Kifu.Clear();// 棋譜を空っぽにします。
+
+                    roomViewModel.GameViewModel.Kifu.GetRoot().Value.SetKyokumen(new SkyConst(Util_Sky.New_Hirate()));//SFENのstartpos解析時
+                    roomViewModel.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");//平手の初期局面
+                }
+
+                nextState = KifuParserA_StateA1a_SfenStartpos.GetInstance();
+            }
+            else
+            {
+                Logger.Trace("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆");
+                nextState = KifuParserA_StateA1b_SfenLnsgkgsnl.GetInstance();
             }
 
             return genjo.InputLine;

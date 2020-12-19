@@ -78,7 +78,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
             //
             // とりあえずサンプルとして１つ作ってみます。
             //
-            
+
             {
                 //MessageBox.Show( "とりあえずサンプルとして１つ作ってみます。","デバッグ");
                 Tenonagare atamanosumi;
@@ -113,8 +113,8 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                                 // ８三に自歩があり、８四～８八に自駒が無ければ。
 
                                 // ８三の駒を、８九に向かって前進させます。
-                                
-                                atamanosumi = new TenonagareImpl( save_node.ToRO_Kyokumen1(LogTags.Engine),
+
+                                atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(LogTags.Engine),
                                     TenonagareName.Tukisute,
                                     1000.0d,
                                     koma83,//どの駒を
@@ -145,7 +145,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
                         case Playerside.P2: koma1 = Util_Koma.FromFinger(src_Sky, LarabeRandom.Random.Next(20, 39)); break;
                         default: koma1 = Util_Koma.FromFinger(src_Sky, -1); break;
                     }
-                    
+
                     atamanosumi = new TenonagareImpl(save_node.ToRO_Kyokumen1(LogTags.Engine),
                         TenonagareName.Ido,// 「移動」タイプの狙い
                         0.05d,//1.0d,
@@ -216,7 +216,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 
                     foreach (Tenonagare nagare in this.TenonagareItems)
                     {
-                        if(iKesu<1)
+                        if (iKesu < 1)
                         {
                             break;
                         }
@@ -262,57 +262,41 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
             ShogisasiImpl shogisasi = (ShogisasiImpl)obj_sikouEngine;
 
             // 追記ではなく、上書きにしたい☆
-            Logger.WriteLineOverMemo(LogTags.MousouRireki,
-                shogisasi.Kokoro.TenonagareToJsonVal().ToString()
+            Logger.Trace(
+                shogisasi.Kokoro.TenonagareToJsonVal().ToString(), SpecifyLogFiles.MousouRireki
                 );
         }
 
         public void ReadTenonagare()
         {
-            try
+            if (File.Exists(SpecifyLogFiles.MousouRireki.Name))
             {
-                if (File.Exists(Logger.GetRecord(LogTags.MousouRireki).FileName))
-                {
-                    string mousouRirekiLog = System.IO.File.ReadAllText(Logger.GetRecord(LogTags.MousouRireki).FileName, Encoding.UTF8);
+                string mousouRirekiLog = System.IO.File.ReadAllText(SpecifyLogFiles.MousouRireki.Name, Encoding.UTF8);
 
 #if DEBUG
                     MessageBox.Show( mousouRirekiLog, "妄想履歴ログ有り　（デバッグモード　正常）" );
 #endif
 
-                    try
-                    {
-                        var jsonMousou_arr = DynamicJson.Parse(mousouRirekiLog);
+                var jsonMousou_arr = DynamicJson.Parse(mousouRirekiLog);
 
-//#if DEBUG
-//                        try
-//                        {
-//                            // 妄想配列
-//                            foreach (var mousou in jsonMousou_arr)
-//                            {
-//                                MessageBox.Show("name=[" + mousou.name + "] finger=[" + mousou.finger + "] masu=[" + mousou.masu + "] ", "DynamicJSONテスト");
-//                            }
-//                        }
-//                        catch (Exception ex)
-//                        {
-//                            MessageBox.Show("デバッグライト時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
-//                        }
-//#endif
-
-                    }
-                    catch (Exception)
-                    {
-                        // MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
-                        throw ;
-                    }
+                //#if DEBUG
+                //                        try
+                //                        {
+                //                            // 妄想配列
+                //                            foreach (var mousou in jsonMousou_arr)
+                //                            {
+                //                                MessageBox.Show("name=[" + mousou.name + "] finger=[" + mousou.finger + "] masu=[" + mousou.masu + "] ", "DynamicJSONテスト");
+                //                            }
+                //                        }
+                //                        catch (Exception ex)
+                //                        {
+                //                            MessageBox.Show("デバッグライト時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
+                //                        }
+                //#endif
 
 
 
-                }
-            }
-            catch(Exception)                
-            {
-                // MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
-                throw;
+
             }
 
 

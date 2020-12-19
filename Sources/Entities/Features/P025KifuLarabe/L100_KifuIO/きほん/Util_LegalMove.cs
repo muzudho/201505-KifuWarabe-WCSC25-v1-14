@@ -392,21 +392,8 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 logBrd_kiki = boardLog_clone;
 
 
-                try
-                {
-                    // 《１》　＝　《１．４》の戦駒＋持駒
-                    sMs_effect.AddRange_New(kmEffect_seme_IKUSA);
-
-                }
-                catch (Exception ex)
-                {
-                    //>>>>> エラーが起こりました。
-
-                    // どうにもできないので  ログだけ取って無視します。
-                    Logger.WriteLineError(logTag, ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：");
-                    throw;
-                }
-
+                // 《１》　＝　《１．４》の戦駒＋持駒
+                sMs_effect.AddRange_New(kmEffect_seme_IKUSA);
             }
 
             return sMs_effect;

@@ -27,7 +27,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
             {
 
                 string message = "timer入力 input99=[" + shogiGui.Input99 + "]";
-                Logger.WriteLineAddMemo(logTag,message);
+                Logger.Trace(message);
 
                 //
                 // 棋譜入力テキストボックスに、指し手「（例）6a6b」を入力するための一連の流れです。
