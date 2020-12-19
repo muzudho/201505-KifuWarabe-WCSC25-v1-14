@@ -13,7 +13,7 @@ using Grayscale.P040_Kokoro.L00050_Kokoro;
 using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 using Grayscale.P050_KifuWarabe.L030_Shogisasi;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 {

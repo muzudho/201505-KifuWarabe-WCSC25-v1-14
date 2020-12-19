@@ -1,4 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities;
+﻿using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L050_Scene
 {

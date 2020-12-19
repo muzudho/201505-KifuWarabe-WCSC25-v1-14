@@ -5,7 +5,7 @@ using Grayscale.P025_KifuLarabe.L00025_Struct;
 using System.Windows.Forms;
 using System.Drawing;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L050_Scene
 {

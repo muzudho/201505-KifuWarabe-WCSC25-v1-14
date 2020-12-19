@@ -1,5 +1,5 @@
 ﻿using System;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.P027MoveGen.L0005MoveGen;
 
 namespace Grayscale.P027MoveGen.L100MoveGen

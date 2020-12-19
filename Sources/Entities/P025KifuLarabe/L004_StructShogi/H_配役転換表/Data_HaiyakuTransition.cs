@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 {

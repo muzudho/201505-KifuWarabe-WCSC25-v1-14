@@ -2,7 +2,7 @@
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
 {

@@ -1,4 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities;
+﻿using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;

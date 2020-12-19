@@ -7,7 +7,7 @@ using System.Drawing;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P200_KifuNarabe.L00006_Shape;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L015_Sprite
 {

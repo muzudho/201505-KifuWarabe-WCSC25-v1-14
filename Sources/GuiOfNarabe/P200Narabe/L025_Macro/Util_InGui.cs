@@ -18,7 +18,7 @@ using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 using System.Collections.Generic;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L025_Macro
 {

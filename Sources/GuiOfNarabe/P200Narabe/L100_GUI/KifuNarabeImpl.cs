@@ -21,7 +21,7 @@ using Grayscale.P200_KifuNarabe.L015_Sprite;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Nett;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {

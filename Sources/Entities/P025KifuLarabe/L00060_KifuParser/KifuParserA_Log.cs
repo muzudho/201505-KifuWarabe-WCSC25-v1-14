@@ -1,4 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities;
+﻿using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P025_KifuLarabe.L00060_KifuParser
 {

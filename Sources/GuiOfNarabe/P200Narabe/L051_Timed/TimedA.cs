@@ -5,7 +5,7 @@ using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L051_Timed
 {

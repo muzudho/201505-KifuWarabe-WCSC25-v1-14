@@ -19,7 +19,7 @@ using NLua;
 using System;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {

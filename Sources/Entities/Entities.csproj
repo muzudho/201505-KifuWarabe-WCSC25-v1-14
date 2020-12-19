@@ -49,12 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logger\ILogRecord.cs" />
-    <Compile Include="Logger\ILogTag.cs" />
-    <Compile Include="Logger\LogTag.cs" />
-    <Compile Include="Logger\Logger.cs" />
-    <Compile Include="Logger\LogRecord.cs" />
-    <Compile Include="Logger\LogTags.cs" />
+    <Compile Include="Logging\ILogRecord.cs" />
+    <Compile Include="Logging\ILogTag.cs" />
+    <Compile Include="Logging\LogTag.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\LogRecord.cs" />
+    <Compile Include="Logging\LogTags.cs" />
     <Compile Include="P006Sfen\ISfenPosition1.cs" />
     <Compile Include="P006Sfen\ISfenPosition2.cs" />
     <Compile Include="P006Sfen\Program.cs" />

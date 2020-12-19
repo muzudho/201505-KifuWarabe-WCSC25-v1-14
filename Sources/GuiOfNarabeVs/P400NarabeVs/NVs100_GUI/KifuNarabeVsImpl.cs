@@ -6,7 +6,7 @@ using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L100_GUI;
 using Grayscale.P400_KifuNaraVs.L025_ShogiEngine;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 //スプライト番号
 namespace Grayscale.P400_KifuNaraVs.L100_GUI

@@ -7,8 +7,8 @@
     <ProjectGuid>{9593ACC7-348B-4868-892C-7BAFBF925B9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale.P200_KifuNarabe</RootNamespace>
-    <AssemblyName>Grayscale.P200_KifuNarabe</AssemblyName>
+    <RootNamespace>Grayscale.Kifuwarazusa.GuiOfNarabe</RootNamespace>
+    <AssemblyName>Grayscale.Kifuwarazusa.GuiOfNarabe</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

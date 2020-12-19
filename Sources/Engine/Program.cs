@@ -6,7 +6,7 @@
     using System.IO;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Grayscale.Kifuwarazusa.Entities;
+    using Grayscale.Kifuwarazusa.Entities.Logging;
     using Grayscale.Kifuwarazusa.UseCases;
     using Grayscale.P007_SfenReport.L100_Write;
     using Grayscale.P025_KifuLarabe.L00012_Atom;

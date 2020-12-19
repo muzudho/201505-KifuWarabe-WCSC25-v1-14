@@ -18,7 +18,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P006_Syugoron;
 using System;
 using System.Diagnostics;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P050_KifuWarabe.L010_Minimax
 {

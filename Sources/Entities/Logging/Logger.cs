@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 
-namespace Grayscale.Kifuwarazusa.Entities
+namespace Grayscale.Kifuwarazusa.Entities.Logging
 {
     public static class Logger
     {

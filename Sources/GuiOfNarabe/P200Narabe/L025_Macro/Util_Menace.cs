@@ -6,7 +6,7 @@ using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P006_Syugoron;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L025_Macro
 {

@@ -10,7 +10,7 @@ using Grayscale.P025_KifuLarabe.L00012_Atom;
 using System.Runtime.CompilerServices;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Grayscale.P400_KifuNaraVs.Properties {
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

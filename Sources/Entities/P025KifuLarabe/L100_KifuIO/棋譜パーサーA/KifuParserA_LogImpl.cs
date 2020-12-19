@@ -11,7 +11,7 @@ using Grayscale.P025_KifuLarabe.L007_Random;
 using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {

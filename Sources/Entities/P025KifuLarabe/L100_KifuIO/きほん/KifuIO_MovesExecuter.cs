@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.P006_Syugoron;
 using Grayscale.P012_KnowledgeShogi;
 using Grayscale.P025_KifuLarabe.L00012_Atom;

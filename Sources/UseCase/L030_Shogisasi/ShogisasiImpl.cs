@@ -23,7 +23,7 @@ using Grayscale.P050_KifuWarabe.L025_Erabu;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
 using System;
 using System.Diagnostics;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
 {

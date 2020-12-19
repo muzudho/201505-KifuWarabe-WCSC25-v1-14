@@ -7,8 +7,8 @@
     <ProjectGuid>{E4C2F60C-06BF-472F-9AFF-474BD069FE02}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>P201_KifuNarabeExe</RootNamespace>
-    <AssemblyName>P201_KifuNarabeExe</AssemblyName>
+    <RootNamespace>Grayscale.Kifuwarazusa.GuiOfNarabeExe</RootNamespace>
+    <AssemblyName>Grayscale.Kifuwarazusa.GuiOfNarabeExe</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

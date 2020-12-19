@@ -8,8 +8,8 @@
     <ProjectGuid>{8DA09A28-62D8-4CC2-A975-CCE0CF0DA4B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale.P006_Syugoron</RootNamespace>
-    <AssemblyName>Grayscale.P006_Syugoron</AssemblyName>
+    <RootNamespace>Grayscale.Kifuwarazusa.GuiOfSyugoron</RootNamespace>
+    <AssemblyName>Grayscale.Kifuwarazusa.GuiOfSyugoron</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

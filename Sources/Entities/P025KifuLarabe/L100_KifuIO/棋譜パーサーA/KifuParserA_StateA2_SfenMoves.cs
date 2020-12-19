@@ -15,7 +15,7 @@ using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P025_KifuLarabe.L00060_KifuParser;
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {

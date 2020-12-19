@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace P201_KifuNarabeExe.Properties {
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeExe.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace P201_KifuNarabeExe.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("P201_KifuNarabeExe.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Grayscale.Kifuwarazusa.GuiOfNarabeExe.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

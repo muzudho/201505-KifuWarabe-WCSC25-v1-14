@@ -1,5 +1,5 @@
 ﻿
-using Grayscale.Kifuwarazusa.Entities;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L100_Write;
 using Grayscale.P025_KifuLarabe.L00012_Atom;

@@ -1,4 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities;
+﻿using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L100_GUI;
