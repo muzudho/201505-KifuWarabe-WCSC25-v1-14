@@ -8,6 +8,7 @@
     using System.Text.RegularExpressions;
     using Grayscale.Kifuwarazusa.Entities.Logging;
     using Grayscale.Kifuwarazusa.UseCases;
+    using Grayscale.Kifuwarazusa.UseCases.Gui;
     using Grayscale.P007_SfenReport.L100_Write;
     using Grayscale.P025_KifuLarabe.L00012_Atom;
     using Grayscale.P025_KifuLarabe.L00025_Struct;
@@ -16,7 +17,6 @@
     using Grayscale.P025_KifuLarabe.L004_StructShogi;
     using Grayscale.P025_KifuLarabe.L012_Common;
     using Grayscale.P025_KifuLarabe.L100_KifuIO;
-    using Grayscale.P050_KifuWarabe.CS1_Impl.W050_UsiLoop;
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
     using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
     using Grayscale.P050_KifuWarabe.L050_UsiLoop;
@@ -152,12 +152,8 @@
             System.Diagnostics.Debugger.Break();
 #endif
                     // ループ（１つ目）
-                    Result_UsiLoop1 result_UsiLoop1;
-
                     while (true)
                     {
-                        result_UsiLoop1 = Result_UsiLoop1.None;
-
                         // 将棋サーバーから何かメッセージが届いていないか、見てみます。
                         string line = Util_Message.Download_BlockingIO();
                         Logger.WriteLineAddMemo(LogTags.Client, line);
@@ -201,15 +197,14 @@
                             playing.UsiNewGame();
 
                             // 無限ループ（１つ目）を抜けます。無限ループ（２つ目）に進みます。
-                            result_UsiLoop1 = Result_UsiLoop1.Break;
-                            // return;
+                            break;
                         }
                         else if ("quit" == line)
                         {
                             playing.Quit();
 
                             // このプログラムを終了します。
-                            result_UsiLoop1 = Result_UsiLoop1.Quit;
+                            goto end_usi;
                         }
                         else
                         {
@@ -225,27 +220,6 @@
                             //
                             // ログだけ取って、スルーします。
                         }
-
-                        switch (result_UsiLoop1)
-                        {
-                            case Result_UsiLoop1.Break:
-                                goto end_loop1;
-
-                            case Result_UsiLoop1.Quit:
-                                goto end_loop1;
-
-                            default:
-                                break;
-                        }
-
-                        //gt_NextTime1:
-                        //    ;
-                    }
-                end_loop1:
-
-                    if (result_UsiLoop1 == Result_UsiLoop1.Quit)
-                    {
-                        break;//全体ループを抜けます。
                     }
 
                     // ループ（２つ目）
@@ -336,7 +310,7 @@
                                 KifuParserA_Result result = new KifuParserA_ResultImpl();
                                 new KifuParserA_Impl().Execute_All(
                                     ref result,
-                                    new EngineRoomViewModel(playing.Kifu),
+                                    new DefaultRoomViewModel(playing.Kifu),
                                     new KifuParserA_GenjoImpl(line),
                                     new KifuParserA_LogImpl(LogTags.Engine, "Program#Main(Warabe)")
                                     );
@@ -622,6 +596,7 @@
                 Logger.WriteLineAddMemo(LogTags.Engine, "Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
             }
 
+        end_usi:
             // 終了時に、妄想履歴のログを残します。
             playing.shogisasi.Kokoro.WriteTenonagare(playing.shogisasi, LogTags.Engine);
         }

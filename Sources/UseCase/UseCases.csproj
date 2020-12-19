@@ -76,6 +76,7 @@
     <Compile Include="Features\L031_AjimiEngine\AjimiEngine.cs" />
     <Compile Include="Features\L031_AjimiEngine\Result_Ajimi.cs" />
     <Compile Include="Features\L100InServer\Util_InServer.cs" />
+    <Compile Include="Gui\DefaultRoomViewModel.cs" />
     <Compile Include="Playing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
