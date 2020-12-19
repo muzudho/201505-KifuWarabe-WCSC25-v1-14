@@ -921,8 +921,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         public static List<Couple<Finger, SyElement>> NextNodes_ToKamList(
             SkyConst src_Sky_genzai,
-            Node<ShootingStarlightable, KyokumenWrapper> hubNode,
-            ILogTag logTag
+            Node<ShootingStarlightable, KyokumenWrapper> hubNode
             )
         {
             List<Couple<Finger, SyElement>> kmList = new List<Couple<Finger, SyElement>>();
@@ -949,8 +948,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// 変換『「指し手→局面」のコレクション』→『「「指し手→局面」のリスト』
         /// </summary>
         public static List<Node<ShootingStarlightable, KyokumenWrapper>> NextNodes_ToList(
-            Node<ShootingStarlightable, KyokumenWrapper> hubNode,
-            ILogTag logTag
+            Node<ShootingStarlightable, KyokumenWrapper> hubNode
             )
         {
             List<Node<ShootingStarlightable, KyokumenWrapper>> list = new List<Node<ShootingStarlightable, KyokumenWrapper>>();
@@ -1195,8 +1193,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// </summary>
         public static void AddNariMove(
             KifuNode node_yomiCur,
-            KifuNode hubNode,
-            ILogTag logTag
+            KifuNode hubNode
             )
         {
             Dictionary<string, ShootingStarlightable> newMoveList = new Dictionary<string, ShootingStarlightable>();
@@ -1255,7 +1252,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                 Finger figSasumaenoKoma = Util_Sky.Fingers_AtMasuNow(src_Sky, sasumaenoKoma.Masu).ToFirst();
 
                 // 新たな局面
-                KyokumenWrapper kyokumenWrapper = new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, figSasumaenoKoma, sasitaKoma.Masu, KifuNodeImpl.GetReverseTebanside(node_yomiCur.Tebanside), logTag));
+                KyokumenWrapper kyokumenWrapper = new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, figSasumaenoKoma, sasitaKoma.Masu, KifuNodeImpl.GetReverseTebanside(node_yomiCur.Tebanside)));
 
 
 
@@ -1351,8 +1348,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         public static Dictionary<ShootingStarlightable, KyokumenWrapper> KomabetuMasus_ToMovebetuSky(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
             SkyConst src_Sky,
-            Playerside pside,
-            ILogTag logTag
+            Playerside pside
             )
         {
             Dictionary<ShootingStarlightable, KyokumenWrapper> resultMovebetuSky = new Dictionary<ShootingStarlightable, KyokumenWrapper>();
@@ -1373,7 +1369,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         Ks14.H00_Null
                         );
 
-                    resultMovebetuSky.Add(move, new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
+                    resultMovebetuSky.Add(move, new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, key, dstMasu, pside)));
                 }
             });
 
@@ -1382,7 +1378,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         }
 
         public static Dictionary<ShootingStarlightable, KyokumenWrapper> KomabetuMasusToMovebetuSky(
-            List_OneAndMulti<Finger, SySet<SyElement>> sMs, SkyConst src_Sky, Playerside pside, ILogTag logTag)
+            List_OneAndMulti<Finger, SySet<SyElement>> sMs, SkyConst src_Sky, Playerside pside)
         {
             Dictionary<ShootingStarlightable, KyokumenWrapper> result = new Dictionary<ShootingStarlightable, KyokumenWrapper>();
 
@@ -1401,7 +1397,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
                         Ks14.H00_Null
                         );
 
-                    result.Add(move, new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, key, dstMasu, pside, logTag)));
+                    result.Add(move, new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, key, dstMasu, pside)));
                 }
             });
 

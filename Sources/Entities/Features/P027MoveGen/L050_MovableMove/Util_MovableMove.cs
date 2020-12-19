@@ -108,7 +108,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                 Fingers fingers_seme_MOTI;// 持駒（利きを調べる側）
                 Fingers fingers_kurau_MOTI;// 持駒（喰らう側）
                 {
-                    Util_Things.AAABAAAA_SplitGroup(out fingers_seme_IKUSA, out fingers_kurau_IKUSA, out fingers_seme_MOTI, out fingers_kurau_MOTI, mmGenjo.Src_Sky, tebanSeme, tebanKurau, log_orNull == null ? null : log_orNull.LogTag);
+                    Util_Things.AAABAAAA_SplitGroup(out fingers_seme_IKUSA, out fingers_kurau_IKUSA, out fingers_seme_MOTI, out fingers_kurau_MOTI, mmGenjo.Src_Sky, tebanSeme, tebanKurau);
                     if (null != log_orNull)
                     {
                         log_orNull.Log3(mmGenjo.Src_Sky, tebanKurau, tebanSeme, fingers_kurau_IKUSA, fingers_kurau_MOTI, fingers_seme_IKUSA, fingers_seme_MOTI);
@@ -146,8 +146,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                         masus_kurau_IKUSA,
                         mmGenjo.Src_Sky,
                         log_orNull.Enable,
-                        Converter04.MoveToStringForLog(log_orNull.Move, mmGenjo.Pside_genTeban3),
-                        log_orNull.LogTag
+                        Converter04.MoveToStringForLog(log_orNull.Move, mmGenjo.Pside_genTeban3)
                         );// 盤上の駒の移動できる場所
                 }
                 else
@@ -158,8 +157,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                         masus_kurau_IKUSA,
                         mmGenjo.Src_Sky,
                         false,//log.Enable,
-                        "",
-                        null//log.LogTag
+                        ""                        
                         );// 盤上の駒の移動できる場所
                 }
 
@@ -172,8 +170,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                         masus_seme_IKUSA,
                         masus_kurau_IKUSA,
                         mmGenjo.Src_Sky,
-                        Converter04.MoveToStringForLog(log_orNull.Move, mmGenjo.Pside_genTeban3),
-                        log_orNull.LogTag
+                        Converter04.MoveToStringForLog(log_orNull.Move, mmGenjo.Pside_genTeban3)
                         );
                 }
                 else
@@ -183,8 +180,7 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
                         masus_seme_IKUSA,
                         masus_kurau_IKUSA,
                         mmGenjo.Src_Sky,
-                        "",
-                        null
+                        ""
                         );
                 }
 

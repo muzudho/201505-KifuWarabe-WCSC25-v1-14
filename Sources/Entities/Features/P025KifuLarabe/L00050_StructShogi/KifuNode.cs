@@ -11,8 +11,8 @@ namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
     {
 
 
-        ISfenPosition1 ToRO_Kyokumen1(ILogTag logTag);
-        string ToSfenstring(Playerside pside, ILogTag logTag);
+        ISfenPosition1 ToRO_Kyokumen1();
+        string ToSfenstring(Playerside pside);
 
         void AppdendNextNodes(Node<ShootingStarlightable, KyokumenWrapper> hubNode);
 
@@ -33,13 +33,12 @@ namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
         /// <summary>
         /// 王手がかかった局面は取り除きます。
         /// </summary>
-        Maps_OneAndMulti<Finger, ShootingStarlightable> SplitMoveByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode, ILogTag logTag);
+        Maps_OneAndMulti<Finger, ShootingStarlightable> SplitMoveByKoma(Node<ShootingStarlightable, KyokumenWrapper> hubNode);
 
         string Json_NextNodes_MultiSky(
             string memo,
             string hint,
-            int tesumi_yomiGenTeban_forLog,//読み進めている現在の手目済
-            ILogTag logTag
+            int tesumi_yomiGenTeban_forLog //読み進めている現在の手目済
             );
 
         /// <summary>

@@ -97,7 +97,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                         ref result,
                         roomViewModel,
                         genjo,
-                        new KifuParserA_LogImpl(LogTags.Gui, hint + ":Ui_01MenuB#ReadLine_TuginoItteSusumu")
+                        new KifuParserA_LogImpl( hint + ":Ui_01MenuB#ReadLine_TuginoItteSusumu")
                         );
 
                     Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -127,7 +127,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                             ref result,
                             roomViewModel,
                             genjo,
-                            new KifuParserA_LogImpl(LogTags.Gui, hint + ":平手等解析したい")
+                            new KifuParserA_LogImpl( hint + ":平手等解析したい")
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -145,7 +145,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                             ref result,
                             roomViewModel,
                             genjo,
-                            new KifuParserA_LogImpl(LogTags.Gui, hint + ":ﾑｰﾌﾞｽ等解析したい")
+                            new KifuParserA_LogImpl( hint + ":ﾑｰﾌﾞｽ等解析したい")
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -172,7 +172,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                         ref result,
                         roomViewModel,
                         genjo,
-                        new KifuParserA_LogImpl(LogTags.Gui, hint + ":一手処理したい")
+                        new KifuParserA_LogImpl( hint + ":一手処理したい")
                         );
 
                     if (null != result.Out_newNode_OrNull)
@@ -486,7 +486,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     {
                         SkyBuffer buffer_Sky = new SkyBuffer(roomViewModel.GameViewModel.GuiSkyConst);
 
-                        Fingers komas = Util_Sky.Fingers_ByOkibaSyuruiNow(new SkyConst(buffer_Sky), Okiba.KomaBukuro, syuruiList[i], log.LogTag);
+                        Fingers komas = Util_Sky.Fingers_ByOkibaSyuruiNow(new SkyConst(buffer_Sky), Okiba.KomaBukuro, syuruiList[i]);
                         int moved = 1;
                         foreach (Finger koma in komas.Items)
                         {
@@ -522,8 +522,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             out Finger movedKoma,
             out Finger foodKoma,
             out string fugoJStr,
-            IRoomViewModel roomViewModel,
-            ILogTag logTag
+            IRoomViewModel roomViewModel
             )
         {
             bool successful = false;
@@ -577,8 +576,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 isMakimodosi,
                 out movedKoma,
                 out foodKoma,
-                out out_newNode_OrNull,
-                LogTags.Gui
+                out out_newNode_OrNull
                 );
 
             successful = true;
@@ -596,8 +594,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         /// </summary>
         public static bool Komaokuri_Srv(
             ref string inputLine,
-            IRoomViewModel roomViewModel,
-            ILogTag logTag
+            IRoomViewModel roomViewModel
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -628,8 +625,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             Starlight dst,
             Finger btnTumandeiruKoma_Koma,
             RO_Star_Koma koma1,
-            IRoomViewModel roomViewModel,
-            ILogTag logTag
+            IRoomViewModel roomViewModel
             )
         {
             Finger btnKoma_Food_Koma;

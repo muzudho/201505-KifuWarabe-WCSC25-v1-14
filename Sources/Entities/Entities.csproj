@@ -55,12 +55,9 @@
   <ItemGroup>
     <Compile Include="Logging\ILogFile.cs" />
     <Compile Include="Logging\ILogRecord.cs" />
-    <Compile Include="Logging\ILogTag.cs" />
     <Compile Include="Logging\LogFile.cs" />
-    <Compile Include="Logging\LogTag.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\LogRecord.cs" />
-    <Compile Include="Logging\LogTags.cs" />
     <Compile Include="Features\P006Sfen\ISfenPosition1.cs" />
     <Compile Include="Features\P006Sfen\ISfenPosition2.cs" />
     <Compile Include="Features\P006Sfen\Program.cs" />

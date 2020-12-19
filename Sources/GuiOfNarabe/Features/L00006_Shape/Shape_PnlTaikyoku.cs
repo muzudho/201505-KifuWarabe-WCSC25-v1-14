@@ -73,8 +73,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
 
         void Paint(
             object sender, PaintEventArgs e,
-            NarabeRoomViewModel shogiGui,
-            ILogTag logTag
+            NarabeRoomViewModel shogiGui
         );
 
         /// <summary>

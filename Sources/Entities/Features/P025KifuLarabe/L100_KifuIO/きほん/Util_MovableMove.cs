@@ -33,8 +33,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
             GraphicalLog_Board logBrd_move,
             int yomuDeep_forLog,//脳内読み手数
             int tesumi_yomiCur_forLog,
-            ShootingStarlightable move_forLog,
-            ILogTag logTag
+            ShootingStarlightable move_forLog
             )
         {
             logBrd_move.Caption = "移動可能_" + Converter04.MoveToStringForLog(move_forLog, pside_genTeban3);
@@ -86,8 +85,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                         out fingers_kurau_MOTI,
                         src_Sky,
                         tebanSeme,
-                        tebanKurau,
-                        logTag
+                        tebanKurau
                     );
 
 
@@ -154,8 +152,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     masus_kurau_IKUSA,
                     src_Sky,
                     enableLog,
-                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3),
-                    logTag
+                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3)
                     );// 盤上の駒の移動できる場所
 
                 // 持ち駒を置ける場所
@@ -164,8 +161,7 @@ namespace Grayscale.P025_KifuLarabe.L200_KifuIO
                     masus_seme_IKUSA,
                     masus_kurau_IKUSA,
                     src_Sky,
-                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3),
-                    logTag
+                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3)
                     );
 
                 // 戦駒の移動可能場所

@@ -34,8 +34,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
         /// <param name="scoreKeisu">評価値に掛け算します。通常、1.0d を指定してください。</param>
         public TenonagareImpl(
             ISfenPosition1 ro_Kyokumen1ForKioku_OrNull,
-            TenonagareName name, double scoreKeisu, RO_Star_Koma koma1, RO_Star_Koma koma2, Basho masu,
-            ILogTag logTag
+            TenonagareName name, double scoreKeisu, RO_Star_Koma koma1, RO_Star_Koma koma2, Basho masu
             )
             : base(name, scoreKeisu, koma1, koma2, masu)
         {

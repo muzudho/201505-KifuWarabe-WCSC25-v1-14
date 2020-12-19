@@ -28,13 +28,12 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
             Finger movedKoma,
             Finger foodKoma,
             string fugoJStr,
-            string backedInputText,
-            ILogTag logTag)
+            string backedInputText)
         {
             //------------------------------
             // チェンジターン
             //------------------------------
-            shogiGui.ChangeTurn(logTag);//[巻戻し]ボタンを押したあと
+            shogiGui.ChangeTurn();//[巻戻し]ボタンを押したあと
 
 
             //------------------------------
@@ -70,14 +69,14 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
 
 
 
-        public static bool Komaokuri_Gui( string restText, NarabeRoomViewModel shogiGui, ILogTag logTag)
+        public static bool Komaokuri_Gui( string restText, NarabeRoomViewModel shogiGui)
         {
             //------------------------------
             // チェンジ・ターン
             //------------------------------
             if (shogiGui.ResponseData.ChangedTurn)
             {
-                shogiGui.ChangeTurn( logTag);
+                shogiGui.ChangeTurn( );
             }
 
 
@@ -199,8 +198,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         /// <param name="btnKoma">駒</param>
         public static void Redraw_KomaLocation(
             Finger figKoma,
-            NarabeRoomViewModel shogiGui,
-            ILogTag logTag
+            NarabeRoomViewModel shogiGui
             )
         {
             RO_Star_Koma koma = Util_Koma.AsKoma(shogiGui.GameViewModel.GuiSkyConst.StarlightIndexOf(figKoma).Now);

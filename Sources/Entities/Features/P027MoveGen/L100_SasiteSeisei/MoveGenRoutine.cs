@@ -226,8 +226,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
                             logBrd_move1,//ログ？
                             genjo.YomuDeep,//読みの深さ
                             genjo.Tesumi_yomiCur,//手済み
-                            node_yomiCur.Key,//指し手
-                            log.LogTag//ログ
+                            node_yomiCur.Key//指し手
                         )
                     );
 
@@ -251,10 +250,9 @@ namespace Grayscale.P027MoveGen.L100MoveGen
                         node_yomiCur,
                         log.EnableLog,
                         genjo.Args.LogF_moveKiki,//利き用
-                        "読みNextルーチン",
-                        log.LogTag);
+                        "読みNextルーチン");
 
-                    Converter04.AddNariMove(node_yomiCur, hubNode, log.LogTag);
+                    Converter04.AddNariMove(node_yomiCur, hubNode);
 
 
                     Converter04.AssertNariMove(hubNode, "#WAAAA_CreateNextNodes(2)");//ここで消えていた☆
@@ -265,8 +263,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
                     Dictionary<ShootingStarlightable, KyokumenWrapper> ss = Converter04.KomabetuMasusToMovebetuSky(
                         komaBETUSusumeruMasus,
                         node_yomiCur.Value.ToKyokumenConst,
-                        genjo.Pside_teban,
-                        log.LogTag);
+                        genjo.Pside_teban);
                     hubNode = Converter04.MovebetuSky_ToHubNode(ss, KifuNodeImpl.GetReverseTebanside(genjo.Pside_teban));
                 }
             }
@@ -302,7 +299,7 @@ namespace Grayscale.P027MoveGen.L100MoveGen
             )
         {
             // （３）次のノードをシャッフルします。
-            List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes_shuffled = Converter04.NextNodes_ToList(hubNode_genTeban, log.LogTag);
+            List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes_shuffled = Converter04.NextNodes_ToList(hubNode_genTeban);
             LarabeShuffle<Node<ShootingStarlightable, KyokumenWrapper>>.Shuffle_FisherYates(ref nextNodes_shuffled);
 
             // （４）次の局面

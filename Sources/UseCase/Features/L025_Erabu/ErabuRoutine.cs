@@ -22,7 +22,7 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
         /// <returns></returns>
         public ShootingStarlightable ChoiceBestMove(
             KifuTree kifu,
-            bool enableLog, bool isHonshogi, ILogTag logTag)
+            bool enableLog, bool isHonshogi)
         {
             ShootingStarlightable bestMove = null;
 
@@ -31,10 +31,10 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
 
             {
                 // 次のノードをリストにします。
-                List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes = Converter04.NextNodes_ToList(kifu.CurNode, logTag);
+                List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes = Converter04.NextNodes_ToList(kifu.CurNode);
 
                 // 次のノードをシャッフルします。
-                List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes_shuffled = Converter04.NextNodes_ToList(kifu.CurNode, logTag);
+                List<Node<ShootingStarlightable, KyokumenWrapper>> nextNodes_shuffled = Converter04.NextNodes_ToList(kifu.CurNode);
                 LarabeShuffle<Node<ShootingStarlightable, KyokumenWrapper>>.Shuffle_FisherYates(ref nextNodes_shuffled);
 
                 // シャッフルした最初の指し手を選びます。
@@ -44,7 +44,7 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
                 }
 
                 // ③ランダムに１手選ぶ
-                //bestMove = Program.SikouEngine.ErabuRoutine.ChoiceMove_fromNextNodes_Random(kifu, node_yomiNext, logTag);
+                //bestMove = Program.SikouEngine.ErabuRoutine.ChoiceMove_fromNextNodes_Random(kifu, node_yomiNext);
             }
 
             if (null == bestMove)

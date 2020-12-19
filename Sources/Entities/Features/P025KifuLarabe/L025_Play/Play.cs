@@ -24,12 +24,10 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
         /// </summary>
         /// <param name="src_Sky"></param>
         /// <param name="fingers"></param>
-        /// <param name="logTag"></param>
         /// <returns></returns>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Get_PotentialMoves_Ikusa(
             SkyConst src_Sky,
-            Fingers fingers,
-            ILogTag logTag_orNull
+            Fingers fingers
             )
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> kiki_fMs = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの駒を、どこに進める」の一覧
@@ -57,13 +55,11 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
         /// </summary>
         /// <param name="src_Sky"></param>
         /// <param name="fingers"></param>
-        /// <param name="logTag"></param>
         /// <returns></returns>
         public static List_OneAndMulti<Finger, SySet<SyElement>> Get_PotentialMove_Motikoma(
             SkyConst src_Sky,
             Fingers fingers,
-            SySet<SyElement> okenaiMasus,
-            ILogTag logTag_orNull
+            SySet<SyElement> okenaiMasus
             )
         {
             // 「どの持ち駒を」「どこに置いたとき」「どこに利きがある」のコレクション。

@@ -29,7 +29,6 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="figMovedKoma"></param>
         /// <param name="figFoodKoma">取られた駒</param>
         /// <param name="out_newNode_OrNull"></param>
-        /// <param name="logTag"></param>
         /// <param name="memberName"></param>
         /// <param name="sourceFilePath"></param>
         /// <param name="sourceLineNumber"></param>
@@ -39,8 +38,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             bool isMakimodosi,
             out Finger figMovedKoma,
             out Finger figFoodKoma,
-            out Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull,
-            ILogTag logTag
+            out Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -80,8 +78,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 move, 
                 kifu,
                 isMakimodosi,
-                out out_newNode_OrNull,
-                logTag
+                out out_newNode_OrNull
                 );
 
 
@@ -322,8 +319,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             ShootingStarlightable move,
             KifuTree kifu,
             bool isMakimodosi,
-            out Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull,
-            ILogTag logTag
+            out Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull
             )
         {
             out_figFoodKoma = Fingers.Error_1;
@@ -457,8 +453,7 @@ dst.Pside={dstKoma.Pside}");
                     kifu.AppendChildB_Swap(
                         foodKomaSyurui,
                         kifu.CurNode.Value.ToKyokumenConst,
-                        "KifuIO_Kifusasi52",
-                        logTag
+                        "KifuIO_Kifusasi52"
                     );
                     //}
                 }

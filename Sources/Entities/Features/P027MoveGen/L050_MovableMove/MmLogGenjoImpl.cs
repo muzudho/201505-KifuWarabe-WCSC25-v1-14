@@ -28,17 +28,12 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
         public ShootingStarlightable Move { get { return this.move; } }
         private ShootingStarlightable move;
 
-        public ILogTag LogTag { get { return this.logTag; } }
-        private ILogTag logTag;
-
-
         public MmLogGenjoImpl(
             bool enable,
             GraphicalLog_Board brdMove,
             int yomuDeep,//脳内読み手数
             int tesumi_yomiCur,
-            ShootingStarlightable move,
-            ILogTag logTag
+            ShootingStarlightable move
             )
         {
             this.enable = enable;
@@ -46,7 +41,6 @@ namespace Grayscale.P027MoveGen.L050_MovableMove
             this.yomuDeep = yomuDeep;
             this.tesumi_yomiCur = tesumi_yomiCur;
             this.move = move;
-            this.logTag = logTag;
         }
 
         public void Log1(Playerside pside_genTeban3)

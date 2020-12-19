@@ -38,7 +38,6 @@ namespace Grayscale.P025_KifuLarabe.L050_Things
         /// <param name="masus_kurau_IKUSA"></param>
         /// <param name="src_Sky"></param>
         /// <param name="hint"></param>
-        /// <param name="logTag"></param>
         /// <returns></returns>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Get_KmEffect_seme_IKUSA(
             Fingers fingers_seme_IKUSA,
@@ -46,18 +45,17 @@ namespace Grayscale.P025_KifuLarabe.L050_Things
             SySet<SyElement> masus_kurau_IKUSA,
             SkyConst src_Sky,
             bool enableLog,
-            string hint_orNull,
-            ILogTag logTag_orNull
+            string hint_orNull
             )
         {
             // 利きを調べる側の利き（戦駒）
-            Maps_OneAndOne<Finger, SySet<SyElement>> km = Play.Get_PotentialMoves_Ikusa(src_Sky, fingers_seme_IKUSA, logTag_orNull);
+            Maps_OneAndOne<Finger, SySet<SyElement>> km = Play.Get_PotentialMoves_Ikusa(src_Sky, fingers_seme_IKUSA);
 
             // 盤上の現手番の駒利きから、 現手番の駒がある枡を除外します。
-            km = Play_KomaAndMove.MinusMasus(false, src_Sky, km, masus_seme_IKUSA, logTag_orNull);
+            km = Play_KomaAndMove.MinusMasus(false, src_Sky, km, masus_seme_IKUSA);
 
             // そこから、相手番の駒がある枡「以降」を更に除外します。
-            km = Play_KomaAndMove.Minus_OverThereMasus(enableLog, src_Sky, km, masus_kurau_IKUSA, logTag_orNull);
+            km = Play_KomaAndMove.Minus_OverThereMasus(enableLog, src_Sky, km, masus_kurau_IKUSA);
 
             return km;
         }
@@ -69,15 +67,13 @@ namespace Grayscale.P025_KifuLarabe.L050_Things
         /// <param name="masus_kurau_IKUSA"></param>
         /// <param name="src_Sky"></param>
         /// <param name="hint"></param>
-        /// <param name="logTag"></param>
         /// <returns></returns>
         public static List_OneAndMulti<Finger, SySet<SyElement>> Get_Move_Moti(
             Fingers fingers_seme_MOTI,
             SySet<SyElement> masus_seme_IKUSA,
             SySet<SyElement> masus_kurau_IKUSA,
             SkyConst src_Sky,
-            string hint_orNull,
-            ILogTag logTag_orNull
+            string hint_orNull
             )
         {
             // 「どの持ち駒を」「どこに置けるか」のコレクション。
@@ -94,7 +90,7 @@ namespace Grayscale.P025_KifuLarabe.L050_Things
                 okenaiMasus.AddSupersets(masus_kurau_IKUSA);
             }
 
-            om = Play.Get_PotentialMove_Motikoma(src_Sky, fingers_seme_MOTI, okenaiMasus, logTag_orNull);
+            om = Play.Get_PotentialMove_Motikoma(src_Sky, fingers_seme_MOTI, okenaiMasus);
             return om;
         }
 
@@ -105,8 +101,7 @@ namespace Grayscale.P025_KifuLarabe.L050_Things
             out Fingers fingers_kurau_MOTI,// 持駒（喰らう側）
             SkyConst src_Sky,
             Playerside tebanSeme,
-            Playerside tebanKurau,
-            ILogTag logTag_OrNull
+            Playerside tebanKurau
         )
         {
             // 戦駒

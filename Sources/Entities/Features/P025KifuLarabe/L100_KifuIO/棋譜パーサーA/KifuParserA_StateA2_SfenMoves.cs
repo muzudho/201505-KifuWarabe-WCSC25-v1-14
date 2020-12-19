@@ -146,8 +146,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         isBack,
                         out figMovedKoma,
                         out figFoodKoma,
-                        out out_newNode_OrNull,//変更した現局面が、ここに入る。
-                        log.LogTag
+                        out out_newNode_OrNull//変更した現局面が、ここに入る。
                         );
                     result.Out_newNode_OrNull = out_newNode_OrNull;
                     Logger.Trace(Util_Sky.Json_1Sky(

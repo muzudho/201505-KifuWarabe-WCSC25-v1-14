@@ -373,8 +373,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// <param name="e"></param>
         public void Paint(
             object sender, PaintEventArgs e,
-            NarabeRoomViewModel shogiGui,
-            ILogTag logTag
+            NarabeRoomViewModel shogiGui
             )
         {
             if (!this.Visible)
@@ -401,7 +400,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             //----------
             foreach (Shape_BtnKomaImpl koma in this.BtnKomaDoors)
             {
-                koma.Paint(e.Graphics, shogiGui, logTag);
+                koma.Paint(e.Graphics, shogiGui);
             }
 
             //----------

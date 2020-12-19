@@ -50,8 +50,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
             Kokoro kokoro,
             PlayerInfo playerInfo,
             ReportEnvironment reportEnvironment,//MinimaxEngineImpl.REPORT_ENVIRONMENT
-            GraphicalLog_File logF_kiki,
-            ILogTag logTag
+            GraphicalLog_File logF_kiki
             )
         {
             // 次ノードの有無
@@ -97,8 +96,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                         kokoro,
                         playerInfo,
                         reportEnvironment,
-                        logF_kiki,
-                        logTag
+                        logF_kiki
                         );
 
                 });
@@ -144,8 +142,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
             KifuNode node,
             KifuTree kifu,
             ReportEnvironment reportEnvironment,
-            GraphicalLog_File logF_kiki,
-            ILogTag logTag
+            GraphicalLog_File logF_kiki
             )
         {
             //
@@ -169,8 +166,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                         logBrd_move1,
                         0,//読みの深さ
                         0,//現在の手済み
-                        node.Key,
-                        logTag
+                        node.Key
                     )
                 );
 

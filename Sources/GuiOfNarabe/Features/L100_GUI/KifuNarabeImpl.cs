@@ -119,14 +119,14 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             }
         }
 
-        public void SetFlowB(SceneName name1, ILogTag logTag)
+        public void SetFlowB(SceneName name1)
         {
             this.flowB = name1;
 
             //アライブ
             {
                 TimedB timeB = ((TimedB)this.TimedB);
-                timeB.MouseEventQueue.Enqueue(new MouseEventState(name1, MouseEventStateName.Arive, Point.Empty, logTag));
+                timeB.MouseEventQueue.Enqueue(new MouseEventState(name1, MouseEventStateName.Arive, Point.Empty));
             }
         }
 
@@ -237,7 +237,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
         public void Load_AsStart()
         {
-            ILogTag logTag = LogTags.Gui;
             Logger.Trace("乱数のたね＝[" + LarabeRandom.Seed + "]");
 
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
@@ -312,7 +311,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <summary>
         /// 手番が替わったときの挙動を、ここに書きます。
         /// </summary>
-        public virtual void ChangeTurn(ILogTag logTag)
+        public virtual void ChangeTurn()
         {
         }
 
@@ -339,7 +338,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         {
         }
 
-        public void Response( string mutexString, ILogTag logTag)
+        public void Response( string mutexString)
         {
             Ui_PnlMain ui_PnlMain = ((Ui_ShogiForm1)this.OwnerForm).Ui_PnlMain1;
 
@@ -377,7 +376,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 default: break;
             }
 
-            ui_PnlMain.Response(mutex2, this, logTag);// 再描画
+            ui_PnlMain.Response(mutex2, this);// 再描画
 
         gt_EndMethod:
             ;

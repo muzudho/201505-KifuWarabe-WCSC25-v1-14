@@ -19,8 +19,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
             SkyConst src_Sky,//現局面
             Finger finger,//動かす駒
             SyElement masu,//移動先マス
-            Playerside pside_genTeban,//動かす駒がどちらのプレイヤーのものか
-            ILogTag logTag
+            Playerside pside_genTeban//動かす駒がどちらのプレイヤーのものか
             )
         {
             SkyBuffer dst_Sky = new SkyBuffer(src_Sky.Clone()); // 現局面をコピーします。

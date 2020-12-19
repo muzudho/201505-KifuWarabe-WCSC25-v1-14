@@ -122,7 +122,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// ************************************************************************************************************************
         /// </summary>
         /// <param name="g1"></param>
-        public void Paint(Graphics g1, NarabeRoomViewModel shogiGui, ILogTag logTag)
+        public void Paint(Graphics g1, NarabeRoomViewModel shogiGui)
         {
             if (!this.Visible)
             {

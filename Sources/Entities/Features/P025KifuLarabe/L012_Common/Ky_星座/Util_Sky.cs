@@ -209,7 +209,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers Fingers_BySyuruiNow(SkyConst src_Sky, Ks14 syurui, ILogTag logTag)
+        public static Fingers Fingers_BySyuruiNow(SkyConst src_Sky, Ks14 syurui)
         {
             Fingers figKomas = new Fingers();
 
@@ -234,7 +234,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="syurui"></param>
         /// <param name="kifu"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByOkibaSyuruiNow(SkyConst src_Sky, Okiba okiba, Ks14 syurui, ILogTag logTag)
+        public static Fingers Fingers_ByOkibaSyuruiNow(SkyConst src_Sky, Okiba okiba, Ks14 syurui)
         {
             Fingers komas = new Fingers();
 
@@ -493,7 +493,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="kifu"></param>
         /// <param name="okiba"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByOkibaNow(SkyConst src_Sky, Okiba okiba, ILogTag logTag)
+        public static Fingers Fingers_ByOkibaNow(SkyConst src_Sky, Okiba okiba)
         {
             Fingers komas = new Fingers();
 
@@ -517,7 +517,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         /// <param name="pside"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByPsideNow(SkyConst src_Sky,Playerside pside, ILogTag logTag)
+        public static Fingers Fingers_ByPsideNow(SkyConst src_Sky,Playerside pside)
         {
             Fingers fingers = new Fingers();
 

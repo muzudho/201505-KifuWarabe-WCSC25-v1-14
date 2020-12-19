@@ -34,7 +34,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Gui
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        void ChangeTurn(ILogTag logTag);
+        void ChangeTurn();
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
@@ -73,7 +73,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Gui
         void SetScene(SceneName scene);
 
 
-        void Response(string mutexString, ILogTag logTag);
+        void Response(string mutexString);
 
 
 

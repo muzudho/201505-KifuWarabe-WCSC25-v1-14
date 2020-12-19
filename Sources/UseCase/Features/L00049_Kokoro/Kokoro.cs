@@ -1,10 +1,7 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P050_KifuWarabe.L030_Shogisasi;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.P050_KifuWarabe.L030_Shogisasi;
 
 namespace Grayscale.P050_KifuWarabe.L00049_Kokoro
 {
@@ -32,7 +29,7 @@ namespace Grayscale.P050_KifuWarabe.L00049_Kokoro
         /// 頭の隅コレクションのWrite。
         /// </summary>
         /// <param name="obj_sikouEngine"></param>
-        void WriteTenonagare(object obj_sikouEngine, ILogTag logTag);
+        void WriteTenonagare(object obj_sikouEngine);
 
         Json_Val TenonagareToJsonVal();
 

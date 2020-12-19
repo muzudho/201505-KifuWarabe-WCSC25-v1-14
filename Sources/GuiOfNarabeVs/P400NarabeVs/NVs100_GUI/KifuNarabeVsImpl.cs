@@ -22,9 +22,9 @@ namespace Grayscale.P400_KifuNaraVs.L100_GUI
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        public override void ChangeTurn( ILogTag logTag)
+        public override void ChangeTurn()
         {
-            this.ShogiEnginePrWrapperLauncher.ChangeTurn99(this.GameViewModel.Kifu, logTag);
+            this.ShogiEnginePrWrapperLauncher.ChangeTurn99(this.GameViewModel.Kifu);
         }
 
         /// <summary>

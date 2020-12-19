@@ -25,14 +25,13 @@ namespace Grayscale.P025_KifuLarabe.L00050_StructShogi
         void AppendChildB_Swap(
             Ks14 tottaSyurui,
             SkyConst src_Sky,
-            string hint,
-            ILogTag logTag
+            string hint
             );
         
         /// <summary>
         /// [ここから採譜]機能
         /// </summary>
-        void SetStartpos_KokokaraSaifu(Playerside pside, ILogTag logTag);
+        void SetStartpos_KokokaraSaifu(Playerside pside);
 
         /// <summary>
         /// 現局面のプレイヤーサイド。

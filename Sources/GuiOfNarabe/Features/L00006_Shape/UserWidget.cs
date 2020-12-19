@@ -12,7 +12,6 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
     public delegate void DELEGATE_MouseHitEvent(
          object obj_shogiGui //ShogiGui
         , Shape_BtnKoma btnKoma_Selected
-        , ILogTag logTag
     );
 
 

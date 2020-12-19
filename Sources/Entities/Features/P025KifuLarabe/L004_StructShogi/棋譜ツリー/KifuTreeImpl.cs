@@ -92,8 +92,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         public void AppendChildB_Swap(
             Ks14 tottaSyurui,
             SkyConst src_Sky,
-            string hint,
-            ILogTag logTag
+            string hint
             )
         {
             if (this.CountTesumi(this.CurNode) < 1)
@@ -144,14 +143,14 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         /// [ここから採譜]機能
         /// ************************************************************************************************************************
         /// </summary>
-        public void SetStartpos_KokokaraSaifu( Playerside pside, ILogTag logTag)
+        public void SetStartpos_KokokaraSaifu( Playerside pside)
         {
 
             //------------------------------------------------------------
             // 棋譜を空に
             //------------------------------------------------------------
             this.Clear();
-            this.SetProperty(KifuTreeImpl.PropName_Startpos, ((KifuNode)this.CurNode).ToSfenstring(pside, logTag));
+            this.SetProperty(KifuTreeImpl.PropName_Startpos, ((KifuNode)this.CurNode).ToSfenstring(pside));
         }
 
         /// <summary>

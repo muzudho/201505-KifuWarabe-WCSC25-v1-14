@@ -297,14 +297,14 @@
                                 ref result,
                                 new DefaultRoomViewModel(playing.Kifu),
                                 new KifuParserA_GenjoImpl(line),
-                                new KifuParserA_LogImpl(LogTags.Engine, "Program#Main(Warabe)")
+                                new KifuParserA_LogImpl( "Program#Main(Warabe)")
                                 );
 
                             KifuNode kifuNode = (KifuNode)result.Out_newNode_OrNull;
                             int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
 
                             Logger.Trace(
-                                Util_Sky.Json_1Sky(playing.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu, LogTags.Engine),
+                                Util_Sky.Json_1Sky(playing.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu),
                                 "PgCS",
                                 tesumi_yomiGenTeban_forLog//読み進めている現在の手目
                                 ));
@@ -318,7 +318,7 @@
 
                                 //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
                                 KyokumenPngWriterImpl.Write1(
-                                    kifuNode.ToRO_Kyokumen1(LogTags.Engine),
+                                    kifuNode.ToRO_Kyokumen1(),
                                     "",
                                     fileName,
                                     ShogisasiImpl.REPORT_ENVIRONMENT
@@ -531,7 +531,7 @@
 
         end_usi:
             // 終了時に、妄想履歴のログを残します。
-            playing.shogisasi.Kokoro.WriteTenonagare(playing.shogisasi, LogTags.Engine);
+            playing.shogisasi.Kokoro.WriteTenonagare(playing.shogisasi);
         }
     }
 }

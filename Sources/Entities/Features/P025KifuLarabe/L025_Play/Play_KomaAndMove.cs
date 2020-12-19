@@ -34,13 +34,11 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <param name="sbGohosyu"></param>
-        /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> MinusMasus(
             bool enableLog,
             SkyConst src_Sky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a1,
-            SySet<SyElement> b,
-            ILogTag logTag_orNull
+            SySet<SyElement> b
             )
         {
             //GraphicalLogUtil.Log(enableLog, "Thought_KomaAndMove#MinusMasus",
@@ -74,13 +72,11 @@ namespace Grayscale.P025_KifuLarabe.L025_Play
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <param name="sbGohosyu"></param>
-        /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Minus_OverThereMasus(
             bool enableLog,
             SkyConst src_srcSky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a,
-            SySet<SyElement> b,
-            ILogTag logTag_orNull
+            SySet<SyElement> b
         )
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> c = new Maps_OneAndOne<Finger, SySet<SyElement>>(a);

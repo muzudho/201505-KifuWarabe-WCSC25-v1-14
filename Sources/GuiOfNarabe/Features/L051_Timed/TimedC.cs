@@ -51,7 +51,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                             shogiGui.ResponseData = new ResponseImpl();
 
                             this.restText = Util_InGui.ReadLine_FromTextbox();
-                            this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Step, eventState.Flg_logTag));
+                            this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Step));
                             #endregion
                         }
                         break;
@@ -75,24 +75,24 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                             //------------------------------
                             // 再描画
                             //------------------------------
-                            Util_InGui.Komaokuri_Gui(restText, shogiGui, eventState.Flg_logTag);//追加
+                            Util_InGui.Komaokuri_Gui(restText, shogiGui);//追加
 
                             //------------------------------
                             // メナス
                             //------------------------------
-                            Util_Menace.Menace(shogiGui, eventState.Flg_logTag);
+                            Util_Menace.Menace(shogiGui);
 
-                            shogiGui.Response("Saisei", eventState.Flg_logTag);// 再描画
+                            shogiGui.Response("Saisei");// 再描画
 
                             if (toBreak)
                             {
                                 // 終了
-                                this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Finished, eventState.Flg_logTag));
+                                this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Finished));
                             }
                             else
                             {
                                 // 続行
-                                this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Step, eventState.Flg_logTag));
+                                this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Step));
                             }
                             #endregion
                         }

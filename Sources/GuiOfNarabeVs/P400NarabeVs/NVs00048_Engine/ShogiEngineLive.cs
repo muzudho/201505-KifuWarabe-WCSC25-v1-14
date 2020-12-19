@@ -10,7 +10,7 @@ namespace Grayscale.P400_KifuNaraVs.L00048_Engine
 
         ShogiEngineManInterface ShogiEngineManInterface { get; set; }
 
-        void ChangeTurn99(KifuTree kifu, ILogTag logTag);
+        void ChangeTurn99(KifuTree kifu);
 
     }
 }

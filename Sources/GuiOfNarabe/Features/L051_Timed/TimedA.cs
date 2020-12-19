@@ -20,8 +20,6 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
 
         public override void Step()
         {
-            ILogTag logTag = LogTags.Gui;
-
             // 将棋エンジンからの入力が、input99 に溜まるものとします。
             if (0 < shogiGui.Input99.Length)
             {
@@ -35,7 +33,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                 {
                     shogiGui.ResponseData = new ResponseImpl();
                     shogiGui.ResponseData.SetAppendInputTextString(shogiGui.Input99);// 受信文字列を、上部テキストボックスに入れるよう、依頼します。
-                    shogiGui.Response("Timer", logTag);// テキストボックスに、受信文字列を入れます。
+                    shogiGui.Response("Timer");// テキストボックスに、受信文字列を入れます。
                     shogiGui.Input99 = "";// 受信文字列の要求を空っぽにします。
                 }
 
@@ -44,10 +42,10 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                 //
                 {
                     string restText = Util_InGui.ReadLine_FromTextbox();
-                    Util_InServer.Komaokuri_Srv(ref restText, shogiGui, logTag);// 棋譜の[コマ送り]を実行します。
-                    Util_InGui.Komaokuri_Gui(restText, shogiGui, logTag);//追加
+                    Util_InServer.Komaokuri_Srv(ref restText, shogiGui);// 棋譜の[コマ送り]を実行します。
+                    Util_InGui.Komaokuri_Gui(restText, shogiGui);//追加
                     // ↑チェンジターン済み
-                    Util_Menace.Menace(shogiGui, logTag);// メナス
+                    Util_Menace.Menace(shogiGui);// メナス
                 }
 
                 //
@@ -59,7 +57,7 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                 //
                 {
                     //this.ShogiGui.ResponseData.InputTextString = "";//空っぽにすることを要求する。
-                    shogiGui.Response("Timer", logTag);// GUIに反映させます。
+                    shogiGui.Response("Timer");// GUIに反映させます。
                 }
 
             }

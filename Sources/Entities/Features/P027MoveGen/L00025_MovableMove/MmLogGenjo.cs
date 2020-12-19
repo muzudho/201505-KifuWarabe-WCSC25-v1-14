@@ -19,8 +19,6 @@ namespace Grayscale.P027MoveGen.L00025_MovableMove
 
         ShootingStarlightable Move { get; }
 
-        ILogTag LogTag { get; }
-
         void Log1(Playerside pside_genTeban3);
 
         void Log2(

@@ -19,8 +19,7 @@ namespace Grayscale.P050_KifuWarabe.L00051_Minimax
             Kokoro atama,
             PlayerInfo playerInfo,
             ReportEnvironment reportEnvironment,//MinimaxEngineImpl.REPORT_ENVIRONMENT
-            GraphicalLog_File logF_kiki,
-            ILogTag logTag
+            GraphicalLog_File logF_kiki
             );
     }
 }

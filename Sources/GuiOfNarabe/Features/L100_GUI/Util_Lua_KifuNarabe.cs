@@ -37,7 +37,6 @@ using NLua;
 #endif
 
         public static NarabeRoomViewModel ShogiGui { get; set; }
-        public static ILogTag LogTag { get; set; }
 
         /// <summary>
         /// 
@@ -122,7 +121,7 @@ using NLua;
         public static void InputBox_Play()
         {
             // [再生]タイマー開始☆
-            ((TimedC)Util_Lua_KifuNarabe.ShogiGui.TimedC).SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Start, Util_Lua_KifuNarabe.LogTag));
+            ((TimedC)Util_Lua_KifuNarabe.ShogiGui.TimedC).SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Start));
         }
 
         public static void OutputBox_Clear()

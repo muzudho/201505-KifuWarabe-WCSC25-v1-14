@@ -302,7 +302,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -314,7 +313,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     this.After_NaruNaranai(
                         shogiGui
                         , btnKoma_Selected
-                        , logTag
                         );
                 };
             }
@@ -327,7 +325,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -338,7 +335,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     this.After_NaruNaranai(
                         shogiGui
                         , btnKoma_Selected
-                        , logTag
                         );
                 };
             }
@@ -351,13 +347,11 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
 
                     Util_Lua_KifuNarabe.ShogiGui = shogiGui;
-                    Util_Lua_KifuNarabe.LogTag = logTag;
                     Util_Lua_KifuNarabe.Perform("click_clearButton");
                 };
             }
@@ -370,13 +364,11 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
 
                     Util_Lua_KifuNarabe.ShogiGui = shogiGui;
-                    Util_Lua_KifuNarabe.LogTag = logTag;
                     Util_Lua_KifuNarabe.Perform("click_playButton");
                 };
             }
@@ -389,15 +381,14 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
 
                     string restText = Util_InGui.ReadLine_FromTextbox();
-                    Util_InServer.Komaokuri_Srv(ref restText, shogiGui, logTag);
-                    Util_InGui.Komaokuri_Gui(restText, shogiGui, logTag);
-                    Util_Menace.Menace(shogiGui, logTag);// メナス
+                    Util_InServer.Komaokuri_Srv(ref restText, shogiGui);
+                    Util_InGui.Komaokuri_Gui(restText, shogiGui);
+                    Util_Menace.Menace(shogiGui);// メナス
                 };
             }
 
@@ -409,7 +400,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -420,13 +410,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     Finger foodKoma;//取られた駒
                     string fugoJStr;
 
-                    if (!Util_InServer.Makimodosi_Srv(out movedKoma, out foodKoma, out fugoJStr, shogiGui, logTag))
+                    if (!Util_InServer.Makimodosi_Srv(out movedKoma, out foodKoma, out fugoJStr, shogiGui))
                     {
                         goto gt_EndBlock;
                     }
 
-                    Util_InGui.Makimodosi_Gui(shogiGui,movedKoma,foodKoma,fugoJStr, Util_InGui.ReadLine_FromTextbox(), logTag);
-                    Util_Menace.Menace(shogiGui, logTag);//メナス
+                    Util_InGui.Makimodosi_Gui(shogiGui,movedKoma,foodKoma,fugoJStr, Util_InGui.ReadLine_FromTextbox());
+                    Util_Menace.Menace(shogiGui);//メナス
 
                 gt_EndBlock:
                     ;
@@ -442,7 +432,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -464,7 +453,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -495,7 +483,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -568,7 +555,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     widget.Delegate_MouseHitEvent = (
                         object obj_shogiGui2
                         , Shape_BtnKoma btnKoma_Selected
-                        , ILogTag logTag
                         ) =>
                     {
                         NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -589,7 +575,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -609,14 +594,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
 
                     Ui_PnlMain ui_PnlMain = ((Ui_ShogiForm1)shogiGui.OwnerForm).Ui_PnlMain1;
 
-                    ui_PnlMain.ShogiGui.GameViewModel.Kifu.SetStartpos_KokokaraSaifu(Util_InServer.CurPside(ui_PnlMain.ShogiGui), logTag);
+                    ui_PnlMain.ShogiGui.GameViewModel.Kifu.SetStartpos_KokokaraSaifu(Util_InServer.CurPside(ui_PnlMain.ShogiGui));
                     shogiGui.ResponseData.OutputTxt = ResponseGedanTxt.Kifu;
                 };
             }
@@ -629,7 +613,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -649,7 +632,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;
@@ -767,7 +749,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         private void After_NaruNaranai(
             NarabeRoomViewModel shogiGui
             , Shape_BtnKoma btnTumandeiruKoma
-            , ILogTag logTag
         )
         {
 
@@ -781,7 +762,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // ServerからGuiへ渡す情報
                 bool torareruKomaAri;
                 RO_Star_Koma koma_Food_after;
-                Util_InServer.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, Util_Koma.AsKoma(dst.Now), shogiGui, logTag);
+                Util_InServer.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, Util_Koma.AsKoma(dst.Now), shogiGui);
 
                 Util_InGui.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, shogiGui);
             }
@@ -850,7 +831,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 if (!shogiGui.Shape_PnlTaikyoku.Requested_NaruDialogToShow)
                 {
                     //System.C onsole.WriteLine("マウス左ボタンを押したのでチェンジターンします。");
-                    shogiGui.ChangeTurn(logTag);
+                    shogiGui.ChangeTurn();
                 }
             }
 
@@ -871,7 +852,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
                 last = (ShootingStarlightable)kifuElement.Key;
             }
-            shogiGui.ChangeTurn(logTag);//マウス左ボタンを押したのでチェンジターンします。
+            shogiGui.ChangeTurn();//マウス左ボタンを押したのでチェンジターンします。
 
             shogiGui.Shape_PnlTaikyoku.Request_NaruDialogToShow(false);
             shogiGui.Shape_PnlTaikyoku.GetWidget("BtnNaru").Visible = false;

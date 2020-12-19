@@ -516,8 +516,7 @@
                             enableLog,
                             isHonshogi,
                             this.Kifu,
-                            this.PlayerInfo,
-                            LogTags.Engine
+                            this.PlayerInfo
                             );
 
 
@@ -527,14 +526,14 @@
                         {
                             string sfenText = Util_Sky.ToSfenMoveText(bestMove);
                             Logger.Trace("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
-                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
+                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu));
 
                             Playing.Send("bestmove " + sfenText);//指し手を送ります。
                         }
                         else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                         {
                             Logger.Trace("(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
-                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu, LogTags.Engine));
+                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu));
 
                             // 投了ｗ！
                             Playing.Send("bestmove resign");

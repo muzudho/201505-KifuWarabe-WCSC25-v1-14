@@ -116,7 +116,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
 
             // 「駒得」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.KomaDoku, ordKmdk, null, null, new Basho(0), LogTags.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.KomaDoku, ordKmdk, null, null, new Basho(0)));
 
             //--------------------------------------------------------------------------------------------------------------
             //
@@ -124,7 +124,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
 
             // 「紐付き」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Himoduki, ordHmdk, null, null, new Basho(0), LogTags.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Himoduki, ordHmdk, null, null, new Basho(0)));
 
             //--------------------------------------------------------------------------------------------------------------
             //
@@ -132,18 +132,18 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
 
             // 「気まぐれ」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Kimagure, ordKmgr, null, null, new Basho(0), LogTags.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Kimagure, ordKmgr, null, null, new Basho(0)));
 
             //--------------------------------------------------------------------------------------------------------------
 
             // 「玉の守り」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.GyokuNoMamori, ordGm, null, null, new Basho(0), LogTags.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.GyokuNoMamori, ordGm, null, null, new Basho(0)));
 
             // 「飛車道が通っている」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Toosi, ord7, null, null, new Basho(0), LogTags.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.Toosi, ord7, null, null, new Basho(0)));
 
             // 「目の前の歩を取れ」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.MenomaenoFuWoTore, ord8, null, null, new Basho(0), LogTags.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.MenomaenoFuWoTore, ord8, null, null, new Basho(0)));
 
             //--------------------------------------------------------------------------------------------------------------
             //
@@ -151,7 +151,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
 
             // 「角頭の紐付き」タイプの狙いを作ります。
-            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.KakuTouNoHimoduki, ordKahd, null, null, new Basho(0), LogTags.Engine));
+            this.Kokoro.AddTenonagare(new TenonagareImpl(null, TenonagareName.KakuTouNoHimoduki, ordKahd, null, null, new Basho(0)));
 
         }
 
@@ -168,8 +168,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             bool enableLog,
             bool isHonshogi,
             KifuTree kifu,
-            PlayerInfo playerInfo,
-            ILogTag logTag
+            PlayerInfo playerInfo
             )
         {
 
@@ -180,7 +179,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             //
             // 指し手生成ルーチンで、棋譜ツリーを作ります。
             //
-            SsssLogGenjo ssssLog = new SsssLogGenjoImpl(enableLog, logTag);
+            SsssLogGenjo ssssLog = new SsssLogGenjoImpl(enableLog);
             MoveGenRoutine.WAA_Yomu_Start(kifu, isHonshogi, ssssLog);
 
 
@@ -196,8 +195,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
                 this.Kokoro,
                 playerInfo,
                 ShogisasiImpl.REPORT_ENVIRONMENT,
-                logF_kiki,
-                logTag
+                logF_kiki
             );
 
 #if DEBUG
@@ -247,7 +245,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             this.EdagariEngine.ScoreSibori(kifu, this.Kokoro);
 
             // 1手に決める
-            ShootingStarlightable bestMove = this.ErabuEngine.ChoiceBestMove(kifu, enableLog, isHonshogi, logTag);
+            ShootingStarlightable bestMove = this.ErabuEngine.ChoiceBestMove(kifu, enableLog, isHonshogi);
 
             return bestMove;
         }

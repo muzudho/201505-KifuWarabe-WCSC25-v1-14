@@ -36,7 +36,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
         public static KifuNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,ShootingStarlightable> komabetuAllMove,
             Node<ShootingStarlightable, KyokumenWrapper> siteiNode,
-            Playerside pside_genTeban, ILogTag logTag)
+            Playerside pside_genTeban)
         {
             KifuNode hubNode = new KifuNodeImpl( null, null, Playerside.Empty);//蝶番
 
@@ -56,7 +56,7 @@ namespace Grayscale.P025_KifuLarabe.L012_Common
 
                     SyElement masu = koma.Masu;
 
-                    SkyConst nextSky = Util_Sasu.Sasu( siteiNode.Value.ToKyokumenConst, figKoma, masu, pside_genTeban, logTag);
+                    SkyConst nextSky = Util_Sasu.Sasu( siteiNode.Value.ToKyokumenConst, figKoma, masu, pside_genTeban);
 
                     Node<ShootingStarlightable, KyokumenWrapper> nextNode = new KifuNodeImpl(move, new KyokumenWrapper( nextSky), KifuNodeImpl.GetReverseTebanside(pside_genTeban));//次のノード
 

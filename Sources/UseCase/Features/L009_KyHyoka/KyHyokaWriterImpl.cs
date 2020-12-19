@@ -25,8 +25,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
             KifuTree kifu,
             PlayerInfo playerInfo,
             string relFolder,
-            ReportEnvironment reportEnvironment,
-            ILogTag logTag
+            ReportEnvironment reportEnvironment
             )
         {
             // 次ノードの有無
@@ -45,8 +44,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
                         playerInfo,
                         relFolder + ((int)score).ToString()+"点_"+Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
                         //relFolder + ((int)((KifuNode)nextNode).KyHyoka.Total()).ToString() + "点_" + Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
-                        reportEnvironment,
-                        logTag
+                        reportEnvironment
                         );
 
                 });
@@ -61,8 +59,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
                 node,
                 kifu,
                 relFolder,
-                reportEnvironment,
-                logTag
+                reportEnvironment
             );
         }
 
@@ -74,8 +71,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
             KifuNode node,
             KifuTree kifu,
             string relFolder,
-            ReportEnvironment reportEnvironment,
-            ILogTag logTag
+            ReportEnvironment reportEnvironment
             )
         {
             // 出力先
@@ -89,7 +85,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
 
                 //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
                 KyokumenPngWriterImpl.Write1(
-                    node.ToRO_Kyokumen1(logTag),
+                    node.ToRO_Kyokumen1(),
                     relFolder,
                     fileName,
                     reportEnvironment

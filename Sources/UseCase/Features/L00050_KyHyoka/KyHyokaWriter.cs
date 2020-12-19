@@ -16,8 +16,7 @@ namespace Grayscale.P050_KifuWarabe.L00050_KyHyoka
             KifuTree kifu,
             PlayerInfo playerInfo,
             string relFolder,
-            ReportEnvironment reportEnvironment,
-            ILogTag logTag
+            ReportEnvironment reportEnvironment
             );
     }
 }

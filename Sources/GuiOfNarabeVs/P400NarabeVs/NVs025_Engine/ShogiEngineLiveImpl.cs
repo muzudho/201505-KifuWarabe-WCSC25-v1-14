@@ -116,7 +116,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
         /// <summary>
         /// 手番が替わったときの挙動を、ここに書きます。
         /// </summary>
-        public void ChangeTurn99(KifuTree kifu, ILogTag logTag)
+        public void ChangeTurn99(KifuTree kifu)
         {
             if (!this.ShogiEngineManInterface.IsLive())
             {

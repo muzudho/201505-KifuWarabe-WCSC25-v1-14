@@ -44,14 +44,13 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             KifuNode siteiNode_yomiGenTeban,
             bool enableLog,
             GraphicalLog_File logF_kiki,
-            string hint,
-            ILogTag logTag)
+            string hint)
         {
             Node<ShootingStarlightable, KyokumenWrapper> hubNode = UtilKomabetuMove.ToNextNodes_AsHubNode(
-                genTeban_komabetuAllMove1, siteiNode_yomiGenTeban, pside_yomiGenTeban, logTag
+                genTeban_komabetuAllMove1, siteiNode_yomiGenTeban, pside_yomiGenTeban
                 );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
             Converter04.AssertNariMove(hubNode, "#LA_RemoveMate(1)");//ここはok
-            Util_LegalMove.Log1(hubNode, enableLog, tesumi_yomiGenTeban, hint, logTag);
+            Util_LegalMove.Log1(hubNode, enableLog, tesumi_yomiGenTeban, hint);
 
 
             if (isHonshogi)
@@ -64,14 +63,13 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     yomuDeep,
                     tesumi_yomiGenTeban,
                     pside_yomiGenTeban,
-                    logF_kiki,
-                    logTag);
+                    logF_kiki);
             }
             Converter04.AssertNariMove(hubNode, "#LA_RemoveMate(2)王手局面削除直後");//ここはok
 
 
             // 「指し手一覧」を、「駒別の全指し手」に分けます。
-            Maps_OneAndMulti<Finger, ShootingStarlightable> komabetuAllMoves2 = siteiNode_yomiGenTeban.SplitMoveByKoma(hubNode, logTag);
+            Maps_OneAndMulti<Finger, ShootingStarlightable> komabetuAllMoves2 = siteiNode_yomiGenTeban.SplitMoveByKoma(hubNode);
             Converter04.AssertNariMove(komabetuAllMoves2, "#LA_RemoveMate(3)更に変換後");//ここはok
 
             //
@@ -101,7 +99,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
             // まず、ディクショナリー構造へ変換。
             Dictionary<ShootingStarlightable, KyokumenWrapper> movebetuSky = Converter04.KomabetuMasus_ToMovebetuSky(
-                komabetuSusumuMasus, siteiNode_yomiGenTeban.Value.ToKyokumenConst, pside_yomiGenTeban, logTag);
+                komabetuSusumuMasus, siteiNode_yomiGenTeban.Value.ToKyokumenConst, pside_yomiGenTeban);
 
             // 棋譜ノード構造へ変換。
             return Converter04.MovebetuSky_ToHubNode(movebetuSky, KifuNodeImpl.GetReverseTebanside(pside_yomiGenTeban));
@@ -110,16 +108,15 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             Node<ShootingStarlightable, KyokumenWrapper> hubNode,
             bool enableLog,
             int tesumi_yomiGenTeban,
-            string hint,
-            ILogTag logTag
+            string hint
             )
         {
             Util_GraphicalLog.Log(enableLog, "Util_LegalMove(王手回避漏れ02)王手を回避するかどうかに関わらず、ひとまず全ての次の手", "[" +
                 ((KifuNode)hubNode).Json_NextNodes_MultiSky(
                     "(王手回避漏れ02." + tesumi_yomiGenTeban + "手目)",
                     hint + "_Lv3_RMHO",
-                    tesumi_yomiGenTeban,
-                    logTag) + "]");// ログ出力
+                    tesumi_yomiGenTeban
+                    ) + "]");// ログ出力
         }
 
         /// <summary>
@@ -131,8 +128,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             int yomuDeep,//脳内読み手数
             int tesumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
-            GraphicalLog_File logF_kiki,
-            ILogTag logTag
+            GraphicalLog_File logF_kiki
             )
         {
             // Node<,>の形で。
@@ -150,8 +146,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     tesumi_yomiGenTeban_forLog,
                     pside_genTeban,//現手番＝攻め手視点
                     logF_kiki,
-                    node.Key,
-                    logTag
+                    node.Key
                     );
 
                 if (!kingSuicide)
@@ -186,8 +181,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             int tesumi_yomiCur_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,//現手番側
             GraphicalLog_File logF_kiki,
-            ShootingStarlightable move_forLog,
-            ILogTag logTag
+            ShootingStarlightable move_forLog
             )
         {
             bool isHonshogi = true;
@@ -206,8 +200,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 "玉自殺ﾁｪｯｸ",
                 yomuDeep,
                 tesumi_yomiCur_forLog,
-                move_forLog,
-                logTag);
+                move_forLog);
 
 
             // 現手番側が受け手に回ったとします。現手番の、王の座標
@@ -268,8 +261,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             string logBrd_caption,
             int yomuDeep_forLog,//脳内読み手数
             int tesumi_yomiCur_forLog,
-            ShootingStarlightable move_forLog,
-            ILogTag logTag
+            ShootingStarlightable move_forLog
             )
         {
             GraphicalLog_Board logBrd_kiki = new GraphicalLog_Board();
@@ -322,8 +314,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         out dust2,
                         src_Sky,
                         tebanSeme,
-                        tebanKurau,
-                        logTag
+                        tebanKurau
                     );
 
 
@@ -370,8 +361,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     masus_kurau_IKUSA,
                     src_Sky,
                     enableLog,
-                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3),
-                    logTag
+                    Converter04.MoveToStringForLog(move_forLog, pside_genTeban3)
                     );// 利きを調べる側の利き（戦駒）
 
                 // 戦駒の利き

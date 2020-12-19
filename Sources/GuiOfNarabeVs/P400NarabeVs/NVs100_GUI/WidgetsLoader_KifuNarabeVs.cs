@@ -24,7 +24,6 @@ namespace Grayscale.P400_KifuNaraVs.L100_GUI
                 widget.Delegate_MouseHitEvent = (
                     object obj_shogiGui2
                     , Shape_BtnKoma btnKoma_Selected
-                    , ILogTag logTag
                     ) =>
                 {
                     NarabeRoomViewModel shogiGui = (NarabeRoomViewModel)obj_shogiGui2;

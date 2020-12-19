@@ -57,7 +57,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// 入力欄のテキストを取得します。
         /// </summary>
         /// <returns></returns>
-        public string ReadLine2(ILogTag logTag)
+        public string ReadLine2()
         {
             int lastTesumi = Util_InServer.CountCurTesumi2(this.ShogiGui);
             SkyConst src_Sky = this.ShogiGui.GameViewModel.GuiSkyConst;
@@ -288,8 +288,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_Load(object sender, EventArgs e)
         {
-            ILogTag logTag = LogTags.Gui;
-
             this.setteiFile = new SetteiFile();
             if (!this.SetteiFile.Exists())
             {
@@ -368,7 +366,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
 
 
-            this.ShogiGui.Response("Launch", logTag);
+            this.ShogiGui.Response("Launch");
 
             // これで、最初に見える画面の準備は終えました。
             // あとは、操作者の入力を待ちます。
@@ -389,7 +387,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             //------------------------------
             // 画面の描画です。
             //------------------------------
-            this.ShogiGui.Shape_PnlTaikyoku.Paint(sender, e, this.ShogiGui, LogTags.NarabePaint);
+            this.ShogiGui.Shape_PnlTaikyoku.Paint(sender, e, this.ShogiGui);
 
         gt_EndMethod:
             ;
@@ -405,8 +403,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseMove(object sender, MouseEventArgs e)
         {
-            ILogTag logTag = LogTags.Gui;
-
             if (null != this.ShogiGui.Shape_PnlTaikyoku)
             {
                 // このメインパネルに、何かして欲しいという要求は、ここに入れられます。
@@ -415,13 +411,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // マウスムーブ
                 {
                     TimedB timeB = ((TimedB)this.ShogiGui.TimedB);
-                    timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseMove,e.Location,logTag));
+                    timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseMove,e.Location));
                 }
 
                 //------------------------------
                 // このメインパネルの反応
                 //------------------------------
-                this.ShogiGui.Response("MouseOperation", logTag);
+                this.ShogiGui.Response("MouseOperation");
             }
         }
 
@@ -435,8 +431,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseDown(object sender, MouseEventArgs e)
         {
-            ILogTag logTag = LogTags.Gui;
-
             if (null == this.ShogiGui.Shape_PnlTaikyoku)
             {
                 goto gt_EndMethod;
@@ -452,7 +446,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // 左ボタン
                 //------------------------------------------------------------
                 TimedB timeB = ((TimedB)this.ShogiGui.TimedB);
-                timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseLeftButtonDown, e.Location, logTag));
+                timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseLeftButtonDown, e.Location));
             }
             else if (e.Button == MouseButtons.Right)
             {
@@ -460,13 +454,13 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // 右ボタン
                 //------------------------------------------------------------
                 TimedB timeB = ((TimedB)this.ShogiGui.TimedB);
-                timeB.MouseEventQueue.Enqueue(new MouseEventState(this.ShogiGui.Scene, MouseEventStateName.MouseRightButtonDown, e.Location, logTag));
+                timeB.MouseEventQueue.Enqueue(new MouseEventState(this.ShogiGui.Scene, MouseEventStateName.MouseRightButtonDown, e.Location));
 
 
                 //------------------------------
                 // このメインパネルの反応
                 //------------------------------
-                this.ShogiGui.Response("MouseOperation", logTag);
+                this.ShogiGui.Response("MouseOperation");
 
             }
             else
@@ -474,7 +468,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 //------------------------------
                 // このメインパネルの反応
                 //------------------------------
-                this.ShogiGui.Response("MouseOperation", logTag);
+                this.ShogiGui.Response("MouseOperation");
             }
 
         gt_EndMethod:
@@ -488,8 +482,6 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// <param name="e"></param>
         private void Ui_PnlMain_MouseUp(object sender, MouseEventArgs e)
         {
-            ILogTag logTag = LogTags.Gui;
-
             // このメインパネルに、何かして欲しいという要求は、ここに入れられます。
             this.ShogiGui.ResponseData = new ResponseImpl();
 
@@ -502,7 +494,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // 左ボタン
                 //------------------------------------------------------------
                 TimedB timeB = ((TimedB)this.ShogiGui.TimedB);
-                timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseLeftButtonUp, e.Location, logTag));
+                timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseLeftButtonUp, e.Location));
             }
             else if (e.Button == MouseButtons.Right)
             {
@@ -510,7 +502,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // 右ボタン
                 //------------------------------------------------------------
                 TimedB timeB = ((TimedB)this.ShogiGui.TimedB);
-                timeB.MouseEventQueue.Enqueue(new MouseEventState(this.ShogiGui.Scene, MouseEventStateName.MouseRightButtonUp, e.Location, logTag));
+                timeB.MouseEventQueue.Enqueue(new MouseEventState(this.ShogiGui.Scene, MouseEventStateName.MouseRightButtonUp, e.Location));
             }
         }
 
@@ -565,7 +557,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         /// </summary>
         /// <param name="response"></param>
         public void Response(
-            Mutex mutex, NarabeRoomViewModel shogiGui, ILogTag logTag)
+            Mutex mutex, NarabeRoomViewModel shogiGui)
         {
             //------------------------------------------------------------
             // 駒の座標再計算
@@ -574,7 +566,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             {
                 this.ShogiGui.GameViewModel.GuiSkyConst.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
                 {
-                    Util_InGui.Redraw_KomaLocation(finger, this.ShogiGui, logTag);
+                    Util_InGui.Redraw_KomaLocation(finger, this.ShogiGui);
                 });
             }
             shogiGui.ResponseData.Clear_RedrawStarlights();
@@ -616,7 +608,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         switch (this.ShogiGui.Shape_PnlTaikyoku.SyuturyokuKirikae)
                         {
                             case SyuturyokuKirikae.Japanese:
-                                this.WriteLine_Syuturyoku(KirokuGakari.ToJapaneseKifuText(this.ShogiGui.GameViewModel.Kifu, LogTags.Gui));
+                                this.WriteLine_Syuturyoku(KirokuGakari.ToJapaneseKifuText(this.ShogiGui.GameViewModel.Kifu));
                                 break;
                             case SyuturyokuKirikae.Sfen:
                                 this.WriteLine_Syuturyoku(KirokuGakari.ToSfen_PositionString(this.ShogiGui.GameViewModel.Kifu));

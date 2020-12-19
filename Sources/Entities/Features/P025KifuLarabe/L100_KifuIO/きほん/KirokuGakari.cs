@@ -25,8 +25,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// </summary>
         /// <param name="fugoList"></param>
         public static string ToJapaneseKifuText(
-            KifuTree kifu,
-            ILogTag logTag
+            KifuTree kifu
             )
         {
             StringBuilder sb = new StringBuilder();

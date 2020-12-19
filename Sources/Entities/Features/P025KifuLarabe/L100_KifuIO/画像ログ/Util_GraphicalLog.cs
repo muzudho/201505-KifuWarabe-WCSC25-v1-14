@@ -166,7 +166,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="comment"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable, KyokumenWrapper> thisNode, string comment, ILogTag logTag)
+        public static string JsonElements_Node(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable, KyokumenWrapper> thisNode, string comment)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -219,7 +219,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="comment"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable,KyokumenWrapper> hubNode, string comment, ILogTag logTag)
+        public static string JsonKyokumens_NextNodes(bool enableLog, SkyConst src_Sky_base, Node<ShootingStarlightable,KyokumenWrapper> hubNode, string comment)
         {
             StringBuilder sb = new StringBuilder();
 
