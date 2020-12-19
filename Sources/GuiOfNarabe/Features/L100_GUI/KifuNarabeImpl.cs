@@ -62,7 +62,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 return this.model_PnlTaikyoku;
             }
         }
-        public Model_PnlTaikyokuImpl model_PnlTaikyoku;
+        public GameViewModel model_PnlTaikyoku;
 
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             //----------
             // モデル
             //----------
-            this.model_PnlTaikyoku = new Model_PnlTaikyokuImpl();
+            this.model_PnlTaikyoku = new GameViewModel();
 
 
             //----------

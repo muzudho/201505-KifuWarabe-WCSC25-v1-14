@@ -19,7 +19,7 @@ namespace Grayscale.P025_KifuLarabe.L00060_KifuParser
         /// <returns></returns>
         string Execute_Step(
             ref KifuParserA_Result result,
-            IRoomViewModel obj_shogiGui_Base,
+            IRoomViewModel roomViewModel,
             KifuParserA_Genjo genjo,
             KifuParserA_Log log
             ,
@@ -36,7 +36,7 @@ namespace Grayscale.P025_KifuLarabe.L00060_KifuParser
         /// <param name="larabeLogger"></param>
         void Execute_All(
             ref KifuParserA_Result result,
-            IRoomViewModel obj_shogiGui_Base,
+            IRoomViewModel roomViewModel,
             KifuParserA_Genjo genjo,
             KifuParserA_Log log
             ,

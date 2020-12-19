@@ -336,7 +336,7 @@
                                 KifuParserA_Result result = new KifuParserA_ResultImpl();
                                 new KifuParserA_Impl().Execute_All(
                                     ref result,
-                                    new ShogiGui_Warabe(playing.Kifu),
+                                    new EngineRoomViewModel(playing.Kifu),
                                     new KifuParserA_GenjoImpl(line),
                                     new KifuParserA_LogImpl(LogTags.Engine, "Program#Main(Warabe)")
                                     );

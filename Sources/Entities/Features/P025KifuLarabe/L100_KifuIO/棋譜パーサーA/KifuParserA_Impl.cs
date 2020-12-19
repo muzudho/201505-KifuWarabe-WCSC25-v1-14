@@ -9,7 +9,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 {
 
     public delegate void DELEGATE_ChangeSky_Im_Srv(
-        IRoomViewModel shogiGui_Base,
+        IRoomViewModel roomViewModel,
         StartposImporter startposImporter,
         KifuParserA_Genjo genjo,
         KifuParserA_Log log
@@ -54,7 +54,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <returns></returns>
         public string Execute_Step(
             ref KifuParserA_Result result,
-            IRoomViewModel shogiGui_Base,
+            IRoomViewModel roomViewModel,
             KifuParserA_Genjo genjo,
             KifuParserA_Log log
             ,
@@ -72,7 +72,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 KifuParserA_State nextState;
                 genjo.InputLine = this.State.Execute(
                     ref result,
-                    shogiGui_Base,
+                    roomViewModel,
                     out nextState, this,
                     genjo, log);
                 this.State = nextState;
@@ -99,7 +99,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         /// <param name="larabeLogger"></param>
         public void Execute_All(
             ref KifuParserA_Result result,
-            IRoomViewModel obj_shogiGui_Base,
+            IRoomViewModel roomViewModel,
             KifuParserA_Genjo genjo,
             KifuParserA_Log log
             ,
@@ -120,7 +120,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 {
                     genjo.InputLine = this.State.Execute(
                         ref result,
-                        obj_shogiGui_Base,
+                        roomViewModel,
                         out nextState, this,
                         genjo, log);
                     this.State = nextState;

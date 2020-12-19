@@ -35,7 +35,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
         public string Execute(
             ref KifuParserA_Result result,
-            IRoomViewModel obj_shogiGui_Base,
+            IRoomViewModel roomViewModel,
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -62,7 +62,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     // SFENの解析結果を渡すので、
                     // その解析結果をどう使うかは、委譲します。
                     owner.Delegate_OnChangeSky_Im_Srv(
-                        obj_shogiGui_Base,
+                        roomViewModel,
                         startposImporter,
                         genjo,
                         log

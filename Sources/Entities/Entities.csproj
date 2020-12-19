@@ -113,7 +113,7 @@
     <Compile Include="Features\P025KifuLarabe\L003_Struct\Maps_OneAndMulti.cs" />
     <Compile Include="Features\P025KifuLarabe\L003_Struct\Maps_OneAndMultiAndMulti.cs" />
     <Compile Include="Features\P025KifuLarabe\L003_Struct\Maps_OneAndOne.cs" />
-    <Compile Include="Features\P025KifuLarabe\L003_Struct\Model_PnlTaikyokuImpl.cs" />
+    <Compile Include="Features\Gui\GameViewModel.cs" />
     <Compile Include="Features\P025KifuLarabe\L003_Struct\SK_星空構造\Fingers.cs" />
     <Compile Include="Features\P025KifuLarabe\L003_Struct\SK_星空構造\RO_MotionlessStarlight.cs" />
     <Compile Include="Features\P025KifuLarabe\L003_Struct\SK_星空構造\RO_ShootingStarlight.cs" />

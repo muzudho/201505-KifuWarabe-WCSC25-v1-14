@@ -32,7 +32,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
         public string Execute(
             ref KifuParserA_Result result,
-            IRoomViewModel obj_shogiGui_Base,
+            IRoomViewModel roomViewModel,
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,

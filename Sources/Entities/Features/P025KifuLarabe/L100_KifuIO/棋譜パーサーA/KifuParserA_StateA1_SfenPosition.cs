@@ -35,7 +35,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
         public string Execute(
             ref KifuParserA_Result result,
-            IRoomViewModel shogiGui_Base,
+            IRoomViewModel roomViewModel,
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -57,10 +57,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     genjo.InputLine = genjo.InputLine.Trim();
 
                     {
-                        shogiGui_Base.GameViewModel.Kifu.Clear();// 棋譜を空っぽにします。
+                        roomViewModel.GameViewModel.Kifu.Clear();// 棋譜を空っぽにします。
 
-                        shogiGui_Base.GameViewModel.Kifu.GetRoot().Value.SetKyokumen(new SkyConst(Util_Sky.New_Hirate()));//SFENのstartpos解析時
-                        shogiGui_Base.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");//平手の初期局面
+                        roomViewModel.GameViewModel.Kifu.GetRoot().Value.SetKyokumen(new SkyConst(Util_Sky.New_Hirate()));//SFENのstartpos解析時
+                        roomViewModel.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");//平手の初期局面
                     }
 
                     nextState = KifuParserA_StateA1a_SfenStartpos.GetInstance();

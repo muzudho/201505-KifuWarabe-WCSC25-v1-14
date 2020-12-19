@@ -29,28 +29,28 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         /// <param name="kifu"></param>
         /// <param name="newNode"></param>
         public static void SetCurNode_Srv(
-            IRoomViewModel shogiGui_Base,
+            IRoomViewModel roomViewModel,
             Node<ShootingStarlightable, KyokumenWrapper> newNode
             )
         {
             //ShogiGui shogiGui = (ShogiGui)shogiGui_Base;
             Debug.Assert(null != newNode, "新規ノードがヌル。");
 
-            shogiGui_Base.GameViewModel.Kifu.CurNode = newNode;
+            roomViewModel.GameViewModel.Kifu.CurNode = newNode;
 
-            shogiGui_Base.GameViewModel.SetGuiSky(newNode.Value.ToKyokumenConst);
-            shogiGui_Base.GameViewModel.GuiTesumi = Util_InServer.CountCurTesumi2(shogiGui_Base);
-            shogiGui_Base.GameViewModel.GuiPside = Util_InServer.CurPside(shogiGui_Base);
+            roomViewModel.GameViewModel.SetGuiSky(newNode.Value.ToKyokumenConst);
+            roomViewModel.GameViewModel.GuiTesumi = Util_InServer.CountCurTesumi2(roomViewModel);
+            roomViewModel.GameViewModel.GuiPside = Util_InServer.CurPside(roomViewModel);
         }
 
-        public static int CountCurTesumi2(IRoomViewModel shogiGui_Base)
+        public static int CountCurTesumi2(IRoomViewModel roomViewModel)
         {
-            return shogiGui_Base.GameViewModel.Kifu.CountTesumi(shogiGui_Base.GameViewModel.Kifu.CurNode);
+            return roomViewModel.GameViewModel.Kifu.CountTesumi(roomViewModel.GameViewModel.Kifu.CurNode);
         }
 
-        public static Playerside CurPside(IRoomViewModel shogiGui_Base)
+        public static Playerside CurPside(IRoomViewModel roomViewModel)
         {
-            return shogiGui_Base.GameViewModel.Kifu.CountPside(shogiGui_Base.GameViewModel.Kifu.CurNode);
+            return roomViewModel.GameViewModel.Kifu.CountPside(roomViewModel.GameViewModel.Kifu.CurNode);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         /// </summary>
         public static bool ReadLine_TuginoItteSusumu_Srv(
             ref string inputLine,
-            IRoomViewModel shogiGui_Base,
+            IRoomViewModel roomViewModel,
             out bool toBreak,
             string hint
             ,
@@ -95,7 +95,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     Logger.WriteLineAddMemo(LogTags.Gui,"ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
-                        shogiGui_Base,
+                        roomViewModel,
                         genjo,
                         new KifuParserA_LogImpl(LogTags.Gui, hint + ":Ui_01MenuB#ReadLine_TuginoItteSusumu")
                         );
@@ -125,7 +125,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
-                            shogiGui_Base,
+                            roomViewModel,
                             genjo,
                             new KifuParserA_LogImpl(LogTags.Gui, hint + ":平手等解析したい")
                             );
@@ -143,7 +143,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                         Logger.WriteLineAddMemo(LogTags.Gui,"ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
-                            shogiGui_Base,
+                            roomViewModel,
                             genjo,
                             new KifuParserA_LogImpl(LogTags.Gui, hint + ":ﾑｰﾌﾞｽ等解析したい")
                             );
@@ -170,14 +170,14 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     Logger.WriteLineAddMemo(LogTags.Gui,"ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
-                        shogiGui_Base,
+                        roomViewModel,
                         genjo,
                         new KifuParserA_LogImpl(LogTags.Gui, hint + ":一手処理したい")
                         );
 
                     if (null != result.Out_newNode_OrNull)
                     {
-                        Util_InServer.SetCurNode_Srv(shogiGui_Base, result.Out_newNode_OrNull);
+                        Util_InServer.SetCurNode_Srv(roomViewModel, result.Out_newNode_OrNull);
                     }
 
                     if (genjo.ToBreak)
@@ -212,7 +212,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         /// <param name="startposImporter"></param>
         /// <param name="logTag"></param>
         public static void OnChangeSky_Im_Srv(
-            IRoomViewModel shogiGui_Base,
+            IRoomViewModel roomViewModel,
             StartposImporter startposImporter,
             KifuParserA_Genjo genjo,
             KifuParserA_Log log
@@ -250,7 +250,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                             nextTebanside
                         );
 
-                Util_InServer.SetCurNode_Srv(shogiGui_Base, newNode);// GUIに通知するだけ。
+                Util_InServer.SetCurNode_Srv(roomViewModel, newNode);// GUIに通知するだけ。
             }
 
 
@@ -260,12 +260,12 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             if (startposImporter.RO_SfenStartpos.PsideIsBlack)
             {
                 // 黒は先手。
-                shogiGui_Base.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Converter04.AlternatePside(Playerside.P1));//FIXME:逆か？
+                roomViewModel.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Converter04.AlternatePside(Playerside.P1));//FIXME:逆か？
             }
             else
             {
                 // 白は後手。
-                shogiGui_Base.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Converter04.AlternatePside(Playerside.P2));//FIXME:逆か？
+                roomViewModel.GameViewModel.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Converter04.AlternatePside(Playerside.P2));//FIXME:逆か？
             }
 
             // 駒袋に表示されている駒を、駒台に表示させます。
@@ -484,7 +484,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     // 駒を、駒袋から駒台に移動させます。
                     //------------------------------
                     {
-                        SkyBuffer buffer_Sky = new SkyBuffer(shogiGui_Base.GameViewModel.GuiSkyConst);
+                        SkyBuffer buffer_Sky = new SkyBuffer(roomViewModel.GameViewModel.GuiSkyConst);
 
                         Fingers komas = Util_Sky.Fingers_ByOkibaSyuruiNow(new SkyConst(buffer_Sky), Okiba.KomaBukuro, syuruiList[i], log.LogTag);
                         int moved = 1;
@@ -508,7 +508,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
                             moved++;
                         }
-                        shogiGui_Base.GameViewModel.SetGuiSky(new SkyConst(buffer_Sky));
+                        roomViewModel.GameViewModel.SetGuiSky(new SkyConst(buffer_Sky));
                     }
 
                 }
@@ -522,7 +522,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             out Finger movedKoma,
             out Finger foodKoma,
             out string fugoJStr,
-            IRoomViewModel shogiGui,
+            IRoomViewModel roomViewModel,
             ILogTag logTag
             )
         {
@@ -531,7 +531,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            Node<ShootingStarlightable, KyokumenWrapper> removeeLeaf = shogiGui.GameViewModel.Kifu.CurNode;
+            Node<ShootingStarlightable, KyokumenWrapper> removeeLeaf = roomViewModel.GameViewModel.Kifu.CurNode;
 
             if (removeeLeaf.PreviousNode == null)
             {
@@ -558,7 +558,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 (int)Haiyaku184Array.Syurui(koma.Haiyaku)
             ](
                 removeeLeaf.Key,
-                new KyokumenWrapper(shogiGui.GameViewModel.GuiSkyConst)
+                new KyokumenWrapper(roomViewModel.GameViewModel.GuiSkyConst)
             ).ToText_UseDou(removeeLeaf);
             //MessageBox.Show("[巻戻し]符号＝" + fugoJStr, "デバッグ");
 
@@ -573,7 +573,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull;
             KifuIO.Ittesasi(
                 removeeLeaf.Key,
-                shogiGui.GameViewModel.Kifu,
+                roomViewModel.GameViewModel.Kifu,
                 isMakimodosi,
                 out movedKoma,
                 out foodKoma,
@@ -596,7 +596,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         /// </summary>
         public static bool Komaokuri_Srv(
             ref string inputLine,
-            IRoomViewModel shogiGui_Base,
+            IRoomViewModel roomViewModel,
             ILogTag logTag
             ,
             [CallerMemberName] string memberName = "",
@@ -608,7 +608,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             bool toBreak = false;
             Util_InServer.ReadLine_TuginoItteSusumu_Srv(
                 ref inputLine,
-                shogiGui_Base,
+                roomViewModel,
                 out toBreak,
                 "hint"
                 );
@@ -628,7 +628,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             Starlight dst,
             Finger btnTumandeiruKoma_Koma,
             RO_Star_Koma koma1,
-            IRoomViewModel shogiGui_Base,
+            IRoomViewModel roomViewModel,
             ILogTag logTag
             )
         {
@@ -638,7 +638,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
 
 
             // 取られることになる駒のボタン
-            btnKoma_Food_Koma = Util_Sky.Fingers_AtMasuNow(shogiGui_Base.GameViewModel.GuiSkyConst, koma1.Masu).ToFirst();
+            btnKoma_Food_Koma = Util_Sky.Fingers_AtMasuNow(roomViewModel.GameViewModel.GuiSkyConst, koma1.Masu).ToFirst();
             if (Fingers.Error_1 == btnKoma_Food_Koma)
             {
                 koma_Food_after = null;
@@ -652,7 +652,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             //>>>>> 取る駒があったとき
             torareruKomaAri = true;
 
-            Ks14 koma_Food_pre_Syurui = Util_Koma.AsKoma(shogiGui_Base.GameViewModel.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now).Syurui;
+            Ks14 koma_Food_pre_Syurui = Util_Koma.AsKoma(roomViewModel.GameViewModel.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now).Syurui;
 
 
             // その駒は、駒置き場に移動させます。
@@ -661,7 +661,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             {
                 case Playerside.P2:
 
-                    akiMasu = KifuIO.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, shogiGui_Base.GameViewModel.GuiSkyConst);
+                    akiMasu = KifuIO.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, roomViewModel.GameViewModel.GuiSkyConst);
                     if (Masu_Honshogi.Error != akiMasu)
                     {
                         // 駒台に空きスペースがありました。
@@ -693,7 +693,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 case Playerside.P1://thru
                 default:
 
-                    akiMasu = KifuIO.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, shogiGui_Base.GameViewModel.GuiSkyConst);
+                    akiMasu = KifuIO.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, roomViewModel.GameViewModel.GuiSkyConst);
                     if (Masu_Honshogi.Error != akiMasu)
                     {
                         // 駒台に空きスペースがありました。
@@ -735,7 +735,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     SkyBuffer buffer_Sky1;
 
                     // 取られる動き
-                    buffer_Sky1 = new SkyBuffer(shogiGui_Base.GameViewModel.GuiSkyConst);
+                    buffer_Sky1 = new SkyBuffer(roomViewModel.GameViewModel.GuiSkyConst);
                     buffer_Sky1.AddOverwriteStarlight(
                         btnKoma_Food_Koma,
                         new RO_MotionlessStarlight(
@@ -744,7 +744,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                         )
                     );
 
-                    shogiGui_Base.GameViewModel.SetGuiSky(new SkyConst(buffer_Sky1));
+                    roomViewModel.GameViewModel.SetGuiSky(new SkyConst(buffer_Sky1));
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                     // 棋譜は変更された。
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -760,7 +760,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                         // 駒台へ移動しました
                         //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                        SkyBuffer buffer_Sky2 = new SkyBuffer(shogiGui_Base.GameViewModel.GuiSkyConst);
+                        SkyBuffer buffer_Sky2 = new SkyBuffer(roomViewModel.GameViewModel.GuiSkyConst);
                         buffer_Sky2.AddOverwriteStarlight(
                             btnKoma_Food_Koma,
                             new RO_MotionlessStarlight(
@@ -769,7 +769,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                             )
                         );
 
-                        shogiGui_Base.GameViewModel.SetGuiSky(new SkyConst(buffer_Sky2));
+                        roomViewModel.GameViewModel.SetGuiSky(new SkyConst(buffer_Sky2));
                         // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                         // 棋譜は変更された。
                         // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -778,9 +778,9 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                 }
             }
 
-            SkyBuffer buffer_Sky = new SkyBuffer(shogiGui_Base.GameViewModel.GuiSkyConst);
+            SkyBuffer buffer_Sky = new SkyBuffer(roomViewModel.GameViewModel.GuiSkyConst);
             buffer_Sky.AddOverwriteStarlight(btnTumandeiruKoma_Koma, dst);
-            shogiGui_Base.GameViewModel.SetGuiSky(new SkyConst(buffer_Sky));
+            roomViewModel.GameViewModel.SetGuiSky(new SkyConst(buffer_Sky));
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             // 棋譜は変更された。
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

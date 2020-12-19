@@ -1,13 +1,12 @@
-﻿
-using Grayscale.Kifuwarazusa.Entities.Features.Gui;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P025_KifuLarabe.L012_Common;
-
-namespace Grayscale.P025_KifuLarabe.L00025_Struct
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features.Gui
 {
-    public class Model_PnlTaikyokuImpl : IGameViewModel
+    using Grayscale.P025_KifuLarabe.L00012_Atom;
+    using Grayscale.P025_KifuLarabe.L00025_Struct;
+    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+    using Grayscale.P025_KifuLarabe.L004_StructShogi;
+    using Grayscale.P025_KifuLarabe.L012_Common;
+
+    public class GameViewModel : IGameViewModel
     {
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
@@ -37,7 +36,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
 
 
 
-        public Model_PnlTaikyokuImpl()
+        public GameViewModel()
         {
             //
             // 駒なし
@@ -63,7 +62,7 @@ namespace Grayscale.P025_KifuLarabe.L00025_Struct
             this.Init();
         }
 
-        public Model_PnlTaikyokuImpl(KifuTree kifu)
+        public GameViewModel(KifuTree kifu)
         {
             this.kifu = kifu;
             this.Init();

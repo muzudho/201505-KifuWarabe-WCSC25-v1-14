@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShogiGui_Warabe.cs" />
+    <Compile Include="EngineRoomViewModel.cs" />
     <Compile Include="Result_UsiLoop1.cs" />
     <Compile Include="Result_UsiLoop2.cs" />
     <Compile Include="Program.cs" />

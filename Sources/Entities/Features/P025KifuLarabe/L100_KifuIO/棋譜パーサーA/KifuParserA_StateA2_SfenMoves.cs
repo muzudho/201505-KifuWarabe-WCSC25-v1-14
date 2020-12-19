@@ -32,7 +32,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
 
         public string Execute(
             ref KifuParserA_Result result,
-            IRoomViewModel shogiGui_Base,
+            IRoomViewModel roomViewModel,
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -40,11 +40,11 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             )
         {
             // 現局面。
-            SkyConst src_Sky = shogiGui_Base.GameViewModel.Kifu.CurNode.Value.ToKyokumenConst;
+            SkyConst src_Sky = roomViewModel.GameViewModel.Kifu.CurNode.Value.ToKyokumenConst;
 //            Debug.Assert(!Util_MasuNum.OnKomabukuro((int)((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0).Now).Masu), "カレント、駒が駒袋にあった。");
 
             bool isHonshogi = true;//FIXME:暫定
-            int tesumi_yomiGenTeban_forLog = shogiGui_Base.GameViewModel.Kifu.CountTesumi(shogiGui_Base.GameViewModel.Kifu.CurNode);// 0;//FIXME:暫定。読み進めている現在の手目
+            int tesumi_yomiGenTeban_forLog = roomViewModel.GameViewModel.Kifu.CountTesumi(roomViewModel.GameViewModel.Kifu.CurNode);// 0;//FIXME:暫定。読み進めている現在の手目
             //            Debug.Assert(!Util_MasuNum.OnKomabukuro((int)((RO_Star_Koma)kifu.NodeAt(tesumi_yomiGenTeban_forLog).Value.ToKyokumenConst.StarlightIndexOf((Finger)0).Now).Masu), "[" + tesumi_yomiGenTeban_forLog + "]手目、駒が駒袋にあった。");
 
             nextState = this;
@@ -83,7 +83,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                                 str4,  //abcdefghi
                                 str5,  //+
                                 out nextTe,
-                                shogiGui_Base.GameViewModel.Kifu,
+                                roomViewModel.GameViewModel.Kifu,
                                 log.Hint+"_SFENパース1",
                                 tesumi_yomiGenTeban_forLog
                                 );
@@ -109,7 +109,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                                         str8, //成|不成
                                         str9,  //打
                                         out nextTe,
-                                        shogiGui_Base.GameViewModel.Kifu
+                                        roomViewModel.GameViewModel.Kifu
                                         );
                                 }
 
@@ -158,7 +158,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                             Node<ShootingStarlightable, KyokumenWrapper> out_newNode_OrNull;
                             KifuIO.Ittesasi(
                                 nextTe,
-                                shogiGui_Base.GameViewModel.Kifu,
+                                roomViewModel.GameViewModel.Kifu,
                                 isBack,
                                 out figMovedKoma,
                                 out figFoodKoma,
