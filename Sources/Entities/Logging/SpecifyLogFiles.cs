@@ -28,6 +28,8 @@
             HaichiTenkanHyoAllLog = DataEntry(profilePath, toml, "HaichiTenkanHyoAllLog");
             */
 
+
+            LatestPositionLogPng = LogEntry(logDirectory, toml, "LatestPositionLogPng");
             MousouRireki = LogEntry(logDirectory, toml, "MousouRireki");
             GuiDefault = LogEntry(logDirectory, toml, "GuiRecordLog");
             LinkedList = LogEntry(logDirectory, toml, "LinkedListLog");
@@ -55,7 +57,9 @@
         public static ILogFile HaichiTenkanHyoAllLog { get; private set; }
         */
 
+
         
+        public static ILogFile LatestPositionLogPng { get; private set; }
         public static ILogFile MousouRireki { get; private set; }
         public static ILogFile GuiDefault { get; private set; }
         public static ILogFile LinkedList { get; private set; }

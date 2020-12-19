@@ -159,8 +159,6 @@
 
                         if ("usi" == line)
                         {
-                            // var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-                            // var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
                             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
                             var engineName = $"{toml.Get<TomlTable>("Engine").Get<string>("Name")} { version.Major}.{ version.Minor}.{ version.Build}";
                             var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
@@ -215,8 +213,6 @@
 
                             // 通信が届いていますが、このプログラムでは  聞かなかったことにします。
                             // USIプロトコルの独習を進め、対応／未対応を選んでください。
-                            //
-                            // ログだけ取って、スルーします。
                         }
                     }
 
@@ -313,14 +309,10 @@
                             // 局面画像ﾛｸﾞ
                             //
                             {
-                                // 出力先
-                                string fileName = "_log_ベストムーブ_最後の.png";
-
                                 //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
                                 KyokumenPngWriterImpl.Write1(
                                     kifuNode.ToRO_Kyokumen1(),
-                                    "",
-                                    fileName,
+                                    SpecifyLogFiles.LatestPositionLogPng.Name,
                                     ShogisasiImpl.REPORT_ENVIRONMENT
                                     );
                             }
@@ -453,8 +445,6 @@
 
                             // 通信が届いていますが、このプログラムでは  聞かなかったことにします。
                             // USIプロトコルの独習を進め、対応／未対応を選んでください。
-                            //
-                            // ログだけ取って、スルーします。
                         }
                     }
 
@@ -526,7 +516,8 @@
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Error("Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Error($"(^ー^)「大外枠でキャッチ」{ex}");
+                Playing.Send("bestmove resign");
             }
 
         end_usi:

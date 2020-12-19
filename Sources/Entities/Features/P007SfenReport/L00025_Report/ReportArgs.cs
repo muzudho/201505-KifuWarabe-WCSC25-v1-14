@@ -10,7 +10,7 @@ namespace Grayscale.P007_SfenReport.L00025_Report
         /// <summary>
         /// 出力ファイルへのパス。
         /// </summary>
-        string OutFile { get; }
+        string OutFileFullName { get; }
 
         ISfenPosition1 Ro_Kyokumen1 { get; }
 

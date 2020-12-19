@@ -212,16 +212,19 @@
             //var re = new Regex("^(\\[[0-9A-Fa-f-]+\\])?.+\\.log$");
 
             DirectoryInfo dir = new System.IO.DirectoryInfo(logDirectory);
-            FileInfo[] files = dir.GetFiles("*.log");
+            FileInfo[] files = dir.GetFiles("*.log*");
             foreach (FileInfo f in files)
             {
-                // Console.WriteLine($"f-full-name={f.FullName}");
-                //正規表現のパターンを使用して一つずつファイルを調べる
-                // if (re.IsMatch(f.Name))
-                // {
+                if(f.Name.EndsWith(".log") || f.Name.Contains(".log."))
+                {
+                    // Console.WriteLine($"f-full-name={f.FullName}");
+                    //正規表現のパターンを使用して一つずつファイルを調べる
+                    // if (re.IsMatch(f.Name))
+                    // {
                     // Console.WriteLine($"Remove={f.FullName}");
                     File.Delete(f.FullName);
-                // }
+                    // }
+                }
             }
         }
     }

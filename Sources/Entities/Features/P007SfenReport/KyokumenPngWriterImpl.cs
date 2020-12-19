@@ -21,13 +21,12 @@ namespace Grayscale.P007_SfenReport.L100_Write
         /// SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
         /// </summary>
         /// <param name="sfenstring"></param>
-        /// <param name="outFile"></param>
+        /// <param name="outFileFullName"></param>
         /// <param name="reportEnvironment"></param>
         /// <returns></returns>
         public static bool Write2(
             string sfenstring,
-            string relFolder,
-            string outFile,
+            string outFileFullName,
             ReportEnvironment reportEnvironment
             )
         {
@@ -50,8 +49,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
 
             KyokumenPngWriterImpl.Write1(
                 ro_SfenStartpos.ToKyokumen1(),
-                relFolder,
-                outFile,
+                outFileFullName,
                 reportEnvironment
                 );
 
@@ -63,13 +61,12 @@ namespace Grayscale.P007_SfenReport.L100_Write
         /// SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
         /// </summary>
         /// <param name="sfenstring"></param>
-        /// <param name="outFile"></param>
+        /// <param name="outFileFullName"></param>
         /// <param name="reportEnvironment"></param>
         /// <returns></returns>
         public static bool Write1(
             ISfenPosition1 ro_Kyokumen1,
-            string relFolder,
-            string outFile,
+            string outFileFullName,
             ReportEnvironment reportEnvironment
             )
         {
@@ -78,7 +75,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
             KyokumenPngWriter repWriter = new KyokumenPngWriterImpl();
             ReportArgs args = new ReportArgsImpl(
                 ro_Kyokumen1,
-                outFile,
+                outFileFullName,
                 reportEnvironment
                 );
 
@@ -93,16 +90,15 @@ namespace Grayscale.P007_SfenReport.L100_Write
 
 
             //System.Windows.Forms.MessageBox.Show(args.Env.OutFolder + args.OutFile, "bmp.Save");
-            string filepath = args.Env.OutFolder + relFolder + args.OutFile;
             // フォルダーが無ければ、作る必要があります。
             {
-                DirectoryInfo dirInfo = Directory.GetParent(filepath);
+                DirectoryInfo dirInfo = Directory.GetParent(args.OutFileFullName);
                 if (!Directory.Exists(dirInfo.FullName))
                 {
                     Directory.CreateDirectory(dirInfo.FullName);
                 }
             }
-            bmp.Save(filepath);
+            bmp.Save(args.OutFileFullName);
 
             return successful;
         }

@@ -16,7 +16,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
         public static void Write(
             string id,
             KifuNode node,
-            string relFolder,
+            string logDirectory,
             ReportEnvironment env
             )
         {
@@ -48,7 +48,7 @@ namespace Grayscale.P025_KifuLarabe.L004_StructShogi
             }
             sb.AppendLine();
 
-            File.AppendAllText(env.OutFolder+relFolder+"/_log_スコア明細.txt", sb.ToString());
+            File.AppendAllText(Path.Combine(logDirectory,"_log_スコア明細.txt"), sb.ToString());
         }
 
     }

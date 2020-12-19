@@ -17,8 +17,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
         /// <summary>
         /// 出力ファイルへのパス。
         /// </summary>
-        public string OutFile { get { return this.outFile; } }
-        private string outFile;
+        public string OutFileFullName { get; set; }
 
         public ISfenPosition1 Ro_Kyokumen1 { get { return this.ro_Kyokumen1; } }
         private ISfenPosition1 ro_Kyokumen1;
@@ -26,9 +25,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
 
         public ReportArgsImpl(
             ISfenPosition1 ro_Kyokumen1,
-            
-            string outFile,  
-            
+            string outFileFullName,  
             ReportEnvironment reportEnvironment)
         {
             this.ro_Kyokumen1 = ro_Kyokumen1;
@@ -48,7 +45,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
                 Debug.Assert(this.ro_Kyokumen1.Ban[9].Length == 10, "サイズ違反");
             }
 
-            this.outFile = outFile;
+            this.OutFileFullName = outFileFullName;
             this.env = reportEnvironment;
         }
     }

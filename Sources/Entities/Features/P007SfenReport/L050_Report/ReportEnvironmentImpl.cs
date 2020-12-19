@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Grayscale.P007_SfenReport.L00025_Report;
+﻿using Grayscale.P007_SfenReport.L00025_Report;
 
 namespace Grayscale.P007_SfenReport.L050_Report
 {
     public class ReportEnvironmentImpl : ReportEnvironment
     {
-
-        /// <summary>
-        /// 出力フォルダーへのパス。
-        /// </summary>
-        public string OutFolder { get { return this.outFolder; } }
-        private string outFolder;
-
         /// <summary>
         /// 画像フォルダーへのパス。
         /// </summary>
@@ -61,11 +49,10 @@ namespace Grayscale.P007_SfenReport.L050_Report
 
 
         public ReportEnvironmentImpl(
-            string outFolder, string imgFolder, string kmFile, string sjFile,
+            string imgFolder, string kmFile, string sjFile,
             string kmW_str, string kmH_str, string sjW_str, string sjH_str
             )
         {
-            this.outFolder = outFolder;
             this.imgFolder = imgFolder;
             this.kmFile = kmFile;
             this.sjFile = sjFile;

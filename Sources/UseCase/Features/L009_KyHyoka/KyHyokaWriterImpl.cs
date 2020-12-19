@@ -1,4 +1,5 @@
 ﻿
+using System.IO;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L100_Write;
@@ -29,7 +30,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
             )
         {
             // 次ノードの有無
-            if (0<node.Count_NextNodes)
+            if (0 < node.Count_NextNodes)
             {
                 // 先に奥の枝から。
                 node.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>
@@ -42,7 +43,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
                         (KifuNode)nextNode,
                         kifu,
                         playerInfo,
-                        relFolder + ((int)score).ToString()+"点_"+Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
+                        relFolder + ((int)score).ToString() + "点_" + Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
                         //relFolder + ((int)((KifuNode)nextNode).KyHyoka.Total()).ToString() + "点_" + Util_Sky.ToSfenMoveText(nextNode.Key) + "/",
                         reportEnvironment
                         );
@@ -70,12 +71,12 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
             string nodePath,
             KifuNode node,
             KifuTree kifu,
-            string relFolder,
+            string logDirectory,
             ReportEnvironment reportEnvironment
             )
         {
             // 出力先
-            string fileName = "_log_" + ((int)node.KyHyoka.Total()) + "点_" + KyHyokaWriterImpl.logFileCounter + "_" + nodePath + ".png";
+            string basename = "_log_" + ((int)node.KyHyoka.Total()) + "点_" + KyHyokaWriterImpl.logFileCounter + "_" + nodePath + ".png";
 
             //
             // 画像ﾛｸﾞ
@@ -86,8 +87,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
                 //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
                 KyokumenPngWriterImpl.Write1(
                     node.ToRO_Kyokumen1(),
-                    relFolder,
-                    fileName,
+                    Path.Combine(logDirectory, basename),
                     reportEnvironment
                     );
                 KyHyokaWriterImpl.logFileCounter++;
@@ -97,7 +97,7 @@ namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
             // スコア明細
             //
             {
-                KyHyokaListWriterImpl.Write(fileName, node, relFolder, reportEnvironment);
+                KyHyokaListWriterImpl.Write(basename, node, logDirectory, reportEnvironment);
             }
         }
 

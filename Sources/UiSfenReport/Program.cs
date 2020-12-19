@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L100_Write;
+using Nett;
 
 namespace Grayscale.P007_SfenReport.L050_Report
 {
@@ -12,7 +15,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
         {
             string[] args = Environment.GetCommandLineArgs();
 
-            foreach(string arg in args)
+            foreach (string arg in args)
             {
                 string name;
                 string value;
@@ -64,7 +67,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
             // コマンドライン引数の例
             //
             // --position="position sfen 1nsgkgsnl/9/p2pppppp/9/9/9/P2PPPPPP/1B5R1/1NSGKGSNL w L2Pl2p 1 moves 5a6b 7g7f 3a3b" \
-            // --outFolder="../../Logs/"
+            // 廃止 --outFolder="../../Logs/"
             // --outFile="_log_局面1.png"
             // --imgFolder="../../Profile/Data/img/gkLog/" \
             // --kmFile="koma1.png" \
@@ -79,7 +82,7 @@ namespace Grayscale.P007_SfenReport.L050_Report
             // ヌル防止のための初期値
             Dictionary<string, string> argsDic = new Dictionary<string, string>();
             argsDic.Add("position", "position startpos moves");
-            argsDic.Add("outFolder", "./");//出力フォルダー "../../Logs/"
+            // 廃止 argsDic.Add("outFolder", "./");//出力フォルダー "../../Logs/"
             argsDic.Add("outFile", "1.png");//出力ファイル
             argsDic.Add("imgFolder", ".");//画像フォルダーへのパス image path
             argsDic.Add("kmFile", "2.png");//駒画像へのパス。
@@ -112,7 +115,6 @@ namespace Grayscale.P007_SfenReport.L050_Report
             }
 
             ReportEnvironment reportEnvironment = new ReportEnvironmentImpl(
-                    argsDic["outFolder"],
                     argsDic["imgFolder"],
                     argsDic["kmFile"],
                     argsDic["sjFile"],
@@ -121,11 +123,15 @@ namespace Grayscale.P007_SfenReport.L050_Report
                     argsDic["sjW"],
                     argsDic["sjH"]
                 );
+
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+            var positionPngLogDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("PositionPngLogDirectory"));
+
             //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
             KyokumenPngWriterImpl.Write2(
                 sfen,
-                "",
-                argsDic["outFile"],
+                Path.Combine(positionPngLogDirectory, argsDic["outFile"]),
                 reportEnvironment
                 );
 

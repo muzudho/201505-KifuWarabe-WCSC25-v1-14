@@ -74,7 +74,7 @@
     <Compile Include="Features\P007SfenReport\L00050_Write\KyokumenPngWriter.cs" />
     <Compile Include="Features\P007SfenReport\L050_Report\ReportArgsImpl.cs" />
     <Compile Include="Features\P007SfenReport\L050_Report\ReportEnvironmentImpl.cs" />
-    <Compile Include="Features\P007SfenReport\L100_Write\KyokumenPngWriterImpl.cs" />
+    <Compile Include="Features\P007SfenReport\KyokumenPngWriterImpl.cs" />
     <Compile Include="Features\P012KnowledgeShogi\ConverterKnSh.cs" />
     <Compile Include="Features\P025KifuLarabe\L00012_Atom\Json_Val.cs" />
     <Compile Include="Features\P025KifuLarabe\L00012_Atom星の光\ShootingStarlightable.cs" />

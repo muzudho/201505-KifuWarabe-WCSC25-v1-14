@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Grayscale.P007_SfenReport.L00025_Report
+﻿namespace Grayscale.P007_SfenReport.L00025_Report
 {
     public interface ReportEnvironment
     {
-
-        /// <summary>
-        /// 出力フォルダーへのパス。
-        /// </summary>
-        string OutFolder { get; }
-
         /// <summary>
         /// 画像フォルダーへのパス。
         /// </summary>
