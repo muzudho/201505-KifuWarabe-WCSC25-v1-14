@@ -19,7 +19,6 @@
     using Grayscale.P025_KifuLarabe.L100_KifuIO;
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
     using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
-    using Grayscale.P050_KifuWarabe.L050_UsiLoop;
     using Nett;
     using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -289,8 +288,6 @@
 
                     while (true)
                     {
-                        Result_UsiLoop2 result_Usi = Result_UsiLoop2.None;
-
                         // 将棋サーバーから何かメッセージが届いていないか、見てみます。
                         string line = Util_Message.Download_BlockingIO();
                         Logger.WriteLineAddMemo(LogTags.Client, line);
@@ -454,7 +451,7 @@
                                 }
 
                                 // 無限ループ（２つ目）を抜けます。無限ループ（１つ目）に戻ります。
-                                result_Usi = Result_UsiLoop2.Break;
+                                break;
                             }
                             catch (Exception ex)
                             {
@@ -503,21 +500,7 @@
                             //
                             // ログだけ取って、スルーします。
                         }
-
-                        switch (result_Usi)
-                        {
-                            case Result_UsiLoop2.Break:
-                                goto end_loop2;
-
-                            default:
-                                break;
-                        }
-
-                        //gt_NextTime2:
-                        //    ;
                     }
-                end_loop2:
-                    ;
 
                     //-------------------+----------------------------------------------------------------------------------------------------
                     // スナップショット  |
