@@ -6,6 +6,7 @@ namespace Grayscale.P025_KifuLarabe.L00060_KifuParser
 {
     public interface KifuParserA
     {
+        KifuParserA_State State { get; set; }
 
         DELEGATE_ChangeSky_Im_Srv Delegate_OnChangeSky_Im_Srv { get; set; }
 
@@ -20,32 +21,11 @@ namespace Grayscale.P025_KifuLarabe.L00060_KifuParser
         string Execute_Step(
             ref KifuParserA_Result result,
             IRoomViewModel roomViewModel,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
+            KifuParserA_Genjo genjo
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
             );
-
-        /// <summary>
-        /// 最初から最後まで実行します。（きふわらべCOMP用）
-        /// </summary>
-        /// <param name="inputLine"></param>
-        /// <param name="kifu"></param>
-        /// <param name="larabeLogger"></param>
-        void Execute_All(
-            ref KifuParserA_Result result,
-            IRoomViewModel roomViewModel,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
-            ,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0
-            );
-
-
-
     }
 }

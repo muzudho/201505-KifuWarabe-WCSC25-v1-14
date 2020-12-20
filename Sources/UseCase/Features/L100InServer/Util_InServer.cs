@@ -96,8 +96,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         roomViewModel,
-                        genjo,
-                        new KifuParserA_LogImpl( hint + ":Ui_01MenuB#ReadLine_TuginoItteSusumu")
+                        genjo
                         );
 
                     Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -126,8 +125,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             roomViewModel,
-                            genjo,
-                            new KifuParserA_LogImpl( hint + ":平手等解析したい")
+                            genjo
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -144,8 +142,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             roomViewModel,
-                            genjo,
-                            new KifuParserA_LogImpl( hint + ":ﾑｰﾌﾞｽ等解析したい")
+                            genjo
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -171,8 +168,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         roomViewModel,
-                        genjo,
-                        new KifuParserA_LogImpl( hint + ":一手処理したい")
+                        genjo
                         );
 
                     if (null != result.Out_newNode_OrNull)
@@ -214,8 +210,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
         public static void OnChangeSky_Im_Srv(
             IRoomViewModel roomViewModel,
             StartposImporter startposImporter,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
+            KifuParserA_Genjo genjo
             )
         {
             // SFENの初期配置の書き方(*1)を元に、駒を並べます。

@@ -35,8 +35,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             IRoomViewModel roomViewModel,
             out KifuParserA_State nextState,
             KifuParserA owner,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
+            KifuParserA_Genjo genjo
             )
         {
             // 現局面。
@@ -80,7 +79,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                         str5,  //+
                         out nextTe,
                         roomViewModel.GameViewModel.Kifu,
-                        log.Hint + "_SFENパース1",
+                        "_SFENパース1",
                         tesumi_yomiGenTeban_forLog
                         );
                 }
@@ -151,7 +150,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                     result.Out_newNode_OrNull = out_newNode_OrNull;
                     Logger.Trace(Util_Sky.Json_1Sky(
                         src_Sky, "一手指し終了",
-                        log.Hint + "_SFENパース2",
+                        "_SFENパース2",
                         tesumi_yomiGenTeban_forLog//読み進めている現在の手目
                         ));
 
@@ -167,7 +166,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             {
                 Logger.Trace("（＾△＾）現局面まで進んだのかだぜ☆？\n" + Util_Sky.Json_1Sky(
                     src_Sky, "棋譜パース",
-                    log.Hint + "_SFENパース3",
+                    "_SFENパース3",
                     tesumi_yomiGenTeban_forLog//読み進めている現在の手目
                     ));
                 genjo.ToBreak = true;

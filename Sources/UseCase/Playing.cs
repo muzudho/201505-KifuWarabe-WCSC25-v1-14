@@ -3,10 +3,12 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
+    using Grayscale.Kifuwarazusa.Entities;
     using Grayscale.Kifuwarazusa.Entities.Logging;
     using Grayscale.P025_KifuLarabe.L00012_Atom;
     using Grayscale.P025_KifuLarabe.L00025_Struct;
     using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+    using Grayscale.P025_KifuLarabe.L004_StructShogi;
     using Grayscale.P025_KifuLarabe.L012_Common;
     using Grayscale.P025_KifuLarabe.L100_KifuIO;
     using Grayscale.P045_Atama.L00025_KyHandan;
@@ -14,12 +16,11 @@
     using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
     using Grayscale.P050_KifuWarabe.L003_Kokoro;
     using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
+    using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
     public class Playing : ShogiEngine
     {
-        // USI「ponder」の使用の有無です。
-        // ポンダーに対応している将棋サーバーなら真です。
-        public bool usiPonderEnabled { get; private set; } = false;
+        public IGame Game { get; private set; }
 
         /// <summary>
         /// USI「setoption」コマンドのリストです。
@@ -36,22 +37,7 @@
         public PlayerInfo PlayerInfo { get { return this.playerInfo; } }
         private PlayerInfo playerInfo;
 
-        /// <summary>
-        /// 棋譜です。
-        /// </summary>
-        public KifuTree Kifu { get; set; }
-
-        /// <summary>
-        /// 手目済カウントです。
-        /// </summary>
-        public int TesumiCount { get; set; }
-
         public AjimiEngine AjimiEngine { get; set; }
-
-        /// <summary>
-        /// 「go ponder」の属性一覧です。
-        /// </summary>
-        public bool GoPonderNow { get; set; }
 
         /// <summary>
         /// コンストラクター
@@ -229,7 +215,7 @@
                 bool result;
                 if (Boolean.TryParse(this.SetoptionDictionary["USI_ponder"], out result))
                 {
-                    usiPonderEnabled = result;
+                    this.Game.UsiPonderEnabled = result;
                 }
             }
         }
@@ -295,6 +281,14 @@
             //
             //
             // 対局が始まったときに送られてくる文字が usinewgame です。
+
+            this.Game = new Game();
+
+            Debug.Assert(!Util_MasuNum.OnKomabukuro(
+                Util_Masu.AsMasuNumber(((RO_Star_Koma)this.Game.Kifu.CurNode.Value.ToKyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
+                ), "駒が駒袋にあった。");
+
+            this.shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
         }
 
         public void Quit()
@@ -458,14 +452,14 @@
         {
             // ┏━━━━サンプル・プログラム━━━━┓
 
-            int latestTesumi = this.Kifu.CountTesumi(this.Kifu.CurNode);//現・手目済
-            this.PlayerInfo.Playerside = this.Kifu.CountPside(latestTesumi);// 先後
+            int latestTesumi = this.Game.Kifu.CountTesumi(this.Game.Kifu.CurNode);//現・手目済
+            this.PlayerInfo.Playerside = this.Game.Kifu.CountPside(latestTesumi);// 先後
 
             //#if DEBUG
             //                MessageBox.Show("["+latestTesumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
             //#endif
 
-            SkyConst src_Sky = this.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
+            SkyConst src_Sky = this.Game.Kifu.NodeAt(latestTesumi).Value.ToKyokumenConst;//現局面
 
             // + line
             Logger.Trace("将棋サーバー「" + latestTesumi + "手目、きふわらべ　さんの手番ですよ！」　");
@@ -515,7 +509,7 @@
                         ShootingStarlightable bestMove = this.shogisasi.WA_Bestmove(
                             enableLog,
                             isHonshogi,
-                            this.Kifu,
+                            this.Game.Kifu,
                             this.PlayerInfo
                             );
 
@@ -526,14 +520,14 @@
                         {
                             string sfenText = Util_Sky.ToSfenMoveText(bestMove);
                             Logger.Trace("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
-                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu));
+                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Game.Kifu));
 
                             Playing.Send("bestmove " + sfenText);//指し手を送ります。
                         }
                         else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                         {
                             Logger.Trace("(Warabe)指し手のチョイス： 指し手がないときは、SFENが書けない☆　投了だぜ☆ｗｗ（＞＿＜）" +
-                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Kifu));
+                                "　棋譜＝" + KirokuGakari.ToJapaneseKifuText(this.Game.Kifu));
 
                             // 投了ｗ！
                             Playing.Send("bestmove resign");
@@ -570,7 +564,7 @@
             //
             // stop するのは思考です。  stop を受け取ったら  すぐに最善手を指してください。
 
-            if (this.GoPonderNow)
+            if (this.Game.GoPonderNow)
             {
                 //------------------------------------------------------------
                 // 将棋エンジン「（予想手が間違っていたって？）  △９二香 を指そうと思っていたんだが」

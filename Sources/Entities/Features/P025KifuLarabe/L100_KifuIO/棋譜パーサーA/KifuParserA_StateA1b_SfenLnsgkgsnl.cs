@@ -38,8 +38,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             IRoomViewModel roomViewModel,
             out KifuParserA_State nextState,
             KifuParserA owner,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
+            KifuParserA_Genjo genjo
             )
         {
             nextState = this;
@@ -62,8 +61,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 owner.Delegate_OnChangeSky_Im_Srv(
                     roomViewModel,
                     startposImporter,
-                    genjo,
-                    log
+                    genjo
                     );
 
                 nextState = KifuParserA_StateA2_SfenMoves.GetInstance();

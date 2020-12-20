@@ -1,6 +1,7 @@
 ﻿namespace Grayscale.Kifuwarazusa.Entities.Logging
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
     using System.Text;
     using Nett;
@@ -54,6 +55,7 @@
         /// トレース・レベル。
         /// </summary>
         /// <param name="line"></param>
+        [Conditional("DEBUG")]
         public static void Trace(string line, ILogFile targetOrNull = null)
         {
             Logger.XLine(TraceRecord, "Trace", line, targetOrNull);
@@ -63,6 +65,7 @@
         /// デバッグ・レベル。
         /// </summary>
         /// <param name="line"></param>
+        [Conditional("DEBUG")]
         public static void Debug(string line, ILogFile targetOrNull = null)
         {
             Logger.XLine(DebugRecord, "Debug", line, targetOrNull);

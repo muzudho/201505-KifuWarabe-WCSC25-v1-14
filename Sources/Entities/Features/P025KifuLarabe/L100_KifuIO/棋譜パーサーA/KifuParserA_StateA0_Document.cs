@@ -37,8 +37,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             IRoomViewModel roomViewModel,
             out KifuParserA_State nextState,
             KifuParserA owner,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
+            KifuParserA_Genjo genjo
             )
         {
             nextState = this;
@@ -65,7 +64,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
             }
             else
             {
-                Logger.Trace("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + roomViewModel.GameViewModel.Kifu.CountPside(roomViewModel.GameViewModel.Kifu.CurNode) + "]　hint=" + log.Hint);
+                Logger.Trace("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + roomViewModel.GameViewModel.Kifu.CountPside(roomViewModel.GameViewModel.Kifu.CurNode) + "]");
                 nextState = KifuParserA_StateA2_SfenMoves.GetInstance();
             }
 

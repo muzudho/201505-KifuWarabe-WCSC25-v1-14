@@ -10,8 +10,7 @@ namespace Grayscale.P025_KifuLarabe.L00060_KifuParser
             IRoomViewModel roomViewModel,
             out KifuParserA_State nextState,
             KifuParserA owner,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
+            KifuParserA_Genjo genjo
             );
 
     }

@@ -11,8 +11,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
     public delegate void DELEGATE_ChangeSky_Im_Srv(
         IRoomViewModel roomViewModel,
         StartposImporter startposImporter,
-        KifuParserA_Genjo genjo,
-        KifuParserA_Log log
+        KifuParserA_Genjo genjo
     );
 
     /// <summary>
@@ -39,8 +38,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         private void Empty_OnChangeSky_Im_Srv(
             object obj_shogiGui,
             StartposImporter startposImporter,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
+            KifuParserA_Genjo genjo
             )
         {
         }
@@ -55,8 +53,7 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
         public string Execute_Step(
             ref KifuParserA_Result result,
             IRoomViewModel roomViewModel,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
+            KifuParserA_Genjo genjo
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -72,47 +69,10 @@ namespace Grayscale.P025_KifuLarabe.L100_KifuIO
                 ref result,
                 roomViewModel,
                 out nextState, this,
-                genjo, log);
+                genjo);
             this.State = nextState;
 
             return genjo.InputLine;
         }
-
-        /// <summary>
-        /// 最初から最後まで実行します。（きふわらべCOMP用）
-        /// </summary>
-        /// <param name="inputLine"></param>
-        /// <param name="kifu"></param>
-        /// <param name="larabeLogger"></param>
-        public void Execute_All(
-            ref KifuParserA_Result result,
-            IRoomViewModel roomViewModel,
-            KifuParserA_Genjo genjo,
-            KifuParserA_Log log
-            ,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0
-            )
-        {
-
-            Logger.Trace("┏━━━━━━━━━━┓");
-            Logger.Trace("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
-
-            KifuParserA_State nextState = this.State;
-
-            while (!genjo.ToBreak)
-            {
-                genjo.InputLine = this.State.Execute(
-                    ref result,
-                    roomViewModel,
-                    out nextState, this,
-                    genjo, log);
-                this.State = nextState;
-            }
-
-
-        }
-
     }
 }

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IGame.cs" />
     <Compile Include="Logging\ILogFile.cs" />
     <Compile Include="Logging\ILogRecord.cs" />
     <Compile Include="Logging\LogFile.cs" />

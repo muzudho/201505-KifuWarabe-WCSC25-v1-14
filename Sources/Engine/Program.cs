@@ -20,7 +20,6 @@
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
     using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
     using Nett;
-    using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
     /// <summary>
     /// 将棋エンジン　きふわらべ
@@ -245,31 +244,7 @@
                     //      │    │                          │            │2           │自分が指したときにはカウントを変えません。                              │
                     //      └──┴─────────────┴──────┴──────┴────────────────────────────────────┘
                     //
-                    playing.TesumiCount = 0;// ｎ手目
 
-                    // 棋譜
-                    {
-                        playing.Kifu = new KifuTreeImpl(
-                                new KifuNodeImpl(
-                                    Util_Sky.NullObjectMove,
-                                    new KyokumenWrapper(new SkyConst(Util_Sky.New_Hirate())),// きふわらべ起動時 // FIXME:平手とは限らないが。
-                                    Playerside.P2
-                                )
-                        );
-                        playing.Kifu.SetProperty(KifuTreeImpl.PropName_FirstPside, Playerside.P1);
-                        playing.Kifu.SetProperty(KifuTreeImpl.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
-
-                        Debug.Assert(!Util_MasuNum.OnKomabukuro(
-                            Util_Masu.AsMasuNumber(((RO_Star_Koma)playing.Kifu.CurNode.Value.ToKyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
-                            ), "駒が駒袋にあった。");
-                    }
-
-                    // go ponderの属性一覧
-                    {
-                        playing.GoPonderNow = false;   // go ponderを将棋所に伝えたなら真
-                    }
-
-                    playing.shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
 
                     //PerformanceMetrics performanceMetrics = new PerformanceMetrics();//使ってない？
 
@@ -289,18 +264,30 @@
 
                             // 入力行を解析します。
                             KifuParserA_Result result = new KifuParserA_ResultImpl();
-                            new KifuParserA_Impl().Execute_All(
-                                ref result,
-                                new DefaultRoomViewModel(playing.Kifu),
-                                new KifuParserA_GenjoImpl(line),
-                                new KifuParserA_LogImpl("Program#Main(Warabe)")
-                                );
+                            var roomViewModel = new DefaultRoomViewModel(playing.Game.Kifu);
+                            var genjo = new KifuParserA_GenjoImpl(line);
+                            var parser = new KifuParserA_Impl();
+                            Logger.Trace($@"┏━━━━━━━━━━┓
+わたしは　{parser.State.GetType().Name}　の　Execute_All　だぜ☆");
+
+                            KifuParserA_State nextState = parser.State;
+
+                            while (!genjo.ToBreak)
+                            {
+                                genjo.InputLine = parser.State.Execute(
+                                    ref result,
+                                    roomViewModel,
+                                    out nextState, parser,
+                                    genjo);
+                                parser.State = nextState;
+                            }
+
 
                             KifuNode kifuNode = (KifuNode)result.Out_newNode_OrNull;
                             int tesumi_yomiGenTeban_forLog = 0;//ログ用。読み進めている現在の手目済
 
                             Logger.Trace(
-                                Util_Sky.Json_1Sky(playing.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Kifu),
+                                Util_Sky.Json_1Sky(playing.Game.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJapaneseKifuText(playing.Game.Kifu),
                                 "PgCS",
                                 tesumi_yomiGenTeban_forLog//読み進めている現在の手目
                                 ));
@@ -350,7 +337,7 @@
 
                             // ｎ手目を 2 増やします。
                             // 相手の手番と、自分の手番の 2つが増えた、という数え方です。
-                            playing.TesumiCount += 2;
+                            playing.Game.TesumiCount += 2;
 
                             //------------------------------------------------------------
                             // 先手 3:00  後手 0:00  記録係「50秒ぉ～」
@@ -415,8 +402,8 @@
                             StringBuilder sb = new StringBuilder();
                             sb.Append("ログだせ～（＾▽＾）");
 
-                            playing.Kifu.ForeachZenpuku(
-                                playing.Kifu.GetRoot(), (int tesumi, KyokumenWrapper sky, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
+                            playing.Game.Kifu.ForeachZenpuku(
+                                playing.Game.Kifu.GetRoot(), (int tesumi, KyokumenWrapper sky, Node<ShootingStarlightable, KyokumenWrapper> node, ref bool toBreak) =>
                                 {
                                     //sb.AppendLine("(^-^)");
 
