@@ -90,7 +90,6 @@
     <Compile Include="Features\P025KifuLarabe\L00050_StructShogi\KyHyokaItem.cs" />
     <Compile Include="Features\P025KifuLarabe\L00060_KifuParser\KifuParserA.cs" />
     <Compile Include="Features\P025KifuLarabe\L00060_KifuParser\KifuParserA_Genjo.cs" />
-    <Compile Include="Features\P025KifuLarabe\L00060_KifuParser\KifuParserA_Log.cs" />
     <Compile Include="Features\P025KifuLarabe\L00060_KifuParser\KifuParserA_Result.cs" />
     <Compile Include="Features\P025KifuLarabe\L00060_KifuParser\KifuParserA_State.cs" />
     <Compile Include="Features\P025KifuLarabe\L001_Atom\JSON\Json_Arr.cs" />
@@ -181,7 +180,6 @@
     <Compile Include="Features\P025KifuLarabe\L100_KifuIO\きほん\Util_MovableMove.cs" />
     <Compile Include="Features\P025KifuLarabe\L100_KifuIO\棋譜パーサーA\KifuParserA_GenjoImpl.cs" />
     <Compile Include="Features\P025KifuLarabe\L100_KifuIO\棋譜パーサーA\KifuParserA_Impl.cs" />
-    <Compile Include="Features\P025KifuLarabe\L100_KifuIO\棋譜パーサーA\KifuParserA_LogImpl.cs" />
     <Compile Include="Features\P025KifuLarabe\L100_KifuIO\棋譜パーサーA\KifuParserA_ResultImpl.cs" />
     <Compile Include="Features\P025KifuLarabe\L100_KifuIO\棋譜パーサーA\KifuParserA_StateA0_Document.cs" />
     <Compile Include="Features\P025KifuLarabe\L100_KifuIO\棋譜パーサーA\KifuParserA_StateA1a_SfenStartpos.cs" />
