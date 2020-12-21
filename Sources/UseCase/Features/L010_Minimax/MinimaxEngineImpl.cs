@@ -80,8 +80,7 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                         node,
                         kifu,
                         reportEnvironment,
-                        logF_kiki,
-                        logTag
+                        logF_kiki
                     );
 #endif
             }

@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿namespace Grayscale.P200_KifuNarabe.L051_Timed
+{
+#if Debug
+using System.Collections.Generic;
 using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
@@ -16,9 +19,26 @@ using Grayscale.P200_KifuNarabe.L015_Sprite;
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L050_Scene;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+#else
+    using System.Collections.Generic;
+    using System.Drawing;
+    using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
+    using Grayscale.P006_Syugoron;
+    using Grayscale.P025_KifuLarabe.L00012_Atom;
+    using Grayscale.P025_KifuLarabe.L00025_Struct;
+    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+    using Grayscale.P025_KifuLarabe.L004_StructShogi;
+    using Grayscale.P025_KifuLarabe.L012_Common;
+    using Grayscale.P100_ShogiServer.L100_InServer;
+    using Grayscale.P200_KifuNarabe.L00006_Shape;
+    using Grayscale.P200_KifuNarabe.L00047_Scene;
+    using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
+    using Grayscale.P200_KifuNarabe.L015_Sprite;
+    using Grayscale.P200_KifuNarabe.L025_Macro;
+    using Grayscale.P200_KifuNarabe.L050_Scene;
+    using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+#endif
 
-namespace Grayscale.P200_KifuNarabe.L051_Timed
-{
     /// <summary>
     /// マウス操作の一連の流れです。（主に１手指す動き）
     /// </summary>
@@ -78,25 +98,25 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                 {
                     case SceneName.SceneB_1TumamitaiKoma:
                         {
-                            #region つまみたい駒
+#region つまみたい駒
 
 
                             switch (eventState.Name2)
                             {
                                 case MouseEventStateName.Arive:
                                     {
-                                        #region アライブ
+#region アライブ
                                         //------------------------------
                                         // メナス
                                         //------------------------------
                                         Util_Menace.Menace(this.shogiGui);
-                                        #endregion
+#endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseMove:
                                     {
-                                        #region マウスムーブ
+#region マウスムーブ
                                         if (bMouseMove_SceneB_1TumamitaiKoma)
                                         {
                                             continue;
@@ -172,13 +192,13 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                                 if (widget.Light) { shogiGui.ResponseData.ToRedraw(); }
                                             }
                                         }
-                                        #endregion
+#endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseLeftButtonDown:
                                     {
-                                        #region マウス左ボタンダウン
+#region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
                                         SkyConst src_Sky = shogiGui.GameViewModel.GuiSkyConst;
 
@@ -260,13 +280,13 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-                                        #endregion
+#endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
-                                        #region マウス左ボタンアップ
+#region マウス左ボタンアップ
                                         SkyConst src_Sky = shogiGui.GameViewModel.GuiSkyConst;
 
                                         //----------
@@ -404,24 +424,24 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
 
-                                        #endregion
+#endregion
                                     }
                                     break;
 
                             }
-                            #endregion
+#endregion
                         }
                         break;
 
                     case SceneName.SceneB_2OkuKoma:
                         {
-                            #region 置く駒
+#region 置く駒
 
                             switch (eventState.Name2)
                             {
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
-                                        #region マウス左ボタンアップ
+#region マウス左ボタンアップ
                                         Node<ShootingStarlightable, KyokumenWrapper> siteiNode = KifuNarabe_KifuWrapper.CurNode(shogiGui.GameViewModel.Kifu);
                                         SkyConst src_Sky = shogiGui.GameViewModel.GuiSkyConst;
 
@@ -532,13 +552,13 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-                                        #endregion
+#endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseLeftButtonDown:
                                     {
-                                        #region マウス左ボタンダウン
+#region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
 
                                         //System.C onsole.WriteLine("B2マウスダウン");
@@ -747,13 +767,13 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-                                        #endregion
+#endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseRightButtonDown:
                                     {
-                                        #region マウス右ボタンダウン
+#region マウス右ボタンダウン
                                         // 各駒の、移動済フラグを解除
                                         //System.C onsole.WriteLine("つまんでいる駒を放します。(5)");
                                         shogiGui.Shape_PnlTaikyoku.SetFigTumandeiruKoma(-1);
@@ -768,23 +788,23 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-                                        #endregion
+#endregion
                                     }
                                     break;
                             }
-                            #endregion
+#endregion
                         }
                         break;
 
                     case SceneName.SceneB_3ErabuNaruNaranai:
                         {
-                            #region 成る成らない
+#region 成る成らない
 
                             switch (eventState.Name2)
                             {
                                 case MouseEventStateName.MouseLeftButtonDown:
                                     {
-                                        #region マウス左ボタンダウン
+#region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
                                         //GuiSky この関数の途中で変更される。ローカル変数に入れているものは古くなる。
 
@@ -852,11 +872,11 @@ namespace Grayscale.P200_KifuNarabe.L051_Timed
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-                                        #endregion
+#endregion
                                     }
                                     break;
                             }
-                            #endregion
+#endregion
 
                         }
                         break;

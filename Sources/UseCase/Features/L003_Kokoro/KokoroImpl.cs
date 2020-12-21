@@ -1,4 +1,7 @@
-﻿using System;
+﻿namespace Grayscale.P050_KifuWarabe.L003_Kokoro
+{
+#if Debug
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -14,9 +17,25 @@ using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 using Grayscale.P050_KifuWarabe.L030_Shogisasi;
 using Grayscale.Kifuwarazusa.Entities.Logging;
-
-namespace Grayscale.P050_KifuWarabe.L003_Kokoro
-{
+#else
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using Codeplex.Data;//DynamicJson
+    using Grayscale.P025_KifuLarabe.L00012_Atom;
+    using Grayscale.P025_KifuLarabe.L00025_Struct;
+    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+    using Grayscale.P025_KifuLarabe.L004_StructShogi;
+    using Grayscale.P025_KifuLarabe.L007_Random;
+    using Grayscale.P025_KifuLarabe.L012_Common;
+    using Grayscale.P040_Kokoro.L00050_Kokoro;
+    using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
+    using Grayscale.P050_KifuWarabe.L00049_Kokoro;
+    using Grayscale.P050_KifuWarabe.L030_Shogisasi;
+    using Grayscale.Kifuwarazusa.Entities.Logging;
+    using System.Windows.Forms;
+#endif
 
     /// <summary>
     /// 心エンジン。

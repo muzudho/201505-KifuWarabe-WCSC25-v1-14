@@ -6,6 +6,9 @@
     using System.Text;
     using Nett;
 
+    /// <summary>
+    /// * Panic( ) に相当するものは無いので、throw new Exception("") で代替してください。
+    /// </summary>
     public static class Logger
     {
         private static readonly Guid unique = Guid.NewGuid();
@@ -203,31 +206,41 @@
 
         /// <summary>
         /// ログ・ディレクトリー直下の *.log ファイルを削除します。
+        /// 
+        /// * 将棋エンジン起動後、ログが少し取られ始めたあとに削除を開始するようなところで実行しないでください。
+        /// * TODO usinewgame のタイミングでログを削除したい。
         /// </summary>
         public static void RemoveAllLogFile()
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogDirectory"));
-            // Console.WriteLine($"logDirectory={logDirectory}");
-
-            // [GUID]name.log
-            //var re = new Regex("^(\\[[0-9A-Fa-f-]+\\])?.+\\.log$");
-
-            DirectoryInfo dir = new System.IO.DirectoryInfo(logDirectory);
-            FileInfo[] files = dir.GetFiles("*.log*");
-            foreach (FileInfo f in files)
+            try
             {
-                if(f.Name.EndsWith(".log") || f.Name.Contains(".log."))
+                var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+                var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+                var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogDirectory"));
+                // Console.WriteLine($"logDirectory={logDirectory}");
+
+                // [GUID]name.log
+                //var re = new Regex("^(\\[[0-9A-Fa-f-]+\\])?.+\\.log$");
+
+                DirectoryInfo dir = new System.IO.DirectoryInfo(logDirectory);
+                FileInfo[] files = dir.GetFiles("*.log*");
+                foreach (FileInfo f in files)
                 {
-                    // Console.WriteLine($"f-full-name={f.FullName}");
-                    //正規表現のパターンを使用して一つずつファイルを調べる
-                    // if (re.IsMatch(f.Name))
-                    // {
-                    // Console.WriteLine($"Remove={f.FullName}");
-                    File.Delete(f.FullName);
-                    // }
+                    if (f.Name.EndsWith(".log") || f.Name.Contains(".log."))
+                    {
+                        // Console.WriteLine($"f-full-name={f.FullName}");
+                        //正規表現のパターンを使用して一つずつファイルを調べる
+                        // if (re.IsMatch(f.Name))
+                        // {
+                        // Console.WriteLine($"Remove={f.FullName}");
+                        File.Delete(f.FullName);
+                        // }
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                // ログ・ファイルの削除に失敗しても無視します。
             }
         }
     }

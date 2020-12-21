@@ -1,10 +1,12 @@
-﻿using Grayscale.P007_SfenReport.L00025_Report;
+﻿using System;
+using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L050_Report;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P025_KifuLarabe.L002_GraphicLog;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L012_Common;
+using Grayscale.P025_KifuLarabe.L100_KifuIO;
 using Grayscale.P027MoveGen.L0005MoveGen;
 using Grayscale.P027MoveGen.L100MoveGen;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
@@ -191,32 +193,16 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
             );
 
 #if DEBUG
-            try
-            {
-                // 評価明細のログ出力。
-                this.kyHyokaWriter.Write_ForeachLeafs(
-                    Util_Sky.ToSfenMoveText(kifu.CurNode.Key),
-                    (KifuNode)kifu.CurNode,
-                    kifu,
-                    playerInfo,
-                    "" + Util_Sky.ToSfenMoveText(kifu.CurNode.Key) + "/",
-                    ShogisasiImpl.REPORT_ENVIRONMENT,
-                    logTag
-                    );
-            }
-            catch (Exception ex)
-            {
-                //>>>>> エラーが起こりました。
-                string message = ex.GetType().Name + " " + ex.Message + "：評価明細付きのログ出力をしていたときです。：";
-                Debug.Fail(message);
+            // 評価明細のログ出力。
+            this.kyHyokaWriter.Write_ForeachLeafs(
+                Util_Sky.ToSfenMoveText(kifu.CurNode.Key),
+                (KifuNode)kifu.CurNode,
+                kifu,
+                playerInfo,
+                "" + Util_Sky.ToSfenMoveText(kifu.CurNode.Key) + "/",
+                ShogisasiImpl.ReportEnvironment
+                );
 
-                // どうにもできないので  ログだけ取って、上に投げます。
-                Logger.Log_Engine.WriteLine_Error(message);
-                throw ex;
-            }
-#endif
-
-#if DEBUG
             if (0 < logF_kiki.boards.Count)//ﾛｸﾞが残っているなら
             {
                 //

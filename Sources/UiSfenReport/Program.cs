@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L100_Write;
 using Nett;
@@ -10,53 +9,6 @@ namespace Grayscale.P007_SfenReport.L050_Report
 {
     static class Program
     {
-
-        static void AppendCommandline(Dictionary<string, string> dic)
-        {
-            string[] args = Environment.GetCommandLineArgs();
-
-            foreach (string arg in args)
-            {
-                string name;
-                string value;
-
-                string rest = arg;
-                if (!rest.StartsWith("--"))
-                {
-                    goto gt_Next1;
-                }
-
-                rest = rest.Substring(2);
-
-                int eq = rest.IndexOf('=');
-                if (-1 == eq)
-                {
-                    goto gt_Next1;
-                }
-
-                name = rest.Substring(0, eq).Trim();
-                value = rest.Substring(eq + 1).Trim();
-
-                if (value.StartsWith("\"") && value.EndsWith("\""))
-                {
-                    value = value.Substring(1, value.Length - 2);
-                }
-
-                if (dic.ContainsKey(name))
-                {
-                    dic[name] = value;
-                }
-                else
-                {
-                    dic.Add(name, value);
-                }
-
-            gt_Next1:
-                ;
-            }
-        }
-
-
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>
@@ -130,6 +82,51 @@ namespace Grayscale.P007_SfenReport.L050_Report
                 reportEnvironment
                 );
 
+        }
+
+        static void AppendCommandline(Dictionary<string, string> dic)
+        {
+            string[] args = Environment.GetCommandLineArgs();
+
+            foreach (string arg in args)
+            {
+                string name;
+                string value;
+
+                string rest = arg;
+                if (!rest.StartsWith("--"))
+                {
+                    goto gt_Next1;
+                }
+
+                rest = rest.Substring(2);
+
+                int eq = rest.IndexOf('=');
+                if (-1 == eq)
+                {
+                    goto gt_Next1;
+                }
+
+                name = rest.Substring(0, eq).Trim();
+                value = rest.Substring(eq + 1).Trim();
+
+                if (value.StartsWith("\"") && value.EndsWith("\""))
+                {
+                    value = value.Substring(1, value.Length - 2);
+                }
+
+                if (dic.ContainsKey(name))
+                {
+                    dic[name] = value;
+                }
+                else
+                {
+                    dic.Add(name, value);
+                }
+
+            gt_Next1:
+                ;
+            }
         }
     }
 }

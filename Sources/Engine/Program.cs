@@ -1,5 +1,6 @@
 ﻿namespace Grayscale.P050_KifuWarabe
 {
+#if DEBUG
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
@@ -20,6 +21,28 @@
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
     using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
     using Nett;
+#else
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using Grayscale.Kifuwarazusa.Entities.Logging;
+    using Grayscale.Kifuwarazusa.UseCases;
+    using Grayscale.Kifuwarazusa.UseCases.Gui;
+    using Grayscale.P007_SfenReport.L100_Write;
+    using Grayscale.P025_KifuLarabe.L00012_Atom;
+    using Grayscale.P025_KifuLarabe.L00025_Struct;
+    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+    using Grayscale.P025_KifuLarabe.L00060_KifuParser;
+    using Grayscale.P025_KifuLarabe.L004_StructShogi;
+    using Grayscale.P025_KifuLarabe.L012_Common;
+    using Grayscale.P025_KifuLarabe.L100_KifuIO;
+    using Grayscale.P050_KifuWarabe.L030_Shogisasi;
+    using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
+    using Nett;
+#endif
 
     /// <summary>
     /// 将棋エンジン　きふわらべ
@@ -503,7 +526,7 @@
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Error($"(^ー^)「大外枠でキャッチ」{ex}");
+                Logger.Fatal($"(^ー^)「大外枠でキャッチ」{ex}");
                 Playing.Send("bestmove resign");
             }
 
