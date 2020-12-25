@@ -1,9 +1,7 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-//スプライト番号
+﻿//スプライト番号
 
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P045_Atama.L000125_Sokutei;
 using System;
+using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P045_Atama.L025_Sokutei
 {

@@ -1,5 +1,5 @@
 ﻿
-using Grayscale.P025_KifuLarabe.L00012_Atom;
+using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P045_Atama.L00025_KyHandan
 {

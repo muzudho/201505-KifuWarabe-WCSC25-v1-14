@@ -2,10 +2,10 @@
 using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P025_KifuLarabe.L012_Common;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L008_TextBoxListener;

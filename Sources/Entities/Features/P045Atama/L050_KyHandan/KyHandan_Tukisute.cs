@@ -1,12 +1,7 @@
-﻿using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P045_Atama.L00025_KyHandan;
-using Grayscale.P045_Atama.L025_Sokutei;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
-using System.Text;
+using Grayscale.P045_Atama.L00025_KyHandan;
 
 namespace Grayscale.P045_Atama.L050_KyHandan
 {
@@ -18,7 +13,7 @@ namespace Grayscale.P045_Atama.L050_KyHandan
     public class KyHandan_Tukisute : KyHandanAbstract
     {
 
-        public KyHandan_Tukisute():base(TenonagareName.Tukisute)
+        public KyHandan_Tukisute() : base(TenonagareName.Tukisute)
         {
         }
 
@@ -57,12 +52,12 @@ namespace Grayscale.P045_Atama.L050_KyHandan
                 score = 100.0d;
             }
 
-            ////
-            //// 先手から見た盤に回転。
-            ////
-            //SyElement komaMasu = Util_Masu.BothSenteView(koma1.Masu, koma1.Pside);
-            //int dan;
-            //Util_MasuNum.MasuToDan(komaMasu, out dan);
+        ////
+        //// 先手から見た盤に回転。
+        ////
+        //SyElement komaMasu = Util_Masu.BothSenteView(koma1.Masu, koma1.Pside);
+        //int dan;
+        //Util_MasuNum.MasuToDan(komaMasu, out dan);
 
         gt_EndMethod:
             string meisai = "";

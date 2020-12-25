@@ -1,4 +1,4 @@
-﻿using Grayscale.P025_KifuLarabe.L004_StructShogi;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
 
 namespace Grayscale.P040_Kokoro.L100_Kokoro

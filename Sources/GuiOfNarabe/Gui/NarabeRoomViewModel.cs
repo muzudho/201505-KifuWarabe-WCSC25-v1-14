@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
 using Grayscale.P200_KifuNarabe.L00047_Scene;

@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.P025_KifuLarabe.L100_KifuIO;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L100_GUI;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;

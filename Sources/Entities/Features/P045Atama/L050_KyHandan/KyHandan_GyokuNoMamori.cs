@@ -1,14 +1,9 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P045_Atama.L00025_KyHandan;
-using System.Collections.Generic;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+﻿using System.Collections.Generic;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
-using System.Text;
+using Grayscale.P045_Atama.L00025_KyHandan;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P045_Atama.L050_KyHandan
 {
@@ -25,7 +20,7 @@ namespace Grayscale.P045_Atama.L050_KyHandan
     /// </summary>
     public class KyHandan_GyokuNoMamori : KyHandanAbstract
     {
-        public KyHandan_GyokuNoMamori():base(TenonagareName.GyokuNoMamori)
+        public KyHandan_GyokuNoMamori() : base(TenonagareName.GyokuNoMamori)
         {
         }
 
@@ -100,10 +95,10 @@ namespace Grayscale.P045_Atama.L050_KyHandan
             // 25近傍に、得点の重みを付けます。
             double aa = 0.0d;
             double bb = 100.0d;
-            double cc = 100.0d/3.0d;
+            double cc = 100.0d / 3.0d;
             double dd = 100.0d / 3.0d / 3.0d;
-            double ee = 100.0d / 3.0d / 3.0d /3.0d;
-            double ff = 100.0d / 3.0d / 3.0d / 3.0d/3.0d;
+            double ee = 100.0d / 3.0d / 3.0d / 3.0d;
+            double ff = 100.0d / 3.0d / 3.0d / 3.0d / 3.0d;
             double[] omomi = new double[]{
                 ff, ee, dd, ee, ff,
                 ee, cc, bb, cc, ee,

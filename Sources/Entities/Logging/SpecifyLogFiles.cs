@@ -58,7 +58,7 @@
         */
 
 
-        
+
         public static ILogFile LatestPositionLogPng { get; private set; }
         public static ILogFile MousouRireki { get; private set; }
         public static ILogFile GuiDefault { get; private set; }

@@ -17,7 +17,8 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
         #region プロパティ
 
-        public string Word { get { return this.word; } }        private string word;
+        public string Word { get { return this.word; } }
+        private string word;
 
         /// <summary>
         /// 枡。
@@ -66,7 +67,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             get
             {
                 // 順序を保たなくても構わない、全要素
-                
+
 
                 // 全要素
                 HashSet<SySet<T1>> supersets2 = new HashSet<SySet<T1>>();
@@ -231,10 +232,10 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         {
             //if (Okiba.ShogiBan == Converter04.Masu_ToOkiba(masu))
             //{
-                if (!this.elements_.Contains(element))//マス番号の重複を除外
-                {
-                    this.elements_.Add(element);
-                }
+            if (!this.elements_.Contains(element))//マス番号の重複を除外
+            {
+                this.elements_.Add(element);
+            }
             //}
         }
 
@@ -289,7 +290,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public SySet<T1> Minus_Closed( SySet<T1> b)
+        public SySet<T1> Minus_Closed(SySet<T1> b)
         {
             // クローンを作ります。
             SySet<T1> c = this.Clone();
@@ -317,13 +318,13 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="targetMasus"></param>
         /// <returns></returns>
-        public void MinusMe_Opened( SySet<T1> b)
+        public void MinusMe_Opened(SySet<T1> b)
         {
 
             // このセットの中にある、スーパーセット１つ１つにも、Minus_OverThere をします。
             foreach (SySet<T1> superset2 in this.Supersets)
             {
-                superset2.MinusMe_Opened( b);
+                superset2.MinusMe_Opened(b);
             }
 
             if (b is SySet_Ordered<T1>)
@@ -379,7 +380,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach(T1 element in this.Elements)
+            foreach (T1 element in this.Elements)
             {
                 sb.Append(element.ToString());
                 sb.Append(" ");

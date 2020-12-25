@@ -1,4 +1,4 @@
-﻿using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.Kifuwarazusa.Entities
 {

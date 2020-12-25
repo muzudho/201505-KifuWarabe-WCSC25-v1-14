@@ -1,14 +1,11 @@
 ﻿
 
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.P040_Kokoro.L00050_Kokoro;
 using Grayscale.P045_Atama.L00025_KyHandan;
 //スプライト番号
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.P040_Kokoro.L00050_Kokoro;
-using System.Text;
 
 namespace Grayscale.P045_Atama.L050_KyHandan
 {
@@ -17,7 +14,7 @@ namespace Grayscale.P045_Atama.L050_KyHandan
     public class KyHandan_KomaDoku : KyHandanAbstract
     {
 
-        public KyHandan_KomaDoku():base(TenonagareName.KomaDoku)
+        public KyHandan_KomaDoku() : base(TenonagareName.KomaDoku)
         {
         }
 

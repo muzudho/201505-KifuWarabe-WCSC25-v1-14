@@ -1,12 +1,8 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P045_Atama.L000125_Sokutei;
-using System.Collections.Generic;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using System.Collections.Generic;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P027MoveGen.L050_MovableMove;
+using Grayscale.P045_Atama.L000125_Sokutei;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P045_Atama.L025_Sokutei
 {

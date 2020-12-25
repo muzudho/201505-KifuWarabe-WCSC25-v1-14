@@ -1,6 +1,6 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using System.Drawing;
 
 namespace Grayscale.P200_KifuNarabe.L00006_Shape

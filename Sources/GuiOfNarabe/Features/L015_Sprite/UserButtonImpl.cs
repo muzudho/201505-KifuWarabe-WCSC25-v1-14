@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 namespace Grayscale.P200_KifuNarabe.L015_Sprite

@@ -1,11 +1,11 @@
 ﻿namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
 #if USING_LUA
-using Grayscale.P025_KifuLarabe;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P025_KifuLarabe.L012_Common;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P100_ShogiServer.L100_InServer;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
@@ -13,17 +13,17 @@ using Grayscale.P200_KifuNarabe.L050_Scene;
 using Grayscale.P200_KifuNarabe.L051_Timed;
 using System;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using NLua;
 #else
     using Grayscale.Kifuwarazusa.Entities.Logging;
     using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-    using Grayscale.P025_KifuLarabe.L00012_Atom;
-    using Grayscale.P025_KifuLarabe.L00025_Struct;
-    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-    using Grayscale.P025_KifuLarabe.L004_StructShogi;
-    using Grayscale.P025_KifuLarabe.L012_Common;
+    using Grayscale.Kifuwarazusa.Entities.Features;
+    using Grayscale.Kifuwarazusa.Entities.Features;
+    using Grayscale.Kifuwarazusa.Entities.Features;
+    using Grayscale.Kifuwarazusa.Entities.Features;
+    using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.P100_ShogiServer.L100_InServer;
     using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
     using Grayscale.P200_KifuNarabe.L050_Scene;

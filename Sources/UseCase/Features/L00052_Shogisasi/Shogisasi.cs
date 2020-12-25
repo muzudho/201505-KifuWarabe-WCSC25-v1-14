@@ -1,6 +1,6 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P045_Atama.L00025_KyHandan;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 

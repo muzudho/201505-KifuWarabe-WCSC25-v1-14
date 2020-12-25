@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
-
-using System.Diagnostics;
 
 namespace Grayscale.Kifuwarazusa.Entities.Features
 {
@@ -71,7 +66,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             sb.Append("{");
 
             bool first = true;
-            foreach(KeyValuePair<string,SySet<T1>> entry in this.dictionary)
+            foreach (KeyValuePair<string, SySet<T1>> entry in this.dictionary)
             {
                 if (first)
                 {

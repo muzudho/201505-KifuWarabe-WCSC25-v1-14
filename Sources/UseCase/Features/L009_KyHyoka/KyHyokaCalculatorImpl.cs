@@ -1,11 +1,11 @@
-﻿using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P045_Atama.L00025_KyHandan;
 using Grayscale.P045_Atama.L050_KyHandan;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 using Grayscale.P050_KifuWarabe.L00050_KyHyoka;
 using Grayscale.P050_KifuWarabe.L003_Kokoro;
 using System.Collections.Generic;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
 
 namespace Grayscale.P050_KifuWarabe.L009_Hyoka

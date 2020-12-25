@@ -1,5 +1,5 @@
 ﻿
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
 
 namespace Grayscale.P045_Atama.L00025_KyHandan

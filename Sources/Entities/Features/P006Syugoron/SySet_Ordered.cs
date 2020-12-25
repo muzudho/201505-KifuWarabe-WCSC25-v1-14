@@ -15,7 +15,8 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
         #region プロパティ
 
-        public string Word { get { return this.word; } }        private string word;
+        public string Word { get { return this.word; } }
+        private string word;
 
         /// <summary>
         /// 枡。
@@ -64,7 +65,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             get
             {
                 // 順序を保たなくても構わない、全要素
-                
+
 
                 // 全要素
                 HashSet<SySet<T1>> supersets2 = new HashSet<SySet<T1>>();
@@ -231,10 +232,10 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         {
             //if (Okiba.ShogiBan == Converter04.Masu_ToOkiba(masu))
             //{
-                if (!this.elements_.Contains(element))//マス番号の重複を除外
-                {
-                    this.elements_.Add(element);
-                }
+            if (!this.elements_.Contains(element))//マス番号の重複を除外
+            {
+                this.elements_.Add(element);
+            }
             //}
         }
 
@@ -257,13 +258,13 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         {
             // 削除する要素を検索します。
             int index = this.elements_.IndexOf(b);
-            if(-1==index)
+            if (-1 == index)
             {
                 goto gt_Supersets;
             }
 
             // 削除したい要素を含む、その後ろごと丸ごと削除
-            this.elements_.RemoveRange( index, this.elements_.Count-index);
+            this.elements_.RemoveRange(index, this.elements_.Count - index);
 
         gt_Supersets:
 
@@ -293,13 +294,13 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 goto gt_Supersets;
             }
 
-            if(this.elements_.Count<=index+1)
+            if (this.elements_.Count <= index + 1)
             {
                 goto gt_Supersets;
             }
 
             // 削除したい要素を含めず、それより後ろを丸ごと削除
-            this.elements_.RemoveRange(index+1, this.elements_.Count - (index+1));
+            this.elements_.RemoveRange(index + 1, this.elements_.Count - (index + 1));
 
         gt_Supersets:
 
@@ -320,7 +321,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public SySet<T1> Minus_Closed( SySet<T1> b)
+        public SySet<T1> Minus_Closed(SySet<T1> b)
         {
             // クローンを作成します。
             SySet<T1> c = this.Clone();
@@ -339,12 +340,12 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public void MinusMe_Opened( SySet<T1> b)
+        public void MinusMe_Opened(SySet<T1> b)
         {
             // このセットの中にある、スーパーセット１つ１つにも、Minus_OverThere をします。
             foreach (SySet<T1> superset2 in this.Supersets)
             {
-                superset2.MinusMe_Opened( b);
+                superset2.MinusMe_Opened(b);
             }
 
             foreach (T1 bElement in b.Elements)

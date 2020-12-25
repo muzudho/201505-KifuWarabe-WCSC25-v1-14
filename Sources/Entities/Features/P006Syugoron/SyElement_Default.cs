@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Grayscale.Kifuwarazusa.Entities.Features
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
 
     public class SyElement_Default : SyElement

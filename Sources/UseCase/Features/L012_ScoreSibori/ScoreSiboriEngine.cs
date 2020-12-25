@@ -1,7 +1,7 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-using Grayscale.P025_KifuLarabe.L012_Common;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 using System.Collections.Generic;
 

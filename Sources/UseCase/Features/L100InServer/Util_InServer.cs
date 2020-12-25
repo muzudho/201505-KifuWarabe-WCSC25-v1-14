@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L00060_KifuParser;
-using Grayscale.P025_KifuLarabe.L004_StructShogi;
-using Grayscale.P025_KifuLarabe.L012_Common;
-using Grayscale.P025_KifuLarabe.L100_KifuIO;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P100_ShogiServer.L100_InServer

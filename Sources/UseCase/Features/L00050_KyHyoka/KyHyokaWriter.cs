@@ -1,6 +1,6 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.P007_SfenReport.L00025_Report;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P045_Atama.L00025_KyHandan;
 
 namespace Grayscale.P050_KifuWarabe.L00050_KyHyoka

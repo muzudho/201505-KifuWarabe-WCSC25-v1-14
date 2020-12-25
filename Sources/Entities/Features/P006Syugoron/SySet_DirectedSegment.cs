@@ -19,7 +19,8 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
         #region プロパティ
 
-        public string Word { get { return this.word; } }        private string word;
+        public string Word { get { return this.word; } }
+        private string word;
 
         /// <summary>
         /// 枡。
@@ -128,10 +129,10 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         public void Minus_Closed(T1 b)
         {
 
-            int i=0;
+            int i = 0;
             foreach (T1 thisElement in this.orderedItems)
             {
-                if (thisElement.Equals( b))
+                if (thisElement.Equals(b))
                 {
                     // ここで切ります。
                     this.orderedItems.RemoveRange(i, this.orderedItems.Count - i);
@@ -157,15 +158,15 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             int i = 0;
             foreach (T1 thisElement in this.orderedItems)
             {
-                if (thisElement.Equals( b))
+                if (thisElement.Equals(b))
                 {
                     // この次で切ります。
 
-                    if(this.orderedItems.Count<=i+1)
+                    if (this.orderedItems.Count <= i + 1)
                     {
                         break;
                     }
-                    this.orderedItems.RemoveRange(i+1, this.orderedItems.Count - (i+1));
+                    this.orderedItems.RemoveRange(i + 1, this.orderedItems.Count - (i + 1));
 
                     break;
                 }
@@ -277,7 +278,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public SySet<T1> Minus_Closed( SySet<T1> b)
+        public SySet<T1> Minus_Closed(SySet<T1> b)
         {
             // クローンを作成します。
             SySet<T1> c = this.Clone();
@@ -297,12 +298,12 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public void MinusMe_Opened( SySet<T1> b)
+        public void MinusMe_Opened(SySet<T1> b)
         {
             // このセットの中にある、スーパーセット１つ１つにも、Minus_OverThere をします。
             foreach (SySet<T1> superset2 in this.Supersets)
             {
-                superset2.MinusMe_Opened( b);
+                superset2.MinusMe_Opened(b);
             }
 
             // 指定の要素が含まれているかどうか１つ１つ調べます。

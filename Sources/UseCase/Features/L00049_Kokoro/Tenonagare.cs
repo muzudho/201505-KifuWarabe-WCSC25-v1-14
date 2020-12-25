@@ -1,10 +1,10 @@
 ﻿
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 //スプライト番号
 using Grayscale.P045_Atama.L000125_Sokutei;
 using Grayscale.P050_KifuWarabe.L003_Kokoro;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P040_Kokoro.L00050_Kokoro;
 
 namespace Grayscale.P050_KifuWarabe.L00049_Kokoro

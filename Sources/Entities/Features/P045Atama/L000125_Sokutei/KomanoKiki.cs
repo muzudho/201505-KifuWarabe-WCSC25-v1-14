@@ -1,6 +1,4 @@
-﻿using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 //スプライト番号
 
 namespace Grayscale.P045_Atama.L000125_Sokutei

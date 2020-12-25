@@ -1,5 +1,5 @@
 ﻿
-using Grayscale.P025_KifuLarabe.L00025_Struct;
+using Grayscale.Kifuwarazusa.Entities.Features;
 //スプライト番号
 
 using System.Windows.Forms;

@@ -1,10 +1,7 @@
 ﻿namespace Grayscale.Kifuwarazusa.Entities.Features.Gui
 {
-    using Grayscale.P025_KifuLarabe.L00012_Atom;
-    using Grayscale.P025_KifuLarabe.L00025_Struct;
-    using Grayscale.P025_KifuLarabe.L00050_StructShogi;
-    using Grayscale.P025_KifuLarabe.L004_StructShogi;
-    using Grayscale.P025_KifuLarabe.L012_Common;
+    using Grayscale.Kifuwarazusa.Entities.Features;
+    using Grayscale.Kifuwarazusa.Entities.Features;
 
     public class GameViewModel : IGameViewModel
     {
@@ -55,7 +52,7 @@
             this.kifu = new KifuTreeImpl(
                     new KifuNodeImpl(
                         Util_Sky.NullObjectMove,
-                        new KyokumenWrapper( new SkyConst( this.guiSky)),
+                        new KyokumenWrapper(new SkyConst(this.guiSky)),
                         Playerside.P2
                     )
             );

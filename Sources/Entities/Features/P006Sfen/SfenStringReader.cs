@@ -77,7 +77,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                     @"((?:[123456789]|\+?[KRBGSNLPkrbgsnlp])+) " +//9段目
                     @"(b|w) " +//先後
                     @"\-?" +//持駒なし
-                    // ↓この書き方だと、順序が決まってしまうが。
+                            // ↓この書き方だと、順序が決まってしまうが。
                     @"(\d*K)?" +//持駒▲王 ※持ち駒が１個だけの場合は、数字が省略されます。
                     @"(\d*R)?" +//持駒▲飛
                     @"(\d*B)?" +//持駒▲角
@@ -212,7 +212,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
         private static void Assert_Koma40(ISfenPosition2 result, string hint)
         {
-//#if DEBUG
+            //#if DEBUG
             StringBuilder sb = new StringBuilder();
             int komaCount = 0;
             result.Foreach_Masu201((int masuHandle, string masuString, ref bool toBreak) =>
@@ -224,8 +224,8 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 }
             });
 
-            Debug.Assert(komaCount == 40, "将棋の駒の数が40個ではありませんでした。[" + komaCount + "] " + sb.ToString() + "\n hint="+hint);
-//#endif
+            Debug.Assert(komaCount == 40, "将棋の駒の数が40個ではありませんでした。[" + komaCount + "] " + sb.ToString() + "\n hint=" + hint);
+            //#endif
         }
 
 
@@ -386,7 +386,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                             // 駒でした。
                             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                            switch(moji)
+                            switch (moji)
                             {
                                 case "K": bK++; break;
                                 case "R": bR++; break;
@@ -430,14 +430,14 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             }
 
             // 駒袋の中に残っている駒の数を数えます。
-            int fK = 2 -bK - mK - mk;
-            int fR = 2 -bR - mR - mr; // 将棋盤上の駒の数も数えないと☆
-            int fB = 2 -bB - mB - mb;
-            int fG = 4 -bG - mG - mg;
-            int fS = 4 -bS - mS - ms;
-            int fN = 4 -bN - mN - mn;
-            int fL = 4 -bL - mL - ml;
-            int fP = 18 -bP - mP - mp;
+            int fK = 2 - bK - mK - mk;
+            int fR = 2 - bR - mR - mr; // 将棋盤上の駒の数も数えないと☆
+            int fB = 2 - bB - mB - mb;
+            int fG = 4 - bG - mG - mg;
+            int fS = 4 - bS - mS - ms;
+            int fN = 4 - bN - mN - mn;
+            int fL = 4 - bL - mL - ml;
+            int fP = 18 - bP - mP - mp;
 
 
             // 盤外
@@ -512,8 +512,8 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             );
 
             SfenStringReader.Assert_Koma40(result,
-                " dan1=["+dan1+"]\n"
-                +" dan2=["+dan2+"]\n"
+                " dan1=[" + dan1 + "]\n"
+                + " dan2=[" + dan2 + "]\n"
                 + " dan3=[" + dan3 + "]\n"
                 + " dan4=[" + dan4 + "]\n"
                 + " dan5=[" + dan5 + "]\n"
@@ -557,7 +557,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         {
             int result;
 
-            if (moti.Length==1)
+            if (moti.Length == 1)
             {
                 // 「K」などを想定。
                 result = 1;

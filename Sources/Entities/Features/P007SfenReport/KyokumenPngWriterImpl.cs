@@ -1,12 +1,8 @@
 ﻿using System.Drawing;
 using System.IO;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P007_SfenReport.L00025_Report;
-using Grayscale.P007_SfenReport.L00050_Write;
-using Grayscale.P007_SfenReport.L050_Report;
 using Nett;
 
-namespace Grayscale.P007_SfenReport.L100_Write
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public class KyokumenPngWriterImpl : KyokumenPngWriter
     {
@@ -146,7 +142,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
                         if ("" != sign)
                         {
                             Point pt = this.SignToXy(sign, args);
-                            g.DrawImage(Image.FromFile(Path.Combine( positionPngDataDirectory , args.Env.KmFile)),
+                            g.DrawImage(Image.FromFile(Path.Combine(positionPngDataDirectory, args.Env.KmFile)),
                                 new Rectangle((9 - suji) * args.Env.KmW + bOx, (dan - 1) * args.Env.KmH + bOy, args.Env.KmW, args.Env.KmH),//dst
                                 new Rectangle(pt.X, pt.Y, args.Env.KmW, args.Env.KmH),//src
                                 GraphicsUnit.Pixel
@@ -170,7 +166,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
                     {
                         //駒
                         g.DrawImage(
-                            Image.FromFile( Path.Combine( positionPngDataDirectory, args.Env.KmFile)),
+                            Image.FromFile(Path.Combine(positionPngDataDirectory, args.Env.KmFile)),
                             new Rectangle(ox, (signs.Length - moti - 1) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
                             new Rectangle(pt.X, pt.Y, args.Env.KmW, args.Env.KmH),//src
                             GraphicsUnit.Pixel
@@ -179,7 +175,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
                         // 1桁目が先
                         {
                             int ichi = maisu % 10;
-                            g.DrawImage(Image.FromFile(Path.Combine( positionPngDataDirectory, args.Env.SjFile)),
+                            g.DrawImage(Image.FromFile(Path.Combine(positionPngDataDirectory, args.Env.SjFile)),
                                 new Rectangle(ox + args.Env.KmW, (signs.Length - moti - 1) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ichi * args.Env.SjW, args.Env.SjH, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
@@ -194,7 +190,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
                                 ju = -1;//空桁
                             }
                             g.DrawImage(
-                                Image.FromFile(Path.Combine( positionPngDataDirectory, args.Env.SjFile)),
+                                Image.FromFile(Path.Combine(positionPngDataDirectory, args.Env.SjFile)),
                                 new Rectangle(ox + args.Env.KmW + args.Env.SjW, (signs.Length - moti - 1) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ju * args.Env.SjW, 0, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
@@ -217,7 +213,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
                     int maisu = args.Ro_Kyokumen1.MotiP1[moti];
                     if (0 < maisu)
                     {
-                        g.DrawImage(Image.FromFile(Path.Combine( positionPngDataDirectory, args.Env.KmFile)),
+                        g.DrawImage(Image.FromFile(Path.Combine(positionPngDataDirectory, args.Env.KmFile)),
                             new Rectangle(ox, moti * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
                             new Rectangle(pt.X, pt.Y, args.Env.KmW, args.Env.KmH),//src
                             GraphicsUnit.Pixel
@@ -230,7 +226,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
                             {
                                 ju = -1;//空桁
                             }
-                            g.DrawImage(Image.FromFile(Path.Combine( positionPngDataDirectory, args.Env.SjFile)),
+                            g.DrawImage(Image.FromFile(Path.Combine(positionPngDataDirectory, args.Env.SjFile)),
                                 new Rectangle(ox + args.Env.KmW, moti * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ju * args.Env.SjW, 0, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
@@ -240,7 +236,7 @@ namespace Grayscale.P007_SfenReport.L100_Write
                         // 一の位が後
                         {
                             int ichi = maisu % 10;
-                            g.DrawImage(Image.FromFile(Path.Combine( positionPngDataDirectory, args.Env.SjFile)),
+                            g.DrawImage(Image.FromFile(Path.Combine(positionPngDataDirectory, args.Env.SjFile)),
                                 new Rectangle(ox + args.Env.KmW + args.Env.SjW, moti * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ichi * args.Env.SjW, 0, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel

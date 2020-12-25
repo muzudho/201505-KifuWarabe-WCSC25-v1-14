@@ -1,7 +1,4 @@
-﻿
-using Grayscale.P025_KifuLarabe.L00012_Atom;
-using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P025_KifuLarabe.L00050_StructShogi;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.Kifuwarazusa.Entities.Features.Gui
 {
