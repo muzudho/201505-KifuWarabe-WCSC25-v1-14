@@ -11,7 +11,7 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P100_ShogiServer.L100_InServer;
+using Grayscale.Kifuwarazusa.UseCases.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
@@ -24,7 +24,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
     using System.Drawing;
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-    using Grayscale.P100_ShogiServer.L100_InServer;
+    using Grayscale.Kifuwarazusa.UseCases.Features;
     using Grayscale.P200_KifuNarabe.L00006_Shape;
     using Grayscale.P200_KifuNarabe.L00047_Scene;
     using Grayscale.P200_KifuNarabe.L00048_ShogiGui;

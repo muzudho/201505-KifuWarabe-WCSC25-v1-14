@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 
-namespace Grayscale.P050_KifuWarabe.L00050_KyHyoka
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
 
     /// <summary>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.P050_KifuWarabe.L025_Erabu
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     /// <summary>
     /// 選ぶエンジン

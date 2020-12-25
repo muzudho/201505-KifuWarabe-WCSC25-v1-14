@@ -1,6 +1,6 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.P050_KifuWarabe.L003_Kokoro
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
 
     /// <summary>

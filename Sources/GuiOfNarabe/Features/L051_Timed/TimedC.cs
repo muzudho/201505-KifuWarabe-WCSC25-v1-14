@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P100_ShogiServer.L100_InServer;
+using Grayscale.Kifuwarazusa.UseCases.Features;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L050_Scene;

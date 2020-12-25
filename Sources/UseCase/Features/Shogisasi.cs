@@ -1,7 +1,6 @@
-﻿using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-using Grayscale.Kifuwarazusa.Entities.Features;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.P050_KifuWarabe.L00052_Shogisasi
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     /// <summary>
     /// 将棋指し。

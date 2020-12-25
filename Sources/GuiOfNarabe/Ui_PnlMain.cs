@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P100_ShogiServer.L100_InServer;
+using Grayscale.Kifuwarazusa.UseCases.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
 using Grayscale.P200_KifuNarabe.L00047_Scene;

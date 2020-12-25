@@ -6,10 +6,7 @@
     using Grayscale.Kifuwarazusa.Entities;
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;
-    using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
-    using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
-    using Grayscale.P050_KifuWarabe.L003_Kokoro;
-    using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
+    using Grayscale.Kifuwarazusa.UseCases.Features;
     using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
     public class Playing : ShogiEngine

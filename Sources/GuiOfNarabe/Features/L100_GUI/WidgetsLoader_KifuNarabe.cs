@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Text;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P100_ShogiServer.L100_InServer;
+using Grayscale.Kifuwarazusa.UseCases.Features;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
 using Grayscale.P200_KifuNarabe.L00047_Scene;

@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.P050_KifuWarabe.L031_AjimiEngine
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     public enum Result_Ajimi
     {

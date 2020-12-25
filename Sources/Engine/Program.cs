@@ -18,8 +18,8 @@
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.P050_KifuWarabe.L030_Shogisasi;
-    using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
+    using Grayscale.Kifuwarazusa.UseCases.Features;
+    using Grayscale.Kifuwarazusa.UseCases.Features;
     using Nett;
 #else
     using System;
@@ -30,9 +30,8 @@
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;
     using Grayscale.Kifuwarazusa.UseCases;
+    using Grayscale.Kifuwarazusa.UseCases.Features;
     using Grayscale.Kifuwarazusa.UseCases.Gui;
-    using Grayscale.P050_KifuWarabe.L030_Shogisasi;
-    using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
     using Nett;
 #endif
 

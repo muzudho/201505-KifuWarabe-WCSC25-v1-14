@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.P050_KifuWarabe.L00025_UsiLoop
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     public interface ShogiEngine
     {

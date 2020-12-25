@@ -7,7 +7,7 @@ using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P100_ShogiServer.L100_InServer
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     public class Util_InServer
     {

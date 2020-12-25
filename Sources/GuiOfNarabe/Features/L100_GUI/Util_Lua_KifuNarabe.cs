@@ -7,7 +7,7 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P100_ShogiServer.L100_InServer;
+using Grayscale.Kifuwarazusa.UseCases.Features;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.P200_KifuNarabe.L050_Scene;
@@ -19,7 +19,7 @@ using Grayscale.Kifuwarazusa.Entities.Logging;
 using NLua;
 #else
     using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-    using Grayscale.P100_ShogiServer.L100_InServer;
+    using Grayscale.Kifuwarazusa.UseCases.Features;
     using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
     using Grayscale.P200_KifuNarabe.L050_Scene;
     using Grayscale.P200_KifuNarabe.L051_Timed;

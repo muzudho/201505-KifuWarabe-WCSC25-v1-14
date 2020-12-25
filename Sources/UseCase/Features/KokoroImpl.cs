@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P050_KifuWarabe.L003_Kokoro
+﻿namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
 #if Debug
 using System;
@@ -14,8 +14,8 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-using Grayscale.P050_KifuWarabe.L030_Shogisasi;
+using Grayscale.Kifuwarazusa.UseCases.Features;
+using Grayscale.Kifuwarazusa.UseCases.Features;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 #else
     using System.Collections.Generic;
@@ -25,9 +25,6 @@ using Grayscale.Kifuwarazusa.Entities.Logging;
     using Codeplex.Data;//DynamicJson
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;
-    using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
-    using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-    using Grayscale.P050_KifuWarabe.L030_Shogisasi;
 
 #endif
 

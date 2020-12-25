@@ -1,16 +1,6 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
-using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-using Grayscale.P050_KifuWarabe.L00050_KyHyoka;
-using Grayscale.P050_KifuWarabe.L00051_Minimax;
-using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
-using Grayscale.P050_KifuWarabe.L003_Kokoro;
-using Grayscale.P050_KifuWarabe.L009_KyHyoka;
-using Grayscale.P050_KifuWarabe.L010_Minimax;
-using Grayscale.P050_KifuWarabe.L012_ScoreSibori;
-using Grayscale.P050_KifuWarabe.L025_Erabu;
 
-namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     /// <summary>
     /// 将棋指しエンジン。

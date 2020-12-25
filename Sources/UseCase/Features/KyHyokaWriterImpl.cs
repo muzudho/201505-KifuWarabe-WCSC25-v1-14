@@ -1,9 +1,8 @@
 ﻿
 using System.IO;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P050_KifuWarabe.L00050_KyHyoka;
 
-namespace Grayscale.P050_KifuWarabe.L009_KyHyoka
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     public class KyHyokaWriterImpl : KyHyokaWriter
     {

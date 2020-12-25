@@ -1,12 +1,7 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
-using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-using Grayscale.P050_KifuWarabe.L00050_KyHyoka;
-using Grayscale.P050_KifuWarabe.L00051_Minimax;
-using Grayscale.P050_KifuWarabe.L009_Hyoka;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P050_KifuWarabe.L010_Minimax
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     /// <summary>
     /// ミニマックス法エンジン

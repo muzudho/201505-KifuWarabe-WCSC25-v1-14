@@ -1,8 +1,7 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Logging;
 
-namespace Grayscale.P050_KifuWarabe.L031_AjimiEngine
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
     /// <summary>
     /// 味見エンジン。

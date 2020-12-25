@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
+namespace Grayscale.Kifuwarazusa.UseCases.Features
 {
 
     /// <summary>
