@@ -21,7 +21,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabeExe
             var engineConf = new EngineConf();
             EntitiesLayer.Implement(engineConf);
 
-            KifuNarabeImpl kifuNarabe = new KifuNarabeImpl();
+            KifuNarabeImpl kifuNarabe = new KifuNarabeImpl(engineConf);
 
             //↓ [STAThread]指定のあるメソッドで フォームを作成してください。
             Application.EnableVisualStyles();

@@ -10,6 +10,8 @@
         /// </summary>
         public static void Init(IEngineConf engineConf)
         {
+            EngineConf = engineConf;
+
             /*
             AddLog(LogTags.NarabeNetwork, new LogRecord("../../Logs/#将棋GUI_ﾈｯﾄﾜｰｸ", true, false));
             // ログ。将棋エンジンきふわらべで汎用に使います。
@@ -28,22 +30,24 @@
             */
 
 
-            LatestPositionLogPng = LogEntry(engineConf, "LatestPositionLogPng");
-            MousouRireki = LogEntry(engineConf, "MousouRireki");
-            GuiDefault = LogEntry(engineConf, "GuiRecordLog");
-            LinkedList = LogEntry(engineConf, "LinkedListLog");
-            GuiPaint = LogEntry(engineConf, "GuiPaint");
+            LatestPositionLogPng = LogEntry("LatestPositionLogPng");
+            MousouRireki = LogEntry("MousouRireki");
+            GuiDefault = LogEntry("GuiRecordLog");
+            LinkedList = LogEntry("LinkedListLog");
+            GuiPaint = LogEntry("GuiPaint");
             /*
             LegalMove = LogEntry(engineConf, "LegalMoveLog");
             LegalMoveEvasion = LogEntry(engineConf, "LegalMoveEvasionLog");
             */
-            GenMove = LogEntry(engineConf, "GenMoveLog");
+            GenMove = LogEntry("GenMoveLog");
         }
 
-        static IResFile LogEntry(IEngineConf engineConf, string resourceKey)
+        static IResFile LogEntry(string resourceKey)
         {
-            return ResFile.AsLog(engineConf.LogDirectory, engineConf.GetLogBasename(resourceKey));
+            return ResFile.AsLog(EngineConf.LogDirectory, EngineConf.GetLogBasename(resourceKey));
         }
+
+        static IEngineConf EngineConf { get; set; }
 
         /*
         static IResFile DataEntry(string profilePath, TomlTable toml, string resourceKey)

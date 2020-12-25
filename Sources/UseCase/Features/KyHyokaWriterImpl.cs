@@ -1,5 +1,6 @@
 ﻿
 using System.IO;
+using Grayscale.Kifuwarazusa.Entities.Configuration;
 using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.Kifuwarazusa.UseCases.Features
@@ -12,6 +13,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
         /// 棋譜ツリーの、ノードに格納されている、局面評価明細を、出力していきます。
         /// </summary>
         public void Write_ForeachLeafs(
+            IEngineConf engine,
             string nodePath,
             KifuNode node,
             KifuTree kifu,
@@ -30,6 +32,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                     double score = ((KifuNode)nextNode).KyHyoka.Total();
 
                     this.Write_ForeachLeafs(
+                        engine,
                         nodePath + " " + Util_Sky.ToSfenMoveTextForFilename(nextNode.Key),
                         (KifuNode)nextNode,
                         kifu,
@@ -47,6 +50,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
             // 盤１個分のログの準備
             //
             this.Log_Board(
+                engine,
                 nodePath,
                 node,
                 kifu,
@@ -59,6 +63,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
         /// 盤１個分のログ。
         /// </summary>
         private void Log_Board(
+            IEngineConf engineConf,
             string nodePath,
             KifuNode node,
             KifuTree kifu,
@@ -77,6 +82,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
 
                 //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
                 KyokumenPngWriterImpl.Write1(
+                    engineConf,
                     node.ToRO_Kyokumen1(),
                     Path.Combine(logDirectory, basename),
                     reportEnvironment

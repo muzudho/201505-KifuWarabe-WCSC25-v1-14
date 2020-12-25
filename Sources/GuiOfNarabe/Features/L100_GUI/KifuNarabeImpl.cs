@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Codeplex.Data;//DynamicJson
+using Grayscale.Kifuwarazusa.Entities.Configuration;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Logging;
@@ -20,6 +21,37 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
     /// </summary>
     public class KifuNarabeImpl : NarabeRoomViewModel
     {
+        /// <summary>
+        /// 生成後、OwnerFormをセットしてください。
+        /// </summary>
+        public KifuNarabeImpl(IEngineConf engineConf)
+        {
+            this.EngineConf = engineConf;
+
+            this.TimedA = new TimedA(this);
+            this.TimedB = new TimedB(this);
+            this.TimedC = new TimedC(this);
+
+            this.WidgetLoaders = new List<WidgetsLoader>();
+            this.ResponseData = new ResponseImpl();
+
+            //----------
+            // モデル
+            //----------
+            this.model_PnlTaikyoku = new GameViewModel();
+
+
+            //----------
+            // ブラシ
+            //----------
+            //
+            //      ボタンや将棋盤などを描画するツールを、事前準備しておきます。
+            //
+            this.shape_PnlTaikyoku = new Shape_PnlTaikyokuImpl();
+        }
+
+        public IEngineConf EngineConf { get; set; }
+
         public Timed TimedA { get; set; }
         public Timed TimedB { get; set; }
         public Timed TimedC { get; set; }
@@ -133,32 +165,6 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 
 
 
-        /// <summary>
-        /// 生成後、OwnerFormをセットしてください。
-        /// </summary>
-        public KifuNarabeImpl()
-        {
-            this.TimedA = new TimedA(this);
-            this.TimedB = new TimedB(this);
-            this.TimedC = new TimedC(this);
-
-            this.WidgetLoaders = new List<WidgetsLoader>();
-            this.ResponseData = new ResponseImpl();
-
-            //----------
-            // モデル
-            //----------
-            this.model_PnlTaikyoku = new GameViewModel();
-
-
-            //----------
-            // ブラシ
-            //----------
-            //
-            //      ボタンや将棋盤などを描画するツールを、事前準備しておきます。
-            //
-            this.shape_PnlTaikyoku = new Shape_PnlTaikyokuImpl();
-        }
 
         /// <summary>
         /// 見た目の設定を読み込みます。
@@ -229,29 +235,26 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
         {
             Logger.Trace("乱数のたね＝[" + LarabeRandom.Seed + "]");
 
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
             //----------
             // 道１８７
             //----------
-            Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Michi187")));
-            File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("MichiTableHtml")), Michi187Array.LogHtml());
+            Michi187Array.Load(this.EngineConf.GetResourceFullPath("Michi187"));
+            File.WriteAllText(this.EngineConf.GetResourceFullPath("MichiTableHtml"), Michi187Array.LogHtml());
 
             //----------
             // 駒の配役１８１
             //----------
-            Util_Haiyaku184Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Haiyaku185")), Encoding.UTF8);
+            Util_Haiyaku184Array.Load(this.EngineConf.GetResourceFullPath("Haiyaku185"), Encoding.UTF8);
 
             {
-                List<List<string>> rows = ForcePromotionArray.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputForcePromotion")), Encoding.UTF8);
-                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputForcePromotion")), ForcePromotionArray.LogHtml());
+                List<List<string>> rows = ForcePromotionArray.Load(this.EngineConf.GetResourceFullPath("InputForcePromotion"), Encoding.UTF8);
+                File.WriteAllText(this.EngineConf.GetResourceFullPath("OutputForcePromotion"), ForcePromotionArray.LogHtml());
             }
 
             {
                 // 配役転換表
-                List<List<string>> rows = Data_HaiyakuTransition.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputSyuruiToHaiyaku")), Encoding.UTF8);
-                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputSyuruiToHaiyaku")), Data_HaiyakuTransition.LogHtml());
+                List<List<string>> rows = Data_HaiyakuTransition.Load(this.EngineConf.GetResourceFullPath("InputSyuruiToHaiyaku"), Encoding.UTF8);
+                File.WriteAllText(this.EngineConf.GetResourceFullPath("OutputSyuruiToHaiyaku"), Data_HaiyakuTransition.LogHtml());
             }
         }
 

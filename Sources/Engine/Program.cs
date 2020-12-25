@@ -75,22 +75,19 @@
                 //------+-----------------------------------------------------------------------------------------------------------------
                 // 準備 |
                 //------+-----------------------------------------------------------------------------------------------------------------
-                var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-                var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
                 // データの読取「道」
-                Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Michi187")));
+                Michi187Array.Load(engineConf.GetResourceFullPath("Michi187"));
 
                 // データの読取「配役」
-                Util_Haiyaku184Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Haiyaku185")), Encoding.UTF8);
+                Util_Haiyaku184Array.Load(engineConf.GetResourceFullPath("Haiyaku185"), Encoding.UTF8);
 
                 // データの読取「強制転成表」　※駒配役を生成した後で。
-                ForcePromotionArray.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputForcePromotion")), Encoding.UTF8);
-                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputForcePromotion")), ForcePromotionArray.LogHtml());
+                ForcePromotionArray.Load(engineConf.GetResourceFullPath("InputForcePromotion"), Encoding.UTF8);
+                File.WriteAllText(engineConf.GetResourceFullPath("OutputForcePromotion"), ForcePromotionArray.LogHtml());
 
                 // データの読取「配役転換表」
-                Data_HaiyakuTransition.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputSyuruiToHaiyaku")), Encoding.UTF8);
-                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputSyuruiToHaiyaku")), Data_HaiyakuTransition.LogHtml());
+                Data_HaiyakuTransition.Load(engineConf.GetResourceFullPath("InputSyuruiToHaiyaku"), Encoding.UTF8);
+                File.WriteAllText(engineConf.GetResourceFullPath("OutputSyuruiToHaiyaku"), Data_HaiyakuTransition.LogHtml());
 
 
 
@@ -135,7 +132,7 @@
                         //seihinName += " " + versionStr;
                     }
 
-                    var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
+                    var engineName = engineConf.GetEngine("Name");
                     Logger.Trace($"v(^▽^)v ｲｪｰｲ☆ ... {engineName} {versionStr}");
                 }
 
@@ -179,8 +176,8 @@
                         if ("usi" == line)
                         {
                             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-                            var engineName = $"{toml.Get<TomlTable>("Engine").Get<string>("Name")} { version.Major}.{ version.Minor}.{ version.Build}";
-                            var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
+                            var engineName = $"{engineConf.GetEngine("Name")} { version.Major}.{ version.Minor}.{ version.Build}";
+                            var engineAuthor = engineConf.GetEngine("Author");
                             playing.UsiOk(engineName, engineAuthor);
                         }
                         else if (line.StartsWith("setoption"))
@@ -321,7 +318,7 @@
                                 var ky = kifuNode.ToRO_Kyokumen1();
                                 var fullname = SpecifyFiles.LatestPositionLogPng.Name;
                                 var env = ShogisasiImpl.ReportEnvironment;
-                                KyokumenPngWriterImpl.Write1(ky, fullname, env);
+                                KyokumenPngWriterImpl.Write1(engineConf, ky, fullname, env);
                             }
 
 

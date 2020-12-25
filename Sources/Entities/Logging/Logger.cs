@@ -17,21 +17,23 @@
         /// </summary>
         public static void Init(IEngineConf engineConf)
         {
-            TraceRecord = LogEntry(engineConf, "Trace", true, true);
-            DebugRecord = LogEntry(engineConf, "Debug", true, true);
-            InfoRecord = LogEntry(engineConf, "Info", true, true);
-            NoticeRecord = LogEntry(engineConf, "Notice", true, true);
-            WarnRecord = LogEntry(engineConf, "Warn", true, true);
-            ErrorRecord = LogEntry(engineConf, "Error", true, true);
-            FatalRecord = LogEntry(engineConf, "Fatal", true, true);
+            EngineConf = engineConf;
+            TraceRecord = LogEntry("Trace", true, true);
+            DebugRecord = LogEntry("Debug", true, true);
+            InfoRecord = LogEntry("Info", true, true);
+            NoticeRecord = LogEntry("Notice", true, true);
+            WarnRecord = LogEntry("Warn", true, true);
+            ErrorRecord = LogEntry("Error", true, true);
+            FatalRecord = LogEntry("Fatal", true, true);
         }
 
-        static ILogRecord LogEntry(IEngineConf engineConf, string resourceKey, bool enabled, bool timeStampPrintable)
+        static ILogRecord LogEntry(string resourceKey, bool enabled, bool timeStampPrintable)
         {
-            var logFile = ResFile.AsLog(engineConf.LogDirectory, engineConf.GetLogBasename(resourceKey));
+            var logFile = ResFile.AsLog(EngineConf.LogDirectory, EngineConf.GetLogBasename(resourceKey));
             return new LogRecord(logFile, enabled, timeStampPrintable);
         }
 
+        static IEngineConf EngineConf { get; set; }
         public static ILogRecord TraceRecord { get; private set; }
         public static ILogRecord DebugRecord { get; private set; }
         public static ILogRecord InfoRecord { get; private set; }
@@ -211,15 +213,10 @@
         {
             try
             {
-                var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-                var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-                var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogDirectory"));
-                // Console.WriteLine($"logDirectory={logDirectory}");
-
                 // [GUID]name.log
                 //var re = new Regex("^(\\[[0-9A-Fa-f-]+\\])?.+\\.log$");
 
-                DirectoryInfo dir = new System.IO.DirectoryInfo(logDirectory);
+                DirectoryInfo dir = new System.IO.DirectoryInfo(EngineConf.LogDirectory);
                 FileInfo[] files = dir.GetFiles("*.log*");
                 foreach (FileInfo f in files)
                 {

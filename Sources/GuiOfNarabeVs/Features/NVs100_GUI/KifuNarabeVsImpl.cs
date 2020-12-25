@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
+﻿using Grayscale.Kifuwarazusa.Entities.Configuration;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features.Features;
 
@@ -10,7 +11,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features
         public ShogiEngineLive ShogiEnginePrWrapperLauncher { get { return this.shogiEnginePrWrapperLauncher; } }
         private ShogiEngineLive shogiEnginePrWrapperLauncher;
 
-        public KifuNarabeVsImpl() : base()
+        public KifuNarabeVsImpl(IEngineConf engineConf) : base(engineConf)
         {
             this.shogiEnginePrWrapperLauncher = new ShogiEngineLiveImpl(this);
         }

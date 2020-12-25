@@ -1,11 +1,17 @@
 ﻿using System.Drawing;
 using System.IO;
+using Grayscale.Kifuwarazusa.Entities.Configuration;
 using Nett;
 
 namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public class KyokumenPngWriterImpl : KyokumenPngWriter
     {
+        private KyokumenPngWriterImpl(IEngineConf engineConf)
+        {
+            this.EngineConf = engineConf;
+        }
+        public IEngineConf EngineConf { get; private set; }
 
         public const int MOTI_LEN = 7;//飛、角、金、銀、桂、香、歩の７つ。
         public const int BN_SUJIS = 9;//将棋盤は9筋。ban sujis
@@ -22,6 +28,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="reportEnvironment"></param>
         /// <returns></returns>
         public static bool Write2(
+            IEngineConf engineConf,
             string sfenstring,
             string outFileFullName,
             ReportEnvironment reportEnvironment
@@ -45,6 +52,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             }
 
             KyokumenPngWriterImpl.Write1(
+                engineConf,
                 ro_SfenStartpos.ToKyokumen1(),
                 outFileFullName,
                 reportEnvironment
@@ -62,6 +70,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="reportEnvironment"></param>
         /// <returns></returns>
         public static bool Write1(
+            IEngineConf engineConf,
             ISfenPosition1 ro_Kyokumen1,
             string outFileFullName,
             ReportEnvironment reportEnvironment
@@ -69,7 +78,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         {
             bool successful = true;
 
-            KyokumenPngWriter repWriter = new KyokumenPngWriterImpl();
+            KyokumenPngWriter repWriter = new KyokumenPngWriterImpl(engineConf);
             ReportArgs args = new ReportArgsImpl(
                 ro_Kyokumen1,
                 outFileFullName,
@@ -100,19 +109,12 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             return successful;
         }
 
-        private KyokumenPngWriterImpl()
-        {
-        }
-
         /// <summary>
         /// 局面を描きます。
         /// </summary>
         public void Paint(Graphics g, ReportArgs args)
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var positionPngDataDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("PositionPngDataDirectory"));
-
+            var positionPngDataDirectory = this.EngineConf.GetResourceFullPath("PositionPngDataDirectory");
 
             // 8×8 の将棋盤
             int bOx = args.Env.KmW + 2 * args.Env.SjW; // 将棋盤の左辺

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Grayscale.Kifuwarazusa.Engine.Configuration;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Nett;
 
@@ -10,23 +12,24 @@ namespace Grayscale.Kifuwarazusa.CliSfenReport
     {
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
+        ///
+        /// コマンドライン引数の例
+        ///
+        /// --position="position sfen 1nsgkgsnl/9/p2pppppp/9/9/9/P2PPPPPP/1B5R1/1NSGKGSNL w L2Pl2p 1 moves 5a6b 7g7f 3a3b" \
+        /// --outFile="_log_局面1.png"
+        /// --kmFile="koma1.png" \
+        /// --sjFile="suji1.png" \
+        /// --kmW=20 \
+        /// --kmH=20 \
+        /// --sjW=8 \
+        /// --sjH=12 \
+        /// --end
         /// </summary>
         [STAThread]
         static void Main()
         {
-            //
-            // コマンドライン引数の例
-            //
-            // --position="position sfen 1nsgkgsnl/9/p2pppppp/9/9/9/P2PPPPPP/1B5R1/1NSGKGSNL w L2Pl2p 1 moves 5a6b 7g7f 3a3b" \
-            // --outFile="_log_局面1.png"
-            // --kmFile="koma1.png" \
-            // --sjFile="suji1.png" \
-            // --kmW=20 \
-            // --kmH=20 \
-            // --sjW=8 \
-            // --sjH=12 \
-            // --end
-            //
+            var engineConf = new EngineConf();
+            EntitiesLayer.Implement(engineConf);
 
             // ヌル防止のための初期値
             Dictionary<string, string> argsDic = new Dictionary<string, string>();
@@ -70,14 +73,11 @@ namespace Grayscale.Kifuwarazusa.CliSfenReport
                     argsDic["sjH"]
                 );
 
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var positionPngLogDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("PositionPngLogDirectory"));
-
             //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
             KyokumenPngWriterImpl.Write2(
+                engineConf,
                 sfen,
-                Path.Combine(positionPngLogDirectory, argsDic["outFile"]),
+                Path.Combine(engineConf.GetResourceFullPath("PositionPngLogDirectory"), argsDic["outFile"]),
                 reportEnvironment
                 );
 

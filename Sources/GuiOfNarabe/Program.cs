@@ -25,7 +25,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabeExe
             var engineConf = new EngineConf();
             EntitiesLayer.Implement(engineConf);
 
-            KifuNarabeImpl kifuNarabe = new KifuNarabeImpl();
+            KifuNarabeImpl kifuNarabe = new KifuNarabeImpl(engineConf);
 
             //↓ [STAThread]指定のあるメソッドで フォームを作成してください。
             Application.EnableVisualStyles();
@@ -35,10 +35,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabeExe
 
             kifuNarabe.Load_AsStart();
 
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var configPath = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("NarabeGuiWidgets"));
-            kifuNarabe.WidgetLoaders.Add(new WidgetsLoader_KifuNarabe(configPath));
+            kifuNarabe.WidgetLoaders.Add(new WidgetsLoader_KifuNarabe(engineConf.GetResourceFullPath("NarabeGuiWidgets")));
 
             kifuNarabe.LaunchForm_AsBody();
         }
