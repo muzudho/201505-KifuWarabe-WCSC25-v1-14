@@ -42,7 +42,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             }
             sb.AppendLine();
 
-            File.AppendAllText(Path.Combine(logDirectory, "_log_スコア明細.txt"), sb.ToString());
+            File.AppendAllText(Path.Combine(logDirectory, "#スコア明細.log"), sb.ToString()); // TODO
         }
 
     }

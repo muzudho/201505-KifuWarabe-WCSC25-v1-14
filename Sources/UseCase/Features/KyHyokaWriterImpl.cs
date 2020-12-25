@@ -72,7 +72,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
             )
         {
             // 出力先
-            string basename = "_log_" + ((int)node.KyHyoka.Total()) + "点_" + KyHyokaWriterImpl.logFileCounter + "_" + nodePath + ".png";
+            string basename = $"#{((int)node.KyHyoka.Total())}点_{KyHyokaWriterImpl.logFileCounter}_{nodePath}.log.png"; // TODO
 
             //
             // 画像ﾛｸﾞ
