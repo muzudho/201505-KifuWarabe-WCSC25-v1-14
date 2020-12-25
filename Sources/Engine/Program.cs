@@ -27,6 +27,7 @@
     using System.IO;
     using System.Text;
     using System.Text.RegularExpressions;
+    using Grayscale.Kifuwarazusa.Entities.Configuration;
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;
     using Grayscale.Kifuwarazusa.UseCases;
@@ -313,7 +314,7 @@
                             {
                                 //SFEN文字列と、出力ファイル名を指定することで、局面の画像ログを出力します。
                                 var ky = kifuNode.ToRO_Kyokumen1();
-                                var fullname = SpecifyLogFiles.LatestPositionLogPng.Name;
+                                var fullname = SpecifyFiles.LatestPositionLogPng.Name;
                                 var env = ShogisasiImpl.ReportEnvironment;
                                 KyokumenPngWriterImpl.Write1(ky, fullname, env);
                             }

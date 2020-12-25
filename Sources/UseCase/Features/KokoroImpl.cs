@@ -22,6 +22,7 @@ using Grayscale.Kifuwarazusa.Entities.Logging;
     using System.IO;
     using System.Text;
     using Codeplex.Data;//DynamicJson
+    using Grayscale.Kifuwarazusa.Entities.Configuration;
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;
 
@@ -272,15 +273,15 @@ using Grayscale.Kifuwarazusa.Entities.Logging;
 
             // 追記ではなく、上書きにしたい☆
             Logger.Trace(
-                shogisasi.Kokoro.TenonagareToJsonVal().ToString(), SpecifyLogFiles.MousouRireki
+                shogisasi.Kokoro.TenonagareToJsonVal().ToString(), SpecifyFiles.MousouRireki
                 );
         }
 
         public void ReadTenonagare()
         {
-            if (File.Exists(SpecifyLogFiles.MousouRireki.Name))
+            if (File.Exists(SpecifyFiles.MousouRireki.Name))
             {
-                string mousouRirekiLog = System.IO.File.ReadAllText(SpecifyLogFiles.MousouRireki.Name, Encoding.UTF8);
+                string mousouRirekiLog = System.IO.File.ReadAllText(SpecifyFiles.MousouRireki.Name, Encoding.UTF8);
 
 #if DEBUG
                 MessageBox.Show(mousouRirekiLog, "妄想履歴ログ有り　（デバッグモード　正常）");

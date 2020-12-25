@@ -1,11 +1,11 @@
-﻿namespace Grayscale.Kifuwarazusa.Entities.Logging
+﻿namespace Grayscale.Kifuwarazusa.Entities.Configuration
 {
     using System.IO;
     using Nett;
 
-    public static class SpecifyLogFiles
+    public static class SpecifyFiles
     {
-        static SpecifyLogFiles()
+        static SpecifyFiles()
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -41,13 +41,13 @@
             GenMove = LogEntry(logDirectory, toml, "GenMoveLog");
         }
 
-        static ILogFile LogEntry(string logDirectory, TomlTable toml, string resourceKey)
+        static IResFile LogEntry(string logDirectory, TomlTable toml, string resourceKey)
         {
-            return LogFile.AsLog(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
+            return ResFile.AsLog(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
         }
-        static ILogFile DataEntry(string profilePath, TomlTable toml, string resourceKey)
+        static IResFile DataEntry(string profilePath, TomlTable toml, string resourceKey)
         {
-            return LogFile.AsData(profilePath, toml.Get<TomlTable>("Resources").Get<string>(resourceKey));
+            return ResFile.AsData(profilePath, toml.Get<TomlTable>("Resources").Get<string>(resourceKey));
         }
 
         /*
@@ -59,11 +59,11 @@
 
 
 
-        public static ILogFile LatestPositionLogPng { get; private set; }
-        public static ILogFile MousouRireki { get; private set; }
-        public static ILogFile GuiDefault { get; private set; }
-        public static ILogFile LinkedList { get; private set; }
-        public static ILogFile GuiPaint { get; private set; }
+        public static IResFile LatestPositionLogPng { get; private set; }
+        public static IResFile MousouRireki { get; private set; }
+        public static IResFile GuiDefault { get; private set; }
+        public static IResFile LinkedList { get; private set; }
+        public static IResFile GuiPaint { get; private set; }
 
         /*
         public static ILogFile LegalMove { get; private set; }
@@ -72,6 +72,6 @@
         /// <summary>
         /// 指し手生成だけ別ファイルにログを取りたいとき。
         /// </summary>
-        public static ILogFile GenMove { get; private set; }
+        public static IResFile GenMove { get; private set; }
     }
 }

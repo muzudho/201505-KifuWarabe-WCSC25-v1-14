@@ -1,11 +1,13 @@
-﻿namespace Grayscale.Kifuwarazusa.Entities.Logging
+﻿using Grayscale.Kifuwarazusa.Entities.Configuration;
+
+namespace Grayscale.Kifuwarazusa.Entities.Logging
 {
     public interface ILogRecord
     {
         /// <summary>
         /// 出力先ファイル。
         /// </summary>
-        ILogFile LogFile { get; }
+        IResFile LogFile { get; }
 
         /// <summary>
         /// ログ出力の有無。
