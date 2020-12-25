@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\IEngineConf.cs" />
     <Compile Include="EntitiesLayer.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="Configuration\IResFile.cs" />

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Grayscale.Kifuwarazusa.Engine.Configuration;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Nett;
 
@@ -14,6 +16,9 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features
         [STAThread]
         static void Main()
         {
+            var engineConf = new EngineConf();
+            EntitiesLayer.Implement(engineConf);
+
             /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

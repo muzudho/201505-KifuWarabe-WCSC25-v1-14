@@ -27,6 +27,8 @@
     using System.IO;
     using System.Text;
     using System.Text.RegularExpressions;
+    using Grayscale.Kifuwarazusa.Engine.Configuration;
+    using Grayscale.Kifuwarazusa.Entities;
     using Grayscale.Kifuwarazusa.Entities.Configuration;
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;
@@ -49,6 +51,9 @@
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            var engineConf = new EngineConf();
+            EntitiesLayer.Implement(engineConf);
+
             // 
             var playing = new Playing();
 

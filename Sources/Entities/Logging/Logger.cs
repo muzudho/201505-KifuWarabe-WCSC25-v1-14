@@ -12,34 +12,33 @@
     /// </summary>
     public static class Logger
     {
-        static Logger()
+        /// <summary>
+        /// このクラスを使う前にセットしてください。
+        /// </summary>
+        public static void Init(IEngineConf engineConf)
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogDirectory"));
-
-            TraceRecord = LogEntry(logDirectory, toml, "Trace", true, true);
-            DebugRecord = LogEntry(logDirectory, toml, "Debug", true, true);
-            InfoRecord = LogEntry(logDirectory, toml, "Info", true, true);
-            NoticeRecord = LogEntry(logDirectory, toml, "Notice", true, true);
-            WarnRecord = LogEntry(logDirectory, toml, "Warn", true, true);
-            ErrorRecord = LogEntry(logDirectory, toml, "Error", true, true);
-            FatalRecord = LogEntry(logDirectory, toml, "Fatal", true, true);
+            TraceRecord = LogEntry(engineConf, "Trace", true, true);
+            DebugRecord = LogEntry(engineConf, "Debug", true, true);
+            InfoRecord = LogEntry(engineConf, "Info", true, true);
+            NoticeRecord = LogEntry(engineConf, "Notice", true, true);
+            WarnRecord = LogEntry(engineConf, "Warn", true, true);
+            ErrorRecord = LogEntry(engineConf, "Error", true, true);
+            FatalRecord = LogEntry(engineConf, "Fatal", true, true);
         }
 
-        static ILogRecord LogEntry(string logDirectory, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable)
+        static ILogRecord LogEntry(IEngineConf engineConf, string resourceKey, bool enabled, bool timeStampPrintable)
         {
-            var logFile = ResFile.AsLog(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
+            var logFile = ResFile.AsLog(engineConf.LogDirectory, engineConf.GetLogBasename(resourceKey));
             return new LogRecord(logFile, enabled, timeStampPrintable);
         }
 
-        static readonly ILogRecord TraceRecord;
-        static readonly ILogRecord DebugRecord;
-        static readonly ILogRecord InfoRecord;
-        static readonly ILogRecord NoticeRecord;
-        static readonly ILogRecord WarnRecord;
-        static readonly ILogRecord ErrorRecord;
-        static readonly ILogRecord FatalRecord;
+        public static ILogRecord TraceRecord { get; private set; }
+        public static ILogRecord DebugRecord { get; private set; }
+        public static ILogRecord InfoRecord { get; private set; }
+        public static ILogRecord NoticeRecord { get; private set; }
+        public static ILogRecord WarnRecord { get; private set; }
+        public static ILogRecord ErrorRecord { get; private set; }
+        public static ILogRecord FatalRecord { get; private set; }
 
         /// <summary>
         /// テキストをそのまま、ファイルへ出力するためのものです。

@@ -6,6 +6,8 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
+using Grayscale.Kifuwarazusa.Engine.Configuration;
+using Grayscale.Kifuwarazusa.Entities;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Nett;
 
@@ -20,6 +22,9 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabeExe
         [STAThread]
         static void Main()
         {
+            var engineConf = new EngineConf();
+            EntitiesLayer.Implement(engineConf);
+
             KifuNarabeImpl kifuNarabe = new KifuNarabeImpl();
 
             //↓ [STAThread]指定のあるメソッドで フォームを作成してください。
