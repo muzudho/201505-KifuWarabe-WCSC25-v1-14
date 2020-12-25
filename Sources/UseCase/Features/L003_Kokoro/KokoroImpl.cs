@@ -12,29 +12,23 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P040_Kokoro.L00050_Kokoro;
-using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
+using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 using Grayscale.P050_KifuWarabe.L030_Shogisasi;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 #else
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
+    using System.Windows.Forms;
     using Codeplex.Data;//DynamicJson
     using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.P040_Kokoro.L00050_Kokoro;
+    using Grayscale.Kifuwarazusa.Entities.Logging;
     using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
     using Grayscale.P050_KifuWarabe.L00049_Kokoro;
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
-    using Grayscale.Kifuwarazusa.Entities.Logging;
-    using System.Windows.Forms;
+
 #endif
 
     /// <summary>
@@ -293,7 +287,7 @@ using Grayscale.Kifuwarazusa.Entities.Logging;
                 string mousouRirekiLog = System.IO.File.ReadAllText(SpecifyLogFiles.MousouRireki.Name, Encoding.UTF8);
 
 #if DEBUG
-                    MessageBox.Show( mousouRirekiLog, "妄想履歴ログ有り　（デバッグモード　正常）" );
+                MessageBox.Show(mousouRirekiLog, "妄想履歴ログ有り　（デバッグモード　正常）");
 #endif
 
                 var jsonMousou_arr = DynamicJson.Parse(mousouRirekiLog);

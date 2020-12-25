@@ -1,11 +1,6 @@
 ﻿using System.Collections.Generic;
-using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P200_KifuNarabe.L025_Macro
@@ -15,7 +10,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         /// <summary>
         /// v(^▽^)v超能力『メナス』だぜ☆ 未来の脅威を予測し、可視化するぜ☆ｗｗｗ
         /// </summary>
-        public static void Menace( NarabeRoomViewModel shogiGui)
+        public static void Menace(NarabeRoomViewModel shogiGui)
         {
             if (0 < shogiGui.GameViewModel.GuiTesumi)
             {

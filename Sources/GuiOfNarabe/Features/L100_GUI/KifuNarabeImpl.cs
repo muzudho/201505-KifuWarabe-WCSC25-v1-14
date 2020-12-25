@@ -9,10 +9,6 @@ using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
@@ -21,6 +17,7 @@ using Grayscale.P200_KifuNarabe.L050_Scene;
 using Grayscale.P200_KifuNarabe.L051_Timed;
 using Nett;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
@@ -221,7 +218,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     catch (Exception ex)
                     {
                         MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
-                        throw ;
+                        throw;
                     }
 
 
@@ -315,7 +312,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         {
         }
 
-        
+
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
@@ -323,7 +320,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         {
         }
 
-        
+
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
@@ -338,7 +335,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
         {
         }
 
-        public void Response( string mutexString)
+        public void Response(string mutexString)
         {
             Ui_PnlMain ui_PnlMain = ((Ui_ShogiForm1)this.OwnerForm).Ui_PnlMain1;
 

@@ -1,8 +1,5 @@
-﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 
 namespace Grayscale.P200_KifuNarabe.L025_Macro
 {

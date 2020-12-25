@@ -1,6 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-
-namespace Grayscale.Kifuwarazusa.Entities.Features
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public class KifuParserA_GenjoImpl : KifuParserA_Genjo
     {

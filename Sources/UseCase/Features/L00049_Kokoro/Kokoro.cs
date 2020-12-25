@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P050_KifuWarabe.L030_Shogisasi;
 
 namespace Grayscale.P050_KifuWarabe.L00049_Kokoro

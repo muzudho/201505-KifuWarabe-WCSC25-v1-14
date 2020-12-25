@@ -1,11 +1,6 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-//スプライト番号
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
+﻿//スプライト番号
 using System.Collections.Generic;
+using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P050_KifuWarabe.L025_Erabu
 {
@@ -38,7 +33,7 @@ namespace Grayscale.P050_KifuWarabe.L025_Erabu
                 LarabeShuffle<Node<ShootingStarlightable, KyokumenWrapper>>.Shuffle_FisherYates(ref nextNodes_shuffled);
 
                 // シャッフルした最初の指し手を選びます。
-                if (0<nextNodes_shuffled.Count)
+                if (0 < nextNodes_shuffled.Count)
                 {
                     bestMove = nextNodes_shuffled[0].Key;
                 }

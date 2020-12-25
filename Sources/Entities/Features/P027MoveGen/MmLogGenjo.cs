@@ -1,7 +1,6 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P027MoveGen.L00025_MovableMove
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public interface MmLogGenjo
     {

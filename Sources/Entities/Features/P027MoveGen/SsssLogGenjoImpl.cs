@@ -1,7 +1,6 @@
 ﻿using System;
-using Grayscale.P027MoveGen.L0005MoveGen;
 
-namespace Grayscale.P027MoveGen.L100MoveGen
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public class SsssLogGenjoImpl : SsssLogGenjo
     {

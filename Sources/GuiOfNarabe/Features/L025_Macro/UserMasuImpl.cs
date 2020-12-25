@@ -1,10 +1,7 @@
-﻿
-using Grayscale.Kifuwarazusa.Entities.Features;
+﻿//スプライト番号
+using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
-
-//スプライト番号
-using System.Drawing;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
 
 namespace Grayscale.P200_KifuNarabe.L025_Macro
@@ -44,7 +41,8 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         public string Type { get; set; }
         public string Name { get; set; }
 
-        public Color BackColor {
+        public Color BackColor
+        {
             get
             {
                 return this.this_object.BackColor;
@@ -61,11 +59,12 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         }
 
 
-        public DELEGATE_MouseHitEvent Delegate_MouseHitEvent{get;set;}
+        public DELEGATE_MouseHitEvent Delegate_MouseHitEvent { get; set; }
 
         public bool IsLight_OnFlowB_1TumamitaiKoma { get; set; }
 
-        public Rectangle Bounds {
+        public Rectangle Bounds
+        {
             get
             {
                 return this.this_object.Bounds;
@@ -73,19 +72,19 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         }
         public void SetBounds(Rectangle rect)
         {
-            this.this_object.SetBounds( rect);
+            this.this_object.SetBounds(rect);
         }
 
-        public string Text{get;set;}
+        public string Text { get; set; }
 
-        public string Fugo{get;set;}
+        public string Fugo { get; set; }
 
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
         /// フォントサイズ。
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        public float FontSize{get;set;}
+        public float FontSize { get; set; }
 
         public void Paint(Graphics g1)
         {
@@ -97,7 +96,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
             return this.this_object.HitByMouse(x, y);
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// マウスが重なった駒は、光フラグを立てます。
@@ -127,7 +126,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
             }
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 動かしたい駒の解除
@@ -135,7 +134,7 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public bool DeselectByMouse(int x, int y, object obj_shogiGui )
+        public bool DeselectByMouse(int x, int y, object obj_shogiGui)
         {
             return false;// this.this_object.DeselectByMouse(x, y, shape_PnlTaikyoku);
         }

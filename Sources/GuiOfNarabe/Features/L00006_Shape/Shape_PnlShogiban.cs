@@ -1,13 +1,13 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P200_KifuNarabe.L00006_Shape
 {
     public interface Shape_PnlShogiban
     {
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 筋を指定すると、ｘ座標を返します。
@@ -17,7 +17,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
         /// <returns></returns>
         int SujiToX(int suji);
 
-                
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 将棋盤の描画はここに書きます。
@@ -39,7 +39,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
         Dictionary<int, List<int>> HMasu_KikiKomaList { get; set; }
 
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 段を指定すると、ｙ座標を返します。

@@ -1,10 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P040_Kokoro.L00050_Kokoro;
-using Grayscale.P040_Kokoro.L100_Kokoro;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 
 namespace Grayscale.P050_KifuWarabe.L003_Kokoro

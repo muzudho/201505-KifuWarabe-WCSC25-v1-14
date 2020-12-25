@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Nett;
 
 namespace Grayscale.Kifuwarazusa.CliSfenReport

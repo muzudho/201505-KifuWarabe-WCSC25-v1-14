@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.Kifuwarazusa.Entities.Features.L006_SfenEx
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     /// <summary>
     /// 将棋盤上の情報を数えます。未使用？

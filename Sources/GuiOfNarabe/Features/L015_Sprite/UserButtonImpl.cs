@@ -24,7 +24,8 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         public string Type { get; set; }
         public string Name { get; set; }
 
-        public Color BackColor {
+        public Color BackColor
+        {
             get
             {
                 return this.this_object.BackColor;
@@ -41,11 +42,12 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         }
 
 
-        public DELEGATE_MouseHitEvent Delegate_MouseHitEvent{get;set;}
+        public DELEGATE_MouseHitEvent Delegate_MouseHitEvent { get; set; }
 
         public bool IsLight_OnFlowB_1TumamitaiKoma { get; set; }
 
-        public Rectangle Bounds {
+        public Rectangle Bounds
+        {
             get
             {
                 return this.this_object.Bounds;
@@ -53,7 +55,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         }
         public void SetBounds(Rectangle rect)
         {
-            this.this_object.SetBounds( rect);
+            this.this_object.SetBounds(rect);
         }
 
         public string Text
@@ -64,7 +66,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             }
             set
             {
-            this.this_object.Text = value;
+                this.this_object.Text = value;
             }
         }
 
@@ -107,7 +109,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             return this.this_object.HitByMouse(x, y);
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// マウスが重なった駒は、光フラグを立てます。
@@ -137,7 +139,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             }
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 動かしたい駒の解除
@@ -162,7 +164,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             }
         }
 
-        public Okiba Okiba{get;set;}
+        public Okiba Okiba { get; set; }
         public int Suji { get; set; }
         public int Dan { get; set; }
         public int MasuHandle { get; set; }

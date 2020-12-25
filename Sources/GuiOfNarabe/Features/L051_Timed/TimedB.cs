@@ -12,7 +12,7 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P100_ShogiServer.L100_InServer;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L015_Sprite;
@@ -22,13 +22,8 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 #else
     using System.Collections.Generic;
     using System.Drawing;
+    using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.P100_ShogiServer.L100_InServer;
     using Grayscale.P200_KifuNarabe.L00006_Shape;
     using Grayscale.P200_KifuNarabe.L00047_Scene;
@@ -98,25 +93,25 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                 {
                     case SceneName.SceneB_1TumamitaiKoma:
                         {
-#region つまみたい駒
+                            #region つまみたい駒
 
 
                             switch (eventState.Name2)
                             {
                                 case MouseEventStateName.Arive:
                                     {
-#region アライブ
+                                        #region アライブ
                                         //------------------------------
                                         // メナス
                                         //------------------------------
                                         Util_Menace.Menace(this.shogiGui);
-#endregion
+                                        #endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseMove:
                                     {
-#region マウスムーブ
+                                        #region マウスムーブ
                                         if (bMouseMove_SceneB_1TumamitaiKoma)
                                         {
                                             continue;
@@ -192,13 +187,13 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                                 if (widget.Light) { shogiGui.ResponseData.ToRedraw(); }
                                             }
                                         }
-#endregion
+                                        #endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseLeftButtonDown:
                                     {
-#region マウス左ボタンダウン
+                                        #region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
                                         SkyConst src_Sky = shogiGui.GameViewModel.GuiSkyConst;
 
@@ -280,13 +275,13 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-#endregion
+                                        #endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
-#region マウス左ボタンアップ
+                                        #region マウス左ボタンアップ
                                         SkyConst src_Sky = shogiGui.GameViewModel.GuiSkyConst;
 
                                         //----------
@@ -363,7 +358,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                                     // TODO: 一手[巻戻し]のときは追加したくない
                                                     Node<ShootingStarlightable, KyokumenWrapper> newNode = new KifuNodeImpl(move,
                                                                                         new KyokumenWrapper(new SkyConst(src_Sky)),
-                                                                                        KifuNodeImpl.GetReverseTebanside( ((KifuNode)shogiGui.GameViewModel.Kifu.CurNode).Tebanside)
+                                                                                        KifuNodeImpl.GetReverseTebanside(((KifuNode)shogiGui.GameViewModel.Kifu.CurNode).Tebanside)
                                                                                         );
 
 
@@ -424,24 +419,24 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
 
-#endregion
+                                        #endregion
                                     }
                                     break;
 
                             }
-#endregion
+                            #endregion
                         }
                         break;
 
                     case SceneName.SceneB_2OkuKoma:
                         {
-#region 置く駒
+                            #region 置く駒
 
                             switch (eventState.Name2)
                             {
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
-#region マウス左ボタンアップ
+                                        #region マウス左ボタンアップ
                                         Node<ShootingStarlightable, KyokumenWrapper> siteiNode = KifuNarabe_KifuWrapper.CurNode(shogiGui.GameViewModel.Kifu);
                                         SkyConst src_Sky = shogiGui.GameViewModel.GuiSkyConst;
 
@@ -500,7 +495,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                                             new KifuNodeImpl(
                                                                 move,
                                                                 new KyokumenWrapper(new SkyConst(src_Sky)),
-                                                                KifuNodeImpl.GetReverseTebanside( ((KifuNode)shogiGui.GameViewModel.Kifu.CurNode).Tebanside)
+                                                                KifuNodeImpl.GetReverseTebanside(((KifuNode)shogiGui.GameViewModel.Kifu.CurNode).Tebanside)
                                                             );
 
 
@@ -552,13 +547,13 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-#endregion
+                                        #endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseLeftButtonDown:
                                     {
-#region マウス左ボタンダウン
+                                        #region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
 
                                         //System.C onsole.WriteLine("B2マウスダウン");
@@ -619,7 +614,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                                         {
                                                             //>>>>> そこに駒が置いてあった。
 #if DEBUG
-                                    // MessageBox.Show("駒が置いてあった","デバッグ中");
+                                                            // MessageBox.Show("駒が置いてあった","デバッグ中");
 #endif
                                                             match = true;
                                                             toBreak = true;
@@ -767,13 +762,13 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-#endregion
+                                        #endregion
                                     }
                                     break;
 
                                 case MouseEventStateName.MouseRightButtonDown:
                                     {
-#region マウス右ボタンダウン
+                                        #region マウス右ボタンダウン
                                         // 各駒の、移動済フラグを解除
                                         //System.C onsole.WriteLine("つまんでいる駒を放します。(5)");
                                         shogiGui.Shape_PnlTaikyoku.SetFigTumandeiruKoma(-1);
@@ -788,23 +783,23 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-#endregion
+                                        #endregion
                                     }
                                     break;
                             }
-#endregion
+                            #endregion
                         }
                         break;
 
                     case SceneName.SceneB_3ErabuNaruNaranai:
                         {
-#region 成る成らない
+                            #region 成る成らない
 
                             switch (eventState.Name2)
                             {
                                 case MouseEventStateName.MouseLeftButtonDown:
                                     {
-#region マウス左ボタンダウン
+                                        #region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
                                         //GuiSky この関数の途中で変更される。ローカル変数に入れているものは古くなる。
 
@@ -872,24 +867,24 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                         // このメインパネルの反応
                                         //------------------------------
                                         shogiGui.Response("MouseOperation");
-#endregion
+                                        #endregion
                                     }
                                     break;
                             }
-#endregion
+                            #endregion
 
                         }
                         break;
                 }
             }
-            
 
 
 
 
 
-        //gt_EndMethod1:
-        //    ;
+
+            //gt_EndMethod1:
+            //    ;
         }
     }
 

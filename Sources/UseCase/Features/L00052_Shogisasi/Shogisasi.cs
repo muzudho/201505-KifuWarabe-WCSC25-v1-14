@@ -1,8 +1,5 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
+﻿using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P045_Atama.L00025_KyHandan;
-using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 
 namespace Grayscale.P050_KifuWarabe.L00052_Shogisasi
 {
@@ -20,7 +17,7 @@ namespace Grayscale.P050_KifuWarabe.L00052_Shogisasi
         /// 対局開始のとき。
         /// </summary>
         void OnTaikyokuKaisi();
-                
+
         /// <summary>
         /// 指し手を決めます。
         /// </summary>

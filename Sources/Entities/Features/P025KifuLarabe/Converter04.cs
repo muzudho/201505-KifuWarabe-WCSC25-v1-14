@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwarazusa.Entities.Features

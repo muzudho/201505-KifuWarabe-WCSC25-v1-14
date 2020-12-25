@@ -1,7 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P027MoveGen.L00025_MovableMove;
-
-namespace Grayscale.P027MoveGen.L050_MovableMove
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public class MmGenjo_MovableMasuImpl : MmGenjo_MovableMasu
     {

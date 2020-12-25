@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 //スプライト番号
 
-namespace Grayscale.P045_Atama.L000125_Sokutei
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public interface KomanoKiki
     {

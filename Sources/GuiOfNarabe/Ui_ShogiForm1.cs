@@ -50,7 +50,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             this.Text = String.Format("{0} {1}.{2}.{3}", this.Text, version.Major, version.Minor.ToString("00"), version.Build);
 
-            if(null!=this.Delegate_Form1_Load)
+            if (null != this.Delegate_Form1_Load)
             {
                 this.Delegate_Form1_Load(this.Ui_PnlMain1.ShogiGui, sender, e);
             }

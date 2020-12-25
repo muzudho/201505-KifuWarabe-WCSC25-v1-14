@@ -1,9 +1,8 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Xml;
-
+using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P200_KifuNarabe.L002_Log
 {
@@ -132,11 +131,11 @@ namespace Grayscale.P200_KifuNarabe.L002_Log
                     break;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // エラー
                 successfule = false;
-                Util_Message.Whisper(ex.GetType().Name+"　"+ex.Message);
+                Util_Message.Whisper(ex.GetType().Name + "　" + ex.Message);
             }
 
             return successfule;

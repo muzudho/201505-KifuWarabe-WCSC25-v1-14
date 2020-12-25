@@ -1,6 +1,4 @@
-﻿
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P045_Atama.L00025_KyHandan;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P050_KifuWarabe.L003_Kokoro
 {
@@ -11,7 +9,7 @@ namespace Grayscale.P050_KifuWarabe.L003_Kokoro
     public class PlayerInfoImpl : PlayerInfo
     {
 
-        public Playerside Playerside{get;set;}
+        public Playerside Playerside { get; set; }
 
 
         public PlayerInfoImpl()

@@ -1,8 +1,6 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P045_Atama.L00025_KyHandan;
+﻿using System.Collections.Generic;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-using System.Collections.Generic;
-using Grayscale.P040_Kokoro.L00050_Kokoro;
 
 namespace Grayscale.P050_KifuWarabe.L00050_KyHyoka
 {
@@ -18,7 +16,7 @@ namespace Grayscale.P050_KifuWarabe.L00050_KyHyoka
         /// </summary>
         Dictionary<TenonagareName, KyHandan> KyHyokas { get; }
 
-        
+
         /// <summary>
         /// （１）ノードは、局面であるとともに、点数を覚えておくこともできます。
         /// （２）考え方の条件を指定します。

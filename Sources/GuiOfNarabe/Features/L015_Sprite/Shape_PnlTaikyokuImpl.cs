@@ -1,14 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P100_ShogiServer.L100_InServer;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 namespace Grayscale.P200_KifuNarabe.L015_Sprite
 {
@@ -263,7 +259,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// コンストラクターです。
         /// ************************************************************************************************************************
         /// </summary>
-        public Shape_PnlTaikyokuImpl():base(0,0,0,0)
+        public Shape_PnlTaikyokuImpl() : base(0, 0, 0, 0)
         {
 
             this.Widgets = new Dictionary<string, UserWidget>();
@@ -272,7 +268,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             //System.C onsole.WriteLine("つまんでいる駒を放します。(1)");
             this.SetFigTumandeiruKoma(-1);
             this.SetHMovedKoma(Fingers.Error_1);
-            
+
             //----------
             // [出力切替]初期値
             //----------
@@ -287,7 +283,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             //----------
             // 将ボタン
             //----------
-            this.SetBtnKomaDoors( new Shape_BtnKomaImpl[]{
+            this.SetBtnKomaDoors(new Shape_BtnKomaImpl[]{
 
                 new Shape_BtnKomaImpl(Finger_Honshogi.SenteOh),//[0]
                 new Shape_BtnKomaImpl(Finger_Honshogi.GoteOh),
@@ -348,9 +344,9 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             // 駒置き
             //----------
             this.KomadaiArr = new Shape_PnlKomadaiImpl[3];
-            this.KomadaiArr[0] = new Shape_PnlKomadaiImpl( Okiba.Sente_Komadai, 610, 220, 81,this);
-            this.KomadaiArr[1] = new Shape_PnlKomadaiImpl(Okiba.Gote_Komadai, 10, 220, 121,this);
-            this.KomadaiArr[2] = new Shape_PnlKomadaiImpl(Okiba.KomaBukuro, 810, 220, 161,this);
+            this.KomadaiArr[0] = new Shape_PnlKomadaiImpl(Okiba.Sente_Komadai, 610, 220, 81, this);
+            this.KomadaiArr[1] = new Shape_PnlKomadaiImpl(Okiba.Gote_Komadai, 10, 220, 121, this);
+            this.KomadaiArr[2] = new Shape_PnlKomadaiImpl(Okiba.KomaBukuro, 810, 220, 161, this);
 
             //----------
             // 符号表示
@@ -389,10 +385,10 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             //----------
             // 駒置き、駒袋
             //----------
-            for (int i = 0; i < this.KomadaiArr.Length;i++ )
+            for (int i = 0; i < this.KomadaiArr.Length; i++)
             {
                 Shape_PnlKomadai k = this.KomadaiArr[i];
-                k.Paint( e.Graphics);
+                k.Paint(e.Graphics);
             }
 
             //----------
@@ -415,7 +411,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             this.lblPside.Paint(e.Graphics);
 
 
-            foreach(UserWidget widget in this.Widgets.Values)
+            foreach (UserWidget widget in this.Widgets.Values)
             {
                 widget.Paint(e.Graphics);
             }

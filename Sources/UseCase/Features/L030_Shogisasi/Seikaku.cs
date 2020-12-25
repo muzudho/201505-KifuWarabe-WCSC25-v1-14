@@ -14,7 +14,7 @@ namespace Grayscale.P050_KifuWarabe.L030_Shogisasi
         /// とりあえず 1～5。
         /// 5なら、妄想が実現できていなくても、5回は繰り返します。
         /// </summary>
-        public int NebariDuyosa{get;set;}
+        public int NebariDuyosa { get; set; }
 
         public Seikaku()
         {

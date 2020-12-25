@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Grayscale.P045_Atama.L00025_KyHandan;
+using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P050_KifuWarabe.L00025_UsiLoop
 {

@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P100_ShogiServer.L100_InServer
@@ -79,7 +73,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             bool successful = false;
             KifuParserA_Impl kifuParserA_Impl = new KifuParserA_Impl();
             KifuParserA_Result result = new KifuParserA_ResultImpl();
-            KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl( inputLine);
+            KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl(inputLine);
 
             try
             {
@@ -190,7 +184,7 @@ namespace Grayscale.P100_ShogiServer.L100_InServer
             }
             catch (Exception ex)
             {
-                Util_Message.Show(ex.GetType().Name+"："+ ex.Message);
+                Util_Message.Show(ex.GetType().Name + "：" + ex.Message);
                 toBreak = true;
                 successful = false;
             }

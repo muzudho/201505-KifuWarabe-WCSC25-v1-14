@@ -65,7 +65,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         public Shape_Abstract(int x, int y, int width, int height)
         {
             this.Visible = true;
-            this.bounds = new Rectangle(x,y,width,height);
+            this.bounds = new Rectangle(x, y, width, height);
         }
 
 

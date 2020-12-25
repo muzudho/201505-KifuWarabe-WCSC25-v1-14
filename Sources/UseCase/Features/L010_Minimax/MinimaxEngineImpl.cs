@@ -1,24 +1,10 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P027MoveGen.L050_MovableMove;
-using Grayscale.P045_Atama.L00025_KyHandan;
 using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 using Grayscale.P050_KifuWarabe.L00050_KyHyoka;
 using Grayscale.P050_KifuWarabe.L00051_Minimax;
 using Grayscale.P050_KifuWarabe.L009_Hyoka;
-using Grayscale.P050_KifuWarabe.L009_KyHyoka;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.Kifuwarazusa.Entities.Features;
-using System;
-using System.Diagnostics;
-using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P050_KifuWarabe.L010_Minimax
 {
@@ -72,16 +58,16 @@ namespace Grayscale.P050_KifuWarabe.L010_Minimax
                 }
 
 #if DEBUG
-                    //
-                    // 盤１個分のログの準備
-                    //
-                    this.Log_Board(
-                        nodePath,
-                        node,
-                        kifu,
-                        reportEnvironment,
-                        logF_kiki
-                    );
+                //
+                // 盤１個分のログの準備
+                //
+                this.Log_Board(
+                    nodePath,
+                    node,
+                    kifu,
+                    reportEnvironment,
+                    logF_kiki
+                );
 #endif
             }
             else

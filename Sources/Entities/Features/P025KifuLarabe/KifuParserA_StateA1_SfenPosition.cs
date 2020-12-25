@@ -1,7 +1,5 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features.Gui;
+﻿using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.Kifuwarazusa.Entities.Features
 {

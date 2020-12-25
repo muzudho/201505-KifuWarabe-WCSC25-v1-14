@@ -1,6 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-
-namespace Grayscale.Kifuwarazusa.Entities.Features
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public interface KifuTree : Tree<ShootingStarlightable, KyokumenWrapper>
     {

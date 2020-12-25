@@ -1,9 +1,6 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
+﻿using System.Collections.Generic;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
-using System.Collections.Generic;
 
 namespace Grayscale.P050_KifuWarabe.L012_ScoreSibori
 {
@@ -36,7 +33,7 @@ namespace Grayscale.P050_KifuWarabe.L012_ScoreSibori
             double maxScore = int.MinValue;
             foreach (Node<ShootingStarlightable, KyokumenWrapper> node in rankedNodes)
             {
-                if(node is KifuNode)
+                if (node is KifuNode)
                 {
                     double score = ((KifuNode)node).KyHyoka.Total();
 
@@ -84,7 +81,7 @@ namespace Grayscale.P050_KifuWarabe.L012_ScoreSibori
 
 
             // 枝を更新します。
-            kifu.CurNode.Set_NextNodes( dic);
+            kifu.CurNode.Set_NextNodes(dic);
 
         gt_EndMethod:
             ;
@@ -97,7 +94,7 @@ namespace Grayscale.P050_KifuWarabe.L012_ScoreSibori
         /// </summary>
         /// <param name="nextNodes"></param>
         /// <returns></returns>
-        public List<Node<ShootingStarlightable, KyokumenWrapper>> RankingNode_WithJudge_ForeachNextNodes( Node<ShootingStarlightable, KyokumenWrapper> hubNode)
+        public List<Node<ShootingStarlightable, KyokumenWrapper>> RankingNode_WithJudge_ForeachNextNodes(Node<ShootingStarlightable, KyokumenWrapper> hubNode)
         {
             // ランク付けしたあと、リスト構造に移し変えます。
             List<Node<ShootingStarlightable, KyokumenWrapper>> list = new List<Node<ShootingStarlightable, KyokumenWrapper>>();

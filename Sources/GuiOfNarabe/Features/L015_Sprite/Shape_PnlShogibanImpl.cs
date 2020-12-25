@@ -1,12 +1,7 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
-using System.Collections.Generic;
-using System.Drawing;
-
 
 namespace Grayscale.P200_KifuNarabe.L015_Sprite
 {
@@ -59,7 +54,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// <summary>
         /// 枡毎の、利いている駒ハンドルのリスト。
         /// </summary>
-        public Dictionary<int,List<int>> HMasu_KikiKomaList
+        public Dictionary<int, List<int>> HMasu_KikiKomaList
         {
             get;
             set;
@@ -78,7 +73,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public Shape_PnlShogibanImpl(int x, int y,Shape_PnlTaikyoku owner)
+        public Shape_PnlShogibanImpl(int x, int y, Shape_PnlTaikyoku owner)
             : base(x, y, 1, 1)
         {
             this.Owner = owner;

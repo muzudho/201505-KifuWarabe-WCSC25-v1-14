@@ -1,8 +1,5 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
 
 namespace Grayscale.P050_KifuWarabe.L031_AjimiEngine
@@ -26,11 +23,11 @@ namespace Grayscale.P050_KifuWarabe.L031_AjimiEngine
 
             RO_Star_Koma koma1 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now);
             RO_Star_Koma koma2 = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now);
-            Logger.Trace( "将棋サーバー「ではここで、王さまがどこにいるか確認してみましょう」");
-            Logger.Trace( "▲王の置き場＝" + Util_Masu.GetOkiba(koma1.Masu));
-            Logger.Trace( "△王の置き場＝" + Util_Masu.GetOkiba(koma2.Masu));
+            Logger.Trace("将棋サーバー「ではここで、王さまがどこにいるか確認してみましょう」");
+            Logger.Trace("▲王の置き場＝" + Util_Masu.GetOkiba(koma1.Masu));
+            Logger.Trace("△王の置き場＝" + Util_Masu.GetOkiba(koma2.Masu));
 
-            if(Util_Masu.GetOkiba(koma1.Masu) != Okiba.ShogiBan)
+            if (Util_Masu.GetOkiba(koma1.Masu) != Okiba.ShogiBan)
             {
                 // 先手の王さまが将棋盤上にいないとき☆
                 result_Ajimi = Result_Ajimi.Lost_SenteOh;

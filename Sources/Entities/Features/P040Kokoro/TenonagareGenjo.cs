@@ -1,7 +1,4 @@
-﻿
-using Grayscale.Kifuwarazusa.Entities.Features;
-
-namespace Grayscale.P040_Kokoro.L00050_Kokoro
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
 
     /// <summary>

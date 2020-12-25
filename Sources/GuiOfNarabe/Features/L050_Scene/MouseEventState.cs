@@ -1,11 +1,7 @@
-﻿
-using Grayscale.Kifuwarazusa.Entities.Features;
-//スプライト番号
+﻿//スプライト番号
 
-using System.Windows.Forms;
 using System.Drawing;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
-using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P200_KifuNarabe.L050_Scene
 {

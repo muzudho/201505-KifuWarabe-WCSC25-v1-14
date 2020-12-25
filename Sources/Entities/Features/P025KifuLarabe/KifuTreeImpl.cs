@@ -1,6 +1,5 @@
 ﻿using System;
 using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.Kifuwarazusa.Entities.Features
 {

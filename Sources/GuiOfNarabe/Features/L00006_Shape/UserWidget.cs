@@ -1,7 +1,5 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
+﻿using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using System.Drawing;
 
 namespace Grayscale.P200_KifuNarabe.L00006_Shape
 {
@@ -77,7 +75,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
         /// <param name="y"></param>
         bool HitByMouse(int x, int y);
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// マウスが重なった駒は、光フラグを立てます。
@@ -94,7 +92,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
         /// </summary>
         bool Light { get; set; }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 動かしたい駒の解除

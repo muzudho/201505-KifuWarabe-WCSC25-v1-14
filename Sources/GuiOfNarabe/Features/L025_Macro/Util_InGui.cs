@@ -1,11 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Grayscale.P200_KifuNarabe.L008_TextBoxListener;
@@ -69,14 +65,14 @@ namespace Grayscale.P200_KifuNarabe.L025_Macro
 
 
 
-        public static bool Komaokuri_Gui( string restText, NarabeRoomViewModel shogiGui)
+        public static bool Komaokuri_Gui(string restText, NarabeRoomViewModel shogiGui)
         {
             //------------------------------
             // チェンジ・ターン
             //------------------------------
             if (shogiGui.ResponseData.ChangedTurn)
             {
-                shogiGui.ChangeTurn( );
+                shogiGui.ChangeTurn();
             }
 
 

@@ -1,6 +1,4 @@
 ﻿using System.Text;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.Kifuwarazusa.Entities.Features
 {

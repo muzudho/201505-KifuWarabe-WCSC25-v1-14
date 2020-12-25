@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using Grayscale.Kifuwarazusa.Entities.Features.Gui;
-using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Gui
 {
@@ -41,13 +40,13 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Gui
         /// </summary>
         void Shutdown();
 
-        
+
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
         void Logdase();
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 将棋エンジンを起動します。

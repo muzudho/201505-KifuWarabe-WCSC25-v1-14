@@ -1,10 +1,7 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
+﻿using System.Drawing;
+
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
-using System.Drawing;
-
 using Grayscale.P200_KifuNarabe.L00006_Shape;
-
 
 namespace Grayscale.P200_KifuNarabe.L015_Sprite
 {
@@ -186,7 +183,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// <param name="y"></param>
         public void LightByMouse(int x, int y)
         {
-            if (this.HitByMouse(x,y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 this.Light = true;
             }
@@ -210,7 +207,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         {
             bool changed = false;
 
-            if ( this.HitByMouse(x, y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 if (this.SelectFirstTouch)
                 {

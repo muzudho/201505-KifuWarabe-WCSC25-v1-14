@@ -1,9 +1,8 @@
 ﻿//スプライト番号
 
 using System;
-using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.P045_Atama.L025_Sokutei
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     /// <summary>
     /// 近似測定エンジン。

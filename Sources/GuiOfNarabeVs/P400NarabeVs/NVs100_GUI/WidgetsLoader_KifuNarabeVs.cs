@@ -1,14 +1,14 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
+﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L100_GUI;
+using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 namespace Grayscale.P400_KifuNaraVs.L100_GUI
 {
     public class WidgetsLoader_KifuNarabeVs : WidgetsLoader_KifuNarabe
     {
 
-        public WidgetsLoader_KifuNarabeVs(string fileName):base(fileName)
+        public WidgetsLoader_KifuNarabeVs(string fileName) : base(fileName)
         {
         }
 

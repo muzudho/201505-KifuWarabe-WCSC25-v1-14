@@ -1,12 +1,8 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P200_KifuNarabe.L00006_Shape
 {
@@ -97,7 +93,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
 
         void SetFigTumandeiruKoma(int value);
 
-        
+
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
         /// 差し手符号。
@@ -132,7 +128,7 @@ namespace Grayscale.P200_KifuNarabe.L00006_Shape
         /// </summary>
         SyuturyokuKirikae SyuturyokuKirikae { get; }
 
-        
-        
+
+
     }
 }

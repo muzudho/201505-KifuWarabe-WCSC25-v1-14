@@ -1,5 +1,4 @@
-﻿
-using Grayscale.Kifuwarazusa.Entities.Features;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;
 
 

@@ -1,6 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-
-namespace Grayscale.Kifuwarazusa.Entities.Features.Gui
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features.Gui
 {
     public interface IGameViewModel
     {

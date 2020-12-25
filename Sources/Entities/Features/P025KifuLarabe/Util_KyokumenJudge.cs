@@ -1,7 +1,4 @@
-﻿
-using Grayscale.Kifuwarazusa.Entities.Features;
-
-namespace Grayscale.Kifuwarazusa.Entities.Features
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public abstract class Util_KyokumenJudge
     {

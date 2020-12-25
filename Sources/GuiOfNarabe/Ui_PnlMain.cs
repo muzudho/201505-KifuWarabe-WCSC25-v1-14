@@ -4,14 +4,8 @@ using System.Text;
 using System.Windows.Forms;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P100_ShogiServer.L100_InServer;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
 using Grayscale.P200_KifuNarabe.L00047_Scene;
 using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
@@ -22,6 +16,7 @@ using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L050_Scene;
 using Grayscale.P200_KifuNarabe.L051_Timed;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 namespace Grayscale.P200_KifuNarabe.L100_GUI
 {
@@ -156,7 +151,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
 
             Fingers fingers = Util_Sky.Fingers_ByOkibaPsideNow(this.ShogiGui.GameViewModel.GuiSkyConst, Okiba.ShogiBan, this.ShogiGui.GameViewModel.Kifu.CountPside(KifuNarabe_KifuWrapper.CurNode(this.ShogiGui)));
-            if (0<fingers.Count)
+            if (0 < fingers.Count)
             {
                 ShootingStarlightable tuginoMoveData;
 
@@ -167,85 +162,85 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
 
                 Playerside pside_getTeban = this.ShogiGui.GameViewModel.Kifu.CountPside(lastTesumi);
-                    switch (pside_getTeban)
-                    {
-                        case Playerside.P2:
-                            {
-                                // 後手番です。
-                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                switch (pside_getTeban)
+                {
+                    case Playerside.P2:
+                        {
+                            // 後手番です。
+                            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                                int suji;
-                                Util_MasuNum.MasuToSuji(koma.Masu, out suji);
+                            int suji;
+                            Util_MasuNum.MasuToSuji(koma.Masu, out suji);
 
-                                int dan;
-                                Util_MasuNum.MasuToDan(koma.Masu, out dan);
+                            int dan;
+                            Util_MasuNum.MasuToDan(koma.Masu, out dan);
 
-                                // 前に１つ突き出させます。
-                                tuginoMoveData = new RO_ShootingStarlight(
-                                    //sl.Finger,
-                                    new RO_Star_Koma(
-                                        pside_getTeban,
-                                        Util_Masu.OkibaSujiDanToMasu(
-                                            Util_Masu.GetOkiba(koma.Masu),
-                                            suji,
-                                            dan
-                                            ),
-                                        koma.Haiyaku
-                                    ),
+                            // 前に１つ突き出させます。
+                            tuginoMoveData = new RO_ShootingStarlight(
+                                //sl.Finger,
+                                new RO_Star_Koma(
+                                    pside_getTeban,
+                                    Util_Masu.OkibaSujiDanToMasu(
+                                        Util_Masu.GetOkiba(koma.Masu),
+                                        suji,
+                                        dan
+                                        ),
+                                    koma.Haiyaku
+                                ),
 
-                                    new RO_Star_Koma(
-                                        pside_getTeban,
-                                        Util_Masu.OkibaSujiDanToMasu(
-                                            Okiba.ShogiBan,
-                                            suji,
-                                            dan + 1
-                                            ),
-                                        koma.Haiyaku
-                                    ),
+                                new RO_Star_Koma(
+                                    pside_getTeban,
+                                    Util_Masu.OkibaSujiDanToMasu(
+                                        Okiba.ShogiBan,
+                                        suji,
+                                        dan + 1
+                                        ),
+                                    koma.Haiyaku
+                                ),
 
-                                    Ks14.H00_Null
-                                );
-                                break;
-                            }
-                        default:
-                            {
-                                // 先手番です。
-                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                Ks14.H00_Null
+                            );
+                            break;
+                        }
+                    default:
+                        {
+                            // 先手番です。
+                            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                                int suji;
-                                Util_MasuNum.MasuToSuji(koma.Masu, out suji);
+                            int suji;
+                            Util_MasuNum.MasuToSuji(koma.Masu, out suji);
 
-                                int dan;
-                                Util_MasuNum.MasuToDan(koma.Masu, out dan);
+                            int dan;
+                            Util_MasuNum.MasuToDan(koma.Masu, out dan);
 
-                                // 前に１つ突き出させます。
-                                tuginoMoveData = new RO_ShootingStarlight(
-                                    //sl.Finger,
-                                    new RO_Star_Koma(
-                                        pside_getTeban,
-                                        Util_Masu.OkibaSujiDanToMasu(
-                                            Util_Masu.GetOkiba(koma.Masu),
-                                            suji,
-                                            dan
-                                            ),
-                                        koma.Haiyaku
-                                    ),
+                            // 前に１つ突き出させます。
+                            tuginoMoveData = new RO_ShootingStarlight(
+                                //sl.Finger,
+                                new RO_Star_Koma(
+                                    pside_getTeban,
+                                    Util_Masu.OkibaSujiDanToMasu(
+                                        Util_Masu.GetOkiba(koma.Masu),
+                                        suji,
+                                        dan
+                                        ),
+                                    koma.Haiyaku
+                                ),
 
-                                    new RO_Star_Koma(
-                                        pside_getTeban,
-                                        Util_Masu.OkibaSujiDanToMasu(
-                                            Okiba.ShogiBan,
-                                            suji,
-                                            dan - 1
-                                            ),
-                                        koma.Haiyaku
-                                    ),
+                                new RO_Star_Koma(
+                                    pside_getTeban,
+                                    Util_Masu.OkibaSujiDanToMasu(
+                                        Okiba.ShogiBan,
+                                        suji,
+                                        dan - 1
+                                        ),
+                                    koma.Haiyaku
+                                ),
 
-                                    Ks14.H00_Null
-                                );
-                                break;
-                            }
-                    }
+                                Ks14.H00_Null
+                            );
+                            break;
+                        }
+                }
 
 
                 RO_Star_Koma koma2 = Util_Koma.AsKoma(tuginoMoveData.LongTimeAgo);
@@ -411,7 +406,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // マウスムーブ
                 {
                     TimedB timeB = ((TimedB)this.ShogiGui.TimedB);
-                    timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseMove,e.Location));
+                    timeB.MouseEventQueue.Enqueue(new MouseEventState(this.ShogiGui.Scene, MouseEventStateName.MouseMove, e.Location));
                 }
 
                 //------------------------------
@@ -446,7 +441,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // 左ボタン
                 //------------------------------------------------------------
                 TimedB timeB = ((TimedB)this.ShogiGui.TimedB);
-                timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseLeftButtonDown, e.Location));
+                timeB.MouseEventQueue.Enqueue(new MouseEventState(this.ShogiGui.Scene, MouseEventStateName.MouseLeftButtonDown, e.Location));
             }
             else if (e.Button == MouseButtons.Right)
             {
@@ -494,7 +489,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 // 左ボタン
                 //------------------------------------------------------------
                 TimedB timeB = ((TimedB)this.ShogiGui.TimedB);
-                timeB.MouseEventQueue.Enqueue( new MouseEventState( this.ShogiGui.Scene, MouseEventStateName.MouseLeftButtonUp, e.Location));
+                timeB.MouseEventQueue.Enqueue(new MouseEventState(this.ShogiGui.Scene, MouseEventStateName.MouseLeftButtonUp, e.Location));
             }
             else if (e.Button == MouseButtons.Right)
             {
@@ -512,7 +507,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             this.txtInput1.Text = value;
         }
 
-        private void AppendInput1Text(string value,[CallerMemberName] string memberName = "")
+        private void AppendInput1Text(string value, [CallerMemberName] string memberName = "")
         {
             //System.C onsole.WriteLine("☆アペンド(" + memberName + ")：" + value);
             this.txtInput1.Text += value;
@@ -583,7 +578,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
             {
                 // 指定のテキストを後ろに足します。
                 this.AppendInput1Text(shogiGui.ResponseData.AppendInputTextString);
-                shogiGui.ResponseData.SetAppendInputTextString( "");//要求の解除
+                shogiGui.ResponseData.SetAppendInputTextString("");//要求の解除
             }
 
             //------------------------------
@@ -597,8 +592,8 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         this.WriteLine_Syuturyoku("");
 
                         // ログ
-                        Logger.Trace( "");
-                        Logger.Trace( "");
+                        Logger.Trace("");
+                        Logger.Trace("");
                     }
                     break;
 
@@ -619,7 +614,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         }
 
                         // ログ
-                        Logger.Trace( this.txtOutput1.Text);
+                        Logger.Trace(this.txtOutput1.Text);
                     }
                     break;
 

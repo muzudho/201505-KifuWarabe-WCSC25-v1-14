@@ -1,12 +1,7 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P045_Atama.L00025_KyHandan;
-using Grayscale.P045_Atama.L050_KyHandan;
+﻿using System.Collections.Generic;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P050_KifuWarabe.L00049_Kokoro;
 using Grayscale.P050_KifuWarabe.L00050_KyHyoka;
-using Grayscale.P050_KifuWarabe.L003_Kokoro;
-using System.Collections.Generic;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P040_Kokoro.L00050_Kokoro;
 
 namespace Grayscale.P050_KifuWarabe.L009_Hyoka
 {
@@ -71,11 +66,11 @@ namespace Grayscale.P050_KifuWarabe.L009_Hyoka
 
             if (this.KyHyokas.ContainsKey(tenonagare.Name))
             {
-                this.KyHyokas[tenonagare.Name].Keisan(out scoreExp,new KyHandanArgsImpl(tenonagare, node, playerInfo));
+                this.KyHyokas[tenonagare.Name].Keisan(out scoreExp, new KyHandanArgsImpl(tenonagare, node, playerInfo));
             }
             else
             {
-                scoreExp = new KyHyoka100limitItemImpl(1.0d,0.0d,"ヌル");
+                scoreExp = new KyHyoka100limitItemImpl(1.0d, 0.0d, "ヌル");
             }
 
             return scoreExp;

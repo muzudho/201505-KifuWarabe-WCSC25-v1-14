@@ -1,6 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-
-namespace Grayscale.P200_KifuNarabe.L050_Scene
+﻿namespace Grayscale.P200_KifuNarabe.L050_Scene
 {
     /// <summary>
     /// [再生]イベントの状態です。

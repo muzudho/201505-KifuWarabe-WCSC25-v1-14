@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Text;
-using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 namespace Grayscale.P200_KifuNarabe.L015_Sprite
 {
@@ -304,14 +302,14 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
             // フィンガー
             g1.DrawString(this.Finger.ToString(), new Font(FontFamily.GenericSerif, 10.0f), Brushes.Black, this.Bounds.Location);
 
-            ////----------
+        ////----------
         //// デバッグ用
         ////----------
         //if (true)
         //{
         //    string moji = siteiSk.KomaDoors[this.Handle].SrcOkiba.ToString();
 
-            //    g1.DrawString(moji, new Font(FontFamily.GenericSerif, 12.0f), Brushes.Red, this.Bounds.Location);
+        //    g1.DrawString(moji, new Font(FontFamily.GenericSerif, 12.0f), Brushes.Red, this.Bounds.Location);
         //}
 
         gt_EndMethod:
@@ -328,7 +326,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// <param name="y"></param>
         public void LightByMouse(int x, int y)
         {
-            if (this.HitByMouse(x,y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 this.Light = true;
             }

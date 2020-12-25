@@ -1,8 +1,6 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
+﻿using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
-using System.Drawing;
 
 namespace Grayscale.P200_KifuNarabe.L015_Sprite
 {
@@ -62,7 +60,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// <param name="okiba"></param>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public Shape_PnlKomadaiImpl(Okiba okiba, int x, int y, int firstMasuHandle,Shape_PnlTaikyoku owner)
+        public Shape_PnlKomadaiImpl(Okiba okiba, int x, int y, int firstMasuHandle, Shape_PnlTaikyoku owner)
             : base(x, y, 1, 1)
         {
             this.Owner = owner;
@@ -80,7 +78,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// </summary>
         /// <param name="suji"></param>
         /// <returns></returns>
-        public int SujiToX( int suji)
+        public int SujiToX(int suji)
         {
             return (Util_Masu.KOMADAI_LAST_SUJI - suji) * this.MasuWidth + this.Bounds.X;
         }
@@ -95,7 +93,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// <returns></returns>
         public int DanToY(int dan)
         {
-            return (dan-1) * this.MasuHeight + this.Bounds.Y;
+            return (dan - 1) * this.MasuHeight + this.Bounds.Y;
         }
 
 
@@ -105,7 +103,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// ************************************************************************************************************************
         /// </summary>
         /// <param name="g"></param>
-        public void Paint( Graphics g)
+        public void Paint(Graphics g)
         {
             if (!this.Visible)
             {

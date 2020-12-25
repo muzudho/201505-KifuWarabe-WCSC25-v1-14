@@ -1,13 +1,4 @@
-﻿
-
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P040_Kokoro.L00050_Kokoro;
-using Grayscale.P045_Atama.L00025_KyHandan;
-using Grayscale.P045_Atama.L012_Lua;
-
-namespace Grayscale.P045_Atama.L050_KyHandan
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
 
 

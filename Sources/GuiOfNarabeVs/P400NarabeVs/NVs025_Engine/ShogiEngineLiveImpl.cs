@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P200_KifuNarabe.L025_Macro;
 using Grayscale.P200_KifuNarabe.L100_GUI;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;
@@ -219,7 +217,7 @@ namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
 
                     Ui_PnlMain.input99 += line.Substring("bestmove".Length + "".Length);
 
-                    Logger.Trace( "USI受信：bestmove input99=[" + Ui_PnlMain.input99 + "]");
+                    Logger.Trace("USI受信：bestmove input99=[" + Ui_PnlMain.input99 + "]");
                 }
                 else
                 {

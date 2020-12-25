@@ -1,13 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
-using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P100_ShogiServer.L100_InServer;
 using Grayscale.P200_KifuNarabe.L00006_Shape;
 using Grayscale.P200_KifuNarabe.L00012_Ui;
@@ -415,7 +410,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                         goto gt_EndBlock;
                     }
 
-                    Util_InGui.Makimodosi_Gui(shogiGui,movedKoma,foodKoma,fugoJStr, Util_InGui.ReadLine_FromTextbox());
+                    Util_InGui.Makimodosi_Gui(shogiGui, movedKoma, foodKoma, fugoJStr, Util_InGui.ReadLine_FromTextbox());
                     Util_Menace.Menace(shogiGui);//メナス
 
                 gt_EndBlock:
@@ -460,7 +455,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                     Ui_PnlMain ui_PnlMain = ((Ui_ShogiForm1)shogiGui.OwnerForm).Ui_PnlMain1;
 
                     // [壁置く]←→[駒動かす]切替
-                    switch(widget.Text)
+                    switch (widget.Text)
                     {
                         case "壁置く":
                             widget.Text = "駒動かす";
@@ -619,7 +614,7 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
 
                     Ui_PnlMain ui_PnlMain = ((Ui_ShogiForm1)shogiGui.OwnerForm).Ui_PnlMain1;
 
-                    WidgetsLoader_KifuNarabe.Perform_SyokiHaichi( ui_PnlMain );
+                    WidgetsLoader_KifuNarabe.Perform_SyokiHaichi(ui_PnlMain);
                 };
             }
 
@@ -791,10 +786,10 @@ namespace Grayscale.P200_KifuNarabe.L100_GUI
                 {
                     StartposImporter.Assert_HirateHonsyogi(new SkyBuffer(shogiGui.GameViewModel.GuiSkyConst), "newNode作成前");
 
-                    KifuNode newNode =new KifuNodeImpl(
+                    KifuNode newNode = new KifuNodeImpl(
                         move,
                         new KyokumenWrapper(shogiGui.GameViewModel.GuiSkyConst),
-                        KifuNodeImpl.GetReverseTebanside( ((KifuNode)shogiGui.GameViewModel.Kifu.CurNode).Tebanside)
+                        KifuNodeImpl.GetReverseTebanside(((KifuNode)shogiGui.GameViewModel.Kifu.CurNode).Tebanside)
                     );
 
 

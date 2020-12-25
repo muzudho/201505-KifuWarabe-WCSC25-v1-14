@@ -1,7 +1,7 @@
 ﻿namespace Grayscale.Kifuwarazusa.UseCases.Gui
 {
-    using Grayscale.Kifuwarazusa.Entities.Features.Gui;
     using Grayscale.Kifuwarazusa.Entities.Features;
+    using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 
     public class DefaultRoomViewModel : IRoomViewModel
     {

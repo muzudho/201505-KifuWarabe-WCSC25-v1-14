@@ -1,6 +1,4 @@
-﻿
-using System.Runtime.CompilerServices;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
+﻿using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
 
 //スプライト番号
 

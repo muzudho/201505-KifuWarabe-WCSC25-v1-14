@@ -4,14 +4,8 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using Grayscale.Kifuwarazusa.Entities;
+    using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.P045_Atama.L00025_KyHandan;
     using Grayscale.P050_KifuWarabe.L00025_UsiLoop;
     using Grayscale.P050_KifuWarabe.L00052_Shogisasi;
     using Grayscale.P050_KifuWarabe.L003_Kokoro;

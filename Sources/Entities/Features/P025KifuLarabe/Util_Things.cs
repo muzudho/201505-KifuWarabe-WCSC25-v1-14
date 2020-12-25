@@ -1,10 +1,8 @@
 ﻿using System;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.Kifuwarazusa.Entities.Features.L050_Things
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     //public class Arg_KmEffectSameIKUSA()
     //{

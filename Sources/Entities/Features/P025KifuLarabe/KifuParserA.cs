@@ -1,6 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
 using Grayscale.Kifuwarazusa.Entities.Features.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.Kifuwarazusa.Entities.Features
 {

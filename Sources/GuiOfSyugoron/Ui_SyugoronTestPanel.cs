@@ -42,7 +42,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
             foreach (string definition in definitions)
             {
-                if (-1!=definition.IndexOf('∈'))
+                if (-1 != definition.IndexOf('∈'))
                 {
                     string[] operands = definition.Split('∈');
 
@@ -53,7 +53,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                     }
                     else
                     {
-                        elements = new string[]{ operands[0]};
+                        elements = new string[] { operands[0] };
                     }
 
                     SySet<SyElement> sySet = this.syDictionary.GetWord(operands[1]);
@@ -62,7 +62,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         sySet = new SySet_Default<SyElement>(operands[1]);
                     }
 
-                    foreach(string element in elements)
+                    foreach (string element in elements)
                     {
                         sySet.AddElement(new SyElement_Default(element));
                     }
@@ -126,7 +126,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             string wordStr = this.txtWord.Text.Trim();
             SySet<SyElement> word = this.syDictionary.GetWord(wordStr);
 
-            this.lblElementsComment.Text = "一般的に"+wordStr+"は";
+            this.lblElementsComment.Text = "一般的に" + wordStr + "は";
             this.lblElementsComment2.Text = "話題の" + wordStr + "は";
             this.lblElementsComment3.Text = "話題の" + wordStr + "は";
             this.lblSupersetComment.Text = wordStr + "は";
@@ -189,7 +189,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             string[] replacements = context.Split(';');
 
             Dictionary<string, string> repDic = new Dictionary<string, string>();
-            foreach(string replacement in replacements)
+            foreach (string replacement in replacements)
             {
                 string[] pair = replacement.Split('=');
 
@@ -199,7 +199,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
             string elements1 = this.txtElements.Text;
 
-            foreach(KeyValuePair<string,string> entry in repDic)
+            foreach (KeyValuePair<string, string> entry in repDic)
             {
                 elements1 = elements1.Replace(entry.Key, entry.Value);
             }
@@ -211,7 +211,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         private void Ui_Main_Load(object sender, EventArgs e)
         {
             // UTF-8
-            string path = Application.StartupPath+ "\\dictionary.txt";
+            string path = Application.StartupPath + "\\dictionary.txt";
             //MessageBox.Show(path);
             if (File.Exists(path))
             {

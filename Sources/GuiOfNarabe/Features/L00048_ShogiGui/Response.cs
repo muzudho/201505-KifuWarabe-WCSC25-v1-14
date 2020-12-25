@@ -27,7 +27,7 @@ namespace Grayscale.P200_KifuNarabe.L00048_ShogiGui
         void Clear_RedrawStarlights();
 
         void ClearRedraw();
-        
+
         string InputTextString { get; set; }
 
 
@@ -46,7 +46,7 @@ namespace Grayscale.P200_KifuNarabe.L00048_ShogiGui
 
         void SetAppendInputTextString(string value);
 
-        
+
         /// <summary>
         ///------------------------------------------------------------------------------------------------------------------------
         /// メインパネルを再描画したいときは、真にしてください。

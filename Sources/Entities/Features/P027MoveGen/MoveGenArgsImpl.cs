@@ -1,7 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P027MoveGen.L0005MoveGen;
-
-namespace Grayscale.P027MoveGen.L100MoveGen
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
 
     public class MoveGenArgsImpl : MoveGenArgs

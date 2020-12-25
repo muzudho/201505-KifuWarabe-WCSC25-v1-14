@@ -1,5 +1,4 @@
-﻿using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
+﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.P200_KifuNarabe.L100_GUI;
 using Grayscale.P400_KifuNaraVs.L00048_Engine;
 using Grayscale.P400_KifuNaraVs.L025_ShogiEngine;
@@ -12,7 +11,7 @@ namespace Grayscale.P400_KifuNaraVs.L100_GUI
         public ShogiEngineLive ShogiEnginePrWrapperLauncher { get { return this.shogiEnginePrWrapperLauncher; } }
         private ShogiEngineLive shogiEnginePrWrapperLauncher;
 
-        public KifuNarabeVsImpl():base()
+        public KifuNarabeVsImpl() : base()
         {
             this.shogiEnginePrWrapperLauncher = new ShogiEngineLiveImpl(this);
         }
@@ -43,7 +42,7 @@ namespace Grayscale.P400_KifuNaraVs.L100_GUI
             this.ShogiEnginePrWrapperLauncher.ShogiEngineManInterface.Logdase();
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 将棋エンジンを起動します。

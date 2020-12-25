@@ -24,21 +24,13 @@
 #else
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.IO;
     using System.Text;
     using System.Text.RegularExpressions;
+    using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;
     using Grayscale.Kifuwarazusa.UseCases;
     using Grayscale.Kifuwarazusa.UseCases.Gui;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
-    using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.P050_KifuWarabe.L030_Shogisasi;
     using Grayscale.P050_KifuWarabe.L031_AjimiEngine;
     using Nett;

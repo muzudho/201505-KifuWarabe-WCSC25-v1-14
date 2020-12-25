@@ -2,7 +2,7 @@
 using NLua;
 #endif
 
-namespace Grayscale.P045_Atama.L012_Lua
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
 
 
@@ -87,7 +87,7 @@ namespace Grayscale.P045_Atama.L012_Lua
         /// <returns>int型にキャストして使われます。</returns>
         public static double Random(double begin, double end)
         {
-            return P025_KifuLarabe.L007_Random.LarabeRandom.Random.Next((int)begin, (int)end);
+            return LarabeRandom.Random.Next((int)begin, (int)end);
         }
 
     }

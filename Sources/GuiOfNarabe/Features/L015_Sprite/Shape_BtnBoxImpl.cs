@@ -155,7 +155,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         /// <param name="y"></param>
         public void LightByMouse(int x, int y)
         {
-            if (this.HitByMouse(x,y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 this.Light = true;
             }
@@ -177,7 +177,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
         {
             bool changed = false;
 
-            if ( this.HitByMouse(x, y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 if (shogiGui.Shape_PnlTaikyoku.SelectFirstTouch)
                 {
@@ -198,7 +198,7 @@ namespace Grayscale.P200_KifuNarabe.L015_Sprite
 
             return changed;
         }
-    
+
     }
 
 

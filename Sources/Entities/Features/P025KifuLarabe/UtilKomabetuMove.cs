@@ -14,7 +14,6 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.Kifuwarazusa.Entities.Features;
 #else
 using System.Collections.Generic;
-using Grayscale.Kifuwarazusa.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 #endif
 

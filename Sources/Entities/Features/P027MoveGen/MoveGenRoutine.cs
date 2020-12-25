@@ -1,13 +1,7 @@
 ﻿using System.Collections.Generic;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P027MoveGen.L0005MoveGen;
-using Grayscale.P027MoveGen.L050_MovableMove;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P027MoveGen.L100MoveGen
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
 
     /// <summary>
