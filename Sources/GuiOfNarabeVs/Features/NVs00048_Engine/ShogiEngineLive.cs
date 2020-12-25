@@ -1,6 +1,6 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.P400_KifuNaraVs.L00048_Engine
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features.Features
 {
     public interface ShogiEngineLive
     {

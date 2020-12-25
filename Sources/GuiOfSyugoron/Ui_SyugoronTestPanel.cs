@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.Kifuwarazusa.Entities.Features
+namespace Grayscale.Kifuwarazusa.GuiOfSyugoron.Features
 {
     public partial class Ui_SyugoronTestPanel : UserControl
     {

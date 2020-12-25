@@ -1,10 +1,8 @@
 ﻿//スプライト番号
 using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
 
-namespace Grayscale.P200_KifuNarabe.L025_Macro
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
     /// <summary>

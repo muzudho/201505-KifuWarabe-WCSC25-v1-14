@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Grayscale.Kifuwarazusa.Entities.Features
+namespace Grayscale.Kifuwarazusa.GuiOfSyugoron.Features
 {
     public partial class Ui_SyugoronTestForm : Form
     {

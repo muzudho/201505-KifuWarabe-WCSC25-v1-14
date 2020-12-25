@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P200_KifuNarabe.L051_Timed
+﻿namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 #if Debug
 using System.Collections.Generic;
@@ -13,11 +13,11 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.UseCases.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00047_Scene;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
-using Grayscale.P200_KifuNarabe.L025_Macro;
-using Grayscale.P200_KifuNarabe.L050_Scene;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 #else
     using System.Collections.Generic;
@@ -25,12 +25,6 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
     using Grayscale.Kifuwarazusa.UseCases.Features;
-    using Grayscale.P200_KifuNarabe.L00006_Shape;
-    using Grayscale.P200_KifuNarabe.L00047_Scene;
-    using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-    using Grayscale.P200_KifuNarabe.L015_Sprite;
-    using Grayscale.P200_KifuNarabe.L025_Macro;
-    using Grayscale.P200_KifuNarabe.L050_Scene;
     using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 #endif
 

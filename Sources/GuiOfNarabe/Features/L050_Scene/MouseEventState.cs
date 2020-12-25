@@ -1,9 +1,8 @@
 ﻿//スプライト番号
 
 using System.Drawing;
-using Grayscale.P200_KifuNarabe.L00047_Scene;
 
-namespace Grayscale.P200_KifuNarabe.L050_Scene
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     /// <summary>
     /// マウス操作の状態です。

@@ -1,8 +1,6 @@
-﻿using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
+﻿//スプライト番号
 
-//スプライト番号
-
-namespace Grayscale.P200_KifuNarabe.L015_Sprite
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
     /// <summary>

@@ -2,11 +2,8 @@
 using System.Windows.Forms;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.Kifuwarazusa.UseCases.Features;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
-using Grayscale.P200_KifuNarabe.L025_Macro;
-using Grayscale.P200_KifuNarabe.L050_Scene;
 
-namespace Grayscale.P200_KifuNarabe.L051_Timed
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
     /// <summary>

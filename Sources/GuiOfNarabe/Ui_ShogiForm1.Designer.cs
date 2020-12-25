@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P200_KifuNarabe.L100_GUI
+﻿namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     partial class Ui_ShogiForm1
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ui_PnlMain1 = new Grayscale.P200_KifuNarabe.L100_GUI.Ui_PnlMain();
+            this.ui_PnlMain1 = new Grayscale.Kifuwarazusa.GuiOfNarabe.Features.Ui_PnlMain();
             this.SuspendLayout();
             // 
             // ui_PnlMain1

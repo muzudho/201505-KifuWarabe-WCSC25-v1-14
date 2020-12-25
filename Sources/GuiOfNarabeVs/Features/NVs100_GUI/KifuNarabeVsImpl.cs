@@ -1,9 +1,8 @@
-﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P200_KifuNarabe.L100_GUI;
-using Grayscale.P400_KifuNaraVs.L00048_Engine;
-using Grayscale.P400_KifuNaraVs.L025_ShogiEngine;
+﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
+using Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features.Features;
 
-namespace Grayscale.P400_KifuNaraVs.L100_GUI
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features
 {
     public class KifuNarabeVsImpl : KifuNarabeImpl, NarabeRoomViewModel
     {

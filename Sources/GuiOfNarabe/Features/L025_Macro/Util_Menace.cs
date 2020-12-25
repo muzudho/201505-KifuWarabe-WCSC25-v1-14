@@ -3,7 +3,7 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P200_KifuNarabe.L025_Macro
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     public abstract class Util_Menace
     {

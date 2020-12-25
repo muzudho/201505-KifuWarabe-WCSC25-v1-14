@@ -4,15 +4,9 @@ using System.Text;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.Kifuwarazusa.UseCases.Features;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
-using Grayscale.P200_KifuNarabe.L00012_Ui;
-using Grayscale.P200_KifuNarabe.L00047_Scene;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
-using Grayscale.P200_KifuNarabe.L025_Macro;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P200_KifuNarabe.L100_GUI
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     public class WidgetsLoader_KifuNarabe : WidgetsLoader
     {

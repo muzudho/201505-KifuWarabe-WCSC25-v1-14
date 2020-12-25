@@ -4,7 +4,7 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P200_KifuNarabe.L00006_Shape
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     public interface Shape_PnlTaikyoku : Shape
     {

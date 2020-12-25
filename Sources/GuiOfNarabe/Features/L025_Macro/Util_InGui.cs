@@ -2,12 +2,9 @@
 using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-using Grayscale.P200_KifuNarabe.L008_TextBoxListener;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P200_KifuNarabe.L025_Macro
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
 

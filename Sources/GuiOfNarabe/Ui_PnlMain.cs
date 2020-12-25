@@ -2,23 +2,13 @@
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.Kifuwarazusa.UseCases.Features;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00012_Ui;
-using Grayscale.P200_KifuNarabe.L00047_Scene;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-using Grayscale.P200_KifuNarabe.L002_Log;
-using Grayscale.P200_KifuNarabe.L008_TextBoxListener;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
-using Grayscale.P200_KifuNarabe.L025_Macro;
-using Grayscale.P200_KifuNarabe.L050_Scene;
-using Grayscale.P200_KifuNarabe.L051_Timed;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P200_KifuNarabe.L00006_Shape;
 
-namespace Grayscale.P200_KifuNarabe.L100_GUI
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     /// <summary>
     /// メイン画面です。

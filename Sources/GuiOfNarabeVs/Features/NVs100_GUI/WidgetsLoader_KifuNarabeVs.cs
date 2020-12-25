@@ -1,9 +1,7 @@
-﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L100_GUI;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
+﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 
-namespace Grayscale.P400_KifuNaraVs.L100_GUI
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features
 {
     public class WidgetsLoader_KifuNarabeVs : WidgetsLoader_KifuNarabe
     {

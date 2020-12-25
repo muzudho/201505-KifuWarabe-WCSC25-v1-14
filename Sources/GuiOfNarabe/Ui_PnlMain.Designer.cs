@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P200_KifuNarabe.L100_GUI
+﻿namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     partial class Ui_PnlMain
     {

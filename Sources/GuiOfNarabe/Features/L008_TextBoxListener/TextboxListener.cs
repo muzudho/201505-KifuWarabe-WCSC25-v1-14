@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.P200_KifuNarabe.L008_TextBoxListener
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
     /// <summary>

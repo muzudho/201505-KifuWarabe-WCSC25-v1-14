@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P200_KifuNarabe.L050_Scene
+﻿namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
     /// <summary>

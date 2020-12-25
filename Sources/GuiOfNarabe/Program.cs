@@ -6,10 +6,10 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
-using Grayscale.P200_KifuNarabe.L100_GUI;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Nett;
 
-namespace Grayscale.P200_KifuNarabe
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeExe
 {
 
     static class Program

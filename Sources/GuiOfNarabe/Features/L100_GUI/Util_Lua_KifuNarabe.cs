@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P200_KifuNarabe.L100_GUI
+﻿namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     using Grayscale.Kifuwarazusa.Entities.Features;
 #if USING_LUA
@@ -8,21 +8,18 @@ using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.UseCases.Features;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P200_KifuNarabe.L050_Scene;
-using Grayscale.P200_KifuNarabe.L051_Timed;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using System;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using NLua;
 #else
     using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
     using Grayscale.Kifuwarazusa.UseCases.Features;
-    using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-    using Grayscale.P200_KifuNarabe.L050_Scene;
-    using Grayscale.P200_KifuNarabe.L051_Timed;
 #endif
 
     public abstract class Util_Lua_KifuNarabe

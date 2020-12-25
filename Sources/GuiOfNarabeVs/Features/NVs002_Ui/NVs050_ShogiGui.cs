@@ -1,7 +1,6 @@
 ﻿using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P400_KifuNaraVs.L00048_Engine;
 
-namespace Grayscale.P400_KifuNaraVs.L002_Ui
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features.Features
 {
 
     public interface NVs_ShogiGui : NarabeRoomViewModel

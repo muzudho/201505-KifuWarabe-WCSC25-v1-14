@@ -5,21 +5,14 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Codeplex.Data;//DynamicJson
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00012_Ui;
-using Grayscale.P200_KifuNarabe.L00047_Scene;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
-using Grayscale.P200_KifuNarabe.L015_Sprite;
-using Grayscale.P200_KifuNarabe.L050_Scene;
-using Grayscale.P200_KifuNarabe.L051_Timed;
 using Nett;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P200_KifuNarabe.L00006_Shape;
 
-namespace Grayscale.P200_KifuNarabe.L100_GUI
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
     /// <summary>

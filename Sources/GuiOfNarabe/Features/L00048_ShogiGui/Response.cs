@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.P200_KifuNarabe.L00048_ShogiGui
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     public interface Response
     {

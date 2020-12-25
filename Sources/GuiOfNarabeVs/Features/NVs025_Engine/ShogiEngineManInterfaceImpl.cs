@@ -1,8 +1,7 @@
 ﻿using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P400_KifuNaraVs.L00048_Engine;
 
 
-namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features.Features
 {
     /// <summary>
     /// 将棋エンジンの、マン・インターフェースです。

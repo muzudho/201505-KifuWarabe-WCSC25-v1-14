@@ -78,13 +78,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P400NarabeVs\NVs00048_Engine\ShogiEngineLive.cs" />
-    <Compile Include="P400NarabeVs\NVs00048_Engine\ShogiEngineManInterface.cs" />
-    <Compile Include="P400NarabeVs\NVs025_Engine\ShogiEngineManInterfaceImpl.cs" />
-    <Compile Include="P400NarabeVs\NVs025_Engine\ShogiEngineLiveImpl.cs" />
-    <Compile Include="P400NarabeVs\NVs100_GUI\KifuNarabeVsImpl.cs" />
-    <Compile Include="P400NarabeVs\NVs100_GUI\WidgetsLoader_KifuNarabeVs.cs" />
-    <Compile Include="P400NarabeVs\NVs002_Ui\NVs050_ShogiGui.cs" />
+    <Compile Include="Features\NVs00048_Engine\ShogiEngineLive.cs" />
+    <Compile Include="Features\NVs00048_Engine\ShogiEngineManInterface.cs" />
+    <Compile Include="Features\NVs025_Engine\ShogiEngineManInterfaceImpl.cs" />
+    <Compile Include="Features\NVs025_Engine\ShogiEngineLiveImpl.cs" />
+    <Compile Include="Features\NVs100_GUI\KifuNarabeVsImpl.cs" />
+    <Compile Include="Features\NVs100_GUI\WidgetsLoader_KifuNarabeVs.cs" />
+    <Compile Include="Features\NVs002_Ui\NVs050_ShogiGui.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

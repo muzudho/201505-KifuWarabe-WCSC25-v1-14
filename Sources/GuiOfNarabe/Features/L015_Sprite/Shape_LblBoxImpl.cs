@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Grayscale.P200_KifuNarabe.L015_Sprite
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
 

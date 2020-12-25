@@ -3,9 +3,9 @@
 
 using System;
 using System.Windows.Forms;
-using Grayscale.P200_KifuNarabe.L100_GUI;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 
-namespace Grayscale.P200_KifuNarabe
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeExe
 {
 
     static class Program

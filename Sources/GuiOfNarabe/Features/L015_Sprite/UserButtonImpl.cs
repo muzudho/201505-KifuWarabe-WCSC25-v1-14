@@ -1,9 +1,8 @@
 ﻿using System.Drawing;
-using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00006_Shape;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 
-namespace Grayscale.P200_KifuNarabe.L015_Sprite
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
     /// <summary>

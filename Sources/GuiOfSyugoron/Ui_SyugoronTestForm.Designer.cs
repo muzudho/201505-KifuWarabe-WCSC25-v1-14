@@ -1,4 +1,4 @@
-﻿namespace Grayscale.Kifuwarazusa.Entities.Features
+﻿namespace Grayscale.Kifuwarazusa.GuiOfSyugoron.Features
 {
     partial class Ui_SyugoronTestForm
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ui_SyugoronTestPanel = new Grayscale.Kifuwarazusa.Entities.Features.Ui_SyugoronTestPanel();
+            this.ui_SyugoronTestPanel = new Grayscale.Kifuwarazusa.GuiOfSyugoron.Features.Ui_SyugoronTestPanel();
             this.SuspendLayout();
             // 
             // ui_Main1

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using Grayscale.P200_KifuNarabe.L100_GUI;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Nett;
 
-namespace Grayscale.P400_KifuNaraVs.L100_GUI
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features
 {
     static class Program
     {

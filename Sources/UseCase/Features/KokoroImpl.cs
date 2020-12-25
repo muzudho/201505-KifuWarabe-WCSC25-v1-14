@@ -21,7 +21,6 @@ using Grayscale.Kifuwarazusa.Entities.Logging;
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
-    using System.Windows.Forms;
     using Codeplex.Data;//DynamicJson
     using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.Kifuwarazusa.Entities.Logging;

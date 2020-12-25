@@ -1,4 +1,4 @@
-﻿namespace Grayscale.Kifuwarazusa.Entities.Features
+﻿namespace Grayscale.Kifuwarazusa.GuiOfSyugoron.Features
 {
     partial class Ui_SyugoronTestPanel
     {

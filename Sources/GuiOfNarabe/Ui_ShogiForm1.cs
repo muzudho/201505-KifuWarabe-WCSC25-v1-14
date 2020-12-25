@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
 
-namespace Grayscale.P200_KifuNarabe.L100_GUI
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     [Serializable]
     public partial class Ui_ShogiForm1 : Form

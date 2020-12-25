@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Grayscale.Kifuwarazusa.Entities.Features
+namespace Grayscale.Kifuwarazusa.GuiOfSyugoron.Features
 {
     public class Program
     {

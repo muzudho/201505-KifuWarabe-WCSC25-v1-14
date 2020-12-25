@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using Grayscale.Kifuwarazusa.Entities.Features.Gui;
 using Grayscale.Kifuwarazusa.Entities.Features;
-using Grayscale.P200_KifuNarabe.L00012_Ui;
-using Grayscale.P200_KifuNarabe.L00047_Scene;
-using Grayscale.P200_KifuNarabe.L00048_ShogiGui;
+using Grayscale.Kifuwarazusa.Entities.Features.Gui;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P200_KifuNarabe.L00006_Shape;
 
 namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Gui
 {

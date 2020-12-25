@@ -4,7 +4,7 @@ using System.Text;
 using System.Xml;
 using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.P200_KifuNarabe.L002_Log
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
 
     /// <summary>

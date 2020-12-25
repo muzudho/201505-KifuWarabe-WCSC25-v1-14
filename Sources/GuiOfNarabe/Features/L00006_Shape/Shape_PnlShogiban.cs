@@ -2,7 +2,7 @@
 using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Features;
 
-namespace Grayscale.P200_KifuNarabe.L00006_Shape
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     public interface Shape_PnlShogiban
     {

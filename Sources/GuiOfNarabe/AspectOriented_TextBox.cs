@@ -1,7 +1,7 @@
 ﻿
 using System.Windows.Forms;
 
-namespace Grayscale.P200_KifuNarabe.L00012_Ui
+namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 {
     public abstract class AspectOriented_TextBox
     {

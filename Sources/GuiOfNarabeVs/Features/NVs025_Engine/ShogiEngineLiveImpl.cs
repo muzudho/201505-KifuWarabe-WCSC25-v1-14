@@ -2,12 +2,10 @@
 using System.Diagnostics;
 using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Logging;
+using Grayscale.Kifuwarazusa.GuiOfNarabe.Features;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P200_KifuNarabe.L025_Macro;
-using Grayscale.P200_KifuNarabe.L100_GUI;
-using Grayscale.P400_KifuNaraVs.L00048_Engine;
 
-namespace Grayscale.P400_KifuNaraVs.L025_ShogiEngine
+namespace Grayscale.Kifuwarazusa.GuiOfNarabeVs.Features.Features
 {
     /// <summary>
     ///  プロセスラッパー
