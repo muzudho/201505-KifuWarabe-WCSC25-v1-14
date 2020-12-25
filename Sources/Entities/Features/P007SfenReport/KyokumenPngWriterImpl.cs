@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 using System.IO;
-using Grayscale.P006Sfen;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P007_SfenReport.L00025_Report;
 using Grayscale.P007_SfenReport.L00050_Write;
 using Grayscale.P007_SfenReport.L050_Report;

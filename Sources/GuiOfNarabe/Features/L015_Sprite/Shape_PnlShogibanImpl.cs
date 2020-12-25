@@ -1,4 +1,4 @@
-﻿using Grayscale.P006_Syugoron;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P012_KnowledgeShogi;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;

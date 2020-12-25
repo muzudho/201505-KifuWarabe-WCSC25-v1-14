@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Grayscale.P006_Syugoron
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public partial class Ui_SyugoronTestPanel : UserControl
     {

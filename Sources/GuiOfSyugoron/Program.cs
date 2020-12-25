@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Grayscale.P006_Syugoron
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public class Program
     {

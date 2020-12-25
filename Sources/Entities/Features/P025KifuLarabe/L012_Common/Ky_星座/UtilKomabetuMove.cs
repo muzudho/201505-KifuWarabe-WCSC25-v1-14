@@ -3,7 +3,7 @@ using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
-using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ using Grayscale.P025_KifuLarabe.L00050_StructShogi;
 #else
 using System.Collections.Generic;
 using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;

@@ -7,7 +7,7 @@ using Grayscale.P025_KifuLarabe.L007_Random;
 using Grayscale.P025_KifuLarabe.L012_Common;
 using Grayscale.P025_KifuLarabe.L025_Play;
 using Grayscale.P025_KifuLarabe.L050_Things;
-using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

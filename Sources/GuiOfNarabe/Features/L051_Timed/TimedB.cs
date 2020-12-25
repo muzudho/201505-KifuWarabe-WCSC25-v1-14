@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L00050_StructShogi;
@@ -23,7 +23,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
     using System.Collections.Generic;
     using System.Drawing;
     using Grayscale.Kifuwarazusa.GuiOfNarabe.Gui;
-    using Grayscale.P006_Syugoron;
+    using Grayscale.Kifuwarazusa.Entities.Features;
     using Grayscale.P025_KifuLarabe.L00012_Atom;
     using Grayscale.P025_KifuLarabe.L00025_Struct;
     using Grayscale.P025_KifuLarabe.L00050_StructShogi;
@@ -619,7 +619,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                                         {
                                                             //>>>>> そこに駒が置いてあった。
 #if DEBUG
-                                    MessageBox.Show("駒が置いてあった","デバッグ中");
+                                    // MessageBox.Show("駒が置いてあった","デバッグ中");
 #endif
                                                             match = true;
                                                             toBreak = true;

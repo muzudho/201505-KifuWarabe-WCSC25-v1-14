@@ -17,7 +17,7 @@ using Grayscale.P025_KifuLarabe.L025_Play;
 using Grayscale.P025_KifuLarabe.L100_KifuIO;
 
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.Kifuwarazusa.Entities.Logging;
 
 namespace Grayscale.P025_KifuLarabe.L025_Play

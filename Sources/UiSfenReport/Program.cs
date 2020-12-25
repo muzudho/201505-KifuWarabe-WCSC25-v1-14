@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using Grayscale.P007_SfenReport.L00025_Report;
+using Grayscale.P007_SfenReport.L050_Report;
 using Grayscale.P007_SfenReport.L100_Write;
 using Nett;
 
-namespace Grayscale.P007_SfenReport.L050_Report
+namespace Grayscale.Kifuwarazusa.CliSfenReport
 {
     static class Program
     {

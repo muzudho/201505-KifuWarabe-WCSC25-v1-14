@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P050_KifuWarabe
+﻿namespace Grayscale.Kifuwarazusa.Engine
 {
 #if DEBUG
     using System;

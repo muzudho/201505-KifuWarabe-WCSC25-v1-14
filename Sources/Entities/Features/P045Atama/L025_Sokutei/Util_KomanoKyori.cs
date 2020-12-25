@@ -1,4 +1,4 @@
-﻿using Grayscale.P006_Syugoron;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 //スプライト番号
 
 using Grayscale.P025_KifuLarabe.L004_StructShogi;

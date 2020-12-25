@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Grayscale.P006Sfen
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
 
     /// <summary>

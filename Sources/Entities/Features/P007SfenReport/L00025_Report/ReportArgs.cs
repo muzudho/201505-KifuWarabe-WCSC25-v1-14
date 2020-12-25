@@ -1,4 +1,4 @@
-﻿using Grayscale.P006Sfen;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P007_SfenReport.L00025_Report
 {

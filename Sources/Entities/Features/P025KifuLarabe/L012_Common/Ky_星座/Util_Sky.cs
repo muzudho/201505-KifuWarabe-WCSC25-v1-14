@@ -2,9 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
-using Grayscale.Kifuwarazusa.Entities.Logging;
-using Grayscale.P006_Syugoron;
-using Grayscale.P006Sfen;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P025_KifuLarabe.L00012_Atom;
 using Grayscale.P025_KifuLarabe.L00025_Struct;
 using Grayscale.P025_KifuLarabe.L004_StructShogi;

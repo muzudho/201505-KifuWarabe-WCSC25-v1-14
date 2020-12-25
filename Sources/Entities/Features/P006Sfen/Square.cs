@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P006Sfen
+﻿namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public abstract class Square
     {

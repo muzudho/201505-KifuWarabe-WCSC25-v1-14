@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Grayscale.P006_Syugoron
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
 
     /// <summary>

@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using Grayscale.P006Sfen;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using Grayscale.P007_SfenReport.L00025_Report;
 
 namespace Grayscale.P007_SfenReport.L050_Report

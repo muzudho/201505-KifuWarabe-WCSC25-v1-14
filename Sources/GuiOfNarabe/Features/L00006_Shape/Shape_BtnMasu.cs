@@ -1,5 +1,5 @@
 ﻿
-using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities.Features;
 
 
 namespace Grayscale.P200_KifuNarabe.L00006_Shape

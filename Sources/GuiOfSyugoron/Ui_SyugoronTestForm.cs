@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Grayscale.P006_Syugoron
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public partial class Ui_SyugoronTestForm : Form
     {

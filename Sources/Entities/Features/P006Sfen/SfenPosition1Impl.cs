@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Grayscale.P006Sfen
+namespace Grayscale.Kifuwarazusa.Entities.Features
 {
     public class SfenPosition1Impl : ISfenPosition1
     {

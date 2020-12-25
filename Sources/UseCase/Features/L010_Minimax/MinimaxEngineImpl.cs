@@ -15,7 +15,7 @@ using Grayscale.P050_KifuWarabe.L00051_Minimax;
 using Grayscale.P050_KifuWarabe.L009_Hyoka;
 using Grayscale.P050_KifuWarabe.L009_KyHyoka;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities.Features;
 using System;
 using System.Diagnostics;
 using Grayscale.Kifuwarazusa.Entities.Logging;

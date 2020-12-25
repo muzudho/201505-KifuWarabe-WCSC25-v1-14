@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Grayscale.P025_KifuLarabe.L00025_Struct;
-using Grayscale.P006_Syugoron;
+using Grayscale.Kifuwarazusa.Entities.Features;
 
 namespace Grayscale.P025_KifuLarabe.L004_StructShogi
 {

@@ -1,4 +1,4 @@
-﻿using Grayscale.P006_Syugoron;
+﻿using Grayscale.Kifuwarazusa.Entities.Features;
 using System.Collections.Generic;
 using System.Drawing;
 
