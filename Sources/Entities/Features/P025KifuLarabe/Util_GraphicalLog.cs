@@ -19,7 +19,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="ks14"></param>
         /// <param name="extentionWithDot"></param>
         /// <returns></returns>
-        public static string PsideKs14_ToString(Playerside pside, Ks14 ks14, string extentionWithDot)
+        public static string PsideKs14_ToString(Playerside pside, PieceType ks14, string extentionWithDot)
         {
             string komaImg;
 
@@ -27,20 +27,20 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             {
                 switch (ks14)
                 {
-                    case Ks14.H01_Fu: komaImg = "fu" + extentionWithDot; break;
-                    case Ks14.H02_Kyo: komaImg = "kyo" + extentionWithDot; break;
-                    case Ks14.H03_Kei: komaImg = "kei" + extentionWithDot; break;
-                    case Ks14.H04_Gin: komaImg = "gin" + extentionWithDot; break;
-                    case Ks14.H05_Kin: komaImg = "kin" + extentionWithDot; break;
-                    case Ks14.H06_Oh: komaImg = "oh" + extentionWithDot; break;
-                    case Ks14.H07_Hisya: komaImg = "hi" + extentionWithDot; break;
-                    case Ks14.H08_Kaku: komaImg = "kaku" + extentionWithDot; break;
-                    case Ks14.H09_Ryu: komaImg = "ryu" + extentionWithDot; break;
-                    case Ks14.H10_Uma: komaImg = "uma" + extentionWithDot; break;
-                    case Ks14.H11_Tokin: komaImg = "tokin" + extentionWithDot; break;
-                    case Ks14.H12_NariKyo: komaImg = "narikyo" + extentionWithDot; break;
-                    case Ks14.H13_NariKei: komaImg = "narikei" + extentionWithDot; break;
-                    case Ks14.H14_NariGin: komaImg = "narigin" + extentionWithDot; break;
+                    case PieceType.P: komaImg = "fu" + extentionWithDot; break;
+                    case PieceType.L: komaImg = "kyo" + extentionWithDot; break;
+                    case PieceType.N: komaImg = "kei" + extentionWithDot; break;
+                    case PieceType.S: komaImg = "gin" + extentionWithDot; break;
+                    case PieceType.G: komaImg = "kin" + extentionWithDot; break;
+                    case PieceType.K: komaImg = "oh" + extentionWithDot; break;
+                    case PieceType.R: komaImg = "hi" + extentionWithDot; break;
+                    case PieceType.B: komaImg = "kaku" + extentionWithDot; break;
+                    case PieceType.PR: komaImg = "ryu" + extentionWithDot; break;
+                    case PieceType.PB: komaImg = "uma" + extentionWithDot; break;
+                    case PieceType.PP: komaImg = "tokin" + extentionWithDot; break;
+                    case PieceType.PL: komaImg = "narikyo" + extentionWithDot; break;
+                    case PieceType.PN: komaImg = "narikei" + extentionWithDot; break;
+                    case PieceType.PS: komaImg = "narigin" + extentionWithDot; break;
                     default: komaImg = "batu" + extentionWithDot; break;
                 }
             }
@@ -48,20 +48,20 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             {
                 switch (ks14)
                 {
-                    case Ks14.H01_Fu: komaImg = "fuV" + extentionWithDot; break;
-                    case Ks14.H02_Kyo: komaImg = "kyoV" + extentionWithDot; break;
-                    case Ks14.H03_Kei: komaImg = "keiV" + extentionWithDot; break;
-                    case Ks14.H04_Gin: komaImg = "ginV" + extentionWithDot; break;
-                    case Ks14.H05_Kin: komaImg = "kinV" + extentionWithDot; break;
-                    case Ks14.H06_Oh: komaImg = "ohV" + extentionWithDot; break;
-                    case Ks14.H07_Hisya: komaImg = "hiV" + extentionWithDot; break;
-                    case Ks14.H08_Kaku: komaImg = "kakuV" + extentionWithDot; break;
-                    case Ks14.H09_Ryu: komaImg = "ryuV" + extentionWithDot; break;
-                    case Ks14.H10_Uma: komaImg = "umaV" + extentionWithDot; break;
-                    case Ks14.H11_Tokin: komaImg = "tokinV" + extentionWithDot; break;
-                    case Ks14.H12_NariKyo: komaImg = "narikyoV" + extentionWithDot; break;
-                    case Ks14.H13_NariKei: komaImg = "narikeiV" + extentionWithDot; break;
-                    case Ks14.H14_NariGin: komaImg = "nariginV" + extentionWithDot; break;
+                    case PieceType.P: komaImg = "fuV" + extentionWithDot; break;
+                    case PieceType.L: komaImg = "kyoV" + extentionWithDot; break;
+                    case PieceType.N: komaImg = "keiV" + extentionWithDot; break;
+                    case PieceType.S: komaImg = "ginV" + extentionWithDot; break;
+                    case PieceType.G: komaImg = "kinV" + extentionWithDot; break;
+                    case PieceType.K: komaImg = "ohV" + extentionWithDot; break;
+                    case PieceType.R: komaImg = "hiV" + extentionWithDot; break;
+                    case PieceType.B: komaImg = "kakuV" + extentionWithDot; break;
+                    case PieceType.PR: komaImg = "ryuV" + extentionWithDot; break;
+                    case PieceType.PB: komaImg = "umaV" + extentionWithDot; break;
+                    case PieceType.PP: komaImg = "tokinV" + extentionWithDot; break;
+                    case PieceType.PL: komaImg = "narikyoV" + extentionWithDot; break;
+                    case PieceType.PN: komaImg = "narikeiV" + extentionWithDot; break;
+                    case PieceType.PS: komaImg = "nariginV" + extentionWithDot; break;
                     default: komaImg = "batu" + extentionWithDot; break;
                 }
             }
@@ -78,13 +78,13 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                 Playerside pside = koma.Pside;
-                Ks14 ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
+                PieceType ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
 
                 komaImg = Util_GraphicalLog.PsideKs14_ToString(pside, ks14, extentionWithDot);
             }
             else
             {
-                komaImg = Util_GraphicalLog.PsideKs14_ToString(Playerside.Empty, Ks14.H00_Null, extentionWithDot);
+                komaImg = Util_GraphicalLog.PsideKs14_ToString(Playerside.Empty, PieceType.None, extentionWithDot);
             }
 
 
@@ -117,7 +117,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 // 駒１つ
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky_base.StarlightIndexOf(key).Now);
 
-                Ks14 ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
+                PieceType ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
 
                 sb.AppendLine("            [");
 
@@ -174,7 +174,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 Finger finger = Util_Sky.Fingers_AtMasuNow(src_Sky_base, srcKoma.Masu).ToFirst();
 
                 // 駒１つ
-                Ks14 ks14 = Haiyaku184Array.Syurui(dstKoma.Haiyaku);
+                PieceType ks14 = Haiyaku184Array.Syurui(dstKoma.Haiyaku);
 
                 //sb.AppendLine("            [");
 
@@ -228,7 +228,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 Finger srcKoma2 = Util_Sky.Fingers_AtMasuNow(src_Sky_base, srcKoma1.Masu).ToFirst();
 
                 // 駒１つ
-                Ks14 ks14 = Haiyaku184Array.Syurui(dstKoma.Haiyaku);
+                PieceType ks14 = Haiyaku184Array.Syurui(dstKoma.Haiyaku);
 
                 sb.AppendLine("            [");
 

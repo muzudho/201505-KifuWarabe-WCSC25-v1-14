@@ -11,8 +11,8 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
         public static readonly ShootingStarlightable NullObjectMove = new RO_ShootingStarlight(
             //Fingers.Error_1,
-            new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, Ks14.H00_Null),
-            new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, Ks14.H00_Null),
+            new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, PieceType.None),
+            new RO_Star_Koma(Playerside.Empty, Masu_Honshogi.Error, PieceType.None),
             null
             );
 
@@ -92,7 +92,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
 
-                Ks14 ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
+                PieceType ks14 = Haiyaku184Array.Syurui(koma.Haiyaku);
 
                 if (Util_Masu.GetOkiba(koma.Masu) == Okiba.Gote_Komadai)
                 {
@@ -171,11 +171,11 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="syurui"></param>
         /// <param name="uc_Main"></param>
         /// <returns>無ければ -1</returns>
-        public static Finger FingerNow_BySyuruiIgnoreCase(SkyConst src_Sky, Okiba okiba, Ks14 syurui)
+        public static Finger FingerNow_BySyuruiIgnoreCase(SkyConst src_Sky, Okiba okiba, PieceType syurui)
         {
             Finger found = Fingers.Error_1;
 
-            Ks14 syuruiNarazuCase = KomaSyurui14Array.NarazuCaseHandle(syurui);
+            PieceType syuruiNarazuCase = KomaSyurui14Array.NarazuCaseHandle(syurui);
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
@@ -201,7 +201,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers Fingers_BySyuruiNow(SkyConst src_Sky, Ks14 syurui)
+        public static Fingers Fingers_BySyuruiNow(SkyConst src_Sky, PieceType syurui)
         {
             Fingers figKomas = new Fingers();
 
@@ -226,7 +226,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="syurui"></param>
         /// <param name="kifu"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByOkibaSyuruiNow(SkyConst src_Sky, Okiba okiba, Ks14 syurui)
+        public static Fingers Fingers_ByOkibaSyuruiNow(SkyConst src_Sky, Okiba okiba, PieceType syurui)
         {
             Fingers komas = new Fingers();
 
@@ -255,7 +255,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="syurui"></param>
         /// <param name="kifu"></param>
         /// <returns></returns>
-        public static Fingers Fingers_ByOkibaPsideSyuruiNow(SkyConst src_Sky, Okiba okiba, Playerside pside, Ks14 syurui)
+        public static Fingers Fingers_ByOkibaPsideSyuruiNow(SkyConst src_Sky, Okiba okiba, Playerside pside, PieceType syurui)
         {
             Fingers figKomas = new Fingers();
 
@@ -359,7 +359,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static RO_Star_Koma Koma_AtMasuNow(SkyConst src_Sky, SyElement masu, Playerside pside, Ks14 syurui)
+        public static RO_Star_Koma Koma_AtMasuNow(SkyConst src_Sky, SyElement masu, Playerside pside, PieceType syurui)
         {
             RO_Star_Koma koma = null;
 
@@ -562,9 +562,9 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// 成ケース
         /// </summary>
         /// <returns></returns>
-        public static Ks14 ToNariCase(RO_MotionlessStarlight ms)
+        public static PieceType ToNariCase(RO_MotionlessStarlight ms)
         {
-            Ks14 result;
+            PieceType result;
 
             RO_Star_Koma koma = Util_Koma.AsKoma(ms.Now);
 
@@ -1023,7 +1023,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 new RO_Star_Koma(
                     dstKoma.Pside,
                     Masu_Honshogi.Error, // ソースのソースは未定義。
-                    Ks14.H00_Null
+                    PieceType.None
                 ),
 
                 // ソースの目的地はソース
@@ -1033,7 +1033,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                     srcKoma.Syurui
                 ),
 
-                Ks14.H00_Null
+                PieceType.None
             );
 
             return result;
@@ -1045,7 +1045,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             Starlightable longTimeAgo,
             Starlightable now,
 
-            Ks14 tottaKomaSyurui
+            PieceType tottaKomaSyurui
         )
         {
             return new RO_ShootingStarlight(longTimeAgo, now, tottaKomaSyurui);//finger,
@@ -1059,7 +1059,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(Util_Sky.ToSfenMoveText(ss));
-            if (Ks14.H00_Null != (Ks14)ss.FoodKomaSyurui)
+            if (PieceType.None != (PieceType)ss.FoodKomaSyurui)
             {
                 sb.Append("(");
                 sb.Append(ss.FoodKomaSyurui);
@@ -1147,124 +1147,124 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
             Finger finger = 0;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(/*finger,*/ new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro01, Ks14.H06_Oh)));// Kh185.n051_底奇王
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(/*finger,*/ new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro01, PieceType.K)));// Kh185.n051_底奇王
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro02, Ks14.H06_Oh)));// Kh185.n051_底奇王
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro02, PieceType.K)));// Kh185.n051_底奇王
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro03, Ks14.H07_Hisya)));// Kh185.n061_飛
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro03, PieceType.R)));// Kh185.n061_飛
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro04, Ks14.H07_Hisya)));// Kh185.n061_飛
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro04, PieceType.R)));// Kh185.n061_飛
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro05, Ks14.H08_Kaku)));// Kh185.n072_奇角
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro05, PieceType.B)));// Kh185.n072_奇角
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro06, Ks14.H08_Kaku)));// Kh185.n072_奇角
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro06, PieceType.B)));// Kh185.n072_奇角
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro07, Ks14.H05_Kin)));// Kh185.n038_底偶金
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro07, PieceType.G)));// Kh185.n038_底偶金
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro08, Ks14.H05_Kin)));// Kh185.n038_底偶金
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro08, PieceType.G)));// Kh185.n038_底偶金
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro09, Ks14.H05_Kin)));// Kh185.n038_底偶金
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro09, PieceType.G)));// Kh185.n038_底偶金
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro10, Ks14.H05_Kin)));// Kh185.n038_底偶金
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro10, PieceType.G)));// Kh185.n038_底偶金
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro11, Ks14.H04_Gin)));// Kh185.n023_底奇銀
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro11, PieceType.S)));// Kh185.n023_底奇銀
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro12, Ks14.H04_Gin)));// Kh185.n023_底奇銀
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro12, PieceType.S)));// Kh185.n023_底奇銀
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro13, Ks14.H04_Gin)));// Kh185.n023_底奇銀
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro13, PieceType.S)));// Kh185.n023_底奇銀
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro14, Ks14.H04_Gin)));// Kh185.n023_底奇銀
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro14, PieceType.S)));// Kh185.n023_底奇銀
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro15, Ks14.H03_Kei)));// Kh185.n007_金桂
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro15, PieceType.N)));// Kh185.n007_金桂
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro16, Ks14.H03_Kei)));// Kh185.n007_金桂
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro16, PieceType.N)));// Kh185.n007_金桂
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro17, Ks14.H03_Kei)));// Kh185.n007_金桂
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro17, PieceType.N)));// Kh185.n007_金桂
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro18, Ks14.H03_Kei)));// Kh185.n007_金桂
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro18, PieceType.N)));// Kh185.n007_金桂
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro19, Ks14.H02_Kyo)));// Kh185.n002_香
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro19, PieceType.L)));// Kh185.n002_香
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro20, Ks14.H02_Kyo)));// Kh185.n002_香
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro20, PieceType.L)));// Kh185.n002_香
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro21, Ks14.H02_Kyo)));// Kh185.n002_香
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro21, PieceType.L)));// Kh185.n002_香
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro22, Ks14.H02_Kyo)));// Kh185.n002_香
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro22, PieceType.L)));// Kh185.n002_香
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro23, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro23, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro24, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro24, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro25, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro25, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro26, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro26, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro27, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro27, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro28, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro28, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro29, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro29, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro30, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro30, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro31, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.fukuro31, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro32, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro32, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro33, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro33, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro34, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro34, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro35, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro35, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro36, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro36, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro37, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro37, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro38, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro38, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro39, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro39, PieceType.P)));// Kh185.n001_歩
             finger++;
 
-            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro40, Ks14.H01_Fu)));// Kh185.n001_歩
+            buffer_Sky.AddOverwriteStarlight(finger, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.fukuro40, PieceType.P)));// Kh185.n001_歩
             finger++;
 
             // 以上、全40駒。
@@ -1282,93 +1282,93 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             Finger figKoma;
 
             figKoma = Finger_Honshogi.SenteOh;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(/*figKoma,*/ new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban59_５九, Ks14.H06_Oh)));//先手王
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(/*figKoma,*/ new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban59_５九, PieceType.K)));//先手王
             figKoma = (int)Finger_Honshogi.GoteOh;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban51_５一, Ks14.H06_Oh)));//後手王
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban51_５一, PieceType.K)));//後手王
 
             figKoma = (int)Finger_Honshogi.Hi1;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban28_２八, Ks14.H07_Hisya)));//飛
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban28_２八, PieceType.R)));//飛
             figKoma = (int)Finger_Honshogi.Hi2;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban82_８二, Ks14.H07_Hisya)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban82_８二, PieceType.R)));
 
             figKoma = (int)Finger_Honshogi.Kaku1;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban88_８八, Ks14.H08_Kaku)));//角
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban88_８八, PieceType.B)));//角
             figKoma = (int)Finger_Honshogi.Kaku2;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban22_２二, Ks14.H08_Kaku)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban22_２二, PieceType.B)));
 
             figKoma = (int)Finger_Honshogi.Kin1;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban49_４九, Ks14.H05_Kin)));//金
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban49_４九, PieceType.G)));//金
             figKoma = (int)Finger_Honshogi.Kin2;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban69_６九, Ks14.H05_Kin)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban69_６九, PieceType.G)));
             figKoma = (int)Finger_Honshogi.Kin3;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban41_４一, Ks14.H05_Kin)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban41_４一, PieceType.G)));
             figKoma = (int)Finger_Honshogi.Kin4;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban61_６一, Ks14.H05_Kin)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban61_６一, PieceType.G)));
 
             figKoma = (int)Finger_Honshogi.Gin1;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban39_３九, Ks14.H04_Gin)));//銀
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban39_３九, PieceType.S)));//銀
             figKoma = (int)Finger_Honshogi.Gin2;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban79_７九, Ks14.H04_Gin)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban79_７九, PieceType.S)));
             figKoma = (int)Finger_Honshogi.Gin3;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban31_３一, Ks14.H04_Gin)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban31_３一, PieceType.S)));
             figKoma = (int)Finger_Honshogi.Gin4;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban71_７一, Ks14.H04_Gin)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban71_７一, PieceType.S)));
 
             figKoma = (int)Finger_Honshogi.Kei1;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban29_２九, Ks14.H03_Kei)));//桂
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban29_２九, PieceType.N)));//桂
             figKoma = (int)Finger_Honshogi.Kei2;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban89_８九, Ks14.H03_Kei)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban89_８九, PieceType.N)));
             figKoma = (int)Finger_Honshogi.Kei3;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban21_２一, Ks14.H03_Kei)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban21_２一, PieceType.N)));
             figKoma = (int)Finger_Honshogi.Kei4;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban81_８一, Ks14.H03_Kei)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban81_８一, PieceType.N)));
 
             figKoma = (int)Finger_Honshogi.Kyo1;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban19_１九, Ks14.H02_Kyo)));//香
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban19_１九, PieceType.L)));//香
             figKoma = (int)Finger_Honshogi.Kyo2;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban99_９九, Ks14.H02_Kyo)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban99_９九, PieceType.L)));
             figKoma = (int)Finger_Honshogi.Kyo3;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban11_１一, Ks14.H02_Kyo)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban11_１一, PieceType.L)));
             figKoma = (int)Finger_Honshogi.Kyo4;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban91_９一, Ks14.H02_Kyo)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban91_９一, PieceType.L)));
 
             figKoma = (int)Finger_Honshogi.Fu1;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban17_１七, Ks14.H01_Fu)));//歩
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban17_１七, PieceType.P)));//歩
             figKoma = (int)Finger_Honshogi.Fu2;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban27_２七, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban27_２七, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu3;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban37_３七, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban37_３七, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu4;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban47_４七, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban47_４七, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu5;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban57_５七, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban57_５七, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu6;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban67_６七, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban67_６七, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu7;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban77_７七, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban77_７七, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu8;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban87_８七, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban87_８七, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu9;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban97_９七, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P1, Masu_Honshogi.ban97_９七, PieceType.P)));
 
             figKoma = (int)Finger_Honshogi.Fu10;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban13_１三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban13_１三, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu11;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban23_２三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban23_２三, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu12;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban33_３三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban33_３三, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu13;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban43_４三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban43_４三, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu14;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban53_５三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban53_５三, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu15;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban63_６三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban63_６三, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu16;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban73_７三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban73_７三, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu17;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban83_８三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban83_８三, PieceType.P)));
             figKoma = (int)Finger_Honshogi.Fu18;
-            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban93_９三, Ks14.H01_Fu)));
+            dst_Sky.AddOverwriteStarlight(figKoma, new RO_MotionlessStarlight(new RO_Star_Koma(Playerside.P2, Masu_Honshogi.ban93_９三, PieceType.P)));
 
 
             //LarabeLogger.GetInstance().WriteAddMemo(logTag, "平手局面にセットしたぜ☆");
@@ -1395,61 +1395,61 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
 
             // 王
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(0).Now).Syurui == Ks14.H06_Oh, "駒0.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(0).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(1).Now).Syurui == Ks14.H06_Oh, "駒1.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(1).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(0).Now).Syurui == PieceType.K, "駒0.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(0).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(1).Now).Syurui == PieceType.K, "駒1.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(1).Now).Syurui + "]");
 
             // 飛車
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui == Ks14.H07_Hisya || ((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui == Ks14.H09_Ryu, "駒2.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui == Ks14.H07_Hisya || ((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui == Ks14.H09_Ryu, "駒3.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui == PieceType.R || ((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui == PieceType.PR, "駒2.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(2).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui == PieceType.R || ((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui == PieceType.PR, "駒3.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(3).Now).Syurui + "]");
 
             // 角
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui == Ks14.H08_Kaku || ((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui == Ks14.H10_Uma, "駒4.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui == Ks14.H08_Kaku || ((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui == Ks14.H10_Uma, "駒5.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui == PieceType.B || ((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui == PieceType.PB, "駒4.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(4).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui == PieceType.B || ((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui == PieceType.PB, "駒5.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(5).Now).Syurui + "]");
 
             // 金
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(6).Now).Syurui == Ks14.H05_Kin, "駒6.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(6).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(7).Now).Syurui == Ks14.H05_Kin, "駒7.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(7).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(8).Now).Syurui == Ks14.H05_Kin, "駒8.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(8).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(9).Now).Syurui == Ks14.H05_Kin, "駒9.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(9).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(6).Now).Syurui == PieceType.G, "駒6.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(6).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(7).Now).Syurui == PieceType.G, "駒7.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(7).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(8).Now).Syurui == PieceType.G, "駒8.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(8).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(9).Now).Syurui == PieceType.G, "駒9.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(9).Now).Syurui + "]");
 
             // 銀
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui == Ks14.H14_NariGin, "駒10.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui == Ks14.H14_NariGin, "駒11.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui == Ks14.H14_NariGin, "駒12.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui == Ks14.H04_Gin || ((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui == Ks14.H14_NariGin, "駒13.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui == PieceType.S || ((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui == PieceType.PS, "駒10.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(10).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui == PieceType.S || ((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui == PieceType.PS, "駒11.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(11).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui == PieceType.S || ((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui == PieceType.PS, "駒12.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(12).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui == PieceType.S || ((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui == PieceType.PS, "駒13.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(13).Now).Syurui + "]");
 
             // 桂
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui == Ks14.H13_NariKei, "駒14.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui == Ks14.H13_NariKei, "駒15.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui == Ks14.H13_NariKei, "駒16.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui == Ks14.H03_Kei || ((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui == Ks14.H13_NariKei, "駒17.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui == PieceType.N || ((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui == PieceType.PN, "駒14.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(14).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui == PieceType.N || ((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui == PieceType.PN, "駒15.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(15).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui == PieceType.N || ((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui == PieceType.PN, "駒16.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(16).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui == PieceType.N || ((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui == PieceType.PN, "駒17.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(17).Now).Syurui + "]");
 
             // 香
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui == Ks14.H12_NariKyo, "駒18.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui == Ks14.H12_NariKyo, "駒19.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui == Ks14.H12_NariKyo, "駒20.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui == Ks14.H02_Kyo || ((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui == Ks14.H12_NariKyo, "駒21.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui == PieceType.L || ((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui == PieceType.PL, "駒18.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(18).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui == PieceType.L || ((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui == PieceType.PL, "駒19.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(19).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui == PieceType.L || ((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui == PieceType.PL, "駒20.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(20).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui == PieceType.L || ((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui == PieceType.PL, "駒21.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(21).Now).Syurui + "]");
 
             // 歩
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui == Ks14.H11_Tokin, "駒22.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui == Ks14.H11_Tokin, "駒23.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui == Ks14.H11_Tokin, "駒24.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui == Ks14.H11_Tokin, "駒25.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui == Ks14.H11_Tokin, "駒26.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui == Ks14.H11_Tokin, "駒27.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui == Ks14.H11_Tokin, "駒28.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui == Ks14.H11_Tokin, "駒29.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui == Ks14.H11_Tokin, "駒30.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui == PieceType.PP, "駒22.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(22).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui == PieceType.PP, "駒23.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(23).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui == PieceType.PP, "駒24.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(24).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui == PieceType.PP, "駒25.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(25).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui == PieceType.PP, "駒26.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(26).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui == PieceType.PP, "駒27.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(27).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui == PieceType.PP, "駒28.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(28).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui == PieceType.PP, "駒29.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(29).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui == PieceType.PP, "駒30.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(30).Now).Syurui + "]");
 
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui == Ks14.H11_Tokin, "駒31.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui == Ks14.H11_Tokin, "駒32.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui == Ks14.H11_Tokin, "駒33.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui == Ks14.H11_Tokin, "駒34.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui == Ks14.H11_Tokin, "駒35.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui == Ks14.H11_Tokin, "駒36.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui == Ks14.H11_Tokin, "駒37.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui == Ks14.H11_Tokin, "駒38.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui + "]");
-            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui == Ks14.H01_Fu || ((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui == Ks14.H11_Tokin, "駒39.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui == PieceType.PP, "駒31.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(31).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui == PieceType.PP, "駒32.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(32).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui == PieceType.PP, "駒33.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(33).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui == PieceType.PP, "駒34.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(34).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui == PieceType.PP, "駒35.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(35).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui == PieceType.PP, "駒36.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(36).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui == PieceType.PP, "駒37.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(37).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui == PieceType.PP, "駒38.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(38).Now).Syurui + "]");
+            Debug.Assert(((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui == PieceType.P || ((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui == PieceType.PP, "駒39.種類=[" + ((RO_Star_Koma)src_Sky.StarlightIndexOf(39).Now).Syurui + "]");
 
 
 

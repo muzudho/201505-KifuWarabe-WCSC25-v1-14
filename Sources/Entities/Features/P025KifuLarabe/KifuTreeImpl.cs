@@ -79,7 +79,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// 棋譜読取時用です。マウス操作時は、流れが異なるので使えません。
         /// </summary>
         public void AppendChildB_Swap(
-            Ks14 tottaSyurui,
+            PieceType tottaSyurui,
             SkyConst src_Sky,
             string hint
             )

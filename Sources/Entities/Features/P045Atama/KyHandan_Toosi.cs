@@ -98,20 +98,20 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 // 係数
                 switch (koma.Syurui)
                 {
-                    case Ks14.H01_Fu: toosi *= this.Keisu_Fu; break;
-                    case Ks14.H02_Kyo: toosi *= this.Keisu_Kyo; break;
-                    case Ks14.H03_Kei: toosi *= this.Keisu_Kei; break;
-                    case Ks14.H04_Gin: toosi *= this.Keisu_Gin; break;
-                    case Ks14.H05_Kin: toosi *= this.Keisu_Kin; break;
-                    case Ks14.H06_Oh: toosi *= this.Keisu_Oh; break;
-                    case Ks14.H07_Hisya: toosi *= this.Keisu_Hisya; break;
-                    case Ks14.H08_Kaku: toosi *= this.Keisu_Kaku; break;
-                    case Ks14.H09_Ryu: toosi *= this.Keisu_Ryu; break;
-                    case Ks14.H10_Uma: toosi *= this.Keisu_Uma; break;
-                    case Ks14.H11_Tokin: toosi *= this.Keisu_Tokin; break;
-                    case Ks14.H12_NariKyo: toosi *= this.Keisu_NariKyo; break;
-                    case Ks14.H13_NariKei: toosi *= this.Keisu_NariKei; break;
-                    case Ks14.H14_NariGin: toosi *= this.Keisu_NariGin; break;
+                    case PieceType.P: toosi *= this.Keisu_Fu; break;
+                    case PieceType.L: toosi *= this.Keisu_Kyo; break;
+                    case PieceType.N: toosi *= this.Keisu_Kei; break;
+                    case PieceType.S: toosi *= this.Keisu_Gin; break;
+                    case PieceType.G: toosi *= this.Keisu_Kin; break;
+                    case PieceType.K: toosi *= this.Keisu_Oh; break;
+                    case PieceType.R: toosi *= this.Keisu_Hisya; break;
+                    case PieceType.B: toosi *= this.Keisu_Kaku; break;
+                    case PieceType.PR: toosi *= this.Keisu_Ryu; break;
+                    case PieceType.PB: toosi *= this.Keisu_Uma; break;
+                    case PieceType.PP: toosi *= this.Keisu_Tokin; break;
+                    case PieceType.PL: toosi *= this.Keisu_NariKyo; break;
+                    case PieceType.PN: toosi *= this.Keisu_NariKei; break;
+                    case PieceType.PS: toosi *= this.Keisu_NariGin; break;
                     default: break;
                 }
 

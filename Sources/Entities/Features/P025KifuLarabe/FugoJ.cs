@@ -22,14 +22,14 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// 駒種類
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        public Ks14 Syurui
+        public PieceType Syurui
         {
             get
             {
                 return this.syurui;
             }
         }
-        private Ks14 syurui;
+        private PieceType syurui;
 
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="nari"></param>
         /// <param name="daHyoji"></param>
         public FugoJ(
-            Ks14 syurui, MigiHidari migiHidari, AgaruHiku agaruHiku, NariNarazu nari, DaHyoji daHyoji)
+            PieceType syurui, MigiHidari migiHidari, AgaruHiku agaruHiku, NariNarazu nari, DaHyoji daHyoji)
         {
             this.syurui = syurui;
             this.migiHidari = migiHidari;

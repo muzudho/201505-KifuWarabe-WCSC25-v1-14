@@ -40,7 +40,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             {
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
-                if (koma.Pside == args.PlayerInfo.Playerside && koma.Syurui == Ks14.H06_Oh)
+                if (koma.Pside == args.PlayerInfo.Playerside && koma.Syurui == PieceType.K)
                 {
                     jiGyoku = koma;
                     break;
@@ -125,8 +125,8 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 if (koma.Pside == args.PlayerInfo.Playerside &&
-                    koma.Syurui == Ks14.H04_Gin &&
-                    koma.Syurui == Ks14.H05_Kin
+                    koma.Syurui == PieceType.S &&
+                    koma.Syurui == PieceType.G
                     )
                 {
                     if (masuOmomi.ContainsKey(koma.Masu))

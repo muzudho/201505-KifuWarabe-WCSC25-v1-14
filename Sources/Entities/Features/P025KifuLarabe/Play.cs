@@ -57,7 +57,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(donoKoma).Now);
 
 
-                Ks14 syurui = Haiyaku184Array.Syurui(koma.Haiyaku);
+                PieceType syurui = Haiyaku184Array.Syurui(koma.Haiyaku);
 
                 // 置ける升
                 SySet<SyElement> okeruMasus = Util_Sky.KomaKidou_Potential(donoKoma, src_Sky);
@@ -65,7 +65,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 // 置けない升を引きます。
                 okeruMasus = okeruMasus.Minus_Closed(okenaiMasus);
 
-                if (syurui == Ks14.H01_Fu)
+                if (syurui == PieceType.P)
                 {
                     // 二歩チェック
 

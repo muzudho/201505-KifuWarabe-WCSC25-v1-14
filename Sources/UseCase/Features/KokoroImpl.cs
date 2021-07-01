@@ -100,7 +100,7 @@ using Grayscale.Kifuwarazusa.Entities.Logging;
                         //MessageBox.Show("プレイヤー２です。", "デバッグ");
 
                         // ８二に飛車がいる前提です。
-                        RO_Star_Koma koma82 = Util_Sky.Koma_AtMasuNow(src_Sky, Masu_Honshogi.ban82_８二, Playerside.P2, Ks14.H07_Hisya);
+                        RO_Star_Koma koma82 = Util_Sky.Koma_AtMasuNow(src_Sky, Masu_Honshogi.ban82_８二, Playerside.P2, PieceType.R);
 
                         if (null != koma82)
                         {
@@ -108,7 +108,7 @@ using Grayscale.Kifuwarazusa.Entities.Logging;
                             // ８二に飛車がいた。
 
                             // 飛車先の駒は？
-                            RO_Star_Koma koma83 = Util_Sky.Koma_AtMasuNow(src_Sky, Masu_Honshogi.ban83_８三, Playerside.P2, Ks14.H01_Fu);
+                            RO_Star_Koma koma83 = Util_Sky.Koma_AtMasuNow(src_Sky, Masu_Honshogi.ban83_８三, Playerside.P2, PieceType.P);
 
                             RO_Star_Koma koma84 = Util_Sky.Koma_AtMasuNow(src_Sky, Masu_Honshogi.ban84_８四, Playerside.P2);
                             RO_Star_Koma koma85 = Util_Sky.Koma_AtMasuNow(src_Sky, Masu_Honshogi.ban85_８五, Playerside.P2);

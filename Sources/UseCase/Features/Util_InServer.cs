@@ -260,7 +260,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
             // 駒袋に表示されている駒を、駒台に表示させます。
             {
                 // 駒袋に表示されている駒を、駒台へ表示されるように移します。
-                List<Ks14> syuruiList = new List<Ks14>();
+                List<PieceType> syuruiList = new List<PieceType>();
                 List<int> countList = new List<int>();
                 List<Playerside> psideList = new List<Playerside>();
 
@@ -273,7 +273,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti1K)
                 {
-                    syuruiList.Add(Ks14.H06_Oh);
+                    syuruiList.Add(PieceType.K);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti1K);
                     psideList.Add(Playerside.P1);
                     //System.C onsole.WriteLine("mK=" + ro_SfenStartpos.Moti1K);
@@ -284,7 +284,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti1R)
                 {
-                    syuruiList.Add(Ks14.H07_Hisya);
+                    syuruiList.Add(PieceType.R);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti1R);
                     psideList.Add(Playerside.P1);
                     //System.C onsole.WriteLine("mR=" + ro_SfenStartpos.Moti1R);
@@ -295,7 +295,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti1B)
                 {
-                    syuruiList.Add(Ks14.H08_Kaku);
+                    syuruiList.Add(PieceType.B);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti1B);
                     psideList.Add(Playerside.P1);
                     //System.C onsole.WriteLine("mB=" + ro_SfenStartpos.Moti1B);
@@ -306,7 +306,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti1G)
                 {
-                    syuruiList.Add(Ks14.H05_Kin);
+                    syuruiList.Add(PieceType.G);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti1G);
                     psideList.Add(Playerside.P1);
                     //System.C onsole.WriteLine("mG=" + ro_SfenStartpos.Moti1G);
@@ -317,7 +317,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti1S)
                 {
-                    syuruiList.Add(Ks14.H04_Gin);
+                    syuruiList.Add(PieceType.S);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti1S);
                     psideList.Add(Playerside.P1);
                     //System.C onsole.WriteLine("mS=" + ro_SfenStartpos.Moti1S);
@@ -328,7 +328,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti1N)
                 {
-                    syuruiList.Add(Ks14.H03_Kei);
+                    syuruiList.Add(PieceType.N);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti1N);
                     psideList.Add(Playerside.P1);
                     //System.C onsole.WriteLine("mN=" + ro_SfenStartpos.Moti1N);
@@ -339,7 +339,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti1L)
                 {
-                    syuruiList.Add(Ks14.H02_Kyo);
+                    syuruiList.Add(PieceType.L);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti1L);
                     psideList.Add(Playerside.P1);
                     //System.C onsole.WriteLine("mL=" + ro_SfenStartpos.Moti1L);
@@ -350,7 +350,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti1P)
                 {
-                    syuruiList.Add(Ks14.H01_Fu);
+                    syuruiList.Add(PieceType.P);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti1P);
                     psideList.Add(Playerside.P1);
                     //System.C onsole.WriteLine("mP=" + ro_SfenStartpos.Moti1P);
@@ -361,7 +361,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti2k)
                 {
-                    syuruiList.Add(Ks14.H06_Oh);
+                    syuruiList.Add(PieceType.K);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti2k);
                     psideList.Add(Playerside.P2);
                     //System.C onsole.WriteLine("mk=" + ro_SfenStartpos.Moti2k);
@@ -372,7 +372,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti2r)
                 {
-                    syuruiList.Add(Ks14.H07_Hisya);
+                    syuruiList.Add(PieceType.R);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti2r);
                     psideList.Add(Playerside.P2);
                     //System.C onsole.WriteLine("mr=" + ro_SfenStartpos.Moti2r);
@@ -383,7 +383,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti2b)
                 {
-                    syuruiList.Add(Ks14.H08_Kaku);
+                    syuruiList.Add(PieceType.B);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti2b);
                     psideList.Add(Playerside.P2);
                     //System.C onsole.WriteLine("mb=" + ro_SfenStartpos.Moti2b);
@@ -394,7 +394,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti2g)
                 {
-                    syuruiList.Add(Ks14.H05_Kin);
+                    syuruiList.Add(PieceType.G);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti2g);
                     psideList.Add(Playerside.P2);
                     //System.C onsole.WriteLine("mg=" + ro_SfenStartpos.Moti2g);
@@ -405,7 +405,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti2s)
                 {
-                    syuruiList.Add(Ks14.H04_Gin);
+                    syuruiList.Add(PieceType.S);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti2s);
                     psideList.Add(Playerside.P2);
                     //System.C onsole.WriteLine("ms=" + ro_SfenStartpos.Moti2s);
@@ -416,7 +416,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti2n)
                 {
-                    syuruiList.Add(Ks14.H03_Kei);
+                    syuruiList.Add(PieceType.N);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti2n);
                     psideList.Add(Playerside.P2);
                     //System.C onsole.WriteLine("mn=" + ro_SfenStartpos.Moti2n);
@@ -427,7 +427,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti2l)
                 {
-                    syuruiList.Add(Ks14.H02_Kyo);
+                    syuruiList.Add(PieceType.L);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti2l);
                     psideList.Add(Playerside.P2);
                     //System.C onsole.WriteLine("ml=" + ro_SfenStartpos.Moti2l);
@@ -438,7 +438,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
                 //------------------------------
                 if (0 < startposImporter.RO_SfenStartpos.Moti2p)
                 {
-                    syuruiList.Add(Ks14.H01_Fu);
+                    syuruiList.Add(PieceType.P);
                     countList.Add(startposImporter.RO_SfenStartpos.Moti2p);
                     psideList.Add(Playerside.P2);
                     //System.C onsole.WriteLine("mp=" + ro_SfenStartpos.Moti2p);
@@ -637,7 +637,7 @@ namespace Grayscale.Kifuwarazusa.UseCases.Features
             //>>>>> 取る駒があったとき
             torareruKomaAri = true;
 
-            Ks14 koma_Food_pre_Syurui = Util_Koma.AsKoma(roomViewModel.GameViewModel.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now).Syurui;
+            PieceType koma_Food_pre_Syurui = Util_Koma.AsKoma(roomViewModel.GameViewModel.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now).Syurui;
 
 
             // その駒は、駒置き場に移動させます。

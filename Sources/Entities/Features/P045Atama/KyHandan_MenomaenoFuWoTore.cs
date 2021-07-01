@@ -58,7 +58,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
                 // 相手駒
                 RO_Star_Koma aiteKoma = Util_Koma.FromFinger(src_Sky, aiteKomaFig);
-                if (aiteKoma.Syurui != Ks14.H01_Fu)
+                if (aiteKoma.Syurui != PieceType.P)
                 {
                     // 歩じゃなければ無視。「と金」も無視。
                     goto gt_Next1;

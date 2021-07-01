@@ -35,20 +35,20 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 double komaScore = 0.0d;
                 switch (koma.Syurui)
                 {
-                    case Ks14.H01_Fu: komaScore = 1.0d; break;
-                    case Ks14.H02_Kyo: komaScore = 3.0d; break;
-                    case Ks14.H03_Kei: komaScore = 3.5d; break;
-                    case Ks14.H04_Gin: komaScore = 9.0d; break;
-                    case Ks14.H05_Kin: komaScore = 9.5d; break;
-                    case Ks14.H06_Oh: komaScore = 100.0d; break;
-                    case Ks14.H07_Hisya: komaScore = 25.0d; break;
-                    case Ks14.H08_Kaku: komaScore = 20.0d; break;
-                    case Ks14.H09_Ryu: komaScore = 25.0d; break;
-                    case Ks14.H10_Uma: komaScore = 20.0d; break;
-                    case Ks14.H11_Tokin: komaScore = 9.5d; break;
-                    case Ks14.H12_NariKyo: komaScore = 10.0d; break;
-                    case Ks14.H13_NariKei: komaScore = 10.5d; break;
-                    case Ks14.H14_NariGin: komaScore = 11.0d; break;
+                    case PieceType.P: komaScore = 1.0d; break;
+                    case PieceType.L: komaScore = 3.0d; break;
+                    case PieceType.N: komaScore = 3.5d; break;
+                    case PieceType.S: komaScore = 9.0d; break;
+                    case PieceType.G: komaScore = 9.5d; break;
+                    case PieceType.K: komaScore = 100.0d; break;
+                    case PieceType.R: komaScore = 25.0d; break;
+                    case PieceType.B: komaScore = 20.0d; break;
+                    case PieceType.PR: komaScore = 25.0d; break;
+                    case PieceType.PB: komaScore = 20.0d; break;
+                    case PieceType.PP: komaScore = 9.5d; break;
+                    case PieceType.PL: komaScore = 10.0d; break;
+                    case PieceType.PN: komaScore = 10.5d; break;
+                    case PieceType.PS: komaScore = 11.0d; break;
                     default: komaScore = 0; break;
                 }
 

@@ -17,7 +17,7 @@
         /// 棋譜読取時用です。マウス操作時は、流れが異なるので使えません。
         /// </summary>
         void AppendChildB_Swap(
-            Ks14 tottaSyurui,
+            PieceType tottaSyurui,
             SkyConst src_Sky,
             string hint
             );

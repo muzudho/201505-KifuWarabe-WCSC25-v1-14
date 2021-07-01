@@ -50,7 +50,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             }
 
 
-            Ks14 syurui2 = KifuIO.Kifusasi30_Naru(move, isMakimodosi);
+            PieceType syurui2 = KifuIO.Kifusasi30_Naru(move, isMakimodosi);
 
 
             Starlight dst = KifuIO.Kifusasi35_NextMasu(syurui2, move, kifu, isMakimodosi);
@@ -181,14 +181,14 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="back"></param>
         /// <returns></returns>
-        private static Ks14 Kifusasi30_Naru(
+        private static PieceType Kifusasi30_Naru(
             ShootingStarlightable move,
             bool back)
         {
             //------------------------------------------------------------
             // 確定  ：  移動先升
             //------------------------------------------------------------
-            Ks14 syurui2;
+            PieceType syurui2;
             {
                 //----------
                 // 成るかどうか
@@ -227,7 +227,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="isMakimodosi"></param>
         /// <returns></returns>
         private static Starlight Kifusasi35_NextMasu(
-            Ks14 syurui2,
+            PieceType syurui2,
             ShootingStarlightable move,
             KifuTree kifu,
             bool isMakimodosi)
@@ -300,7 +300,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="isMakimodosi"></param>
         private static void Kifusasi52_WhenKifuRead(
             Starlight dst,
-            Ks14 syurui2,
+            PieceType syurui2,
             ref Finger figMovedKoma,
             out Finger out_figFoodKoma,
             ShootingStarlightable move,
@@ -322,12 +322,12 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 RO_Star_Koma dstKoma = Util_Koma.AsKoma(dst.Now);
 
 
-                Ks14 foodKomaSyurui;//取られた駒の種類
+                PieceType foodKomaSyurui;//取られた駒の種類
 
                 //----------
                 // 将棋盤上のその場所に駒はあるか
                 //----------
-                foodKomaSyurui = Ks14.H00_Null;//ひとまずクリアー
+                foodKomaSyurui = PieceType.None;//ひとまずクリアー
                 out_figFoodKoma = Util_Sky.Fingers_AtMasuNow(kifu.CurNode.Value.ToKyokumenConst, dstKoma.Masu).ToFirst();//盤上
 
                 if (Fingers.Error_1 != out_figFoodKoma)
@@ -467,7 +467,7 @@ dst.Pside={dstKoma.Pside}");
                 RO_Star_Koma koma = Util_Koma.AsKoma(move.Now);
 
 
-                if (Ks14.H00_Null != (Ks14)move.FoodKomaSyurui)
+                if (PieceType.None != (PieceType)move.FoodKomaSyurui)
                 {
                     // 駒台から、駒を検索します。
                     Okiba okiba;
@@ -482,7 +482,7 @@ dst.Pside={dstKoma.Pside}");
 
 
                     // 取った駒は、種類が同じなら、駒台のどの駒でも同じです。
-                    Finger temp_figFoodKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase(kifu.CurNode.Value.ToKyokumenConst, okiba, (Ks14)move.FoodKomaSyurui);
+                    Finger temp_figFoodKoma = Util_Sky.FingerNow_BySyuruiIgnoreCase(kifu.CurNode.Value.ToKyokumenConst, okiba, (PieceType)move.FoodKomaSyurui);
                     if (Fingers.Error_1 != temp_figFoodKoma)
                     {
                         // 取った駒のデータをセットし直します。
@@ -495,7 +495,7 @@ dst.Pside={dstKoma.Pside}");
                                 new RO_Star_Koma(
                                     Converter04.AlternatePside(koma.Pside),//先後を逆にして駒台に置きます。
                                     koma.Masu,// マス
-                                    (Ks14)move.FoodKomaSyurui
+                                    (PieceType)move.FoodKomaSyurui
                                 )
                             )
                         );

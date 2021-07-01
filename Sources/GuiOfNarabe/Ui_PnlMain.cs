@@ -188,7 +188,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
                                     koma.Haiyaku
                                 ),
 
-                                Ks14.H00_Null
+                                PieceType.None
                             );
                             break;
                         }
@@ -226,7 +226,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
                                     koma.Haiyaku
                                 ),
 
-                                Ks14.H00_Null
+                                PieceType.None
                             );
                             break;
                         }

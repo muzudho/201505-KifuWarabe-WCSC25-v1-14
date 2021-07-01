@@ -62,35 +62,35 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             {
                 switch (masuString)
                 {
-                    case "P": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H01_Fu)); break;
-                    case "L": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H02_Kyo)); break;
-                    case "N": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H03_Kei)); break;
-                    case "S": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H04_Gin)); break;
-                    case "G": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H05_Kin)); break;
-                    case "K": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H06_Oh)); break;
-                    case "R": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H07_Hisya)); break;
-                    case "B": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H08_Kaku)); break;
-                    case "+P": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H11_Tokin)); break;
-                    case "+L": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H12_NariKyo)); break;
-                    case "+N": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H13_NariKei)); break;
-                    case "+S": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H14_NariGin)); break;
-                    case "+R": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H09_Ryu)); break;
-                    case "+B": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), Ks14.H10_Uma)); break;
+                    case "P": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.P)); break;
+                    case "L": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.L)); break;
+                    case "N": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.N)); break;
+                    case "S": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.S)); break;
+                    case "G": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.G)); break;
+                    case "K": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.K)); break;
+                    case "R": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.R)); break;
+                    case "B": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.B)); break;
+                    case "+P": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.PP)); break;
+                    case "+L": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.PL)); break;
+                    case "+N": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.PN)); break;
+                    case "+S": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.PS)); break;
+                    case "+R": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.PR)); break;
+                    case "+B": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P1, new Basho(masuHandle), PieceType.PB)); break;
 
-                    case "p": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H01_Fu)); break;
-                    case "l": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H02_Kyo)); break;
-                    case "n": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H03_Kei)); break;
-                    case "s": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H04_Gin)); break;
-                    case "g": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H05_Kin)); break;
-                    case "k": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H06_Oh)); break;
-                    case "r": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H07_Hisya)); break;
-                    case "b": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H08_Kaku)); break;
-                    case "+p": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H11_Tokin)); break;
-                    case "+l": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H12_NariKyo)); break;
-                    case "+n": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H13_NariKei)); break;
-                    case "+s": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H14_NariGin)); break;
-                    case "+r": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H09_Ryu)); break;
-                    case "+b": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), Ks14.H10_Uma)); break;
+                    case "p": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.P)); break;
+                    case "l": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.L)); break;
+                    case "n": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.N)); break;
+                    case "s": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.S)); break;
+                    case "g": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.G)); break;
+                    case "k": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.K)); break;
+                    case "r": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.R)); break;
+                    case "b": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.B)); break;
+                    case "+p": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.PP)); break;
+                    case "+l": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.PL)); break;
+                    case "+n": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.PN)); break;
+                    case "+s": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.PS)); break;
+                    case "+r": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.PR)); break;
+                    case "+b": this.banAndKoma.Add(new Basho(masuHandle), new RO_Star_Koma(Playerside.P2, new Basho(masuHandle), PieceType.PB)); break;
 
                     case "":
                         // 空っぽの升。
@@ -187,7 +187,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 // 今回のカウント
                 switch (entry.Value.Syurui)
                 {
-                    case Ks14.H01_Fu:
+                    case PieceType.P:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerP1; break;
@@ -196,7 +196,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H02_Kyo:
+                    case PieceType.L:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerL1; break;
@@ -205,7 +205,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H03_Kei:
+                    case PieceType.N:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerN1; break;
@@ -214,7 +214,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H04_Gin:
+                    case PieceType.S:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerS1; break;
@@ -223,7 +223,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H05_Kin:
+                    case PieceType.G:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerG1; break;
@@ -232,7 +232,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H06_Oh:
+                    case PieceType.K:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerK1; break;
@@ -241,7 +241,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H07_Hisya:
+                    case PieceType.R:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerR1; break;
@@ -250,7 +250,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H08_Kaku:
+                    case PieceType.B:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerB1; break;
@@ -259,7 +259,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H09_Ryu:
+                    case PieceType.PR:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerR1; break;
@@ -268,7 +268,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H10_Uma:
+                    case PieceType.PB:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerB1; break;
@@ -277,7 +277,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H11_Tokin:
+                    case PieceType.PP:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerP1; break;
@@ -286,7 +286,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H12_NariKyo:
+                    case PieceType.PL:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerL1; break;
@@ -295,7 +295,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H13_NariKei:
+                    case PieceType.PN:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerN1; break;
@@ -304,7 +304,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H14_NariGin:
+                    case PieceType.PS:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_finger = int_fingerS1; break;
@@ -326,7 +326,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 // カウントアップ
                 switch (entry.Value.Syurui)
                 {
-                    case Ks14.H01_Fu:
+                    case PieceType.P:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerP1++; break;
@@ -335,7 +335,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H02_Kyo:
+                    case PieceType.L:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerL1++; break;
@@ -344,7 +344,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H03_Kei:
+                    case PieceType.N:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerN1++; break;
@@ -353,7 +353,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H04_Gin:
+                    case PieceType.S:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerS1++; break;
@@ -362,7 +362,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H05_Kin:
+                    case PieceType.G:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerG1++; break;
@@ -371,7 +371,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H06_Oh:
+                    case PieceType.K:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerK1++; break;
@@ -380,7 +380,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H07_Hisya:
+                    case PieceType.R:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerR1++; break;
@@ -389,7 +389,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H08_Kaku:
+                    case PieceType.B:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerB1++; break;
@@ -398,7 +398,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H09_Ryu:
+                    case PieceType.PR:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerR1++; break;
@@ -407,7 +407,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H10_Uma:
+                    case PieceType.PB:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerB1++; break;
@@ -416,7 +416,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H11_Tokin:
+                    case PieceType.PP:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerP1++; break;
@@ -425,7 +425,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H12_NariKyo:
+                    case PieceType.PL:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerL1++; break;
@@ -434,7 +434,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H13_NariKei:
+                    case PieceType.PN:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerN1++; break;
@@ -443,7 +443,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         }
                         break;
 
-                    case Ks14.H14_NariGin:
+                    case PieceType.PS:
                         switch (entry.Value.Pside)
                         {
                             case Playerside.P1: int_fingerS1++; break;

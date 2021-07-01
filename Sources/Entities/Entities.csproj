@@ -149,7 +149,7 @@
     <Compile Include="Features\P025KifuLarabe\Haiyaku184Array.cs" />
     <Compile Include="Features\P025KifuLarabe\Kh185.cs" />
     <Compile Include="Features\P025KifuLarabe\KomaSyurui14Array.cs" />
-    <Compile Include="Features\P025KifuLarabe\Ks14.cs" />
+    <Compile Include="Features\P025KifuLarabe\PieceType.cs" />
     <Compile Include="Features\P025KifuLarabe\RO_Star_Koma.cs" />
     <Compile Include="Features\P025KifuLarabe\StartposExporter.cs" />
     <Compile Include="Features\P025KifuLarabe\Util_Koma.cs" />

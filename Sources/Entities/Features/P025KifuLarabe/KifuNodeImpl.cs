@@ -537,36 +537,36 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
             {
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
-                Ks14 syurui = KomaSyurui14Array.NarazuCaseHandle(Haiyaku184Array.Syurui(koma.Haiyaku));
-                if (Ks14.H06_Oh == syurui)
+                PieceType syurui = KomaSyurui14Array.NarazuCaseHandle(Haiyaku184Array.Syurui(koma.Haiyaku));
+                if (PieceType.K == syurui)
                 {
                     mK++;
                 }
-                else if (Ks14.H07_Hisya == syurui)
+                else if (PieceType.R == syurui)
                 {
                     mR++;
                 }
-                else if (Ks14.H08_Kaku == syurui)
+                else if (PieceType.B == syurui)
                 {
                     mB++;
                 }
-                else if (Ks14.H05_Kin == syurui)
+                else if (PieceType.G == syurui)
                 {
                     mG++;
                 }
-                else if (Ks14.H04_Gin == syurui)
+                else if (PieceType.S == syurui)
                 {
                     mS++;
                 }
-                else if (Ks14.H03_Kei == syurui)
+                else if (PieceType.N == syurui)
                 {
                     mN++;
                 }
-                else if (Ks14.H02_Kyo == syurui)
+                else if (PieceType.L == syurui)
                 {
                     mL++;
                 }
-                else if (Ks14.H01_Fu == syurui)
+                else if (PieceType.P == syurui)
                 {
                     mP++;
                 }
@@ -584,37 +584,37 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 RO_Star_Koma koma = Util_Koma.AsKoma(src_Sky.StarlightIndexOf((int)figKoma).Now);
 
 
-                Ks14 syurui = KomaSyurui14Array.NarazuCaseHandle(Haiyaku184Array.Syurui(koma.Haiyaku));
+                PieceType syurui = KomaSyurui14Array.NarazuCaseHandle(Haiyaku184Array.Syurui(koma.Haiyaku));
 
-                if (Ks14.H06_Oh == syurui)
+                if (PieceType.K == syurui)
                 {
                     mk++;
                 }
-                else if (Ks14.H07_Hisya == syurui)
+                else if (PieceType.R == syurui)
                 {
                     mr++;
                 }
-                else if (Ks14.H08_Kaku == syurui)
+                else if (PieceType.B == syurui)
                 {
                     mb++;
                 }
-                else if (Ks14.H05_Kin == syurui)
+                else if (PieceType.G == syurui)
                 {
                     mg++;
                 }
-                else if (Ks14.H04_Gin == syurui)
+                else if (PieceType.S == syurui)
                 {
                     ms++;
                 }
-                else if (Ks14.H03_Kei == syurui)
+                else if (PieceType.N == syurui)
                 {
                     mn++;
                 }
-                else if (Ks14.H02_Kyo == syurui)
+                else if (PieceType.L == syurui)
                 {
                     ml++;
                 }
-                else if (Ks14.H01_Fu == syurui)
+                else if (PieceType.P == syurui)
                 {
                     mp++;
                 }

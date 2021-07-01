@@ -127,153 +127,153 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="syurui"></param>
         /// <returns></returns>
-        public static void SfenSyokihaichi_ToSyurui(string sfen, out Playerside pside, out Ks14 syurui)
+        public static void SfenSyokihaichi_ToSyurui(string sfen, out Playerside pside, out PieceType syurui)
         {
             switch (sfen)
             {
                 case "P":
                     pside = Playerside.P1;
-                    syurui = Ks14.H01_Fu;
+                    syurui = PieceType.P;
                     break;
 
                 case "p":
                     pside = Playerside.P2;
-                    syurui = Ks14.H01_Fu;
+                    syurui = PieceType.P;
                     break;
 
                 case "L":
                     pside = Playerside.P1;
-                    syurui = Ks14.H02_Kyo;
+                    syurui = PieceType.L;
                     break;
 
                 case "l":
                     pside = Playerside.P2;
-                    syurui = Ks14.H02_Kyo;
+                    syurui = PieceType.L;
                     break;
 
                 case "N":
                     pside = Playerside.P1;
-                    syurui = Ks14.H03_Kei;
+                    syurui = PieceType.N;
                     break;
 
                 case "n":
                     pside = Playerside.P2;
-                    syurui = Ks14.H03_Kei;
+                    syurui = PieceType.N;
                     break;
 
                 case "S":
                     pside = Playerside.P1;
-                    syurui = Ks14.H04_Gin;
+                    syurui = PieceType.S;
                     break;
 
                 case "s":
                     pside = Playerside.P2;
-                    syurui = Ks14.H04_Gin;
+                    syurui = PieceType.S;
                     break;
 
                 case "G":
                     pside = Playerside.P1;
-                    syurui = Ks14.H05_Kin;
+                    syurui = PieceType.G;
                     break;
 
                 case "g":
                     pside = Playerside.P2;
-                    syurui = Ks14.H05_Kin;
+                    syurui = PieceType.G;
                     break;
 
                 case "R":
                     pside = Playerside.P1;
-                    syurui = Ks14.H07_Hisya;
+                    syurui = PieceType.R;
                     break;
 
                 case "r":
                     pside = Playerside.P2;
-                    syurui = Ks14.H07_Hisya;
+                    syurui = PieceType.R;
                     break;
 
                 case "B":
                     pside = Playerside.P1;
-                    syurui = Ks14.H08_Kaku;
+                    syurui = PieceType.B;
                     break;
 
                 case "b":
                     pside = Playerside.P2;
-                    syurui = Ks14.H08_Kaku;
+                    syurui = PieceType.B;
                     break;
 
                 case "K":
                     pside = Playerside.P1;
-                    syurui = Ks14.H06_Oh;
+                    syurui = PieceType.K;
                     break;
 
                 case "k":
                     pside = Playerside.P2;
-                    syurui = Ks14.H06_Oh;
+                    syurui = PieceType.K;
                     break;
 
                 case "+P":
                     pside = Playerside.P1;
-                    syurui = Ks14.H11_Tokin;
+                    syurui = PieceType.PP;
                     break;
 
                 case "+p":
                     pside = Playerside.P2;
-                    syurui = Ks14.H11_Tokin;
+                    syurui = PieceType.PP;
                     break;
 
                 case "+L":
                     pside = Playerside.P1;
-                    syurui = Ks14.H12_NariKyo;
+                    syurui = PieceType.PL;
                     break;
 
                 case "+l":
                     pside = Playerside.P2;
-                    syurui = Ks14.H12_NariKyo;
+                    syurui = PieceType.PL;
                     break;
 
                 case "+N":
                     pside = Playerside.P1;
-                    syurui = Ks14.H13_NariKei;
+                    syurui = PieceType.PN;
                     break;
 
                 case "+n":
                     pside = Playerside.P2;
-                    syurui = Ks14.H13_NariKei;
+                    syurui = PieceType.PN;
                     break;
 
                 case "+S":
                     pside = Playerside.P1;
-                    syurui = Ks14.H14_NariGin;
+                    syurui = PieceType.PS;
                     break;
 
                 case "+s":
                     pside = Playerside.P2;
-                    syurui = Ks14.H14_NariGin;
+                    syurui = PieceType.PS;
                     break;
 
                 case "+R":
                     pside = Playerside.P1;
-                    syurui = Ks14.H07_Hisya;
+                    syurui = PieceType.R;
                     break;
 
                 case "+r":
                     pside = Playerside.P2;
-                    syurui = Ks14.H07_Hisya;
+                    syurui = PieceType.R;
                     break;
 
                 case "+B":
                     pside = Playerside.P1;
-                    syurui = Ks14.H08_Kaku;
+                    syurui = PieceType.B;
                     break;
 
                 case "+b":
                     pside = Playerside.P2;
-                    syurui = Ks14.H08_Kaku;
+                    syurui = PieceType.B;
                     break;
 
                 default:
                     pside = Playerside.P2;
-                    syurui = Ks14.H00_Null;
+                    syurui = PieceType.None;
                     break;
             }
         }
@@ -283,69 +283,69 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="syurui"></param>
         /// <returns></returns>
-        public static void SfenUttaSyurui(string sfen, out Ks14 syurui)
+        public static void SfenUttaSyurui(string sfen, out PieceType syurui)
         {
             switch (sfen)
             {
                 case "P":
-                    syurui = Ks14.H01_Fu;
+                    syurui = PieceType.P;
                     break;
 
                 case "L":
-                    syurui = Ks14.H02_Kyo;
+                    syurui = PieceType.L;
                     break;
 
                 case "N":
-                    syurui = Ks14.H03_Kei;
+                    syurui = PieceType.N;
                     break;
 
                 case "S":
-                    syurui = Ks14.H04_Gin;
+                    syurui = PieceType.S;
                     break;
 
                 case "G":
-                    syurui = Ks14.H05_Kin;
+                    syurui = PieceType.G;
                     break;
 
                 case "R":
-                    syurui = Ks14.H07_Hisya;
+                    syurui = PieceType.R;
                     break;
 
                 case "B":
-                    syurui = Ks14.H08_Kaku;
+                    syurui = PieceType.B;
                     break;
 
                 case "K":
-                    syurui = Ks14.H06_Oh;
+                    syurui = PieceType.K;
                     break;
 
                 case "+P":
-                    syurui = Ks14.H11_Tokin;
+                    syurui = PieceType.PP;
                     break;
 
                 case "+L":
-                    syurui = Ks14.H12_NariKyo;
+                    syurui = PieceType.PL;
                     break;
 
                 case "+N":
-                    syurui = Ks14.H13_NariKei;
+                    syurui = PieceType.PN;
                     break;
 
                 case "+S":
-                    syurui = Ks14.H14_NariGin;
+                    syurui = PieceType.PS;
                     break;
 
                 case "+R":
-                    syurui = Ks14.H07_Hisya;
+                    syurui = PieceType.R;
                     break;
 
                 case "+B":
-                    syurui = Ks14.H08_Kaku;
+                    syurui = PieceType.B;
                     break;
 
                 default:
                     Util_Message.Show("▲バグ【駒種類】Sfen=[" + sfen + "]");
-                    syurui = Ks14.H00_Null;
+                    syurui = PieceType.None;
                     break;
             }
         }
@@ -355,72 +355,72 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="moji"></param>
         /// <returns></returns>
-        public static Ks14 Str_ToSyurui(string moji)
+        public static PieceType Str_ToSyurui(string moji)
         {
-            Ks14 syurui;
+            PieceType syurui;
 
             switch (moji)
             {
                 case "歩":
-                    syurui = Ks14.H01_Fu;
+                    syurui = PieceType.P;
                     break;
 
                 case "香":
-                    syurui = Ks14.H02_Kyo;
+                    syurui = PieceType.L;
                     break;
 
                 case "桂":
-                    syurui = Ks14.H03_Kei;
+                    syurui = PieceType.N;
                     break;
 
                 case "銀":
-                    syurui = Ks14.H04_Gin;
+                    syurui = PieceType.S;
                     break;
 
                 case "金":
-                    syurui = Ks14.H05_Kin;
+                    syurui = PieceType.G;
                     break;
 
                 case "飛":
-                    syurui = Ks14.H07_Hisya;
+                    syurui = PieceType.R;
                     break;
 
                 case "角":
-                    syurui = Ks14.H08_Kaku;
+                    syurui = PieceType.B;
                     break;
 
                 case "王"://thru
                 case "玉":
-                    syurui = Ks14.H06_Oh;
+                    syurui = PieceType.K;
                     break;
 
                 case "と":
-                    syurui = Ks14.H11_Tokin;
+                    syurui = PieceType.PP;
                     break;
 
                 case "成香":
-                    syurui = Ks14.H12_NariKyo;
+                    syurui = PieceType.PL;
                     break;
 
                 case "成桂":
-                    syurui = Ks14.H13_NariKei;
+                    syurui = PieceType.PN;
                     break;
 
                 case "成銀":
-                    syurui = Ks14.H14_NariGin;
+                    syurui = PieceType.PS;
                     break;
 
                 case "竜"://thru
                 case "龍":
-                    syurui = Ks14.H09_Ryu;
+                    syurui = PieceType.PR;
                     break;
 
                 case "馬":
-                    syurui = Ks14.H10_Uma;
+                    syurui = PieceType.PB;
                     break;
 
                 default:
-                    syurui = Ks14.H00_Null;
+                    syurui = PieceType.None;
                     break;
             }
 
@@ -432,65 +432,65 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// </summary>
         /// <param name="moji"></param>
         /// <returns></returns>
-        public static string Syurui_ToStrIchimoji(Ks14 ks14)
+        public static string Syurui_ToStrIchimoji(PieceType ks14)
         {
             string syurui;
 
             switch (ks14)
             {
-                case Ks14.H01_Fu:
+                case PieceType.P:
                     syurui = "歩";
                     break;
 
-                case Ks14.H02_Kyo:
+                case PieceType.L:
                     syurui = "香";
                     break;
 
-                case Ks14.H03_Kei:
+                case PieceType.N:
                     syurui = "桂";
                     break;
 
-                case Ks14.H04_Gin:
+                case PieceType.S:
                     syurui = "銀";
                     break;
 
-                case Ks14.H05_Kin:
+                case PieceType.G:
                     syurui = "金";
                     break;
 
-                case Ks14.H07_Hisya:
+                case PieceType.R:
                     syurui = "飛";
                     break;
 
-                case Ks14.H08_Kaku:
+                case PieceType.B:
                     syurui = "角";
                     break;
 
-                case Ks14.H06_Oh:
+                case PieceType.K:
                     syurui = "玉";
                     break;
 
-                case Ks14.H11_Tokin:
+                case PieceType.PP:
                     syurui = "と";
                     break;
 
-                case Ks14.H12_NariKyo:
+                case PieceType.PL:
                     syurui = "杏";
                     break;
 
-                case Ks14.H13_NariKei:
+                case PieceType.PN:
                     syurui = "圭";
                     break;
 
-                case Ks14.H14_NariGin:
+                case PieceType.PS:
                     syurui = "全";
                     break;
 
-                case Ks14.H09_Ryu:
+                case PieceType.PR:
                     syurui = "竜";
                     break;
 
-                case Ks14.H10_Uma:
+                case PieceType.PB:
                     syurui = "馬";
                     break;
 
@@ -978,7 +978,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                                 koma.Haiyaku//TODO:成るとか考えたい
                             ),
 
-                            Ks14.H00_Null//取った駒不明
+                            PieceType.None//取った駒不明
                         );
                     //sbSfen.Append(sbSfen.ToString());
 
@@ -1028,7 +1028,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                             //figKoma,//駒
                             srcKoma,// 移動元
                             dstKoma,// 移動先
-                            Ks14.H00_Null//取った駒不明
+                            PieceType.None//取った駒不明
                         );
                     komabetuAllMove.AddOverwrite(figKoma, move);
 
@@ -1160,7 +1160,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         dstKoma.Masu,
                         KomaSyurui14Array.ToNariCase(dstKoma.Syurui)//強制的に【成り】に駒の種類を変更
                     ),// 移動先
-                    Ks14.H00_Null//取った駒不明
+                    PieceType.None//取った駒不明
                 );
 
                 // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
@@ -1204,7 +1204,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                             dstKoma.Masu,
                             KomaSyurui14Array.ToNariCase(dstKoma.Syurui)//強制的に【成り】に駒の種類を変更
                         ),// 移動先
-                        Ks14.H00_Null//取った駒不明
+                        PieceType.None//取った駒不明
                     );
 
                     // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
@@ -1350,7 +1350,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         //key,
                         new RO_Star_Koma(pside, koma.Masu, koma.Haiyaku),
                         new RO_Star_Koma(pside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
-                        Ks14.H00_Null
+                        PieceType.None
                         );
 
                     resultMovebetuSky.Add(move, new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, key, dstMasu, pside)));
@@ -1378,7 +1378,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                         //key,
                         new RO_Star_Koma(pside, koma.Masu, koma.Haiyaku),
                         new RO_Star_Koma(pside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
-                        Ks14.H00_Null
+                        PieceType.None
                         );
 
                     result.Add(move, new KyokumenWrapper(Util_Sasu.Sasu(src_Sky, key, dstMasu, pside)));

@@ -345,7 +345,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                                         //btnKoma.Koma,
                                                         dstStarlight.Now,
                                                         srcStarlight.Now,
-                                                        shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Syurui : Ks14.H00_Null
+                                                        shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Syurui : PieceType.None
                                                         );// 選択している駒の元の場所と、移動先
 
 
@@ -476,7 +476,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
                                                             src_Sky.StarlightIndexOf(btnKoma.Koma).Now,
 
-                                                            shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Syurui : Ks14.H00_Null
+                                                            shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? shogiGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Syurui : PieceType.None
                                                             );// 選択している駒の元の場所と、移動先
 
                                                         ShootingStarlightable last;
@@ -680,7 +680,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
                                                 // 駒を動かします。
                                                 {
                                                     // GuiからServerへ渡す情報
-                                                    Ks14 syurui;
+                                                    PieceType syurui;
                                                     Starlight dst;
                                                     Util_InGui.Komamove1a_49Gui(out syurui, out dst, btnTumandeiruKoma, btnSasitaiMasu, shogiGui);
 

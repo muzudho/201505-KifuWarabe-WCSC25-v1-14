@@ -241,28 +241,28 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 // 先手駒台
                 switch (koma.Syurui)
                 {
-                    case Ks14.H01_Fu:
+                    case PieceType.P:
                         this.moti1P++;
                         break;
-                    case Ks14.H02_Kyo:
+                    case PieceType.L:
                         this.moti1L++;
                         break;
-                    case Ks14.H03_Kei:
+                    case PieceType.N:
                         this.moti1N++;
                         break;
-                    case Ks14.H04_Gin:
+                    case PieceType.S:
                         this.moti1S++;
                         break;
-                    case Ks14.H05_Kin:
+                    case PieceType.G:
                         this.moti1G++;
                         break;
-                    case Ks14.H06_Oh:
+                    case PieceType.K:
                         this.moti1K++;
                         break;
-                    case Ks14.H07_Hisya:
+                    case PieceType.R:
                         this.moti1R++;
                         break;
-                    case Ks14.H08_Kaku:
+                    case PieceType.B:
                         this.moti1B++;
                         break;
                 }
@@ -272,28 +272,28 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 // 後手駒台
                 switch (koma.Syurui)
                 {
-                    case Ks14.H01_Fu:
+                    case PieceType.P:
                         this.moti2p++;
                         break;
-                    case Ks14.H02_Kyo:
+                    case PieceType.L:
                         this.moti2l++;
                         break;
-                    case Ks14.H03_Kei:
+                    case PieceType.N:
                         this.moti2n++;
                         break;
-                    case Ks14.H04_Gin:
+                    case PieceType.S:
                         this.moti2s++;
                         break;
-                    case Ks14.H05_Kin:
+                    case PieceType.G:
                         this.moti2g++;
                         break;
-                    case Ks14.H06_Oh:
+                    case PieceType.K:
                         this.moti2k++;
                         break;
-                    case Ks14.H07_Hisya:
+                    case PieceType.R:
                         this.moti2r++;
                         break;
-                    case Ks14.H08_Kaku:
+                    case PieceType.B:
                         this.moti2b++;
                         break;
                 }
@@ -303,28 +303,28 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 // 駒袋
                 switch (koma.Syurui)
                 {
-                    case Ks14.H01_Fu:
+                    case PieceType.P:
                         this.fukuroP++;
                         break;
-                    case Ks14.H02_Kyo:
+                    case PieceType.L:
                         this.fukuroL++;
                         break;
-                    case Ks14.H03_Kei:
+                    case PieceType.N:
                         this.fukuroN++;
                         break;
-                    case Ks14.H04_Gin:
+                    case PieceType.S:
                         this.fukuroS++;
                         break;
-                    case Ks14.H05_Kin:
+                    case PieceType.G:
                         this.fukuroG++;
                         break;
-                    case Ks14.H06_Oh:
+                    case PieceType.K:
                         this.fukuroK++;
                         break;
-                    case Ks14.H07_Hisya:
+                    case PieceType.R:
                         this.fukuroR++;
                         break;
-                    case Ks14.H08_Kaku:
+                    case PieceType.B:
                         this.fukuroB++;
                         break;
                 }

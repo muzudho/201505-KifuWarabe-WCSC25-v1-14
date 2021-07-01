@@ -13,7 +13,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <param name="komas"></param>
         /// <returns></returns>
         public static bool Hit_JfugoParser(
-            Playerside pside, Ks14 syurui, SySet<SyElement> srcAll,
+            Playerside pside, PieceType syurui, SySet<SyElement> srcAll,
             KifuTree kifu,
             out Finger foundKoma)
         {

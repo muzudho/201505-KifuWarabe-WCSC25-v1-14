@@ -23,19 +23,19 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
         /// <summary>
         /// 先手の持ち駒の数。
         /// </summary>
-        private Dictionary<Ks14, int> motiBlack;
+        private Dictionary<PieceType, int> motiBlack;
 
         /// <summary>
         /// 後手の持ち駒の数。
         /// </summary>
-        private Dictionary<Ks14, int> motiWhite;
+        private Dictionary<PieceType, int> motiWhite;
 
         public StartposBuilder1()
         {
             this.psideIsBlack = true;
             this.ban81 = new Dictionary<Basho, RO_Star_Koma>();
-            this.motiBlack = new Dictionary<Ks14, int>();
-            this.motiWhite = new Dictionary<Ks14, int>();
+            this.motiBlack = new Dictionary<PieceType, int>();
+            this.motiWhite = new Dictionary<PieceType, int>();
         }
 
         public void AddKoma(Basho masu, RO_Star_Koma koma)// Ks14 komaSyurui
@@ -179,101 +179,101 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
                 // 先手持ち駒
                 //王
-                if (this.motiBlack.ContainsKey(Ks14.H06_Oh))
+                if (this.motiBlack.ContainsKey(PieceType.K))
                 {
-                    sb.Append(this.motiBlack[Ks14.H06_Oh]);
+                    sb.Append(this.motiBlack[PieceType.K]);
                     sb.Append("K");
                 }
                 //飛車
-                else if (this.motiBlack.ContainsKey(Ks14.H07_Hisya))
+                else if (this.motiBlack.ContainsKey(PieceType.R))
                 {
-                    sb.Append(this.motiBlack[Ks14.H07_Hisya]);
+                    sb.Append(this.motiBlack[PieceType.R]);
                     sb.Append("R");
                 }
                 //角
-                else if (this.motiBlack.ContainsKey(Ks14.H08_Kaku))
+                else if (this.motiBlack.ContainsKey(PieceType.B))
                 {
-                    sb.Append(this.motiBlack[Ks14.H08_Kaku]);
+                    sb.Append(this.motiBlack[PieceType.B]);
                     sb.Append("B");
                 }
                 //金
-                else if (this.motiBlack.ContainsKey(Ks14.H05_Kin))
+                else if (this.motiBlack.ContainsKey(PieceType.G))
                 {
-                    sb.Append(this.motiBlack[Ks14.H05_Kin]);
+                    sb.Append(this.motiBlack[PieceType.G]);
                     sb.Append("G");
                 }
                 //銀
-                else if (this.motiBlack.ContainsKey(Ks14.H04_Gin))
+                else if (this.motiBlack.ContainsKey(PieceType.S))
                 {
-                    sb.Append(this.motiBlack[Ks14.H04_Gin]);
+                    sb.Append(this.motiBlack[PieceType.S]);
                     sb.Append("S");
                 }
                 //桂馬
-                else if (this.motiBlack.ContainsKey(Ks14.H03_Kei))
+                else if (this.motiBlack.ContainsKey(PieceType.N))
                 {
-                    sb.Append(this.motiBlack[Ks14.H03_Kei]);
+                    sb.Append(this.motiBlack[PieceType.N]);
                     sb.Append("N");
                 }
                 //香車
-                else if (this.motiBlack.ContainsKey(Ks14.H02_Kyo))
+                else if (this.motiBlack.ContainsKey(PieceType.L))
                 {
-                    sb.Append(this.motiBlack[Ks14.H02_Kyo]);
+                    sb.Append(this.motiBlack[PieceType.L]);
                     sb.Append("L");
                 }
                 //歩
-                else if (this.motiBlack.ContainsKey(Ks14.H01_Fu))
+                else if (this.motiBlack.ContainsKey(PieceType.P))
                 {
-                    sb.Append(this.motiBlack[Ks14.H01_Fu]);
+                    sb.Append(this.motiBlack[PieceType.P]);
                     sb.Append("P");
                 }
 
                 // 後手持ち駒
                 //王
-                if (this.motiWhite.ContainsKey(Ks14.H06_Oh))
+                if (this.motiWhite.ContainsKey(PieceType.K))
                 {
-                    sb.Append(this.motiBlack[Ks14.H06_Oh]);
+                    sb.Append(this.motiBlack[PieceType.K]);
                     sb.Append("k");
                 }
                 //飛車
-                else if (this.motiWhite.ContainsKey(Ks14.H07_Hisya))
+                else if (this.motiWhite.ContainsKey(PieceType.R))
                 {
-                    sb.Append(this.motiBlack[Ks14.H07_Hisya]);
+                    sb.Append(this.motiBlack[PieceType.R]);
                     sb.Append("r");
                 }
                 //角
-                else if (this.motiWhite.ContainsKey(Ks14.H08_Kaku))
+                else if (this.motiWhite.ContainsKey(PieceType.B))
                 {
-                    sb.Append(this.motiBlack[Ks14.H08_Kaku]);
+                    sb.Append(this.motiBlack[PieceType.B]);
                     sb.Append("b");
                 }
                 //金
-                else if (this.motiWhite.ContainsKey(Ks14.H05_Kin))
+                else if (this.motiWhite.ContainsKey(PieceType.G))
                 {
-                    sb.Append(this.motiBlack[Ks14.H05_Kin]);
+                    sb.Append(this.motiBlack[PieceType.G]);
                     sb.Append("g");
                 }
                 //銀
-                else if (this.motiWhite.ContainsKey(Ks14.H04_Gin))
+                else if (this.motiWhite.ContainsKey(PieceType.S))
                 {
-                    sb.Append(this.motiBlack[Ks14.H04_Gin]);
+                    sb.Append(this.motiBlack[PieceType.S]);
                     sb.Append("s");
                 }
                 //桂馬
-                else if (this.motiWhite.ContainsKey(Ks14.H03_Kei))
+                else if (this.motiWhite.ContainsKey(PieceType.N))
                 {
-                    sb.Append(this.motiBlack[Ks14.H03_Kei]);
+                    sb.Append(this.motiBlack[PieceType.N]);
                     sb.Append("n");
                 }
                 //香車
-                else if (this.motiWhite.ContainsKey(Ks14.H02_Kyo))
+                else if (this.motiWhite.ContainsKey(PieceType.L))
                 {
-                    sb.Append(this.motiBlack[Ks14.H02_Kyo]);
+                    sb.Append(this.motiBlack[PieceType.L]);
                     sb.Append("l");
                 }
                 //歩
-                else if (this.motiWhite.ContainsKey(Ks14.H01_Fu))
+                else if (this.motiWhite.ContainsKey(PieceType.P))
                 {
-                    sb.Append(this.motiBlack[Ks14.H01_Fu]);
+                    sb.Append(this.motiBlack[PieceType.P]);
                     sb.Append("p");
                 }
             }

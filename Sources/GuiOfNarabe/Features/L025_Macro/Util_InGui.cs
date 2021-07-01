@@ -114,7 +114,7 @@ namespace Grayscale.Kifuwarazusa.GuiOfNarabe.Features
 
 
         public static void Komamove1a_49Gui(
-            out Ks14 toSyurui,
+            out PieceType toSyurui,
             out Starlight dst,
             Shape_BtnKoma btnKoma_Selected,
             Shape_BtnMasu btnMasu,

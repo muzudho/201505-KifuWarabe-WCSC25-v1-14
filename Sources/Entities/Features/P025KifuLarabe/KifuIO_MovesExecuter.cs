@@ -33,7 +33,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
 
             try
             {
-                Ks14 uttaSyurui; // 打った駒の種類
+                PieceType uttaSyurui; // 打った駒の種類
 
                 int srcSuji = Util_Koma.CTRL_NOTHING_PROPERTY_SUJI;
                 int srcDan = Util_Koma.CTRL_NOTHING_PROPERTY_DAN;
@@ -47,7 +47,7 @@ namespace Grayscale.Kifuwarazusa.Entities.Features
                 else
                 {
                     //>>>>>>>>>> 指しました。
-                    uttaSyurui = Ks14.H00_Null;//打った駒はない☆
+                    uttaSyurui = PieceType.None;//打った駒はない☆
 
                     //------------------------------
                     // 1
@@ -127,8 +127,8 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 }
 
 
-                Ks14 dstSyurui;
-                Ks14 srcSyurui;
+                PieceType dstSyurui;
+                PieceType srcSyurui;
                 Okiba srcOkiba;
                 SyElement srcMasu;
 
@@ -204,7 +204,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                         dstSyurui
                         ),
 
-                    Ks14.H00_Null//符号からは、取った駒は分からない
+                    PieceType.None//符号からは、取った駒は分からない
                 );
             }
             catch (Exception ex)
@@ -251,7 +251,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
             NariNarazu nariNarazu = Converter04.Nari_ToBool(strNariNarazu);//成
             DaHyoji daHyoji = Converter04.Str_ToDaHyoji(strDaHyoji);             //打
 
-            Ks14 srcSyurui = Converter04.Str_ToSyurui(strSrcSyurui);
+            PieceType srcSyurui = Converter04.Str_ToSyurui(strSrcSyurui);
 
 
             //------------------------------
@@ -308,7 +308,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 goto gt_EndShogiban;
             }
 
-            if (Ks14.H01_Fu == srcSyurui)
+            if (PieceType.P == srcSyurui)
             {
                 //************************************************************
                 // 歩
@@ -335,7 +335,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                     goto gt_EndSyurui;
                 }
             }
-            else if (Ks14.H07_Hisya == srcSyurui)
+            else if (PieceType.R == srcSyurui)
             {
                 #region 飛
                 //************************************************************
@@ -434,7 +434,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 }
                 #endregion
             }
-            else if (Ks14.H08_Kaku == srcSyurui)
+            else if (PieceType.B == srcSyurui)
             {
                 #region 角
                 //************************************************************
@@ -533,7 +533,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 }
                 #endregion
             }
-            else if (Ks14.H02_Kyo == srcSyurui)
+            else if (PieceType.L == srcSyurui)
             {
                 #region 香
                 //************************************************************
@@ -573,7 +573,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 }
                 #endregion
             }
-            else if (Ks14.H03_Kei == srcSyurui)
+            else if (PieceType.N == srcSyurui)
             {
                 #region 桂
                 //************************************************************
@@ -635,7 +635,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 }
                 #endregion
             }
-            else if (Ks14.H04_Gin == srcSyurui)
+            else if (PieceType.S == srcSyurui)
             {
                 #region 銀
                 //************************************************************
@@ -712,11 +712,11 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 #endregion
             }
             else if (
-                Ks14.H05_Kin == srcSyurui
-                || Ks14.H11_Tokin == srcSyurui
-                || Ks14.H12_NariKyo == srcSyurui
-                || Ks14.H13_NariKei == srcSyurui
-                || Ks14.H14_NariGin == srcSyurui
+                PieceType.G == srcSyurui
+                || PieceType.PP == srcSyurui
+                || PieceType.PL == srcSyurui
+                || PieceType.PN == srcSyurui
+                || PieceType.PS == srcSyurui
                 )
             {
                 #region △金、△と金、△成香、△成桂、△成銀
@@ -800,7 +800,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 }
                 #endregion
             }
-            else if (Ks14.H06_Oh == srcSyurui)
+            else if (PieceType.K == srcSyurui)
             {
                 #region 王
                 //************************************************************
@@ -844,7 +844,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 }
                 #endregion
             }
-            else if (Ks14.H09_Ryu == srcSyurui)
+            else if (PieceType.PR == srcSyurui)
             {
                 #region 竜
                 //************************************************************
@@ -968,7 +968,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                 }
                 #endregion
             }
-            else if (Ks14.H10_Uma == srcSyurui)
+            else if (PieceType.PB == srcSyurui)
             {
                 #region 馬
                 //************************************************************
@@ -1185,7 +1185,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
             }
 
 
-            Ks14 dstSyurui;
+            PieceType dstSyurui;
             if (NariNarazu.Nari == nariNarazu)
             {
                 // 成ります
@@ -1214,7 +1214,7 @@ tesumi_yomiGenTeban=[{tesumi_yomiGenTeban}]
                     dstSyurui
                 ),
 
-                Ks14.H00_Null // 符号からは、取った駒の種類は分からないんだぜ☆　だがバグではない☆　あとで調べる☆
+                PieceType.None // 符号からは、取った駒の種類は分からないんだぜ☆　だがバグではない☆　あとで調べる☆
             );
         }
 
